@@ -1,0 +1,54 @@
+name: LinkedIn Job Radar
+
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: linkedin-job-radar
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout radar
+        uses: actions/checkout@v4
+        with:
+          path: radar
+
+      - name: Checkout pinned LinkedIn search implementation
+        uses: actions/checkout@v4
+        with:
+          repository: MadsLorentzen/ai-job-search
+          ref: 79cd383e58f0af7948c7c6462a3a289e9b67421e
+          path: upstream
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Run live LinkedIn scan
+        working-directory: radar
+        run: |
+          python3 radar.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
+
+      - name: Persist state and latest results
+        working-directory: radar
+        run: |
+          git config user.name "linkedin-job-radar[bot]"
+          git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
+          git add state/seen.json output/latest.json
+          if git diff --cached --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "radar: update $(date -u +'%Y-%m-%dT%H:%MZ')"
+            git push
+          fi
