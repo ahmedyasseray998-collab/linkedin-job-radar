@@ -62,7 +62,7 @@ jobs:
       - name: Validate patched LinkedIn CLI
         run: |
           set -euo pipefail
-          bun run upstream/.agents/skills/linkedin-search/cli/src/cli.ts --help >/dev/null
+          bun run upstream/.agents/skills/linkedin-search/cli/src/cli.ts search --help >/dev/null
 
       - name: Run radar unit tests
         working-directory: radar
