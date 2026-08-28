@@ -1,11 +1,13 @@
 {
   "schema_version": 6,
   "config_version": 7,
-  "run_id": "20260828T164313Z",
-  "run_started_at_utc": "2026-08-28T16:43:13Z",
-  "generated_at_utc": "2026-08-28T16:45:47Z",
-  "health": "healthy",
-  "warnings": [],
+  "run_id": "20260828T215612Z",
+  "run_started_at_utc": "2026-08-28T21:56:12Z",
+  "generated_at_utc": "2026-08-28T21:59:25Z",
+  "health": "healthy_with_retries",
+  "warnings": [
+    "LinkedIn guest search needed recovery retries for 3 query bucket(s)"
+  ],
   "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
   "search_lanes": [
     {
@@ -31,38 +33,38 @@
     "principle": "Do not let code decide job fit after exact-detail retrieval; ChatGPT reviews every verified new candidate"
   },
   "stats": {
-    "unique_live_cards": 21,
-    "already_seen": 20,
-    "detail_attempts": 1,
-    "details_fetched": 1,
+    "unique_live_cards": 18,
+    "already_seen": 0,
+    "detail_attempts": 18,
+    "details_fetched": 18,
     "detail_failures": 0,
     "detail_budget_skipped": 0,
     "closed_candidates_kept": 0,
     "freshness_conflicts_kept": 0,
-    "low_it_evidence_candidates_kept": 1,
-    "title_noise_candidates_kept": 0,
+    "low_it_evidence_candidates_kept": 17,
+    "title_noise_candidates_kept": 8,
     "search_errors": 0,
-    "query_retry_recoveries": 0,
+    "query_retry_recoveries": 3,
     "query_count": 25,
     "search_bucket_count": 50,
-    "review_candidates": 1,
+    "review_candidates": 18,
     "relevance_rejections": 0,
     "lane_stats": {
       "egypt": {
         "query_count": 25,
-        "unique_live_cards": 21,
-        "already_seen": 20,
-        "detail_attempts": 1,
-        "details_fetched": 1,
+        "unique_live_cards": 18,
+        "already_seen": 0,
+        "detail_attempts": 18,
+        "details_fetched": 18,
         "detail_failures": 0,
         "detail_budget_skipped": 0,
-        "review_candidates": 1,
+        "review_candidates": 18,
         "closed_candidates_kept": 0,
         "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 1,
-        "title_noise_candidates_kept": 0,
+        "low_it_evidence_candidates_kept": 17,
+        "title_noise_candidates_kept": 8,
         "search_errors": 0,
-        "query_retry_recoveries": 0,
+        "query_retry_recoveries": 3,
         "relevance_rejections": 0
       },
       "emea_remote": {
@@ -90,9 +92,11 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        1
+        0
       ],
-      "retry_page_counts": {},
+      "retry_page_counts": {
+        "1": 1
+      },
       "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
@@ -107,9 +111,9 @@
         0
       ],
       "retry_page_counts": {
-        "1": 0
+        "1": 1
       },
-      "unique_cards": 0,
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -120,10 +124,12 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        1
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
+      "retry_page_counts": {
+        "1": 0
+      },
+      "unique_cards": 0,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -134,10 +140,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        6
+        4
       ],
       "retry_page_counts": {},
-      "unique_cards": 6,
+      "unique_cards": 4,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -148,10 +154,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        1
+        3
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 3,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -162,10 +168,12 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        1
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
+      "retry_page_counts": {
+        "1": 0
+      },
+      "unique_cards": 0,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -176,12 +184,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        0
+        1
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -208,10 +214,12 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        1
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
+      "retry_page_counts": {
+        "1": 0
+      },
+      "unique_cards": 0,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -219,20 +227,6 @@
     },
     {
       "query": "IT Administrator",
-      "pages_configured": 2,
-      "pages_requested": 1,
-      "page_counts": [
-        1
-      ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
-      "errors": 0,
-      "lane": "egypt",
-      "search_location": "Egypt",
-      "remote_filter": null
-    },
-    {
-      "query": "IT Operations",
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
@@ -248,7 +242,7 @@
       "remote_filter": null
     },
     {
-      "query": "IT Support Engineer",
+      "query": "IT Operations",
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
@@ -262,14 +256,32 @@
       "remote_filter": null
     },
     {
+      "query": "IT Support Engineer",
+      "pages_configured": 2,
+      "pages_requested": 1,
+      "page_counts": [
+        0
+      ],
+      "retry_page_counts": {
+        "1": 0
+      },
+      "unique_cards": 0,
+      "errors": 0,
+      "lane": "egypt",
+      "search_location": "Egypt",
+      "remote_filter": null
+    },
+    {
       "query": "Technical Support Engineer",
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        1
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
+      "retry_page_counts": {
+        "1": 0
+      },
+      "unique_cards": 0,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -310,10 +322,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        1
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -324,10 +336,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        1
+        3
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 3,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -338,12 +350,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        0
+        1
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -354,10 +364,12 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        5
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 5,
+      "retry_page_counts": {
+        "1": 0
+      },
+      "unique_cards": 0,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -383,10 +395,12 @@
       "pages_configured": 4,
       "pages_requested": 2,
       "page_counts": [
-        10,
+        0,
         0
       ],
-      "retry_page_counts": {},
+      "retry_page_counts": {
+        "1": 10
+      },
       "unique_cards": 10,
       "errors": 0,
       "lane": "egypt",
@@ -398,10 +412,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        2
+        9
       ],
       "retry_page_counts": {},
-      "unique_cards": 2,
+      "unique_cards": 9,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -412,10 +426,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        3
+        0
       ],
       "retry_page_counts": {},
-      "unique_cards": 3,
+      "unique_cards": 0,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -426,10 +440,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        10
+        0
       ],
       "retry_page_counts": {},
-      "unique_cards": 10,
+      "unique_cards": 0,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -440,10 +454,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        1
+        10
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 10,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -847,18 +861,162 @@
   "errors": [],
   "review_candidates": [
     {
-      "linkedin_job_id": "4458412169",
-      "title": "Director of Engineering",
-      "company": "Rotana Hotel Management Corporation PJSC",
-      "location": "Sharm El Sheikh, South Sinai, Egypt",
+      "linkedin_job_id": "4460388911",
+      "title": "Senior Cloud Engineer - AI-ML Platform (all genders)",
+      "company": "Merck Group",
+      "location": "Cairo, Cairo, Egypt",
       "linkedin_date": "2026-08-28",
-      "linkedin_posted_text": "3 minutes ago",
-      "estimated_age_minutes": 3,
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-28T16:43:13Z",
-      "url": "https://www.linkedin.com/jobs/view/4458412169",
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460388911",
+      "matched_queries": [
+        {
+          "query": "System Administrator",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Systems Administrator",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Systems Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Network Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Operations",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cloud Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cybersecurity Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Specialist",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Business Development, Strategy/Planning, and Analyst",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 13.0,
+      "role_hits_title": [
+        {
+          "label": "Cloud Infrastructure",
+          "weight": 3.0
+        }
+      ],
+      "role_hits_description": [
+        {
+          "label": "Cloud Infrastructure",
+          "weight": 3.0
+        }
+      ],
+      "skill_hits": [
+        {
+          "label": "Azure",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Work Your Magic with us! Ready to explore, break barriers, and discover more? We know you’ve got big plans – so do we! Our colleagues across the globe love innovating with science and technology to enrich people’s lives with our solutions in Healthcare, Life Science, and Electronics. Together, we dream big and are passionate about caring for our rich mix of people, customers, patients, and planet. That's why we are always looking for curious minds that see themselves imagining the unimaginable with us. Your Role As a Senior Cloud Engineer specialising in AI/ML Platform infrastructure, you will be at the heart of building and operating the cloud-native foundation that powers data, analytics, and artificial intelligence workloads across the organisation. In this pivotal role, you will design, deploy, and continuously improve scalable, resilient infrastructure on AWS — enabling AI/ML engineers and data scientists to develop, deploy, and monitor machine-learning models and AI services at production scale. You will own critical platform components end-to-end: from containerised workloads and streaming pipelines to networking, security, and CI/CD automation. Working at the intersection of cloud engineering, data platforms, and AI/ML operations, you will solve complex infrastructure challenges with a pragmatic, reliability-first mindset and directly shape the technical direction of a platform that drives meaningful business outcomes. Who You Are You bring 5 or more years of hands-on cloud engineering experience, with strong expertise in AWS services including Elastic Container Service, Elastic Kubernetes Service, Virtual Private Cloud networking, and managed streaming solutions. You have proven experience provisioning and managing cloud infrastructure as code using Terraform and/or CloudFormation, and you are comfortable owning production environments end-to-end. You are skilled in building and maintaining CI/CD pipelines (for example using Azure DevOps) and apply disciplined version-control practices in collaborative engineering environments. You have hands-on experience designing and operating streaming platforms such as Apache Kafka or equivalent cloud-managed alternatives, with a focus on scalability and resilience. You implement platform security with confidence — including Transport Layer Security, secrets management, access controls, and authentication mechanisms such as JSON Web Tokens, OAuth, and LDAP. You have experience deploying, scaling, and monitoring AI/ML workloads and model-serving APIs, and you collaborate effectively with AI/ML engineers and data scientists to bring models into production. You hold a degree in Computer Science, Software Engineering, or a related field, or bring equivalent professional experience; familiarity with multi-cloud environments or Azure AI/ML services is a plus. What we offer: We are curious minds that come from a broad range of backgrounds, perspectives, and life experiences. We believe that this variety drives excellence and innovation, strengthening our ability to lead in science and technology. We are committed to creating access and opportunities for all to develop and grow at your own pace. Join us in building a culture of inclusion and belonging that impacts millions and empowers everyone to work their magic and champion human progress! Apply now and become a part of a team that is dedicated to Sparking Discovery and Elevating Humanity!",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460399282",
+      "title": "Technical Office Manager Electrical",
+      "company": "Egycomm",
+      "location": "Alexandria, Alexandria, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460399282",
       "matched_queries": [
         {
           "query": "Systems Engineer",
@@ -866,12 +1024,26 @@
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Director",
+      "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Engineering",
+      "job_function": "Administrative",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 4.0,
@@ -879,7 +1051,826 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Job Description We are currently seeking for passionate and dynamic Engineering professionals who pride themselves on their ability to deliver extraordinary levels of customer service and provide creative solutions to our guests. As a Director of Engineering you are responsible on all matters related to the repairs and maintenance operation of the physical plant and engineering facilities within the hotel and maintain all mechanical, electrical and electronic equipment including heating and ventilation, whereby your role will include key responsibilities such as- Organize and set up preventive maintenance programmes for all electrical and mechanical equipment including general building works Advise the General Manager and the Corporate Vice President - Engineering and Technical Services of any problems at all times Supervise maintenance employees and contract employees who are carrying out minor building work, electrical and mechanical installations Supervise and liaise with all contractors, write specifications for all electrical, mechanical and associated building works complying with the local government regulations and inspect and sign for contractor works upon satisfactory completion Oversee the general maintenance of all life safety systems throughout the hotel and report any major defects Ensure that all administration files are kept up to date including drawing prints, specifications and equipment, technical maintenance manuals, etc. Recommend and evaluate energy conservation programmes and ensure they are carried out as well as investigate the wastage Skills Education, Qualifications & Experiences You should ideally have a degree in mechanical and electrical engineering with at least three years experiences in a similar role within the hospitality industry. A good command of written and spoken English and the ability to find fault and rectify subsystems are essentials. Knowledge & Competencies The ideal candidate will be able to handle stress and work under pressure and bring along strong administrative skills, an analytical mind and the capability of being able to write concise reports. You will have a high level of self motivation, develop innovative options in the best interest of the hotel while possessing following competencies- Adaptability Customer Focus Drive for Results Influencing Outcomes Leading People Managing Operations Planning for Business Team Building Understanding the Business Valuing Diversity",
+      "description": "We are seeking a highly experienced and technically proficient Technical Office Manager Engineer to lead our engineering documentation, submittal, and support functions. This is a critical leadership role responsible for ensuring the technical accuracy, quality, and seamless coordination of all low current solutions across the project lifecycle—from initial conceptual design through to final handover and maintenance. The successful candidate will manage the Technical Office team, standardize workflows, and act as the central technical liaison between our Design, Procurement, Projects, and Maintenance departments. Key Responsibilities: Technical Leadership & Documentation Management: • Lead, mentor, and manage the Technical Office team, ensuring all personnel are trained and adhere to quality standards and timelines. • Establish and enforce standardized technical office procedures, documentation control, and quality assurance processes. • Act as the primary technical point of contact for consultants, clients, and suppliers regarding all design clarifications and technical submittals. Project Lifecycle Oversight: • Design & Pre-Construction: Oversee the review, approval, and generation of all technical drawings (e.g., Shop Drawings, Spool Drawings), Material Submittals, and detailed Bills of Quantities (BOQ). • Supply & Procurement Support: Provide technical specifications, data sheets, and comprehensive technical comparisons to support the Supply chain in selecting high-quality, compliant components. • Installation & Execution Support: Coordinate closely with Installation/Project Managers to swiftly resolve technical issues on site, address Requests for Information (RFIs), and ensure site execution strictly follows approved designs and specifications. • Handover & Maintenance: Supervise the compilation of all final project documentation, including As-Built Drawings, Operation & Maintenance (O&M) Manuals, and testing/commissioning reports required for successful project closure and the subsequent Maintenance phase. Standards and Compliance: • Ensure all designs, submittals, and technical work adhere to international codes (e.g., NFPA, BICSI, local authority regulations) and specific client/project requirements. Qualifications and Requirements: • Education: Bachelor’s Degree in Electrical, Communications, or Mechatronics Engineering • Experience: A minimum of 15 years of progressive experience within the Low Current Systems domain (Data Network/Infrastructure, CCTV, Fire Alarm, Access Control, Public Address, BMS integration, etc.). Leadership: Proven experience (5+ years) in a Technical Office Manager or senior technical management position, leading a team of engineers. • Technical Expertise: Deep understanding of the complete project lifecycle (Design, Supply, Installation, and Maintenance) for integrated low current solutions. • Software Skills: Expert proficiency in AutoCAD and/or Revit for drawing review and validation; advanced knowledge of Microsoft Office Suite (Excel, Word) for report and BOQ generation. • Communication: Excellent written and verbal communication skills in English for generating professional documentation and interacting with clients/consultants. How to Apply: Interested candidates are invited to send their updated CV to: Location: Alexandria, Egypt. 📧 hazem.fawzy@egycomm.net Please mention the Technical Office Manager Engineer in the email subject line.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460524156",
+      "title": "Senior Software Project Manager",
+      "company": "Amjaad Technology",
+      "location": "Qesm El Maadi, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "30 minutes ago",
+      "estimated_age_minutes": 30,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460524156",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Project Management and Information Technology",
+      "advisory_title_noise_signals": [
+        "project manager"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description Amjaad Technology is a leading corporation in IoT and utility management, delivering smart metering solutions for electricity, water, BTU, and gas. Through its innovative ioMeter System, the company enables utility service providers, real estate developers, and smart cities to drive digital transformation, optimize energy use, and support sustainability goals. Amjaad Technology also builds platforms for community and facilities management in smart cities, improving efficiency, resource utilization, and operational workflows. With over 300 projects implemented across Egypt, Saudi Arabia, and the UAE, its solutions have positively impacted more than 200,000 people and contributed to the creation of more sustainable communities. Role Description The Senior Software Project Manager is a full-time, on-site role based in Qesm El Maadi, responsible for leading end-to-end delivery of software and IoT-related projects. This role includes defining project scope and objectives, coordinating requirements gathering with stakeholders, and translating business needs into clear technical specifications. The Senior Software Project Manager oversees project planning, resource allocation, timelines, risks, and budgets, ensuring alignment with quality standards and organizational goals. Daily responsibilities include guiding development teams, monitoring progress, resolving issues, and communicating status updates and dependencies to leadership and external partners. The role also involves continuous improvement of project management processes, fostering collaboration across cross-functional teams, and supporting successful deployments in utility and smart city environments. Qualifications Strong Software Project Management and Project Management skills, with proven experience leading complex, multi-stakeholder technology projects. Solid foundation in Software Development and Requirements Analysis, including the ability to work closely with engineering teams to refine specifications and solutions. Advanced Analytical Skills to interpret data, evaluate risks, and support decision-making for project prioritization and resource management. Experience in IoT, utility management, smart metering, or smart city platforms is highly beneficial. Proficiency with project management tools and methodologies (e.g., Agile, Scrum, or hybrid approaches). Excellent communication, stakeholder management, and negotiation abilities, with strong organizational and time-management skills. Bachelor’s degree in Computer Science, Engineering, Information Systems, or a related field; a master’s degree or relevant certifications (e.g., PMP, Scrum Master) are a plus. Ability to work on-site in Qesm El Maadi and collaborate effectively with cross-functional and multicultural teams.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460511080",
+      "title": "Senior Commercial Executive",
+      "company": "Aqarmap Egypt",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460511080",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Business Development and Sales",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "We’re Hiring | Senior B2B Sales 📍 Location: Nasr City We’re looking for a Senior B2B Sales professional to join our growing team. Responsibilities: • Manage the full B2B sales cycle, from lead generation to negotiation and closing. • Build strong relationships with key decision-makers across real estate developers and brokerage companies. • Conduct client meetings and confidently present Agarmap’s solutions and advertising products. • Understand clients’ business needs and provide tailored solutions. • Handle objections, negotiate effectively, and close deals successfully. • Develop and maintain long-term client relationships. • Consistently achieve and exceed sales targets. • Identify new business opportunities and contribute to the growth of our B2B portfolio. Requirements: • 2+ years of proven B2B Sales experience (Banking, Medical, or similar). • Strong track record of achieving and exceeding sales targets. • Hands-on experience managing the complete sales cycle. • Previous experience in outdoor/field B2B sales is a must. • Excellent communication, negotiation, and presentation skills. • Strong business understanding with the ability to identify client needs and close complex deals. • Good command of English. • Real estate industry experience is a strong plus.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458425144",
+      "title": "Project Manager – Architectural Fit-Out",
+      "company": "Absolute Renovation",
+      "location": "New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4458425144",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Project Management and Information Technology",
+      "advisory_title_noise_signals": [
+        "project manager"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "We are going to hire \" Project Manager – Architectural Fit-Out \" with the following criteria :  Key Responsibilities : Lead the project from mobilization, execution, testing and commissioning through final handover. Develop, monitor, and control the project program, budget, cash flow, cost, resources, and overall progress. Manage and coordinate architectural, technical office, MEP, electrical, and specialist systems throughout the project lifecycle. Ensure timely preparation and approval of shop drawings, material submittals, RFIs, method statements, inspections, and technical documentation. Coordinate closely with the Technical Office and Procurement teams to ensure the timely availability of critical and long-lead materials. Manage subcontractors and suppliers, monitoring productivity, quality, progress, resources, and contractual performance. Identify and proactively manage project risks, technical issues, delays, cost overruns, and potential claims. Develop and implement recovery and corrective action plans when required. Review and manage variations, additional works, claims, and commercial issues in coordination with the Commercial/Contracts team. Provide senior management with regular and accurate reports covering progress, cost, cash flow, procurement, resources, risks, and project performance. Job Requirements: Bachelor’s degree in architectural engineering. 12+ years of relevant experience in architectural fit-out, finishing, and renovation projects. Minimum 5 years of experience in a Project Manager or equivalent senior project leadership position. Proven experience managing large-scale, high-value, or complex fit-out/renovation projects. Strong knowledge of architectural finishing works, construction methods, project planning, cost control, procurement, and subcontractor management. Good knowledge of Primavera P6 / MS Project, Microsoft Excel, and AutoCAD. Very good command in English. PMP certification is preferred.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460508755",
+      "title": "Motion Graphic Designer",
+      "company": "The Learning Mate",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "54 minutes ago",
+      "estimated_age_minutes": 54,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460508755",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Design, Art/Creative, and Information Technology",
+      "advisory_title_noise_signals": [
+        "graphic designer"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About The Learning Mate Teachers spend hours grading assessments, yet much of the valuable information hidden in students' answers is often reduced to a single score. The Learning Mate is changing that. The Learning Mate uses AI to grade handwritten assessments with high accuracy, provide meaningful feedback to students, and turn assessment data into actionable insights for teachers. Our goal is simple: take the repetitive work out of grading while turning every assessment into an opportunity for more personalized learning. About The Role We're looking for a creative Motion Designer with solid video-editing skills who can turn ideas, product experiences, and marketing messages into engaging visual stories. For us, great motion design isn't about adding the most effects. It's about making the message clear, engaging, and memorable. We're looking for someone who can take a message like: \" AI can grade a handwritten exam and show a teacher exactly where their students are struggling .\" and find a way to communicate it visually in just a few seconds. We want someone who can make education feel modern, technology feel simple, and The Learning Mate stand out. What You'll Do Create engaging motion graphics and animated videos for social media, digital campaigns, and product marketing. Turn marketing concepts, briefs, and scripts into compelling visual stories. Handle basic video editing, including cutting and sequencing footage, adding captions, music and sound effects, and preparing final videos for publishing. Combine live footage, screen recordings, motion graphics, typography, illustrations, and product UI into cohesive videos. Animate The Learning Mate's product and UI to showcase features and workflows in intuitive and visually engaging ways. Create short-form content optimized for Instagram, TikTok, LinkedIn, YouTube, and paid advertising. Develop creative assets for feature launches, how-to videos, promotional campaigns, and performance ads. Use AI and emerging creative tools where they can improve speed, quality, or creative possibilities. What We're Looking For A strong portfolio demonstrating motion design, animation, visual storytelling, and video-editing capabilities. Strong experience working with professional motion design and video-editing tools.  Strong understanding of animation principles, timing, easing, composition, typography, and visual hierarchy. Good understanding of video-editing fundamentals including pacing, cuts, audio, captions, and transitions. Ability to take an idea or brief and translate it into a simple, engaging visual concept. Strong eye for modern digital and social-media content. Experience working with product/UI footage and turning software experiences into engaging marketing content. Ability to work independently, take ownership of a brief, and propose creative directions rather than waiting for detailed execution instructions. Ability to balance quality with speed in a fast-moving startup environment. Comfortable receiving feedback and iterating quickly. Comfortable exploring AI and emerging creative tools to improve creative workflows and execution.  Portfolio Required Applications without a portfolio will not be considered. Your portfolio should include examples of your motion-design work and ideally demonstrate your ability to combine animation with video editing and visual storytelling. Please highlight the work that best represents your individual contribution.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459347533",
+      "title": "Light Current & Power Projects Manager",
+      "company": "NorthFolkeg",
+      "location": "New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "15 minutes ago",
+      "estimated_age_minutes": 15,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459347533",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Project Management and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "We are looking for an experienced Light Current & Power Projects Manager to join our team and lead the technical and commercial aspects of our Light Current, Power, and Structured Cabling projects. Key Responsibilities: Manage pricing, estimation, bidding, and tendering for Light Current, Power, and Structured Cabling projects. Review client RFQs, BOQs, specifications, drawings, and scope of work and prepare accurate technical and commercial offers. Coordinate with existing partners, subcontractors, suppliers, and the market to obtain competitive pricing and technical solutions. Evaluate quotations and ensure competitive and commercially viable proposals. Coordinate and allocate in-house technical resources across different projects based on project requirements. Support project feasibility, manpower planning, cost evaluation, and commercial decision-making. Maintain and develop strong relationships with partners, subcontractors, and suppliers. Requirements: Bachelor’s degree in Electrical Engineering or a related engineering discipline. 7–10 years of relevant experience in the same field. Experience in Construction and Light Current is highly preferred. Previous experience with an MEP contractor/subcontractor is a strong advantage. Proven experience in pricing, estimation, bidding, and preparation of technical & commercial proposals . Strong knowledge of Light Current, Power, and Structured Cabling systems . Strong negotiation, analytical, communication, and project coordination skills. Ability to manage multiple RFQs and meet tight deadlines. If you have the technical expertise, commercial mindset, and industry experience to take ownership of this function, we would be happy to hear from you",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460532059",
+      "title": "English Customer Service (Retention/Sales)",
+      "company": "Multi National Company",
+      "location": "New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "20 minutes ago",
+      "estimated_age_minutes": 20,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460532059",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Education and Training",
+      "advisory_title_noise_signals": [
+        "customer service"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Job Description TP is hiring English Customer Service for a launching US account. You will be handling customers concerns, payment status, and sales for one line of business, You should have good intent and skills to provide excellent customer service. Full-time, on-site, voice account, based in New Cairo, Egypt. Requirements Advanced English level (B2 or higher) Flexible with rotational & night shifts Graduates or Dropouts (above 30 yrs) Package & Benefits Net salary up to 21,000K EGP Overtime availability paid in equivalent to Dollar Sales incentives up to 300$ 195€ Quarter Bonus and Profit share (Annual) Points system granting vouchers Social & Medical Insurance (up to 400,000 EGP per year) Transportation in Cairo & Giza (door-to-door for females after 11 PM) Free gym access",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460517150",
+      "title": "Business Development Manager",
+      "company": "The Fem-Society",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460517150",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Volunteer",
+      "job_function": "Business Development and Sales",
+      "advisory_title_noise_signals": [
+        "business development"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "We’re looking for a Business Development Manager (Volunteer)! The Fem Society is a women-focused digital platform working on issues that affect women across the region through awareness, support, rights, and development opportunities. We’re looking for someone to lead our business development and partnership efforts by identifying potential partners, building relationships, and creating meaningful collaboration opportunities with organizations, brands, professionals, and initiatives that align with our mission. We’re looking for someone who is: • Proactive and confident in communication • Strategic and opportunity-driven • Strong at relationship building • Organized and able to represent the platform professionally Interested? Send us a DM with a brief introduction about yourself and your experience or email us: the.fem.society1@gmail.com",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460504684",
+      "title": "Airlines CustomerService (Grade,Morning)",
+      "company": "TP Egypt",
+      "location": "Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460504684",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description Teleperformance is a worldwide leader in digitally integrated business services, operating in over 80 countries with more than 500,000 team members. Teleperformance Egypt focuses on creating meaningful interactions for global clients while fostering a supportive, growth-oriented environment for employees. The company combines advanced technology with human expertise to deliver high-quality customer experience solutions. Team members are encouraged to develop their skills, advance their careers, and contribute to the company’s success in a diverse, inclusive workplace. Role Description The Airlines Customer Service (Grade, Morning) role at TP Egypt is a full-time, on-site position based in Cairo. In this role, the team member will handle inbound and outbound customer interactions for airline passengers, including responding to inquiries, assisting with bookings and ticket changes, and providing information on flight schedules and services. Daily tasks include managing customer requests through phone and digital channels, resolving concerns professionally, and following airline policies and procedures. The role also involves documenting interactions accurately, escalating complex issues when needed, and maintaining high customer satisfaction and service quality standards during morning shifts. Qualifications Strong customer service and communication skills, including clear spoken and written English and the ability to handle inquiries calmly and professionally. Proficiency in using computer systems and CRM tools, with the ability to navigate multiple applications while assisting customers. Problem-solving and conflict-resolution abilities, with a focus on accuracy, attention to detail, and meeting performance targets. Ability to work on-site in Cairo in morning shifts, demonstrating reliability, time management, and teamwork in a fast-paced environment. Previous experience in customer service, call centers, or the airline/travel industry is an advantage. High school diploma or equivalent; further education in business, communications, or related fields is beneficial. Commitment to a diverse, inclusive work environment and adherence to company and airline policies and procedures.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459429319",
+      "title": "UX Research Intern",
+      "company": "Owlera",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459429319",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Internship",
+      "employment_type": "Part-time",
+      "job_function": "Education and Training",
+      "advisory_title_noise_signals": [
+        "intern"
+      ],
+      "advisory_it_evidence": false,
+      "score": 1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "🔍 UX Research Intern (Unpaid) ⚠️ Applications will only be accepted through the following link :👉 www.owlera.sit e ⸻ About Owler a Owlera is an AI-powered career platform that helps students and fresh graduates gain real-world experience through practical internship simulations inspired by real companies . Instead of only learning theory, participants work on realistic business challenges, receive continuous AI-powered feedback, and build portfolio-ready projects that demonstrate their skills to future employers . We’re looking for curious, empathetic, and analytical students to join our UX Research Internship and gain practical experience understanding users, identifying pain points, and helping teams build better products and experiences . ⸻ About the Internshi p As a UX Research Intern, you’ll work on hands-on business scenarios where you’ll research users, conduct interviews and surveys, analyze behaviors, identify usability problems, and turn findings into actionable product recommendations . You’ll learn how UX researchers help product and design teams understand what users need, why they behave the way they do, and how products can be improved based on real evidence . This internship is designed to help you gain practical experience—not just theoretical knowledge . ⸻ Responsibilitie s * Conduct user interviews, surveys, and qualitative research .* Help define research questions and objectives .* Develop interview guides and research plans .* Analyze user behaviors, needs, motivations, and pain points .* Create user personas and journey maps .* Conduct usability testing and identify experience issues .* Organize and synthesize qualitative and quantitative research findings .* Identify patterns, themes, and actionable insights .* Present research findings and recommendations to stakeholders .* Collaborate with product, design, and business teams .* Use AI tools to support research planning, analysis, and synthesis .* Work on realistic UX research case studies and simulation projects .* Document research findings and build portfolio-ready research reports . ⸻ Requirement s * Current student or recent graduate in UX Design, Human-Computer Interaction, Psychology, Sociology, Marketing, Product Design, Business, Communications, Computer Science, or a related field .* Strong curiosity about users and human behavior .* Good analytical and critical-thinking skills .* Strong communication and listening abilities .* Basic understanding of UX research methods is a plus but not required .* Familiarity with tools such as Figma, Miro, Maze, Typeform, Google Forms, or UserTesting is a plus .* Familiarity with AI tools such as ChatGPT, Claude, Gemini, or similar platforms is a plus .* Strong attention to detail .* Comfortable speaking with users and asking thoughtful questions .* Previous professional UX research experience is not required . ⸻ What You’ll Gai n * Hands-on experience conducting UX research .* Practical experience with interviews, surveys, and usability testing .* Experience analyzing user behavior and customer pain points .* Exposure to personas, journey mapping, and research synthesis .* Experience turning research findings into product recommendations .* Portfolio-ready UX research projects and case studies .* Experience using AI and modern UX research tools .* Personalized AI feedback on your work .* Professional certificate upon successful completion .* Mentorship and weekly learning sessions .* Opportunity to strengthen your resume and interview readiness .* Networking with students from different universities . ⸻ Internship Detail s Location: Remot eType: Internship (Unpaid )Level: Entry Leve lDuration: 6 Week sCommitment: Flexible (approximately 10–15 hours per week ) ⸻ If you’re passionate about understanding people, discovering user needs, and helping teams build better products and experiences, we’d love to hear from you . ⚠️ Applications will only be accepted throug h : 👉 www.owlera.si te",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459423969",
+      "title": "Technical Recruiter",
+      "company": "Palm Outsourcing",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "58 minutes ago",
+      "estimated_age_minutes": 58,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459423969",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Human Resources and Consulting",
+      "advisory_title_noise_signals": [
+        "recruiter"
+      ],
+      "advisory_it_evidence": false,
+      "score": 1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About the Job 🗓️ Working Days and Hours: Monday to Friday, 9 AM – 6 PM (UK Hours); Potential for Flexible Hours 📍 Location: Remote/Online 💷 Salary Range: Attractive, Top-of-Market Salary (paid in GBP/USD) At Palm Outsourcing, we don't just fill seats; we build elite teams. We continuously partner with top-tier clients looking for exceptional international talent. Opportunity Overview We are hiring a mid to senior technical recruiter to run our tech desk end to end. This is a self-directed 360 role, owning every stage from sourcing through to closing candidates with clients. You will take inbound requests from our team and existing clients while running an independent pipeline separate from the core team. Role Description You will lead technical searches from brief to placement, owning the full hiring cycle without lead generation support. You will communicate directly with clients throughout every stage, presenting shortlisted candidates clearly for final decisions. You will manage your own pipeline, workload, and priorities on an independent system. The role suits a self-sufficient recruiter with strong technical judgement and confident client-facing skills. Key Responsibilities Full-Cycle Recruitment - Own the entire hiring process from sourcing through to closing each candidate. Client Communication - Manage direct communication with clients across every stage of the search. Candidate Presentation - Present and position shortlisted candidates clearly to clients for final decisions. Inbound Handling - Take inbound requests from our team and existing clients without lead generation. Pipeline Ownership - Run and manage your own recruitment pipeline separately from the core team. Independent Workload Management - Operate on an independent system, managing your own workload and priorities. Minimum Qualifications English Fluency - Fluent, excellent written and spoken English is mandatory for this role. Technical Recruitment Experience - Proven track record recruiting for technical roles across the full hiring cycle. 360 Capability - Experience owning recruitment end to end, from sourcing to client close. Tech Understanding - Solid understanding of technical roles, skills, and how to assess candidates. Client-Facing Skills - Confident communicating directly with clients and presenting candidates throughout the process. Self-Sufficient Working Style - Able to manage your own pipeline and workload with minimal oversight. Mid to Senior Level - Mid-level to senior recruiter with strong capability and independent judgement. Bonus Qualifications Tech Industry Background - Prior experience working within a technology company or technical function. Technical Degree - A relevant degree in a technical, engineering, or computing-related discipline. Benefits Top-of-the-market pay. Remote working. Potential for flexible hours. Becoming a part of Palm Outsourcing, where your performance is rewarded in long-term job security and continued growth opportunities. Ready to elevate? Hit apply, complete your profile, and let the right opportunities come to you.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459411582",
+      "title": "Search Engine Optimization Manager",
+      "company": "Palm Outsourcing",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459411582",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Marketing, Business Development, and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About the Job 🗓️ Working Days and Hours: Monday to Friday, 9 AM - 6 PM (UK Hours); Potential for Flexible Hours 📍 Location: Remote/Online 💷 Salary Range: Attractive, Top-of-Market Salary (paid in GBP/USD) At Palm Outsourcing, we don't just fill seats; we build elite teams. We continuously partner with top-tier clients looking for exceptional international talent. Opportunity Overview Our client is an Answer Engine Optimisation (AEO) agency and digital product consultancy in London, helping brands get found, cited and recommended inside AI answers across ChatGPT, Gemini, Perplexity, Copilot and AI Overviews. Their work runs on three pillars, content, technology and digital PR, alongside proprietary planning products and industry events. Role Description The SEO Manager will drive organic growth across our client's own brand and client accounts, blending technical, content and off-page work with an emerging focus on AI answer visibility. You will shape strategy, execute against it, and measure results using industry-standard tools. Over the first year you will follow a structured, funded upskilling path into Answer Engine Optimisation. Key Responsibilities SEO Strategy - Develop and implement SEO strategies covering technical, content and off-page work for the brand and clients. Technical Optimisation - Optimise site structure, page speed, schema markup, crawlability and mobile performance across all managed properties. Content Alignment - Partner with content creators using keyword research, entity mapping and question-level coverage for search intent. Authority Building - Build the citation, mention and link profile that lifts traditional rankings and AI answer inclusion. AI Visibility Audits - Run brand visibility audits across AI answer engines and turn findings into prioritised action plans. Performance Reporting - Use Google Analytics, Search Console, SE Ranking and Ahrefs to measure and report performance to stakeholders. Minimum Qualifications English Fluency - Fluent, excellent written and spoken English is mandatory for this role. SEO Experience - Proven experience across technical SEO, content optimisation and link building, with measurable ranking improvements. Analytical Mindset - Strong ability to interpret data, spot the story inside it, and act on findings. Tool Proficiency - Confidence with Google Analytics, Search Console, SE Ranking, SEMrush, Ahrefs and Screaming Frog. Seniority - Three to five years of hands-on SEO experience across technical, content and off-page workstreams. Bonus Qualifications AI Search Curiosity - Genuine interest in how AI assistants like ChatGPT and Perplexity are changing discovery. Self-Starter Mentality - Comfortable working independently in a fast-moving environment where the playbook is still being written. Strong Communication - Excellent collaboration and communication skills that translate technical work across cross-functional teams. Benefits Top-of-the-market pay. Remote working. Potential for flexible hours. Becoming a part of Palm Outsourcing, where your performance is rewarded in long-term job security and continued growth opportunities. Ready to elevate? Hit apply, complete your profile, and let the right opportunities come to you.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459426980",
+      "title": "Scheduling Specialist",
+      "company": "IntouchCX",
+      "location": "Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "26 minutes ago",
+      "estimated_age_minutes": 26,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459426980",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Project Management and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About IntouchCX IntouchCX is a global leader in digital customer experience management, back office processing, trust & safety solutions, and AI services. For over 25 years, we’ve scaled with soul, building trusted long-term partnerships and empowering our people to drive positive change. About The Job We’re looking for a Scheduling Specialist to work in partnership with both our Operations and Workforce Management Team to align the accuracy of original schedules to forecasted work volume. Reporting to the Manager of Resource Planning, this role will also be responsible for ongoing analysis and continuous improvement. As Scheduling Specialist, You Will… Assist with schedule and tracker management to ensure that all schedules are generated properly Identify customer contact trends to ensure appropriate resources are utilized Manage schedule information for new and existing employees in multiple locations using a workforce software program Ensure employee information is accurately entered and maintained on an ongoing basis Ensure trackers related to headcount, absenteeism, etc are constantly reviewed and updated Update parameters within the Workforce Management System to ensure efficient scheduling of resources to meet service level and productivity goals Work closely with the Operations Team to ensure availabilities are conducive to the business needs As Scheduling Specialist, You Have… A post-secondary degree or certificate with a focus on Business Administration (a combination of work experience and education will be considered) Experience with workforce management systems (asset) Advanced knowledge of Microsoft Excel (asset) Knowledge of contact center operations, functions and business processes Strong technical, analytical and problem solving skills Superior attention to detail with an eye for accuracy The ability to adapt to change in an innovative and fast paced environment Strong organizational skills and the ability to follow through on projects Excellent written and verbal communication skills The ability to work both independently and in a team setting within a fast-paced, entrepreneurial environment IntouchCX will never ask for payment, money, financial or banking information during the recruitment process. We only communicate through official channels. Should you receive a suspicious job offer, or posting, from anyone claiming to be an IntouchCX employee, please report it immediately to hr@intouchcx.com for review and validation.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460520037",
+      "title": "Senior AI Engineer",
+      "company": "Avenga",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460520037",
+      "matched_queries": [
+        {
+          "query": "Systems Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cloud Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cybersecurity Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": -3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Data/AI",
+          "weight": -8.0
+        }
+      ],
+      "description": "This is us At Avenga, we believe that human creativity empowers technology that matters. Operating globally, our 6000+ specialists provide a full spectrum of services, including business and tech advisory, enterprise solutions, CX, UX and Ul design, managed services, product development, and software development. This is the job We are looking for a Senior AI Engineer to join a project focused on building and extending a unified, AI-augmented Quality Engineering framework. In this role, you will combine AI orchestration, agentic frameworks, MLOps, Governance-as-Code, CI/CD, and Test Data Management to enable AI-assisted testing, self-healing automation, reusable AI capabilities, and performance testing. This is you Strong software engineering and programming skills, preferably with Python Hands-on experience with AI orchestration and agentic frameworks, such as MCP, LangChain, Semantic Kernel, or similar Experience working with AI models and AI-assisted development workflows Experience with GitHub Copilot or similar AI-assisted development tools Good understanding of MLOps, Governance-as-Code, and PromptOps Experience with versioned instruction sets, prompt templates, policy rules, and reusable AI artifacts Experience with CI/CD, including Jenkins and/or GitHub Actions Understanding of AI-assisted testing and self-healing automation Experience with synthetic test data generation and Test Data Management (TDM) This is your role Extend existing automation frameworks with AI-enabled capabilities and contribute to a unified AI-augmented Quality Engineering framework Develop reusable prompts and instruction sets for AI-assisted test generation and standardize shared automation components Implement AI orchestration and MCP-based enterprise integrations, including GitHub Copilot and approved MCP connectors Enable governed AI workflows for test design, analysis, and optimization, and establish reusable orchestration and integration patterns Implement Governance-as-Code using versioned instruction sets, prompt templates, and policy rules, including their propagation and distribution across automation repositories Enable self-healing automation for UI, API, and database changes through engineer-controlled approval workflows Integrate the framework with Jenkins/GitHub Actions and support dynamic regression selection and parallel test execution Transition selected existing automation flows into the unified framework, apply AI capabilities, and validate them against agreed PoC success criteria Analyze test data sources and implement reusable capabilities for deterministic test data generation and management Track automation coverage, stability, execution time, and defect trends, support centralized reporting through Report Portal, and measure improvements against established baselines Develop AI-assisted performance and load testing capabilities, including reusable scenarios, scripts (e.g. Locust-based), test data, and request payloads What awaits you at Avenga? Through our values – Better Minds, Bolder Ideas, and Bigger Hearts – we strive to create a work environment where people feel supported, trusted, and empowered to grow. At Avenga, everyone matters. We provide equal opportunities in recruitment, career development, and leadership, regardless of race, ethnicity, gender identity, sexual orientation, disability, age, religion, or any other characteristic. We are committed to fostering a work environment where our diverse community of employees, candidates, and business partners actively shapes our growth. By bringing together people from different backgrounds and experiences, we build a workplace where everyone feels free to be themselves while honoring the boundaries of others.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460509421",
+      "title": "Mid-Level Full Stack Software Engineer",
+      "company": "Garnish",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460509421",
+      "matched_queries": [
+        {
+          "query": "Systems Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [
+        "full stack"
+      ],
+      "advisory_it_evidence": false,
+      "score": -5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Software Development",
+          "weight": -10.0
+        }
+      ],
+      "description": "About Garnish Garnish builds the complete growth and ordering stack for independent restaurants. On the ordering side: customer website, staff admin, in-store POS, and mobile app, backed by Postgres, Stripe Connect for payments, a pos integration for menus and tickets, and a courier API for delivery. The role: We're looking for a Mid-Level Full Stack Software Engineer who is comfortable working across both the frontend and backend. You'll work on real product features from end to end: building UI, implementing APIs, working with Postgres, integrating third-party services, fixing production issues, and improving existing parts of the platform. You don't need to be an expert in every part of the stack. We're looking for someone who is strong enough across the stack to get things done, can learn quickly when they encounter something unfamiliar, and knows when to ask for help or when a problem needs deeper investigation. You'll work closely with the senior engineers and product team, taking ownership of individual features and tasks while contributing to the broader platform. What you'll work on: Your work will span both frontend and backend, depending on what the product needs. Build and maintain features across our customer-facing applications and internal admin tools Build backend APIs and services using TypeScript and Node.js Build and improve frontend experiences using Next.js and React Design and work with Postgres tables, queries, indexes, and migrations Integrate with services such as Stripe, Toast, courier platforms, and other third-party APIs Work with webhooks, background jobs, and asynchronous processes Debug issues across the frontend, backend, database, and external integrations Write tests for the code you ship and fix regressions when they occur Review pull requests and give thoughtful feedback to other engineers Improve existing code when you encounter problems rather than simply working around them Help investigate and resolve production issues Work with the team to break larger features into manageable pieces and ship them incrementally How we expect you to work We're a small team, so you'll have meaningful ownership over the work you take on. We don't expect you to know everything. We do expect you to be able to figure things out. If you're primarily a backend engineer who can comfortably work in React, that's fine. If you're primarily frontend-focused but can build APIs and work with databases, that's fine too. The important thing is that you're willing and able to move between the layers of the application when the task requires it. You'll be expected to: Take a feature or task and drive it through implementation, testing, and release Understand how your changes affect the rest of the system Ask good questions when requirements or technical details are unclear Investigate problems rather than immediately escalating them Write code that is straightforward for the rest of the team to maintain Think about failure cases, not just the happy path Be comfortable working in an existing codebase Learn unfamiliar technologies and systems when the job requires it Must have: Based in Egypt Fluent English 2+ years of professional software engineering experience, or equivalent experience demonstrating the same level of ownership Strong TypeScript experience Production experience with Node.js and backend APIs Experience building frontend applications with React and/or Next.js Solid understanding of Postgres or another relational database Comfortable working with REST APIs and third-party integrations Familiarity with Git and modern development workflows Nice to have: Startup experience highly encouraged. Graduates of AUC, GUC, Cairo University, and Ain Shams University are highly encouraged to apply. Previous POS or F&B (food & beverage) industry experience highly encouraged Experience with Stripe or another payment platform Experience with webhooks and background jobs Experience with multi-tenant SaaS applications Experience with Docker and CI/CD Experience working with cloud-managed infrastructure Benefits We're a startup in our revenue and growth phase, which means real ownership from day one; you'll shape decisions that most engineers don't get to touch until much later in their career. You'll learn fast, working directly with founders and seeing the direct impact of your work on the business. We offer a competitive salary based on experience.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460502987",
+      "title": "Area Sales Engineer",
+      "company": "BEDO Innovating Education",
+      "location": "6th of October, Al Jizah, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "47 minutes ago",
+      "estimated_age_minutes": 47,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460502987",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Sales and Business Development",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": -5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Presales/Sales",
+          "weight": -6.0
+        }
+      ],
+      "description": "We're Hiring | Join Our Sales Team At *BEDO Innovating Education*, we're expanding our sales Department and looking for talented professionals to join our team. #Sales_Engineer *Locations: * - Cairo (Fifth Settlement & Heliopolis) - Mansoura - 6th of October *We're looking for candidates with: * * Bachelor's degree in Engineering. * 2+years of experience in Sales Engineering or Technical Sales. * Strong communication, negotiation, and presentation skills. * Passion for building customer relationships and achieving sales targets. * Previous experience in educational, industrial, or automation products is a plus *Job Details*: - Working Hours: 8:30 AM – 5:00 PM - Days Off: Friday & Saturday - Medical & Social Insurance - Location: 6th of October City - Transportation Provided *Apply Now* *Email*: a.osama@bedoeg.com *WhatsApp: * https://wa.me/201022249665 *Please mention the job title in the email subject. *",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459411996",
+      "title": "Web Developer",
+      "company": "Palm Outsourcing",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "20 minutes ago",
+      "estimated_age_minutes": 20,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459411996",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": -9.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Software Development",
+          "weight": -10.0
+        }
+      ],
+      "description": "About the Job 🗓️ Working Days and Hours: Monday to Friday, 9 AM - 6 PM (UK Hours); Potential for Flexible Hours 📍 Location: Remote/Online 💷 Salary Range: Attractive, Top-of-Market Salary (paid in GBP/USD) At Palm Outsourcing, we don't just fill seats; we build elite teams. We continuously partner with top-tier clients looking for exceptional international talent. Opportunity Overview Our client is a performance-focused Shopify agency working with high-growth DTC brands across CRO, design, and custom theme builds. This is a lead-level replacement role, as the team's previous lead developer has given notice, so the client wants someone with higher-than-typical experience, ideally already leading a team. Familiarity with the Horizon Shopify theme framework is mandatory. Role Description You'll build across a variety of work, including full Shopify theme builds, section development, landing pages, and CRO test implementations. You'll translate high-fidelity Figma designs into accurate, production-ready Shopify themes and sections, working primarily within Shopify 2.0 and the Horizon framework. Your builds should support experimentation and iteration, balancing CRO, performance, and scalability. You'll lead development delivery as the team's senior developer, collaborating closely with CRO specialists, designers, and account managers to ensure implementations match design intent. Key Responsibilities Theme and Section Builds - Build full Shopify theme builds, sections, landing pages, and CRO test implementations. Design Translation - Translate high-fidelity Figma designs into accurate, production-ready Shopify themes and sections. CRO-Focused Development - Build with CRO, performance, and scalability in mind, supporting experimentation and iteration. Shopify 2.0 and Horizon - Work primarily within Shopify 2.0 and the Horizon framework, applying modern best practices. Cross-Functional Collaboration - Work closely with CRO specialists, designers, and account managers to match design intent. Lead Development Delivery - Lead the team's development delivery as senior developer, replacing an outgoing lead. Minimum Qualifications Shopify Development Experience - 6+ years as a Shopify developer, at a lead or senior level. Horizon Framework Familiarity - Hands-on familiarity with the Horizon Shopify theme framework, mandatory for this role. Liquid and Shopify 2.0 - Strong knowledge of Shopify Liquid and Shopify 2.0 architecture and best practices. Version Control Practices - Experience with GitHub and non-destructive, version-controlled development workflows. Design and CRO Collaboration - Proven experience translating Figma designs faithfully alongside designers and CRO teams. Team Leadership - Ideally already leading a development team, ready to step into this outgoing lead's role. Bonus Qualifications AI-Assisted Development - Active experience with AI-assisted workflows, such as Cursor or Claude. DTC Brand Exposure - Experience working across a diverse range of high-profile DTC brands. UK or European Based - UK-based candidates preferred; European candidates also welcome to apply. Benefits Top-of-the-market pay. Remote working. Potential for flexible hours. Becoming a part of Palm Outsourcing, where your performance is rewarded in long-term job security and continued growth opportunities. Ready to elevate? Hit apply, complete your profile, and let the right opportunities come to you.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
@@ -887,18 +1878,162 @@
   ],
   "new_matches": [
     {
-      "linkedin_job_id": "4458412169",
-      "title": "Director of Engineering",
-      "company": "Rotana Hotel Management Corporation PJSC",
-      "location": "Sharm El Sheikh, South Sinai, Egypt",
+      "linkedin_job_id": "4460388911",
+      "title": "Senior Cloud Engineer - AI-ML Platform (all genders)",
+      "company": "Merck Group",
+      "location": "Cairo, Cairo, Egypt",
       "linkedin_date": "2026-08-28",
-      "linkedin_posted_text": "3 minutes ago",
-      "estimated_age_minutes": 3,
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-28T16:43:13Z",
-      "url": "https://www.linkedin.com/jobs/view/4458412169",
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460388911",
+      "matched_queries": [
+        {
+          "query": "System Administrator",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Systems Administrator",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Systems Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Network Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Operations",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cloud Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cybersecurity Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Specialist",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Business Development, Strategy/Planning, and Analyst",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 13.0,
+      "role_hits_title": [
+        {
+          "label": "Cloud Infrastructure",
+          "weight": 3.0
+        }
+      ],
+      "role_hits_description": [
+        {
+          "label": "Cloud Infrastructure",
+          "weight": 3.0
+        }
+      ],
+      "skill_hits": [
+        {
+          "label": "Azure",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Work Your Magic with us! Ready to explore, break barriers, and discover more? We know you’ve got big plans – so do we! Our colleagues across the globe love innovating with science and technology to enrich people’s lives with our solutions in Healthcare, Life Science, and Electronics. Together, we dream big and are passionate about caring for our rich mix of people, customers, patients, and planet. That's why we are always looking for curious minds that see themselves imagining the unimaginable with us. Your Role As a Senior Cloud Engineer specialising in AI/ML Platform infrastructure, you will be at the heart of building and operating the cloud-native foundation that powers data, analytics, and artificial intelligence workloads across the organisation. In this pivotal role, you will design, deploy, and continuously improve scalable, resilient infrastructure on AWS — enabling AI/ML engineers and data scientists to develop, deploy, and monitor machine-learning models and AI services at production scale. You will own critical platform components end-to-end: from containerised workloads and streaming pipelines to networking, security, and CI/CD automation. Working at the intersection of cloud engineering, data platforms, and AI/ML operations, you will solve complex infrastructure challenges with a pragmatic, reliability-first mindset and directly shape the technical direction of a platform that drives meaningful business outcomes. Who You Are You bring 5 or more years of hands-on cloud engineering experience, with strong expertise in AWS services including Elastic Container Service, Elastic Kubernetes Service, Virtual Private Cloud networking, and managed streaming solutions. You have proven experience provisioning and managing cloud infrastructure as code using Terraform and/or CloudFormation, and you are comfortable owning production environments end-to-end. You are skilled in building and maintaining CI/CD pipelines (for example using Azure DevOps) and apply disciplined version-control practices in collaborative engineering environments. You have hands-on experience designing and operating streaming platforms such as Apache Kafka or equivalent cloud-managed alternatives, with a focus on scalability and resilience. You implement platform security with confidence — including Transport Layer Security, secrets management, access controls, and authentication mechanisms such as JSON Web Tokens, OAuth, and LDAP. You have experience deploying, scaling, and monitoring AI/ML workloads and model-serving APIs, and you collaborate effectively with AI/ML engineers and data scientists to bring models into production. You hold a degree in Computer Science, Software Engineering, or a related field, or bring equivalent professional experience; familiarity with multi-cloud environments or Azure AI/ML services is a plus. What we offer: We are curious minds that come from a broad range of backgrounds, perspectives, and life experiences. We believe that this variety drives excellence and innovation, strengthening our ability to lead in science and technology. We are committed to creating access and opportunities for all to develop and grow at your own pace. Join us in building a culture of inclusion and belonging that impacts millions and empowers everyone to work their magic and champion human progress! Apply now and become a part of a team that is dedicated to Sparking Discovery and Elevating Humanity!",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460399282",
+      "title": "Technical Office Manager Electrical",
+      "company": "Egycomm",
+      "location": "Alexandria, Alexandria, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460399282",
       "matched_queries": [
         {
           "query": "Systems Engineer",
@@ -906,12 +2041,26 @@
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Director",
+      "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Engineering",
+      "job_function": "Administrative",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 4.0,
@@ -919,7 +2068,826 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Job Description We are currently seeking for passionate and dynamic Engineering professionals who pride themselves on their ability to deliver extraordinary levels of customer service and provide creative solutions to our guests. As a Director of Engineering you are responsible on all matters related to the repairs and maintenance operation of the physical plant and engineering facilities within the hotel and maintain all mechanical, electrical and electronic equipment including heating and ventilation, whereby your role will include key responsibilities such as- Organize and set up preventive maintenance programmes for all electrical and mechanical equipment including general building works Advise the General Manager and the Corporate Vice President - Engineering and Technical Services of any problems at all times Supervise maintenance employees and contract employees who are carrying out minor building work, electrical and mechanical installations Supervise and liaise with all contractors, write specifications for all electrical, mechanical and associated building works complying with the local government regulations and inspect and sign for contractor works upon satisfactory completion Oversee the general maintenance of all life safety systems throughout the hotel and report any major defects Ensure that all administration files are kept up to date including drawing prints, specifications and equipment, technical maintenance manuals, etc. Recommend and evaluate energy conservation programmes and ensure they are carried out as well as investigate the wastage Skills Education, Qualifications & Experiences You should ideally have a degree in mechanical and electrical engineering with at least three years experiences in a similar role within the hospitality industry. A good command of written and spoken English and the ability to find fault and rectify subsystems are essentials. Knowledge & Competencies The ideal candidate will be able to handle stress and work under pressure and bring along strong administrative skills, an analytical mind and the capability of being able to write concise reports. You will have a high level of self motivation, develop innovative options in the best interest of the hotel while possessing following competencies- Adaptability Customer Focus Drive for Results Influencing Outcomes Leading People Managing Operations Planning for Business Team Building Understanding the Business Valuing Diversity",
+      "description": "We are seeking a highly experienced and technically proficient Technical Office Manager Engineer to lead our engineering documentation, submittal, and support functions. This is a critical leadership role responsible for ensuring the technical accuracy, quality, and seamless coordination of all low current solutions across the project lifecycle—from initial conceptual design through to final handover and maintenance. The successful candidate will manage the Technical Office team, standardize workflows, and act as the central technical liaison between our Design, Procurement, Projects, and Maintenance departments. Key Responsibilities: Technical Leadership & Documentation Management: • Lead, mentor, and manage the Technical Office team, ensuring all personnel are trained and adhere to quality standards and timelines. • Establish and enforce standardized technical office procedures, documentation control, and quality assurance processes. • Act as the primary technical point of contact for consultants, clients, and suppliers regarding all design clarifications and technical submittals. Project Lifecycle Oversight: • Design & Pre-Construction: Oversee the review, approval, and generation of all technical drawings (e.g., Shop Drawings, Spool Drawings), Material Submittals, and detailed Bills of Quantities (BOQ). • Supply & Procurement Support: Provide technical specifications, data sheets, and comprehensive technical comparisons to support the Supply chain in selecting high-quality, compliant components. • Installation & Execution Support: Coordinate closely with Installation/Project Managers to swiftly resolve technical issues on site, address Requests for Information (RFIs), and ensure site execution strictly follows approved designs and specifications. • Handover & Maintenance: Supervise the compilation of all final project documentation, including As-Built Drawings, Operation & Maintenance (O&M) Manuals, and testing/commissioning reports required for successful project closure and the subsequent Maintenance phase. Standards and Compliance: • Ensure all designs, submittals, and technical work adhere to international codes (e.g., NFPA, BICSI, local authority regulations) and specific client/project requirements. Qualifications and Requirements: • Education: Bachelor’s Degree in Electrical, Communications, or Mechatronics Engineering • Experience: A minimum of 15 years of progressive experience within the Low Current Systems domain (Data Network/Infrastructure, CCTV, Fire Alarm, Access Control, Public Address, BMS integration, etc.). Leadership: Proven experience (5+ years) in a Technical Office Manager or senior technical management position, leading a team of engineers. • Technical Expertise: Deep understanding of the complete project lifecycle (Design, Supply, Installation, and Maintenance) for integrated low current solutions. • Software Skills: Expert proficiency in AutoCAD and/or Revit for drawing review and validation; advanced knowledge of Microsoft Office Suite (Excel, Word) for report and BOQ generation. • Communication: Excellent written and verbal communication skills in English for generating professional documentation and interacting with clients/consultants. How to Apply: Interested candidates are invited to send their updated CV to: Location: Alexandria, Egypt. 📧 hazem.fawzy@egycomm.net Please mention the Technical Office Manager Engineer in the email subject line.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460524156",
+      "title": "Senior Software Project Manager",
+      "company": "Amjaad Technology",
+      "location": "Qesm El Maadi, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "30 minutes ago",
+      "estimated_age_minutes": 30,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460524156",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Project Management and Information Technology",
+      "advisory_title_noise_signals": [
+        "project manager"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description Amjaad Technology is a leading corporation in IoT and utility management, delivering smart metering solutions for electricity, water, BTU, and gas. Through its innovative ioMeter System, the company enables utility service providers, real estate developers, and smart cities to drive digital transformation, optimize energy use, and support sustainability goals. Amjaad Technology also builds platforms for community and facilities management in smart cities, improving efficiency, resource utilization, and operational workflows. With over 300 projects implemented across Egypt, Saudi Arabia, and the UAE, its solutions have positively impacted more than 200,000 people and contributed to the creation of more sustainable communities. Role Description The Senior Software Project Manager is a full-time, on-site role based in Qesm El Maadi, responsible for leading end-to-end delivery of software and IoT-related projects. This role includes defining project scope and objectives, coordinating requirements gathering with stakeholders, and translating business needs into clear technical specifications. The Senior Software Project Manager oversees project planning, resource allocation, timelines, risks, and budgets, ensuring alignment with quality standards and organizational goals. Daily responsibilities include guiding development teams, monitoring progress, resolving issues, and communicating status updates and dependencies to leadership and external partners. The role also involves continuous improvement of project management processes, fostering collaboration across cross-functional teams, and supporting successful deployments in utility and smart city environments. Qualifications Strong Software Project Management and Project Management skills, with proven experience leading complex, multi-stakeholder technology projects. Solid foundation in Software Development and Requirements Analysis, including the ability to work closely with engineering teams to refine specifications and solutions. Advanced Analytical Skills to interpret data, evaluate risks, and support decision-making for project prioritization and resource management. Experience in IoT, utility management, smart metering, or smart city platforms is highly beneficial. Proficiency with project management tools and methodologies (e.g., Agile, Scrum, or hybrid approaches). Excellent communication, stakeholder management, and negotiation abilities, with strong organizational and time-management skills. Bachelor’s degree in Computer Science, Engineering, Information Systems, or a related field; a master’s degree or relevant certifications (e.g., PMP, Scrum Master) are a plus. Ability to work on-site in Qesm El Maadi and collaborate effectively with cross-functional and multicultural teams.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460511080",
+      "title": "Senior Commercial Executive",
+      "company": "Aqarmap Egypt",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460511080",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Business Development and Sales",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "We’re Hiring | Senior B2B Sales 📍 Location: Nasr City We’re looking for a Senior B2B Sales professional to join our growing team. Responsibilities: • Manage the full B2B sales cycle, from lead generation to negotiation and closing. • Build strong relationships with key decision-makers across real estate developers and brokerage companies. • Conduct client meetings and confidently present Agarmap’s solutions and advertising products. • Understand clients’ business needs and provide tailored solutions. • Handle objections, negotiate effectively, and close deals successfully. • Develop and maintain long-term client relationships. • Consistently achieve and exceed sales targets. • Identify new business opportunities and contribute to the growth of our B2B portfolio. Requirements: • 2+ years of proven B2B Sales experience (Banking, Medical, or similar). • Strong track record of achieving and exceeding sales targets. • Hands-on experience managing the complete sales cycle. • Previous experience in outdoor/field B2B sales is a must. • Excellent communication, negotiation, and presentation skills. • Strong business understanding with the ability to identify client needs and close complex deals. • Good command of English. • Real estate industry experience is a strong plus.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458425144",
+      "title": "Project Manager – Architectural Fit-Out",
+      "company": "Absolute Renovation",
+      "location": "New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4458425144",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Project Management and Information Technology",
+      "advisory_title_noise_signals": [
+        "project manager"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "We are going to hire \" Project Manager – Architectural Fit-Out \" with the following criteria :  Key Responsibilities : Lead the project from mobilization, execution, testing and commissioning through final handover. Develop, monitor, and control the project program, budget, cash flow, cost, resources, and overall progress. Manage and coordinate architectural, technical office, MEP, electrical, and specialist systems throughout the project lifecycle. Ensure timely preparation and approval of shop drawings, material submittals, RFIs, method statements, inspections, and technical documentation. Coordinate closely with the Technical Office and Procurement teams to ensure the timely availability of critical and long-lead materials. Manage subcontractors and suppliers, monitoring productivity, quality, progress, resources, and contractual performance. Identify and proactively manage project risks, technical issues, delays, cost overruns, and potential claims. Develop and implement recovery and corrective action plans when required. Review and manage variations, additional works, claims, and commercial issues in coordination with the Commercial/Contracts team. Provide senior management with regular and accurate reports covering progress, cost, cash flow, procurement, resources, risks, and project performance. Job Requirements: Bachelor’s degree in architectural engineering. 12+ years of relevant experience in architectural fit-out, finishing, and renovation projects. Minimum 5 years of experience in a Project Manager or equivalent senior project leadership position. Proven experience managing large-scale, high-value, or complex fit-out/renovation projects. Strong knowledge of architectural finishing works, construction methods, project planning, cost control, procurement, and subcontractor management. Good knowledge of Primavera P6 / MS Project, Microsoft Excel, and AutoCAD. Very good command in English. PMP certification is preferred.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460508755",
+      "title": "Motion Graphic Designer",
+      "company": "The Learning Mate",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "54 minutes ago",
+      "estimated_age_minutes": 54,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460508755",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Design, Art/Creative, and Information Technology",
+      "advisory_title_noise_signals": [
+        "graphic designer"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About The Learning Mate Teachers spend hours grading assessments, yet much of the valuable information hidden in students' answers is often reduced to a single score. The Learning Mate is changing that. The Learning Mate uses AI to grade handwritten assessments with high accuracy, provide meaningful feedback to students, and turn assessment data into actionable insights for teachers. Our goal is simple: take the repetitive work out of grading while turning every assessment into an opportunity for more personalized learning. About The Role We're looking for a creative Motion Designer with solid video-editing skills who can turn ideas, product experiences, and marketing messages into engaging visual stories. For us, great motion design isn't about adding the most effects. It's about making the message clear, engaging, and memorable. We're looking for someone who can take a message like: \" AI can grade a handwritten exam and show a teacher exactly where their students are struggling .\" and find a way to communicate it visually in just a few seconds. We want someone who can make education feel modern, technology feel simple, and The Learning Mate stand out. What You'll Do Create engaging motion graphics and animated videos for social media, digital campaigns, and product marketing. Turn marketing concepts, briefs, and scripts into compelling visual stories. Handle basic video editing, including cutting and sequencing footage, adding captions, music and sound effects, and preparing final videos for publishing. Combine live footage, screen recordings, motion graphics, typography, illustrations, and product UI into cohesive videos. Animate The Learning Mate's product and UI to showcase features and workflows in intuitive and visually engaging ways. Create short-form content optimized for Instagram, TikTok, LinkedIn, YouTube, and paid advertising. Develop creative assets for feature launches, how-to videos, promotional campaigns, and performance ads. Use AI and emerging creative tools where they can improve speed, quality, or creative possibilities. What We're Looking For A strong portfolio demonstrating motion design, animation, visual storytelling, and video-editing capabilities. Strong experience working with professional motion design and video-editing tools.  Strong understanding of animation principles, timing, easing, composition, typography, and visual hierarchy. Good understanding of video-editing fundamentals including pacing, cuts, audio, captions, and transitions. Ability to take an idea or brief and translate it into a simple, engaging visual concept. Strong eye for modern digital and social-media content. Experience working with product/UI footage and turning software experiences into engaging marketing content. Ability to work independently, take ownership of a brief, and propose creative directions rather than waiting for detailed execution instructions. Ability to balance quality with speed in a fast-moving startup environment. Comfortable receiving feedback and iterating quickly. Comfortable exploring AI and emerging creative tools to improve creative workflows and execution.  Portfolio Required Applications without a portfolio will not be considered. Your portfolio should include examples of your motion-design work and ideally demonstrate your ability to combine animation with video editing and visual storytelling. Please highlight the work that best represents your individual contribution.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459347533",
+      "title": "Light Current & Power Projects Manager",
+      "company": "NorthFolkeg",
+      "location": "New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "15 minutes ago",
+      "estimated_age_minutes": 15,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459347533",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Project Management and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "We are looking for an experienced Light Current & Power Projects Manager to join our team and lead the technical and commercial aspects of our Light Current, Power, and Structured Cabling projects. Key Responsibilities: Manage pricing, estimation, bidding, and tendering for Light Current, Power, and Structured Cabling projects. Review client RFQs, BOQs, specifications, drawings, and scope of work and prepare accurate technical and commercial offers. Coordinate with existing partners, subcontractors, suppliers, and the market to obtain competitive pricing and technical solutions. Evaluate quotations and ensure competitive and commercially viable proposals. Coordinate and allocate in-house technical resources across different projects based on project requirements. Support project feasibility, manpower planning, cost evaluation, and commercial decision-making. Maintain and develop strong relationships with partners, subcontractors, and suppliers. Requirements: Bachelor’s degree in Electrical Engineering or a related engineering discipline. 7–10 years of relevant experience in the same field. Experience in Construction and Light Current is highly preferred. Previous experience with an MEP contractor/subcontractor is a strong advantage. Proven experience in pricing, estimation, bidding, and preparation of technical & commercial proposals . Strong knowledge of Light Current, Power, and Structured Cabling systems . Strong negotiation, analytical, communication, and project coordination skills. Ability to manage multiple RFQs and meet tight deadlines. If you have the technical expertise, commercial mindset, and industry experience to take ownership of this function, we would be happy to hear from you",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460532059",
+      "title": "English Customer Service (Retention/Sales)",
+      "company": "Multi National Company",
+      "location": "New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "20 minutes ago",
+      "estimated_age_minutes": 20,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460532059",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Education and Training",
+      "advisory_title_noise_signals": [
+        "customer service"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Job Description TP is hiring English Customer Service for a launching US account. You will be handling customers concerns, payment status, and sales for one line of business, You should have good intent and skills to provide excellent customer service. Full-time, on-site, voice account, based in New Cairo, Egypt. Requirements Advanced English level (B2 or higher) Flexible with rotational & night shifts Graduates or Dropouts (above 30 yrs) Package & Benefits Net salary up to 21,000K EGP Overtime availability paid in equivalent to Dollar Sales incentives up to 300$ 195€ Quarter Bonus and Profit share (Annual) Points system granting vouchers Social & Medical Insurance (up to 400,000 EGP per year) Transportation in Cairo & Giza (door-to-door for females after 11 PM) Free gym access",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460517150",
+      "title": "Business Development Manager",
+      "company": "The Fem-Society",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460517150",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Volunteer",
+      "job_function": "Business Development and Sales",
+      "advisory_title_noise_signals": [
+        "business development"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "We’re looking for a Business Development Manager (Volunteer)! The Fem Society is a women-focused digital platform working on issues that affect women across the region through awareness, support, rights, and development opportunities. We’re looking for someone to lead our business development and partnership efforts by identifying potential partners, building relationships, and creating meaningful collaboration opportunities with organizations, brands, professionals, and initiatives that align with our mission. We’re looking for someone who is: • Proactive and confident in communication • Strategic and opportunity-driven • Strong at relationship building • Organized and able to represent the platform professionally Interested? Send us a DM with a brief introduction about yourself and your experience or email us: the.fem.society1@gmail.com",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460504684",
+      "title": "Airlines CustomerService (Grade,Morning)",
+      "company": "TP Egypt",
+      "location": "Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460504684",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description Teleperformance is a worldwide leader in digitally integrated business services, operating in over 80 countries with more than 500,000 team members. Teleperformance Egypt focuses on creating meaningful interactions for global clients while fostering a supportive, growth-oriented environment for employees. The company combines advanced technology with human expertise to deliver high-quality customer experience solutions. Team members are encouraged to develop their skills, advance their careers, and contribute to the company’s success in a diverse, inclusive workplace. Role Description The Airlines Customer Service (Grade, Morning) role at TP Egypt is a full-time, on-site position based in Cairo. In this role, the team member will handle inbound and outbound customer interactions for airline passengers, including responding to inquiries, assisting with bookings and ticket changes, and providing information on flight schedules and services. Daily tasks include managing customer requests through phone and digital channels, resolving concerns professionally, and following airline policies and procedures. The role also involves documenting interactions accurately, escalating complex issues when needed, and maintaining high customer satisfaction and service quality standards during morning shifts. Qualifications Strong customer service and communication skills, including clear spoken and written English and the ability to handle inquiries calmly and professionally. Proficiency in using computer systems and CRM tools, with the ability to navigate multiple applications while assisting customers. Problem-solving and conflict-resolution abilities, with a focus on accuracy, attention to detail, and meeting performance targets. Ability to work on-site in Cairo in morning shifts, demonstrating reliability, time management, and teamwork in a fast-paced environment. Previous experience in customer service, call centers, or the airline/travel industry is an advantage. High school diploma or equivalent; further education in business, communications, or related fields is beneficial. Commitment to a diverse, inclusive work environment and adherence to company and airline policies and procedures.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459429319",
+      "title": "UX Research Intern",
+      "company": "Owlera",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459429319",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Internship",
+      "employment_type": "Part-time",
+      "job_function": "Education and Training",
+      "advisory_title_noise_signals": [
+        "intern"
+      ],
+      "advisory_it_evidence": false,
+      "score": 1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "🔍 UX Research Intern (Unpaid) ⚠️ Applications will only be accepted through the following link :👉 www.owlera.sit e ⸻ About Owler a Owlera is an AI-powered career platform that helps students and fresh graduates gain real-world experience through practical internship simulations inspired by real companies . Instead of only learning theory, participants work on realistic business challenges, receive continuous AI-powered feedback, and build portfolio-ready projects that demonstrate their skills to future employers . We’re looking for curious, empathetic, and analytical students to join our UX Research Internship and gain practical experience understanding users, identifying pain points, and helping teams build better products and experiences . ⸻ About the Internshi p As a UX Research Intern, you’ll work on hands-on business scenarios where you’ll research users, conduct interviews and surveys, analyze behaviors, identify usability problems, and turn findings into actionable product recommendations . You’ll learn how UX researchers help product and design teams understand what users need, why they behave the way they do, and how products can be improved based on real evidence . This internship is designed to help you gain practical experience—not just theoretical knowledge . ⸻ Responsibilitie s * Conduct user interviews, surveys, and qualitative research .* Help define research questions and objectives .* Develop interview guides and research plans .* Analyze user behaviors, needs, motivations, and pain points .* Create user personas and journey maps .* Conduct usability testing and identify experience issues .* Organize and synthesize qualitative and quantitative research findings .* Identify patterns, themes, and actionable insights .* Present research findings and recommendations to stakeholders .* Collaborate with product, design, and business teams .* Use AI tools to support research planning, analysis, and synthesis .* Work on realistic UX research case studies and simulation projects .* Document research findings and build portfolio-ready research reports . ⸻ Requirement s * Current student or recent graduate in UX Design, Human-Computer Interaction, Psychology, Sociology, Marketing, Product Design, Business, Communications, Computer Science, or a related field .* Strong curiosity about users and human behavior .* Good analytical and critical-thinking skills .* Strong communication and listening abilities .* Basic understanding of UX research methods is a plus but not required .* Familiarity with tools such as Figma, Miro, Maze, Typeform, Google Forms, or UserTesting is a plus .* Familiarity with AI tools such as ChatGPT, Claude, Gemini, or similar platforms is a plus .* Strong attention to detail .* Comfortable speaking with users and asking thoughtful questions .* Previous professional UX research experience is not required . ⸻ What You’ll Gai n * Hands-on experience conducting UX research .* Practical experience with interviews, surveys, and usability testing .* Experience analyzing user behavior and customer pain points .* Exposure to personas, journey mapping, and research synthesis .* Experience turning research findings into product recommendations .* Portfolio-ready UX research projects and case studies .* Experience using AI and modern UX research tools .* Personalized AI feedback on your work .* Professional certificate upon successful completion .* Mentorship and weekly learning sessions .* Opportunity to strengthen your resume and interview readiness .* Networking with students from different universities . ⸻ Internship Detail s Location: Remot eType: Internship (Unpaid )Level: Entry Leve lDuration: 6 Week sCommitment: Flexible (approximately 10–15 hours per week ) ⸻ If you’re passionate about understanding people, discovering user needs, and helping teams build better products and experiences, we’d love to hear from you . ⚠️ Applications will only be accepted throug h : 👉 www.owlera.si te",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459423969",
+      "title": "Technical Recruiter",
+      "company": "Palm Outsourcing",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "58 minutes ago",
+      "estimated_age_minutes": 58,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459423969",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Human Resources and Consulting",
+      "advisory_title_noise_signals": [
+        "recruiter"
+      ],
+      "advisory_it_evidence": false,
+      "score": 1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About the Job 🗓️ Working Days and Hours: Monday to Friday, 9 AM – 6 PM (UK Hours); Potential for Flexible Hours 📍 Location: Remote/Online 💷 Salary Range: Attractive, Top-of-Market Salary (paid in GBP/USD) At Palm Outsourcing, we don't just fill seats; we build elite teams. We continuously partner with top-tier clients looking for exceptional international talent. Opportunity Overview We are hiring a mid to senior technical recruiter to run our tech desk end to end. This is a self-directed 360 role, owning every stage from sourcing through to closing candidates with clients. You will take inbound requests from our team and existing clients while running an independent pipeline separate from the core team. Role Description You will lead technical searches from brief to placement, owning the full hiring cycle without lead generation support. You will communicate directly with clients throughout every stage, presenting shortlisted candidates clearly for final decisions. You will manage your own pipeline, workload, and priorities on an independent system. The role suits a self-sufficient recruiter with strong technical judgement and confident client-facing skills. Key Responsibilities Full-Cycle Recruitment - Own the entire hiring process from sourcing through to closing each candidate. Client Communication - Manage direct communication with clients across every stage of the search. Candidate Presentation - Present and position shortlisted candidates clearly to clients for final decisions. Inbound Handling - Take inbound requests from our team and existing clients without lead generation. Pipeline Ownership - Run and manage your own recruitment pipeline separately from the core team. Independent Workload Management - Operate on an independent system, managing your own workload and priorities. Minimum Qualifications English Fluency - Fluent, excellent written and spoken English is mandatory for this role. Technical Recruitment Experience - Proven track record recruiting for technical roles across the full hiring cycle. 360 Capability - Experience owning recruitment end to end, from sourcing to client close. Tech Understanding - Solid understanding of technical roles, skills, and how to assess candidates. Client-Facing Skills - Confident communicating directly with clients and presenting candidates throughout the process. Self-Sufficient Working Style - Able to manage your own pipeline and workload with minimal oversight. Mid to Senior Level - Mid-level to senior recruiter with strong capability and independent judgement. Bonus Qualifications Tech Industry Background - Prior experience working within a technology company or technical function. Technical Degree - A relevant degree in a technical, engineering, or computing-related discipline. Benefits Top-of-the-market pay. Remote working. Potential for flexible hours. Becoming a part of Palm Outsourcing, where your performance is rewarded in long-term job security and continued growth opportunities. Ready to elevate? Hit apply, complete your profile, and let the right opportunities come to you.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459411582",
+      "title": "Search Engine Optimization Manager",
+      "company": "Palm Outsourcing",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459411582",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Marketing, Business Development, and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About the Job 🗓️ Working Days and Hours: Monday to Friday, 9 AM - 6 PM (UK Hours); Potential for Flexible Hours 📍 Location: Remote/Online 💷 Salary Range: Attractive, Top-of-Market Salary (paid in GBP/USD) At Palm Outsourcing, we don't just fill seats; we build elite teams. We continuously partner with top-tier clients looking for exceptional international talent. Opportunity Overview Our client is an Answer Engine Optimisation (AEO) agency and digital product consultancy in London, helping brands get found, cited and recommended inside AI answers across ChatGPT, Gemini, Perplexity, Copilot and AI Overviews. Their work runs on three pillars, content, technology and digital PR, alongside proprietary planning products and industry events. Role Description The SEO Manager will drive organic growth across our client's own brand and client accounts, blending technical, content and off-page work with an emerging focus on AI answer visibility. You will shape strategy, execute against it, and measure results using industry-standard tools. Over the first year you will follow a structured, funded upskilling path into Answer Engine Optimisation. Key Responsibilities SEO Strategy - Develop and implement SEO strategies covering technical, content and off-page work for the brand and clients. Technical Optimisation - Optimise site structure, page speed, schema markup, crawlability and mobile performance across all managed properties. Content Alignment - Partner with content creators using keyword research, entity mapping and question-level coverage for search intent. Authority Building - Build the citation, mention and link profile that lifts traditional rankings and AI answer inclusion. AI Visibility Audits - Run brand visibility audits across AI answer engines and turn findings into prioritised action plans. Performance Reporting - Use Google Analytics, Search Console, SE Ranking and Ahrefs to measure and report performance to stakeholders. Minimum Qualifications English Fluency - Fluent, excellent written and spoken English is mandatory for this role. SEO Experience - Proven experience across technical SEO, content optimisation and link building, with measurable ranking improvements. Analytical Mindset - Strong ability to interpret data, spot the story inside it, and act on findings. Tool Proficiency - Confidence with Google Analytics, Search Console, SE Ranking, SEMrush, Ahrefs and Screaming Frog. Seniority - Three to five years of hands-on SEO experience across technical, content and off-page workstreams. Bonus Qualifications AI Search Curiosity - Genuine interest in how AI assistants like ChatGPT and Perplexity are changing discovery. Self-Starter Mentality - Comfortable working independently in a fast-moving environment where the playbook is still being written. Strong Communication - Excellent collaboration and communication skills that translate technical work across cross-functional teams. Benefits Top-of-the-market pay. Remote working. Potential for flexible hours. Becoming a part of Palm Outsourcing, where your performance is rewarded in long-term job security and continued growth opportunities. Ready to elevate? Hit apply, complete your profile, and let the right opportunities come to you.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459426980",
+      "title": "Scheduling Specialist",
+      "company": "IntouchCX",
+      "location": "Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "26 minutes ago",
+      "estimated_age_minutes": 26,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459426980",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Project Management and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About IntouchCX IntouchCX is a global leader in digital customer experience management, back office processing, trust & safety solutions, and AI services. For over 25 years, we’ve scaled with soul, building trusted long-term partnerships and empowering our people to drive positive change. About The Job We’re looking for a Scheduling Specialist to work in partnership with both our Operations and Workforce Management Team to align the accuracy of original schedules to forecasted work volume. Reporting to the Manager of Resource Planning, this role will also be responsible for ongoing analysis and continuous improvement. As Scheduling Specialist, You Will… Assist with schedule and tracker management to ensure that all schedules are generated properly Identify customer contact trends to ensure appropriate resources are utilized Manage schedule information for new and existing employees in multiple locations using a workforce software program Ensure employee information is accurately entered and maintained on an ongoing basis Ensure trackers related to headcount, absenteeism, etc are constantly reviewed and updated Update parameters within the Workforce Management System to ensure efficient scheduling of resources to meet service level and productivity goals Work closely with the Operations Team to ensure availabilities are conducive to the business needs As Scheduling Specialist, You Have… A post-secondary degree or certificate with a focus on Business Administration (a combination of work experience and education will be considered) Experience with workforce management systems (asset) Advanced knowledge of Microsoft Excel (asset) Knowledge of contact center operations, functions and business processes Strong technical, analytical and problem solving skills Superior attention to detail with an eye for accuracy The ability to adapt to change in an innovative and fast paced environment Strong organizational skills and the ability to follow through on projects Excellent written and verbal communication skills The ability to work both independently and in a team setting within a fast-paced, entrepreneurial environment IntouchCX will never ask for payment, money, financial or banking information during the recruitment process. We only communicate through official channels. Should you receive a suspicious job offer, or posting, from anyone claiming to be an IntouchCX employee, please report it immediately to hr@intouchcx.com for review and validation.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460520037",
+      "title": "Senior AI Engineer",
+      "company": "Avenga",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460520037",
+      "matched_queries": [
+        {
+          "query": "Systems Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cloud Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cybersecurity Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": -3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Data/AI",
+          "weight": -8.0
+        }
+      ],
+      "description": "This is us At Avenga, we believe that human creativity empowers technology that matters. Operating globally, our 6000+ specialists provide a full spectrum of services, including business and tech advisory, enterprise solutions, CX, UX and Ul design, managed services, product development, and software development. This is the job We are looking for a Senior AI Engineer to join a project focused on building and extending a unified, AI-augmented Quality Engineering framework. In this role, you will combine AI orchestration, agentic frameworks, MLOps, Governance-as-Code, CI/CD, and Test Data Management to enable AI-assisted testing, self-healing automation, reusable AI capabilities, and performance testing. This is you Strong software engineering and programming skills, preferably with Python Hands-on experience with AI orchestration and agentic frameworks, such as MCP, LangChain, Semantic Kernel, or similar Experience working with AI models and AI-assisted development workflows Experience with GitHub Copilot or similar AI-assisted development tools Good understanding of MLOps, Governance-as-Code, and PromptOps Experience with versioned instruction sets, prompt templates, policy rules, and reusable AI artifacts Experience with CI/CD, including Jenkins and/or GitHub Actions Understanding of AI-assisted testing and self-healing automation Experience with synthetic test data generation and Test Data Management (TDM) This is your role Extend existing automation frameworks with AI-enabled capabilities and contribute to a unified AI-augmented Quality Engineering framework Develop reusable prompts and instruction sets for AI-assisted test generation and standardize shared automation components Implement AI orchestration and MCP-based enterprise integrations, including GitHub Copilot and approved MCP connectors Enable governed AI workflows for test design, analysis, and optimization, and establish reusable orchestration and integration patterns Implement Governance-as-Code using versioned instruction sets, prompt templates, and policy rules, including their propagation and distribution across automation repositories Enable self-healing automation for UI, API, and database changes through engineer-controlled approval workflows Integrate the framework with Jenkins/GitHub Actions and support dynamic regression selection and parallel test execution Transition selected existing automation flows into the unified framework, apply AI capabilities, and validate them against agreed PoC success criteria Analyze test data sources and implement reusable capabilities for deterministic test data generation and management Track automation coverage, stability, execution time, and defect trends, support centralized reporting through Report Portal, and measure improvements against established baselines Develop AI-assisted performance and load testing capabilities, including reusable scenarios, scripts (e.g. Locust-based), test data, and request payloads What awaits you at Avenga? Through our values – Better Minds, Bolder Ideas, and Bigger Hearts – we strive to create a work environment where people feel supported, trusted, and empowered to grow. At Avenga, everyone matters. We provide equal opportunities in recruitment, career development, and leadership, regardless of race, ethnicity, gender identity, sexual orientation, disability, age, religion, or any other characteristic. We are committed to fostering a work environment where our diverse community of employees, candidates, and business partners actively shapes our growth. By bringing together people from different backgrounds and experiences, we build a workplace where everyone feels free to be themselves while honoring the boundaries of others.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460509421",
+      "title": "Mid-Level Full Stack Software Engineer",
+      "company": "Garnish",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460509421",
+      "matched_queries": [
+        {
+          "query": "Systems Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [
+        "full stack"
+      ],
+      "advisory_it_evidence": false,
+      "score": -5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Software Development",
+          "weight": -10.0
+        }
+      ],
+      "description": "About Garnish Garnish builds the complete growth and ordering stack for independent restaurants. On the ordering side: customer website, staff admin, in-store POS, and mobile app, backed by Postgres, Stripe Connect for payments, a pos integration for menus and tickets, and a courier API for delivery. The role: We're looking for a Mid-Level Full Stack Software Engineer who is comfortable working across both the frontend and backend. You'll work on real product features from end to end: building UI, implementing APIs, working with Postgres, integrating third-party services, fixing production issues, and improving existing parts of the platform. You don't need to be an expert in every part of the stack. We're looking for someone who is strong enough across the stack to get things done, can learn quickly when they encounter something unfamiliar, and knows when to ask for help or when a problem needs deeper investigation. You'll work closely with the senior engineers and product team, taking ownership of individual features and tasks while contributing to the broader platform. What you'll work on: Your work will span both frontend and backend, depending on what the product needs. Build and maintain features across our customer-facing applications and internal admin tools Build backend APIs and services using TypeScript and Node.js Build and improve frontend experiences using Next.js and React Design and work with Postgres tables, queries, indexes, and migrations Integrate with services such as Stripe, Toast, courier platforms, and other third-party APIs Work with webhooks, background jobs, and asynchronous processes Debug issues across the frontend, backend, database, and external integrations Write tests for the code you ship and fix regressions when they occur Review pull requests and give thoughtful feedback to other engineers Improve existing code when you encounter problems rather than simply working around them Help investigate and resolve production issues Work with the team to break larger features into manageable pieces and ship them incrementally How we expect you to work We're a small team, so you'll have meaningful ownership over the work you take on. We don't expect you to know everything. We do expect you to be able to figure things out. If you're primarily a backend engineer who can comfortably work in React, that's fine. If you're primarily frontend-focused but can build APIs and work with databases, that's fine too. The important thing is that you're willing and able to move between the layers of the application when the task requires it. You'll be expected to: Take a feature or task and drive it through implementation, testing, and release Understand how your changes affect the rest of the system Ask good questions when requirements or technical details are unclear Investigate problems rather than immediately escalating them Write code that is straightforward for the rest of the team to maintain Think about failure cases, not just the happy path Be comfortable working in an existing codebase Learn unfamiliar technologies and systems when the job requires it Must have: Based in Egypt Fluent English 2+ years of professional software engineering experience, or equivalent experience demonstrating the same level of ownership Strong TypeScript experience Production experience with Node.js and backend APIs Experience building frontend applications with React and/or Next.js Solid understanding of Postgres or another relational database Comfortable working with REST APIs and third-party integrations Familiarity with Git and modern development workflows Nice to have: Startup experience highly encouraged. Graduates of AUC, GUC, Cairo University, and Ain Shams University are highly encouraged to apply. Previous POS or F&B (food & beverage) industry experience highly encouraged Experience with Stripe or another payment platform Experience with webhooks and background jobs Experience with multi-tenant SaaS applications Experience with Docker and CI/CD Experience working with cloud-managed infrastructure Benefits We're a startup in our revenue and growth phase, which means real ownership from day one; you'll shape decisions that most engineers don't get to touch until much later in their career. You'll learn fast, working directly with founders and seeing the direct impact of your work on the business. We offer a competitive salary based on experience.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460502987",
+      "title": "Area Sales Engineer",
+      "company": "BEDO Innovating Education",
+      "location": "6th of October, Al Jizah, Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "47 minutes ago",
+      "estimated_age_minutes": 47,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4460502987",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Sales and Business Development",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": -5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Presales/Sales",
+          "weight": -6.0
+        }
+      ],
+      "description": "We're Hiring | Join Our Sales Team At *BEDO Innovating Education*, we're expanding our sales Department and looking for talented professionals to join our team. #Sales_Engineer *Locations: * - Cairo (Fifth Settlement & Heliopolis) - Mansoura - 6th of October *We're looking for candidates with: * * Bachelor's degree in Engineering. * 2+years of experience in Sales Engineering or Technical Sales. * Strong communication, negotiation, and presentation skills. * Passion for building customer relationships and achieving sales targets. * Previous experience in educational, industrial, or automation products is a plus *Job Details*: - Working Hours: 8:30 AM – 5:00 PM - Days Off: Friday & Saturday - Medical & Social Insurance - Location: 6th of October City - Transportation Provided *Apply Now* *Email*: a.osama@bedoeg.com *WhatsApp: * https://wa.me/201022249665 *Please mention the job title in the email subject. *",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4459411996",
+      "title": "Web Developer",
+      "company": "Palm Outsourcing",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-28",
+      "linkedin_posted_text": "20 minutes ago",
+      "estimated_age_minutes": 20,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-28T21:56:12Z",
+      "url": "https://www.linkedin.com/jobs/view/4459411996",
+      "matched_queries": [
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": -9.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Software Development",
+          "weight": -10.0
+        }
+      ],
+      "description": "About the Job 🗓️ Working Days and Hours: Monday to Friday, 9 AM - 6 PM (UK Hours); Potential for Flexible Hours 📍 Location: Remote/Online 💷 Salary Range: Attractive, Top-of-Market Salary (paid in GBP/USD) At Palm Outsourcing, we don't just fill seats; we build elite teams. We continuously partner with top-tier clients looking for exceptional international talent. Opportunity Overview Our client is a performance-focused Shopify agency working with high-growth DTC brands across CRO, design, and custom theme builds. This is a lead-level replacement role, as the team's previous lead developer has given notice, so the client wants someone with higher-than-typical experience, ideally already leading a team. Familiarity with the Horizon Shopify theme framework is mandatory. Role Description You'll build across a variety of work, including full Shopify theme builds, section development, landing pages, and CRO test implementations. You'll translate high-fidelity Figma designs into accurate, production-ready Shopify themes and sections, working primarily within Shopify 2.0 and the Horizon framework. Your builds should support experimentation and iteration, balancing CRO, performance, and scalability. You'll lead development delivery as the team's senior developer, collaborating closely with CRO specialists, designers, and account managers to ensure implementations match design intent. Key Responsibilities Theme and Section Builds - Build full Shopify theme builds, sections, landing pages, and CRO test implementations. Design Translation - Translate high-fidelity Figma designs into accurate, production-ready Shopify themes and sections. CRO-Focused Development - Build with CRO, performance, and scalability in mind, supporting experimentation and iteration. Shopify 2.0 and Horizon - Work primarily within Shopify 2.0 and the Horizon framework, applying modern best practices. Cross-Functional Collaboration - Work closely with CRO specialists, designers, and account managers to match design intent. Lead Development Delivery - Lead the team's development delivery as senior developer, replacing an outgoing lead. Minimum Qualifications Shopify Development Experience - 6+ years as a Shopify developer, at a lead or senior level. Horizon Framework Familiarity - Hands-on familiarity with the Horizon Shopify theme framework, mandatory for this role. Liquid and Shopify 2.0 - Strong knowledge of Shopify Liquid and Shopify 2.0 architecture and best practices. Version Control Practices - Experience with GitHub and non-destructive, version-controlled development workflows. Design and CRO Collaboration - Proven experience translating Figma designs faithfully alongside designers and CRO teams. Team Leadership - Ideally already leading a development team, ready to step into this outgoing lead's role. Bonus Qualifications AI-Assisted Development - Active experience with AI-assisted workflows, such as Cursor or Claude. DTC Brand Exposure - Experience working across a diverse range of high-profile DTC brands. UK or European Based - UK-based candidates preferred; European candidates also welcome to apply. Benefits Top-of-the-market pay. Remote working. Potential for flexible hours. Becoming a part of Palm Outsourcing, where your performance is rewarded in long-term job security and continued growth opportunities. Ready to elevate? Hit apply, complete your profile, and let the right opportunities come to you.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
