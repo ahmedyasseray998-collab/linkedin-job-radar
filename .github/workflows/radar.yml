@@ -10,6 +10,7 @@ on:
     branches: [main]
     paths:
       - 'radar_v5.py'
+      - 'radar_multilane.py'
       - 'queries.json'
       - 'patch_upstream.py'
       - 'test_radar.py'
@@ -75,7 +76,7 @@ jobs:
         working-directory: radar
         run: |
           set -euo pipefail
-          python3 radar_v5.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
+          python3 radar_multilane.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
 
       - name: Persist state and latest results
         working-directory: radar
