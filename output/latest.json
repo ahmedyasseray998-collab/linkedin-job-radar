@@ -1,23 +1,25 @@
 {
   "schema_version": 3,
   "config_version": 4,
-  "run_id": "20260828T053957Z",
-  "run_started_at_utc": "2026-08-28T05:39:57Z",
-  "generated_at_utc": "2026-08-28T05:40:31Z",
+  "run_id": "20260828T054133Z",
+  "run_started_at_utc": "2026-08-28T05:41:33Z",
+  "generated_at_utc": "2026-08-28T05:42:11Z",
   "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
   "location": "Egypt",
   "window_minutes": 180,
-  "design": "broad discovery -> Job-ID dedupe -> exact detail verification -> explainable scoring -> ChatGPT final fit review",
+  "design": "broad discovery -> overlap/retry -> Job-ID dedupe -> exact detail verification -> explainable scoring -> ChatGPT final fit review",
   "stats": {
     "query_count": 10,
-    "unique_live_cards": 8,
-    "already_seen": 8,
+    "unique_live_cards": 11,
+    "already_seen": 9,
     "hard_filtered": 0,
-    "details_fetched": 0,
+    "details_fetched": 2,
     "detail_failures": 0,
     "detail_budget_skipped": 0,
-    "verified_new_candidates": 0,
-    "search_errors": 0
+    "verified_new_candidates": 2,
+    "search_errors": 0,
+    "empty_query_retries": 0,
+    "empty_query_retry_recoveries": 0
   },
   "query_stats": [
     {
@@ -29,7 +31,9 @@
         0
       ],
       "unique_cards": 0,
-      "errors": 0
+      "errors": 0,
+      "empty_retry_count": 0,
+      "empty_retry_page_count": null
     },
     {
       "query": "Network",
@@ -40,51 +44,61 @@
         0
       ],
       "unique_cards": 0,
-      "errors": 0
+      "errors": 0,
+      "empty_retry_count": 0,
+      "empty_retry_page_count": null
     },
     {
       "query": "System",
       "pages_requested": 3,
       "page_counts": [
-        0,
+        6,
         0,
         0
       ],
-      "unique_cards": 0,
-      "errors": 0
+      "unique_cards": 6,
+      "errors": 0,
+      "empty_retry_count": 0,
+      "empty_retry_page_count": null
     },
     {
       "query": "Security",
       "pages_requested": 3,
       "page_counts": [
-        1,
+        2,
         0,
         0
       ],
-      "unique_cards": 1,
-      "errors": 0
+      "unique_cards": 2,
+      "errors": 0,
+      "empty_retry_count": 0,
+      "empty_retry_page_count": null
     },
     {
       "query": "IT",
       "pages_requested": 4,
       "page_counts": [
-        0,
+        5,
         0,
         0,
         0
       ],
-      "unique_cards": 0,
-      "errors": 0
+      "unique_cards": 5,
+      "errors": 0,
+      "empty_retry_count": 0,
+      "empty_retry_page_count": null
     },
     {
       "query": "ICT",
       "pages_requested": 2,
       "page_counts": [
-        4,
+        0,
         0
       ],
-      "unique_cards": 4,
-      "errors": 0
+      "unique_cards": 0,
+      "errors": 0,
+      "empty_retry_count": 0,
+      "empty_retry_page_count": null
     },
     {
       "query": "IT Operations",
@@ -94,7 +108,9 @@
         0
       ],
       "unique_cards": 0,
-      "errors": 0
+      "errors": 0,
+      "empty_retry_count": 0,
+      "empty_retry_page_count": null
     },
     {
       "query": "Technical Support",
@@ -104,7 +120,9 @@
         0
       ],
       "unique_cards": 4,
-      "errors": 0
+      "errors": 0,
+      "empty_retry_count": 0,
+      "empty_retry_page_count": null
     },
     {
       "query": "VMware",
@@ -113,7 +131,9 @@
         0
       ],
       "unique_cards": 0,
-      "errors": 0
+      "errors": 0,
+      "empty_retry_count": 0,
+      "empty_retry_page_count": null
     },
     {
       "query": "Fortinet",
@@ -122,10 +142,63 @@
         1
       ],
       "unique_cards": 1,
-      "errors": 0
+      "errors": 0,
+      "empty_retry_count": 0,
+      "empty_retry_page_count": null
     }
   ],
   "errors": [],
   "filtered_samples": [],
-  "new_matches": []
+  "new_matches": [
+    {
+      "linkedin_job_id": "4450194595",
+      "title": "Product Development Engineer",
+      "company": "ALPLA Group",
+      "location": "10th of Ramadan, Sharkia, Egypt",
+      "linkedin_date": "2026-08-28",
+      "first_seen_utc": "2026-08-28T05:41:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4450194595",
+      "matched_queries": [
+        {
+          "query": "System",
+          "weight": 1.0
+        }
+      ],
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "score": 1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "What You Will Enjoy Doing Product Development Requirements & Analysis Define product requirements with customers and internal teams. Analyze customer needs and market trends. Design & Development Coordinate mold design, sampling, qualification, and testing. Resolve technical issues and optimize product/process performance. Material & Process Optimization Qualify new materials and additives. Drive cycle-time and weight reduction initiatives. Project Management Project Execution Lead projects from initiation to production handover. Manage scope, timelines, costs, and deliverables. Stakeholder Management Coordinate customers, suppliers, and internal teams. Ensure effective communication and project execution. Project Control Monitor progress, quality, cost, and timing. Ensure approvals and timely project closure. What makes you great Bachelor's degree in Mechanical, Chemical, Polymer Engineering, or a related engineering field. 3–5 years of relevant experience in product development and/or project management, preferably within the plastic injection molding or packaging industry. Strong technical knowledge of plastic raw materials, injection molding, packaging technologies, and mold construction. Practical knowledge of product development and mold qualification processes. Proven experience in project management and cross-functional project coordination. Strong analytical, problem-solving, and decision-making skills with a high level of attention to detail. Excellent communication, interpersonal, and relationship-building skills. Excellent command of written and spoken English. Good knowledge of Microsoft Office tools. Ability to work independently and proactively in a fast-paced and customer-focused environment. Willingness to travel internationally as required. What you can expect working with us Join a global market leader with a strong local presence – part of a well‑established international group serving top brands worldwide. Supportive, family‑oriented work culture built on respect, trust, and open communication, where every colleague matters. Real opportunities to learn, grow, and advance through continuous development, structured onboarding, and challenging projects. Fair employment practices and competitive benefits in an inclusive workplace that values diversity, integrity, and equal opportunity. A dynamic environment that encourages ideas and improvement, offering flexibility and meaningful work with global exposure. We know that no one ticks every box from day one, and that's okay. If you're motivated to grow, learn and take on new challenges, you'll find all the support you need with us.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a live job detail page during this run"
+    },
+    {
+      "linkedin_job_id": "4460181674",
+      "title": "Food & Beverage Manager",
+      "company": "Rixos Hotels",
+      "location": "Sharm El Sheikh, South Sinai, Egypt",
+      "linkedin_date": "2026-08-28",
+      "first_seen_utc": "2026-08-28T05:41:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460181674",
+      "matched_queries": [
+        {
+          "query": "System",
+          "weight": 1.0
+        }
+      ],
+      "seniority": "Executive",
+      "employment_type": "Full-time",
+      "job_function": "Management and Manufacturing",
+      "score": 1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description With its stunning location at Sharm El Sheikh, Rixos Premium Seagate offers a luxurious retreat overlooking the shimmering red sea. The hotel offers an All-Inclusive concept combining exceptional restaurants and bars, top-class entertainment venues that also provide a variety of dining experiences and superb wellness and sports facilities. Rixos Premium Seagate offers stylish rooms and suites with direct access to the private beach, and state-of-the-art conference and banquet venues. A beautiful beach, delicious food with top-quality service restaurants with luxurious buffets, pools, Rixy Club exclusively for children and live entertainment all await your ultimate holiday experience. Rixos Premium Seagate is located 18 km from Naama Bay, 25 km from the old market of Sharm El-Sheikh and 9 km from Sharm El-Sheikh Job Description Senior manager in the Food and Beverage Department responsible for all operations related to food and beverages. Control the food and beverage operations according to the principles determined by Rixos Hotels Egypt management. Monitor the food and beverage operations in line with the procedures determined by the hotel management, set targets and communicate and ensure adoption of these targets. Communicate decisions from the general management to subordinate employees, implement and ensure implementation of these decisions in the best manner. Manage all business and functions of the F&B Department. Maximise the department’s profitability through operations. Manage operations to ensure the highest quality delivery of food and beverage products and service. Control and analyse the below points:  Sales and costs  Display quality and service standards of F&B products  Ensure proper use, protection and maintenance of departmental utensils.  Conduct activities to increase customer satisfaction and, enhance service quality. Consolidate business relationships between employees in the department. Responsible for preparing training programmes for the F&B Department and the trainings of employees in his/her department. Organise meetings to obtain data and achieve results. Prepare and offer new menus and beverage lists, taking into account the purchasing power of guests and the region. Make plans with department managers in order to deliver successful organisations within the hotel. Attend departmental meetings and the Head Office meeting according to the hotel management calendar. Update the below areas related to food and beverages according to the hotel’s policies and procedures:  Finance, standards, employees and trainings, outlets and recreation/entertainment  Conduct promotional activities to increase sales and conduct meetings for banquet organisations  Ensure protection, maintenance and replacement of materials and utensils. Prepare and monitor monthly and annual F&B departmental budget. Arrange for minimum and maximum storage of materials and utensils that belong to the F&B Department. Contribute to preparing the hotel’s income plans and marketing programmes. Research opportunities for professional self-development. Deliver the income and expenses of the F&B Department in line with the facility’s budget discipline. Develop plans based on data of previous years. Determine staffing requirements (such as permanent, seasonal and interns etc.) for the following year, in line with the budget availability and upon the General Manager’s approval. Create the necessary motivational environment to ensure and increase productivity and success of current staff and develop necessary arguments to ensure F&B Department employees’ commitment to the facilities. Ensure order and control of communication, as effective communication will also increase productivity in the F&B Department. Review the departmental reports, income statements, guest relations reports, technical service reports, and departmental communication logs on a daily basis. Conduct brainstorming sessions and group work to unleash employees’ talents. Take part in the Food Safety Team and attend MR meetings. To predict that all activities and to be purchased all equipment and belongings may create disease for the environment, to join all activities which is organized to protect biological diversity and shares the responsibilities, shares the individual responsibilities in order to increase environment knowledge and to carry on necessary trainings. To provide minimum consumption currently used all stuffs and equipment (paper, printed out etc.). To implement necessary warnings and departmental trainings in order to save energy inside the facility. To carry on implementing decisions which were taken for saving energy. To predict effects of environment and efficiency of energy on purchased equipment. To implement his responsibilities in order to eliminate and collect waste in a proper way, reduce environmental pollution and harmful effects to the environment and lead to staffs. To provide carrying chemicals safely, carrying, storing and using in accordance with laws, controlling reducing chemical dirtiness. Carry out all responsibilities related to the quality management and food safety systems implemented at the facilities. Carry out all other duties assigned by managers and hotel management not specified in the job description. Qualifications Education/Experience: 4-year bachelor's degree with a minimum of 6 years of related work experience or 2 years work experience in a lower position and experience with applying the main principles and/or different methods. Foreign Language: Sufficient level of English to communicate effectively with guests and employees. Courses and Training: Requires sufficient theoretical and practical background and attendance in courses and seminars in the related field. Computer Literacy: MS Office applications. Skills: Good command of systems/legislation in the related field. Expected to offer consulting to other employees when needed. Some roles require practical knowledge of systems/programmes/software in the related field. Responsible for carrying out and coordinating complex activities in different fields.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a live job detail page during this run"
+    }
+  ]
 }
