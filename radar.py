@@ -84,8 +84,6 @@ def score_detail(detail, query_weight, config):
     skills, skill_score = matching_signals(title + " " + description + " " + metadata, config.get("skills", {}))
     negatives, negative_score = matching_signals(title, config.get("negative_signals", {}))
 
-    # Title relevance matters most. Body role mentions are useful but capped so a generic
-    # job description cannot overpower an unrelated title merely by listing IT keywords.
     score = float(query_weight) + title_role_score + min(body_role_score, 5.0) + skill_score + negative_score
 
     return {
@@ -109,11 +107,22 @@ def trim_seen(seen, retention_days, config_version):
             ts = cutoff
         if ts < cutoff:
             continue
-        # Jobs discarded by an older filtering model deserve another look after a config upgrade.
         if previous_version != config_version and record.get("status", "").startswith("filtered"):
             continue
         kept[jid] = record
     return {"config_version": config_version, "jobs": kept}
+
+
+def search_page(cli_path, query, location, window_minutes, page):
+    return run_cli(cli_path, [
+        "search",
+        "--query", query,
+        "--location", location,
+        "--jobage-minutes", str(window_minutes),
+        "--page", str(page),
+        "--limit", "10",
+        "--format", "json",
+    ]).get("results", [])
 
 
 def main():
@@ -143,7 +152,6 @@ def main():
     query_stats = []
     errors = []
 
-    # Broad discovery. Each query gets its own diagnostics so zero-result runs are auditable.
     for qspec in config["queries"]:
         query = qspec["query"]
         pages = int(qspec.get("pages", 2))
@@ -151,38 +159,53 @@ def main():
         q_unique = set()
         page_counts = []
         q_errors = 0
+        retry_count = 0
+        retry_page_count = None
+
+        def ingest(results):
+            for card in results:
+                jid = str(card.get("id") or "").strip()
+                if not jid:
+                    continue
+                q_unique.add(jid)
+                if not any(x["query"] == query for x in matched_queries[jid]):
+                    matched_queries[jid].append({"query": query, "weight": query_weight})
+                if jid not in cards:
+                    cards[jid] = card
+
         for page in range(1, pages + 1):
             try:
-                payload = run_cli(cli_path, [
-                    "search",
-                    "--query", query,
-                    "--location", config["location"],
-                    "--jobage-minutes", str(config["window_minutes"]),
-                    "--page", str(page),
-                    "--limit", "10",
-                    "--format", "json",
-                ])
-                results = payload.get("results", [])
+                results = search_page(cli_path, query, config["location"], config["window_minutes"], page)
                 page_counts.append(len(results))
-                for card in results:
-                    jid = str(card.get("id") or "").strip()
-                    if not jid:
-                        continue
-                    q_unique.add(jid)
-                    matched_queries[jid].append({"query": query, "weight": query_weight})
-                    if jid not in cards:
-                        cards[jid] = card
+                ingest(results)
             except Exception as exc:
                 q_errors += 1
                 page_counts.append(None)
                 errors.append({"stage": "search", "query": query, "page": page, "error": str(exc)[:500]})
             time.sleep(float(config.get("delay_seconds", 1.0)))
+
+        # LinkedIn's public guest endpoint can occasionally return an empty page for a query
+        # that produced results moments earlier. Retry important broad queries once rather than
+        # silently accepting a transient empty response as truth.
+        if not q_unique and bool(qspec.get("retry_if_empty", False)):
+            retry_count = 1
+            time.sleep(float(config.get("empty_retry_delay_seconds", 2.5)))
+            try:
+                retry_results = search_page(cli_path, query, config["location"], config["window_minutes"], 1)
+                retry_page_count = len(retry_results)
+                ingest(retry_results)
+            except Exception as exc:
+                q_errors += 1
+                errors.append({"stage": "search_retry", "query": query, "page": 1, "error": str(exc)[:500]})
+
         query_stats.append({
             "query": query,
             "pages_requested": pages,
             "page_counts": page_counts,
             "unique_cards": len(q_unique),
             "errors": q_errors,
+            "empty_retry_count": retry_count,
+            "empty_retry_page_count": retry_page_count,
         })
 
     already_seen = 0
@@ -194,7 +217,6 @@ def main():
     max_details = int(config.get("max_detail_fetches", 80))
     details_used = 0
 
-    # Prefer cards seen by multiple searches, then those whose query was more targeted.
     def discovery_priority(jid):
         qs = matched_queries[jid]
         return (len(qs), max((q["weight"] for q in qs), default=0))
@@ -283,7 +305,7 @@ def main():
         "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
         "location": config["location"],
         "window_minutes": config["window_minutes"],
-        "design": "broad discovery -> Job-ID dedupe -> exact detail verification -> explainable scoring -> ChatGPT final fit review",
+        "design": "broad discovery -> overlap/retry -> Job-ID dedupe -> exact detail verification -> explainable scoring -> ChatGPT final fit review",
         "stats": {
             "query_count": len(config["queries"]),
             "unique_live_cards": len(cards),
@@ -293,12 +315,13 @@ def main():
             "detail_failures": detail_failures,
             "detail_budget_skipped": detail_budget_skipped,
             "verified_new_candidates": len(verified_new),
-            "search_errors": sum(1 for e in errors if e.get("stage") == "search"),
+            "search_errors": sum(1 for e in errors if e.get("stage", "").startswith("search")),
+            "empty_query_retries": sum(q["empty_retry_count"] for q in query_stats),
+            "empty_query_retry_recoveries": sum(1 for q in query_stats if q["empty_retry_count"] and (q["empty_retry_page_count"] or 0) > 0),
         },
         "query_stats": query_stats,
         "errors": errors[:30],
         "filtered_samples": filtered_samples,
-        # Compatibility with the ChatGPT notifier. These are verified candidates, not final recommendations.
         "new_matches": verified_new,
     }
 
