@@ -1,19 +1,21 @@
 {
   "schema_version": 4,
   "config_version": 5,
-  "run_id": "20260828T061954Z",
-  "run_started_at_utc": "2026-08-28T06:19:54Z",
-  "generated_at_utc": "2026-08-28T06:20:17Z",
-  "health": "healthy",
-  "warnings": [],
+  "run_id": "20260828T062712Z",
+  "run_started_at_utc": "2026-08-28T06:27:12Z",
+  "generated_at_utc": "2026-08-28T06:27:37Z",
+  "health": "healthy_with_retries",
+  "warnings": [
+    "LinkedIn guest search needed recovery retries for 1 query bucket(s)"
+  ],
   "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
   "location": "Egypt",
   "window_minutes": 180,
   "design": "broad discovery -> adaptive overlap/retry -> Job-ID dedupe -> relative-age sanity check -> exact detail/closed-status verification -> IT-evidence gate -> explainable scoring -> ChatGPT final fit review",
   "stats": {
     "query_count": 10,
-    "unique_live_cards": 8,
-    "already_seen": 8,
+    "unique_live_cards": 9,
+    "already_seen": 9,
     "hard_filtered": 0,
     "stale_filtered": 0,
     "closed_filtered": 0,
@@ -24,7 +26,7 @@
     "details_fetched": 0,
     "verified_new_candidates": 0,
     "search_errors": 0,
-    "query_retry_recoveries": 0
+    "query_retry_recoveries": 1
   },
   "query_stats": [
     {
@@ -32,12 +34,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        0
+        2
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 2,
       "errors": 0
     },
     {
@@ -58,9 +58,11 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        4
+        0
       ],
-      "retry_page_counts": {},
+      "retry_page_counts": {
+        "1": 4
+      },
       "unique_cards": 4,
       "errors": 0
     },
@@ -102,10 +104,12 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        1
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
+      "retry_page_counts": {
+        "1": 0
+      },
+      "unique_cards": 0,
       "errors": 0
     },
     {
