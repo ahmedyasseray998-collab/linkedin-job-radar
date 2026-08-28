@@ -7,8 +7,10 @@ on:
   push:
     branches: [main]
     paths:
-      - 'radar.py'
+      - 'radar_v4.py'
       - 'queries.json'
+      - 'patch_upstream.py'
+      - 'test_radar.py'
       - '.github/workflows/radar.yml'
 
 permissions:
@@ -25,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout radar
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           path: radar
           fetch-depth: 0
@@ -33,43 +35,50 @@ jobs:
       - name: Refresh radar checkout to latest main
         working-directory: radar
         run: |
+          set -euo pipefail
           git fetch origin main
           git checkout main
           git reset --hard origin/main
 
       - name: Checkout pinned LinkedIn search implementation
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: MadsLorentzen/ai-job-search
           ref: 79cd383e58f0af7948c7c6462a3a289e9b67421e
           path: upstream
 
-      - name: Prefer newest LinkedIn results
+      - name: Patch and verify pinned LinkedIn CLI
+        working-directory: radar
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path('upstream/.agents/skills/linkedin-search/cli/src/commands/search.ts')
-          text = p.read_text()
-          needle = '  params.set("start", String((opts.page - 1) * 10))'
-          replacement = '  params.set("sortBy", "DD")\n' + needle
-          if needle not in text:
-              raise SystemExit('Could not patch LinkedIn search ordering')
-          p.write_text(text.replace(needle, replacement, 1))
-          PY
+          set -euo pipefail
+          python3 patch_upstream.py ../upstream
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
         with:
-          bun-version: latest
+          bun-version: 1.4.0
+
+      - name: Validate patched LinkedIn CLI
+        run: |
+          set -euo pipefail
+          bun run upstream/.agents/skills/linkedin-search/cli/src/cli.ts --help >/dev/null
+
+      - name: Run radar unit tests
+        working-directory: radar
+        run: |
+          set -euo pipefail
+          python3 -m unittest -v test_radar.py
 
       - name: Run live LinkedIn scan
         working-directory: radar
         run: |
-          python3 radar.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
+          set -euo pipefail
+          python3 radar_v4.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
 
       - name: Persist state and latest results
         working-directory: radar
         run: |
+          set -euo pipefail
           git config user.name "linkedin-job-radar[bot]"
           git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
           git add state/seen.json output/latest.json
