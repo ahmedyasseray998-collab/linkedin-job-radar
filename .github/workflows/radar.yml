@@ -2,7 +2,7 @@ name: LinkedIn Job Radar
 
 on:
   schedule:
-    - cron: '7 * * * *'
+    - cron: '37 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
@@ -28,6 +28,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: radar
+          fetch-depth: 0
+
+      - name: Refresh radar checkout to latest main
+        working-directory: radar
+        run: |
+          git fetch origin main
+          git checkout main
+          git reset --hard origin/main
 
       - name: Checkout pinned LinkedIn search implementation
         uses: actions/checkout@v4
@@ -56,5 +64,5 @@ jobs:
             echo "No state changes to commit."
           else
             git commit -m "radar: update $(date -u +'%Y-%m-%dT%H:%MZ')"
-            git push
+            git push origin main
           fi
