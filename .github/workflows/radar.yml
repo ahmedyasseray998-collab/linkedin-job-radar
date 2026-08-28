@@ -1,7 +1,6 @@
 name: LinkedIn Job Radar
 
-# Hardened workflow: pinned dependencies, verified upstream patching, unit tests, live scan.
-# Controlled revalidation performed after clearing pre-hardening dedupe state.
+# Lossless-review workflow: pinned dependencies, verified upstream patching, unit tests, live scan.
 on:
   schedule:
     - cron: '37 * * * *'
@@ -9,7 +8,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'radar_v4.py'
+      - 'radar_v5.py'
       - 'queries.json'
       - 'patch_upstream.py'
       - 'test_radar.py'
@@ -75,7 +74,7 @@ jobs:
         working-directory: radar
         run: |
           set -euo pipefail
-          python3 radar_v4.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
+          python3 radar_v5.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
 
       - name: Persist state and latest results
         working-directory: radar
