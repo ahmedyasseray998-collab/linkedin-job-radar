@@ -35,9 +35,7 @@ def norm(text):
 def contains_phrase(haystack, phrase):
     p = norm(phrase)
     if not p: return False
-    if len(p) <= 3 and p.isalnum():
-        return re.search(rf"(?<![a-z0-9]){re.escape(p)}(?![a-z0-9])", haystack) is not None
-    return p in haystack
+    return re.search(rf"(?<![a-z0-9]){re.escape(p)}(?![a-z0-9])", haystack) is not None
 
 def matching_signals(text, mapping):
     h, hits, total = norm(text), [], 0.0
