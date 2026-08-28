@@ -3,9 +3,11 @@ import radar_v4 as radar
 
 
 class RadarTests(unittest.TestCase):
-    def test_short_token_boundaries(self):
+    def test_phrase_boundaries(self):
         self.assertTrue(radar.contains_phrase(radar.norm('LAN, VLAN and WAN'), 'lan'))
         self.assertFalse(radar.contains_phrase(radar.norm('freelance designer'), 'lan'))
+        self.assertTrue(radar.contains_phrase(radar.norm('IT Intern'), 'intern'))
+        self.assertFalse(radar.contains_phrase(radar.norm('International IT Engineer'), 'intern'))
 
     def test_relative_age(self):
         self.assertEqual(radar.relative_age_minutes('Reposted 2 hours ago'), 120)
