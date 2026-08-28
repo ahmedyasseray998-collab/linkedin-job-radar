@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import re
 import subprocess
 import sys
 import time
+from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -33,7 +35,7 @@ def save_json(path, data):
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def run_cli(cli_path, args, timeout=75):
+def run_cli(cli_path, args, timeout=90):
     cmd = ["bun", "run", str(cli_path), *args]
     proc = subprocess.run(cmd, text=True, capture_output=True, timeout=timeout)
     if proc.returncode != 0:
@@ -42,32 +44,62 @@ def run_cli(cli_path, args, timeout=75):
 
 
 def norm(text):
-    return " ".join((text or "").lower().replace("&", " and ").split())
+    text = (text or "").lower().replace("&", " and ")
+    return " ".join(re.sub(r"[^a-z0-9+.#/ -]+", " ", text).split())
 
 
-def title_relevant(title, config):
-    t = norm(title)
-    if any(term in t for term in config["title_exclude"]):
+def contains_phrase(haystack, phrase):
+    p = norm(phrase)
+    if not p:
         return False
-    return any(term in t for term in config["title_include"])
+    if len(p) <= 3 and p.isalnum():
+        return re.search(rf"(?<![a-z0-9]){re.escape(p)}(?![a-z0-9])", haystack) is not None
+    return p in haystack
 
 
-def skill_hits(detail, config):
-    haystack = norm(" ".join([
-        detail.get("title") or "",
-        detail.get("description") or "",
-        detail.get("jobFunction") or "",
-        detail.get("industries") or "",
-    ]))
+def matching_signals(text, mapping):
+    h = norm(text)
     hits = []
-    for label, variants in config["skills"].items():
-        if any(norm(v) in haystack for v in variants):
-            hits.append(label)
-    return hits
+    total = 0.0
+    for label, spec in mapping.items():
+        if any(contains_phrase(h, v) for v in spec.get("variants", [])):
+            weight = float(spec.get("weight", 0))
+            hits.append({"label": label, "weight": weight})
+            total += weight
+    return hits, total
 
 
-def trim_seen(seen, retention_days):
+def hard_excluded(title, config):
+    t = norm(title)
+    return [term for term in config.get("hard_exclude_title", []) if contains_phrase(t, term)]
+
+
+def score_detail(detail, query_weight, config):
+    title = detail.get("title") or ""
+    description = detail.get("description") or ""
+    metadata = " ".join([detail.get("jobFunction") or "", detail.get("industries") or ""])
+
+    title_roles, title_role_score = matching_signals(title, config.get("role_signals", {}))
+    body_roles, body_role_score = matching_signals(description + " " + metadata, config.get("role_signals", {}))
+    skills, skill_score = matching_signals(title + " " + description + " " + metadata, config.get("skills", {}))
+    negatives, negative_score = matching_signals(title, config.get("negative_signals", {}))
+
+    # Title relevance matters most. Body role mentions are useful but capped so a generic
+    # job description cannot overpower an unrelated title merely by listing IT keywords.
+    score = float(query_weight) + title_role_score + min(body_role_score, 5.0) + skill_score + negative_score
+
+    return {
+        "score": round(score, 1),
+        "role_hits_title": title_roles,
+        "role_hits_description": body_roles,
+        "skill_hits": skills,
+        "negative_hits": negatives,
+    }
+
+
+def trim_seen(seen, retention_days, config_version):
     cutoff = now_utc() - timedelta(days=retention_days)
+    previous_version = seen.get("config_version")
     kept = {}
     for jid, record in seen.get("jobs", {}).items():
         raw = record.get("first_seen_utc")
@@ -75,9 +107,13 @@ def trim_seen(seen, retention_days):
             ts = datetime.fromisoformat(raw.replace("Z", "+00:00")) if raw else cutoff
         except ValueError:
             ts = cutoff
-        if ts >= cutoff:
-            kept[jid] = record
-    return {"jobs": kept}
+        if ts < cutoff:
+            continue
+        # Jobs discarded by an older filtering model deserve another look after a config upgrade.
+        if previous_version != config_version and record.get("status", "").startswith("filtered"):
+            continue
+        kept[jid] = record
+    return {"config_version": config_version, "jobs": kept}
 
 
 def main():
@@ -90,20 +126,32 @@ def main():
         raise SystemExit(f"LinkedIn CLI not found: {cli_path}")
 
     config = load_json(CONFIG_PATH, {})
-    required = ["location", "window_minutes", "pages_per_query", "queries", "title_include", "title_exclude", "skills"]
+    required = ["location", "window_minutes", "queries", "role_signals", "skills"]
     missing = [k for k in required if k not in config]
     if missing:
         raise SystemExit(f"Missing config keys: {', '.join(missing)}")
 
-    seen = trim_seen(load_json(SEEN_PATH, {"jobs": {}}), int(config.get("seen_retention_days", 90)))
+    config_version = int(config.get("config_version", 1))
+    seen = trim_seen(
+        load_json(SEEN_PATH, {"jobs": {}}),
+        int(config.get("seen_retention_days", 60)),
+        config_version,
+    )
     run_started = now_utc()
     cards = {}
+    matched_queries = defaultdict(list)
+    query_stats = []
     errors = []
 
-    # Mads' CLI sends f_TPR=r<seconds> directly to LinkedIn's jobs-guest endpoint.
-    # Multiple compact searches are intentionally used instead of one giant Boolean query.
-    for query in config["queries"]:
-        for page in range(1, int(config["pages_per_query"]) + 1):
+    # Broad discovery. Each query gets its own diagnostics so zero-result runs are auditable.
+    for qspec in config["queries"]:
+        query = qspec["query"]
+        pages = int(qspec.get("pages", 2))
+        query_weight = float(qspec.get("query_weight", 0))
+        q_unique = set()
+        page_counts = []
+        q_errors = 0
+        for page in range(1, pages + 1):
             try:
                 payload = run_cli(cli_path, [
                     "search",
@@ -114,94 +162,155 @@ def main():
                     "--limit", "10",
                     "--format", "json",
                 ])
-                for card in payload.get("results", []):
+                results = payload.get("results", [])
+                page_counts.append(len(results))
+                for card in results:
                     jid = str(card.get("id") or "").strip()
-                    if jid:
-                        card["matched_query"] = query
-                        cards.setdefault(jid, card)
+                    if not jid:
+                        continue
+                    q_unique.add(jid)
+                    matched_queries[jid].append({"query": query, "weight": query_weight})
+                    if jid not in cards:
+                        cards[jid] = card
             except Exception as exc:
-                errors.append({"query": query, "page": page, "error": str(exc)[:500]})
+                q_errors += 1
+                page_counts.append(None)
+                errors.append({"stage": "search", "query": query, "page": page, "error": str(exc)[:500]})
             time.sleep(float(config.get("delay_seconds", 1.0)))
+        query_stats.append({
+            "query": query,
+            "pages_requested": pages,
+            "page_counts": page_counts,
+            "unique_cards": len(q_unique),
+            "errors": q_errors,
+        })
 
-    new_matches = []
-    new_irrelevant = 0
     already_seen = 0
+    hard_filtered = 0
     detail_failures = 0
+    detail_budget_skipped = 0
+    verified_new = []
+    filtered_samples = []
+    max_details = int(config.get("max_detail_fetches", 80))
+    details_used = 0
 
-    for jid, card in cards.items():
+    # Prefer cards seen by multiple searches, then those whose query was more targeted.
+    def discovery_priority(jid):
+        qs = matched_queries[jid]
+        return (len(qs), max((q["weight"] for q in qs), default=0))
+
+    for jid in sorted(cards.keys(), key=discovery_priority, reverse=True):
+        card = cards[jid]
         if jid in seen["jobs"]:
             already_seen += 1
             continue
 
-        if not title_relevant(card.get("title"), config):
+        excluded_by = hard_excluded(card.get("title"), config)
+        if excluded_by:
             seen["jobs"][jid] = {
                 "first_seen_utc": iso(run_started),
                 "title": card.get("title"),
                 "company": card.get("company"),
                 "url": card.get("url"),
-                "status": "filtered_title",
+                "status": "filtered_hard_title",
+                "excluded_by": excluded_by,
             }
-            new_irrelevant += 1
+            hard_filtered += 1
+            if len(filtered_samples) < int(config.get("filtered_sample_limit", 20)):
+                filtered_samples.append({
+                    "linkedin_job_id": jid,
+                    "title": card.get("title"),
+                    "company": card.get("company"),
+                    "excluded_by": excluded_by,
+                })
             continue
 
-        # Re-fetch the exact LinkedIn Job ID. A 404/non-zero response is excluded and retried next run.
+        if details_used >= max_details:
+            detail_budget_skipped += 1
+            continue
+
         try:
             detail = run_cli(cli_path, ["detail", jid, "--format", "json"])
+            details_used += 1
         except Exception as exc:
             detail_failures += 1
-            errors.append({"job_id": jid, "error": str(exc)[:500]})
+            errors.append({"stage": "detail", "job_id": jid, "error": str(exc)[:500]})
             continue
 
-        hits = skill_hits(detail, config)
+        qs = matched_queries[jid]
+        best_query_weight = max((q["weight"] for q in qs), default=0)
+        scoring = score_detail(detail, best_query_weight, config)
+        title = detail.get("title") or card.get("title")
+        company = detail.get("company") or card.get("company")
+        url = detail.get("url") or card.get("url") or f"https://www.linkedin.com/jobs/view/{jid}"
+
         seen["jobs"][jid] = {
             "first_seen_utc": iso(run_started),
-            "title": detail.get("title") or card.get("title"),
-            "company": detail.get("company") or card.get("company"),
-            "url": detail.get("url") or card.get("url"),
-            "status": "matched",
+            "title": title,
+            "company": company,
+            "url": url,
+            "status": "verified",
+            "score": scoring["score"],
         }
-        new_matches.append({
+
+        verified_new.append({
             "linkedin_job_id": jid,
-            "title": detail.get("title") or card.get("title"),
-            "company": detail.get("company") or card.get("company"),
+            "title": title,
+            "company": company,
             "location": detail.get("location") or card.get("location"),
             "linkedin_date": card.get("date"),
             "first_seen_utc": iso(run_started),
-            "url": detail.get("url") or card.get("url") or f"https://www.linkedin.com/jobs/view/{jid}",
-            "matched_query": card.get("matched_query"),
+            "url": url,
+            "matched_queries": qs,
             "seniority": detail.get("seniority"),
             "employment_type": detail.get("employmentType"),
             "job_function": detail.get("jobFunction"),
-            "skill_hits": hits,
-            "skill_hit_count": len(hits),
-            "description": (detail.get("description") or "")[:12000],
+            **scoring,
+            "description": (detail.get("description") or "")[:14000],
             "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a live job detail page during this run",
         })
         time.sleep(float(config.get("delay_seconds", 1.0)))
 
-    new_matches.sort(key=lambda x: (x["skill_hit_count"], x["title"] or ""), reverse=True)
+    verified_new.sort(key=lambda x: (x["score"], len(x["skill_hits"]), x["title"] or ""), reverse=True)
+
     run_id = run_started.strftime("%Y%m%dT%H%M%SZ")
     latest = {
+        "schema_version": int(config.get("schema_version", 3)),
+        "config_version": config_version,
         "run_id": run_id,
+        "run_started_at_utc": iso(run_started),
         "generated_at_utc": iso(now_utc()),
-        "source": "LinkedIn jobs-guest via MadsLorentzen/ai-job-search linkedin-search CLI",
+        "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
         "location": config["location"],
         "window_minutes": config["window_minutes"],
+        "design": "broad discovery -> Job-ID dedupe -> exact detail verification -> explainable scoring -> ChatGPT final fit review",
         "stats": {
+            "query_count": len(config["queries"]),
             "unique_live_cards": len(cards),
             "already_seen": already_seen,
-            "new_filtered_by_title": new_irrelevant,
+            "hard_filtered": hard_filtered,
+            "details_fetched": details_used,
             "detail_failures": detail_failures,
-            "new_matches": len(new_matches),
-            "search_errors": len(errors),
+            "detail_budget_skipped": detail_budget_skipped,
+            "verified_new_candidates": len(verified_new),
+            "search_errors": sum(1 for e in errors if e.get("stage") == "search"),
         },
-        "errors": errors[:20],
-        "new_matches": new_matches,
+        "query_stats": query_stats,
+        "errors": errors[:30],
+        "filtered_samples": filtered_samples,
+        # Compatibility with the ChatGPT notifier. These are verified candidates, not final recommendations.
+        "new_matches": verified_new,
     }
 
     save_json(SEEN_PATH, seen)
     save_json(LATEST_PATH, latest)
-    print(json.dumps({"run_id": run_id, "new_matches": len(new_matches), "cards": len(cards), "errors": len(errors)}))
+    print(json.dumps({
+        "run_id": run_id,
+        "cards": len(cards),
+        "verified_new_candidates": len(verified_new),
+        "hard_filtered": hard_filtered,
+        "errors": len(errors),
+    }))
 
 
 if __name__ == "__main__":

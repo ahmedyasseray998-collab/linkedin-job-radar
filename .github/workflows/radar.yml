@@ -21,7 +21,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout radar
@@ -44,6 +44,19 @@ jobs:
           ref: 79cd383e58f0af7948c7c6462a3a289e9b67421e
           path: upstream
 
+      - name: Prefer newest LinkedIn results
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('upstream/.agents/skills/linkedin-search/cli/src/commands/search.ts')
+          text = p.read_text()
+          needle = '  params.set("start", String((opts.page - 1) * 10))'
+          replacement = '  params.set("sortBy", "DD")\n' + needle
+          if needle not in text:
+              raise SystemExit('Could not patch LinkedIn search ordering')
+          p.write_text(text.replace(needle, replacement, 1))
+          PY
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -64,5 +77,6 @@ jobs:
             echo "No state changes to commit."
           else
             git commit -m "radar: update $(date -u +'%Y-%m-%dT%H:%MZ')"
+            git pull --rebase origin main
             git push origin main
           fi
