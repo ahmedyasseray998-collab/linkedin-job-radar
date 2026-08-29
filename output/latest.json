@@ -1,11 +1,13 @@
 {
   "schema_version": 6,
   "config_version": 7,
-  "run_id": "20260829T034425Z",
-  "run_started_at_utc": "2026-08-29T03:44:25Z",
-  "generated_at_utc": "2026-08-29T03:47:30Z",
-  "health": "healthy",
-  "warnings": [],
+  "run_id": "20260829T044418Z",
+  "run_started_at_utc": "2026-08-29T04:44:18Z",
+  "generated_at_utc": "2026-08-29T04:47:26Z",
+  "health": "healthy_with_retries",
+  "warnings": [
+    "LinkedIn guest search needed recovery retries for 1 query bucket(s)"
+  ],
   "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
   "search_lanes": [
     {
@@ -31,38 +33,38 @@
     "principle": "Do not let code decide job fit after exact-detail retrieval; ChatGPT reviews every verified new candidate"
   },
   "stats": {
-    "unique_live_cards": 1,
+    "unique_live_cards": 2,
     "already_seen": 1,
-    "detail_attempts": 0,
-    "details_fetched": 0,
+    "detail_attempts": 1,
+    "details_fetched": 1,
     "detail_failures": 0,
     "detail_budget_skipped": 0,
     "closed_candidates_kept": 0,
     "freshness_conflicts_kept": 0,
-    "low_it_evidence_candidates_kept": 0,
+    "low_it_evidence_candidates_kept": 1,
     "title_noise_candidates_kept": 0,
     "search_errors": 0,
-    "query_retry_recoveries": 0,
+    "query_retry_recoveries": 1,
     "query_count": 25,
     "search_bucket_count": 50,
-    "review_candidates": 0,
+    "review_candidates": 1,
     "relevance_rejections": 0,
     "lane_stats": {
       "egypt": {
         "query_count": 25,
-        "unique_live_cards": 1,
+        "unique_live_cards": 2,
         "already_seen": 1,
-        "detail_attempts": 0,
-        "details_fetched": 0,
+        "detail_attempts": 1,
+        "details_fetched": 1,
         "detail_failures": 0,
         "detail_budget_skipped": 0,
-        "review_candidates": 0,
+        "review_candidates": 1,
         "closed_candidates_kept": 0,
         "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 0,
+        "low_it_evidence_candidates_kept": 1,
         "title_noise_candidates_kept": 0,
         "search_errors": 0,
-        "query_retry_recoveries": 0,
+        "query_retry_recoveries": 1,
         "relevance_rejections": 0
       },
       "emea_remote": {
@@ -424,9 +426,11 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        1
+        0
       ],
-      "retry_page_counts": {},
+      "retry_page_counts": {
+        "1": 1
+      },
       "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
@@ -452,10 +456,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        0
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 0,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -871,6 +875,84 @@
     }
   ],
   "errors": [],
-  "review_candidates": [],
-  "new_matches": []
+  "review_candidates": [
+    {
+      "linkedin_job_id": "4460568714",
+      "title": "Bilingual French Talent Acquisition",
+      "company": "iQor",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-29",
+      "linkedin_posted_text": "57 minutes ago",
+      "estimated_age_minutes": 57,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-29T04:44:18Z",
+      "url": "https://www.linkedin.com/jobs/view/4460568714",
+      "matched_queries": [
+        {
+          "query": "Fortinet",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Human Resources",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description iQor is a global customer experience solutions provider supporting leading brands across diverse industries and is a portfolio company of Mill Point Capital. With 45,000 employees in 10 countries, iQor blends three decades of operational expertise with AI-driven innovation to optimize performance across the customer lifecycle. Through its Grow, CXBPO, and infinityAiQ delivery pillars, the company offers scalable services that enhance customer acquisition, engagement, and retention. A people-first culture and advanced analytics enable iQor to turn customer interactions into measurable business growth. Recognized as a Great Place to Work® and a leader in CX excellence, iQor offers an environment where team members can build meaningful careers in a dynamic, tech-enabled setting. Role Description This is a full-time, on-site Bilingual French Talent Acquisition role based in Egypt. The Talent Acquisition professional will manage end-to-end recruiting activities, including sourcing candidates, screening resumes, conducting interviews, and coordinating hiring decisions for French-speaking roles. Day-to-day responsibilities include partnering with hiring managers to understand staffing needs, maintaining talent pipelines, and ensuring a positive candidate experience throughout the recruitment process. The role involves supporting employer branding initiatives, preparing job postings, and using recruitment platforms and social media to attract qualified talent. The individual will also contribute to recruitment reporting, compliance with internal policies and local regulations, and continuous improvement of hiring processes. Qualifications Candidates should possess strong Full-life Cycle Recruiting and Recruiting skills, including sourcing, screening, and onboarding. Candidates should possess expertise in Interviewing and Hiring to assess qualifications, cultural fit, and make data-informed selection decisions. Candidates should possess Employer Branding skills to help promote iQor’s value proposition and attract high-quality French-speaking talent. Fluency in French and English, with excellent written and verbal communication skills. Experience in talent acquisition or HR within a multinational or BPO environment is beneficial. Strong organizational skills, attention to detail, and the ability to manage multiple requisitions and deadlines. Proficiency with applicant tracking systems, recruitment tools, and MS Office or similar productivity software. Bachelor’s degree in Human Resources, Business, Psychology, or a related field, or equivalent practical experience.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    }
+  ],
+  "new_matches": [
+    {
+      "linkedin_job_id": "4460568714",
+      "title": "Bilingual French Talent Acquisition",
+      "company": "iQor",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-29",
+      "linkedin_posted_text": "57 minutes ago",
+      "estimated_age_minutes": 57,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-29T04:44:18Z",
+      "url": "https://www.linkedin.com/jobs/view/4460568714",
+      "matched_queries": [
+        {
+          "query": "Fortinet",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Human Resources",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description iQor is a global customer experience solutions provider supporting leading brands across diverse industries and is a portfolio company of Mill Point Capital. With 45,000 employees in 10 countries, iQor blends three decades of operational expertise with AI-driven innovation to optimize performance across the customer lifecycle. Through its Grow, CXBPO, and infinityAiQ delivery pillars, the company offers scalable services that enhance customer acquisition, engagement, and retention. A people-first culture and advanced analytics enable iQor to turn customer interactions into measurable business growth. Recognized as a Great Place to Work® and a leader in CX excellence, iQor offers an environment where team members can build meaningful careers in a dynamic, tech-enabled setting. Role Description This is a full-time, on-site Bilingual French Talent Acquisition role based in Egypt. The Talent Acquisition professional will manage end-to-end recruiting activities, including sourcing candidates, screening resumes, conducting interviews, and coordinating hiring decisions for French-speaking roles. Day-to-day responsibilities include partnering with hiring managers to understand staffing needs, maintaining talent pipelines, and ensuring a positive candidate experience throughout the recruitment process. The role involves supporting employer branding initiatives, preparing job postings, and using recruitment platforms and social media to attract qualified talent. The individual will also contribute to recruitment reporting, compliance with internal policies and local regulations, and continuous improvement of hiring processes. Qualifications Candidates should possess strong Full-life Cycle Recruiting and Recruiting skills, including sourcing, screening, and onboarding. Candidates should possess expertise in Interviewing and Hiring to assess qualifications, cultural fit, and make data-informed selection decisions. Candidates should possess Employer Branding skills to help promote iQor’s value proposition and attract high-quality French-speaking talent. Fluency in French and English, with excellent written and verbal communication skills. Experience in talent acquisition or HR within a multinational or BPO environment is beneficial. Strong organizational skills, attention to detail, and the ability to manage multiple requisitions and deadlines. Proficiency with applicant tracking systems, recruitment tools, and MS Office or similar productivity software. Bachelor’s degree in Human Resources, Business, Psychology, or a related field, or equivalent practical experience.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    }
+  ]
 }
