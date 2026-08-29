@@ -1,11 +1,13 @@
 {
   "schema_version": 6,
   "config_version": 7,
-  "run_id": "20260829T064419Z",
-  "run_started_at_utc": "2026-08-29T06:44:19Z",
-  "generated_at_utc": "2026-08-29T06:47:19Z",
-  "health": "healthy",
-  "warnings": [],
+  "run_id": "20260829T074428Z",
+  "run_started_at_utc": "2026-08-29T07:44:28Z",
+  "generated_at_utc": "2026-08-29T07:47:26Z",
+  "health": "healthy_with_retries",
+  "warnings": [
+    "LinkedIn guest search needed recovery retries for 3 query bucket(s)"
+  ],
   "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
   "search_lanes": [
     {
@@ -31,38 +33,38 @@
     "principle": "Do not let code decide job fit after exact-detail retrieval; ChatGPT reviews every verified new candidate"
   },
   "stats": {
-    "unique_live_cards": 1,
+    "unique_live_cards": 3,
     "already_seen": 1,
-    "detail_attempts": 0,
-    "details_fetched": 0,
+    "detail_attempts": 2,
+    "details_fetched": 2,
     "detail_failures": 0,
     "detail_budget_skipped": 0,
     "closed_candidates_kept": 0,
     "freshness_conflicts_kept": 0,
-    "low_it_evidence_candidates_kept": 0,
-    "title_noise_candidates_kept": 0,
+    "low_it_evidence_candidates_kept": 1,
+    "title_noise_candidates_kept": 1,
     "search_errors": 0,
-    "query_retry_recoveries": 0,
+    "query_retry_recoveries": 3,
     "query_count": 25,
     "search_bucket_count": 50,
-    "review_candidates": 0,
+    "review_candidates": 2,
     "relevance_rejections": 0,
     "lane_stats": {
       "egypt": {
         "query_count": 25,
-        "unique_live_cards": 1,
+        "unique_live_cards": 3,
         "already_seen": 1,
-        "detail_attempts": 0,
-        "details_fetched": 0,
+        "detail_attempts": 2,
+        "details_fetched": 2,
         "detail_failures": 0,
         "detail_budget_skipped": 0,
-        "review_candidates": 0,
+        "review_candidates": 2,
         "closed_candidates_kept": 0,
         "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 0,
-        "title_noise_candidates_kept": 0,
+        "low_it_evidence_candidates_kept": 1,
+        "title_noise_candidates_kept": 1,
         "search_errors": 0,
-        "query_retry_recoveries": 0,
+        "query_retry_recoveries": 3,
         "relevance_rejections": 0
       },
       "emea_remote": {
@@ -250,12 +252,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        0
+        1
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -266,12 +266,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        0
+        1
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -282,12 +280,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        0
+        1
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -363,9 +359,9 @@
         0
       ],
       "retry_page_counts": {
-        "1": 0
+        "1": 1
       },
-      "unique_cards": 0,
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -379,9 +375,9 @@
         0
       ],
       "retry_page_counts": {
-        "1": 0
+        "1": 1
       },
-      "unique_cards": 0,
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -392,10 +388,12 @@
       "pages_configured": 4,
       "pages_requested": 1,
       "page_counts": [
-        1
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
+      "retry_page_counts": {
+        "1": 2
+      },
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -406,10 +404,10 @@
       "pages_configured": 4,
       "pages_requested": 1,
       "page_counts": [
-        1
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -420,10 +418,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        1
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -448,10 +446,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        0
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 0,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -867,6 +865,286 @@
     }
   ],
   "errors": [],
-  "review_candidates": [],
-  "new_matches": []
+  "review_candidates": [
+    {
+      "linkedin_job_id": "4460589832",
+      "title": "Senior Human Resources Manager",
+      "company": "ELBATTAT Steel - METRACO",
+      "location": "Alexandria, Egypt",
+      "linkedin_date": "2026-08-29",
+      "linkedin_posted_text": "9 minutes ago",
+      "estimated_age_minutes": 9,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-29T07:44:28Z",
+      "url": "https://www.linkedin.com/jobs/view/4460589832",
+      "matched_queries": [
+        {
+          "query": "Fortinet",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Human Resources",
+      "advisory_title_noise_signals": [
+        "human resources"
+      ],
+      "advisory_it_evidence": true,
+      "score": 5.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Microsoft 365",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "We are seeking an experienced HR Manager – Talent Acquisition & People Development to join our team in Alexandria .Reporting directly to the CEO, this role will lead the overall HR direction of the company, with a strong focus on attracting the right talent, developing our people, building clear career paths, and establishing a structured performance-driven culture. HR Generalists will report to this position, supporting the day-to-day HR operations and personnel administration. Responsibilities: Develop and lead the company’s HR direction in alignment with business priorities and organizational growth. Lead the full talent acquisition cycle, from workforce requirements and candidate sourcing through selection, offers, and onboarding. Build a structured approach to training and development, identifying competency gaps and establishing development plans across departments. Develop clear career paths and progression frameworks to support employee growth, retention, and succession. Work closely with department managers to define clear KPOs and KPIs for each role and establish an effective performance management process. Support managers in performance reviews, employee development, organizational planning, and people-related decisions. Strengthen employee engagement, retention, and the overall employee experience. Supervise and guide the HR Generalists, ensuring day-to-day HR activities, personnel administration, payroll inputs, attendance, employee records, insurance follow-up, and HR documentation remain properly controlled and aligned with company policies. Develop and continuously improve HR policies, procedures, organizational structures, and internal HR standards. Provide the CEO with clear HR insights, recommendations, and reporting to support management decisions and long-term organizational development. Qualifications: Bachelor’s degree in Human Resources, Business Administration, Management, or a related field. 7+ years of progressive HR experience, with strong exposure to talent acquisition, performance management, and learning & development. Previous experience in an HR leadership or managerial role is highly preferred. Strong interviewing, assessment, and talent sourcing capabilities. Practical experience establishing KPIs, performance evaluation systems, career development plans, and organizational structures. Good knowledge of Egyptian labor regulations and HR practices. Strong communication and people-management skills, with the ability to work effectively with employees and managers at all levels. Strong command of Microsoft 365 applications. Excellent command of both English and Arabic. Proficiency in working with AI tools is required. HR certifications, postgraduate studies, or an MBA are considered an advantage. What We Offer: We are proud to be an equal opportunity employer. Opportunity to play a key role in building and developing the HR function within a growing leading steel manufacturing company in Egypt. Direct exposure to senior management and involvement in company-wide organizational development.Ongoing training and professional development opportunities. Attractive package, compensation, and benefits. A workplace where people are encouraged to grow, contribute, and take ownership. Commitment to fostering a diverse, equitable, and inclusive environment where employees feel valued and empowered to succeed. Commitment to sustainable practices and responsible long-term growth. If you match the above criteria, are interested, and ready to grow with us, we would like to hear from you. Kindly send your CV to careers@elbattat.com, mentioning “Application for HR Manager – Talent Acquisition & People Development – [Your Full Name]” in the subject line.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458475489",
+      "title": "English Technical Support | Fixed Shift | Morning",
+      "company": "ETISAL International Group",
+      "location": "Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-29",
+      "linkedin_posted_text": "5 minutes ago",
+      "estimated_age_minutes": 5,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-29T07:44:28Z",
+      "url": "https://www.linkedin.com/jobs/view/4458475489",
+      "matched_queries": [
+        {
+          "query": "IT Operations",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Support Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Technical Support Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Specialist",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Support",
+          "weight": 2.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Fortinet",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Education and Training",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 4.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description ETISAL International Group is a leading Business Process Outsourcing (BPO) company serving clients across the Middle and Far East. The organization focuses on delivering customized, high-value outsourcing solutions that help partners concentrate on their core business while enhancing service to their own customers. ETISAL International combines global coverage, cultural understanding, and industry best practices to provide consultative and innovative services. The company is committed to quality, transparency, flexibility, integrity, and the appreciation of human capital. Its teams work continuously to exceed client expectations through state-of-the-art technologies and strong operational standards. Role Description The English Technical Support role is a full-time, on-site position based in Cairo, focused on assisting customers in English with technical and service-related inquiries. Day-to-day responsibilities include handling inbound and outbound customer contacts, diagnosing and resolving basic technical issues, providing clear guidance and instructions, and documenting interactions accurately in the system. The role involves collaborating with team members and supervisors to escalate complex cases, follow established procedures, and meet performance and quality targets. The English Technical Support team member is expected to maintain a professional, customer-centered approach, adhere to fixed morning shift schedules, and contribute to a positive, inclusive work environment. Qualifications Huawei English Technical Support Agents • Outbound Follow Up Requirements: ▪️ Graduates Technical graduates are preferred ▪️ English Level: B2 Details: ▪️ Salary: 12500 up to 15000 ( Salary varies by college: Technical / Non-Technical ). ▪️ Fixed Shift: 9 AM – 6 PM ▪️ 2 Days Off (Rotational) ▪️ Social & Medical Insurance ▪️ Paid Training ▪️ Location: Maadi",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    }
+  ],
+  "new_matches": [
+    {
+      "linkedin_job_id": "4460589832",
+      "title": "Senior Human Resources Manager",
+      "company": "ELBATTAT Steel - METRACO",
+      "location": "Alexandria, Egypt",
+      "linkedin_date": "2026-08-29",
+      "linkedin_posted_text": "9 minutes ago",
+      "estimated_age_minutes": 9,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-29T07:44:28Z",
+      "url": "https://www.linkedin.com/jobs/view/4460589832",
+      "matched_queries": [
+        {
+          "query": "Fortinet",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Human Resources",
+      "advisory_title_noise_signals": [
+        "human resources"
+      ],
+      "advisory_it_evidence": true,
+      "score": 5.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Microsoft 365",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "We are seeking an experienced HR Manager – Talent Acquisition & People Development to join our team in Alexandria .Reporting directly to the CEO, this role will lead the overall HR direction of the company, with a strong focus on attracting the right talent, developing our people, building clear career paths, and establishing a structured performance-driven culture. HR Generalists will report to this position, supporting the day-to-day HR operations and personnel administration. Responsibilities: Develop and lead the company’s HR direction in alignment with business priorities and organizational growth. Lead the full talent acquisition cycle, from workforce requirements and candidate sourcing through selection, offers, and onboarding. Build a structured approach to training and development, identifying competency gaps and establishing development plans across departments. Develop clear career paths and progression frameworks to support employee growth, retention, and succession. Work closely with department managers to define clear KPOs and KPIs for each role and establish an effective performance management process. Support managers in performance reviews, employee development, organizational planning, and people-related decisions. Strengthen employee engagement, retention, and the overall employee experience. Supervise and guide the HR Generalists, ensuring day-to-day HR activities, personnel administration, payroll inputs, attendance, employee records, insurance follow-up, and HR documentation remain properly controlled and aligned with company policies. Develop and continuously improve HR policies, procedures, organizational structures, and internal HR standards. Provide the CEO with clear HR insights, recommendations, and reporting to support management decisions and long-term organizational development. Qualifications: Bachelor’s degree in Human Resources, Business Administration, Management, or a related field. 7+ years of progressive HR experience, with strong exposure to talent acquisition, performance management, and learning & development. Previous experience in an HR leadership or managerial role is highly preferred. Strong interviewing, assessment, and talent sourcing capabilities. Practical experience establishing KPIs, performance evaluation systems, career development plans, and organizational structures. Good knowledge of Egyptian labor regulations and HR practices. Strong communication and people-management skills, with the ability to work effectively with employees and managers at all levels. Strong command of Microsoft 365 applications. Excellent command of both English and Arabic. Proficiency in working with AI tools is required. HR certifications, postgraduate studies, or an MBA are considered an advantage. What We Offer: We are proud to be an equal opportunity employer. Opportunity to play a key role in building and developing the HR function within a growing leading steel manufacturing company in Egypt. Direct exposure to senior management and involvement in company-wide organizational development.Ongoing training and professional development opportunities. Attractive package, compensation, and benefits. A workplace where people are encouraged to grow, contribute, and take ownership. Commitment to fostering a diverse, equitable, and inclusive environment where employees feel valued and empowered to succeed. Commitment to sustainable practices and responsible long-term growth. If you match the above criteria, are interested, and ready to grow with us, we would like to hear from you. Kindly send your CV to careers@elbattat.com, mentioning “Application for HR Manager – Talent Acquisition & People Development – [Your Full Name]” in the subject line.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458475489",
+      "title": "English Technical Support | Fixed Shift | Morning",
+      "company": "ETISAL International Group",
+      "location": "Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-29",
+      "linkedin_posted_text": "5 minutes ago",
+      "estimated_age_minutes": 5,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-29T07:44:28Z",
+      "url": "https://www.linkedin.com/jobs/view/4458475489",
+      "matched_queries": [
+        {
+          "query": "IT Operations",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Support Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Technical Support Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Specialist",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Support",
+          "weight": 2.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Fortinet",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Education and Training",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 4.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description ETISAL International Group is a leading Business Process Outsourcing (BPO) company serving clients across the Middle and Far East. The organization focuses on delivering customized, high-value outsourcing solutions that help partners concentrate on their core business while enhancing service to their own customers. ETISAL International combines global coverage, cultural understanding, and industry best practices to provide consultative and innovative services. The company is committed to quality, transparency, flexibility, integrity, and the appreciation of human capital. Its teams work continuously to exceed client expectations through state-of-the-art technologies and strong operational standards. Role Description The English Technical Support role is a full-time, on-site position based in Cairo, focused on assisting customers in English with technical and service-related inquiries. Day-to-day responsibilities include handling inbound and outbound customer contacts, diagnosing and resolving basic technical issues, providing clear guidance and instructions, and documenting interactions accurately in the system. The role involves collaborating with team members and supervisors to escalate complex cases, follow established procedures, and meet performance and quality targets. The English Technical Support team member is expected to maintain a professional, customer-centered approach, adhere to fixed morning shift schedules, and contribute to a positive, inclusive work environment. Qualifications Huawei English Technical Support Agents • Outbound Follow Up Requirements: ▪️ Graduates Technical graduates are preferred ▪️ English Level: B2 Details: ▪️ Salary: 12500 up to 15000 ( Salary varies by college: Technical / Non-Technical ). ▪️ Fixed Shift: 9 AM – 6 PM ▪️ 2 Days Off (Rotational) ▪️ Social & Medical Insurance ▪️ Paid Training ▪️ Location: Maadi",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    }
+  ]
 }
