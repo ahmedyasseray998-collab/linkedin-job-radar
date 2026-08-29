@@ -1,11 +1,13 @@
 {
   "schema_version": 6,
   "config_version": 7,
-  "run_id": "20260829T084432Z",
-  "run_started_at_utc": "2026-08-29T08:44:32Z",
-  "generated_at_utc": "2026-08-29T08:47:29Z",
-  "health": "healthy",
-  "warnings": [],
+  "run_id": "20260829T094406Z",
+  "run_started_at_utc": "2026-08-29T09:44:06Z",
+  "generated_at_utc": "2026-08-29T09:46:53Z",
+  "health": "healthy_with_retries",
+  "warnings": [
+    "LinkedIn guest search needed recovery retries for 2 query bucket(s)"
+  ],
   "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
   "search_lanes": [
     {
@@ -31,38 +33,38 @@
     "principle": "Do not let code decide job fit after exact-detail retrieval; ChatGPT reviews every verified new candidate"
   },
   "stats": {
-    "unique_live_cards": 11,
-    "already_seen": 3,
-    "detail_attempts": 8,
-    "details_fetched": 8,
+    "unique_live_cards": 15,
+    "already_seen": 10,
+    "detail_attempts": 5,
+    "details_fetched": 5,
     "detail_failures": 0,
     "detail_budget_skipped": 0,
     "closed_candidates_kept": 0,
     "freshness_conflicts_kept": 0,
-    "low_it_evidence_candidates_kept": 7,
+    "low_it_evidence_candidates_kept": 5,
     "title_noise_candidates_kept": 2,
     "search_errors": 0,
-    "query_retry_recoveries": 0,
+    "query_retry_recoveries": 2,
     "query_count": 25,
     "search_bucket_count": 50,
-    "review_candidates": 8,
+    "review_candidates": 5,
     "relevance_rejections": 0,
     "lane_stats": {
       "egypt": {
         "query_count": 25,
-        "unique_live_cards": 11,
-        "already_seen": 3,
-        "detail_attempts": 8,
-        "details_fetched": 8,
+        "unique_live_cards": 15,
+        "already_seen": 10,
+        "detail_attempts": 5,
+        "details_fetched": 5,
         "detail_failures": 0,
         "detail_budget_skipped": 0,
-        "review_candidates": 8,
+        "review_candidates": 5,
         "closed_candidates_kept": 0,
         "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 7,
+        "low_it_evidence_candidates_kept": 5,
         "title_noise_candidates_kept": 2,
         "search_errors": 0,
-        "query_retry_recoveries": 0,
+        "query_retry_recoveries": 2,
         "relevance_rejections": 0
       },
       "emea_remote": {
@@ -136,10 +138,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        1
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -150,12 +152,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        0
+        2
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -233,9 +233,9 @@
         0
       ],
       "retry_page_counts": {
-        "1": 0
+        "1": 1
       },
-      "unique_cards": 0,
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -243,34 +243,6 @@
     },
     {
       "query": "IT Operations",
-      "pages_configured": 2,
-      "pages_requested": 1,
-      "page_counts": [
-        1
-      ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
-      "errors": 0,
-      "lane": "egypt",
-      "search_location": "Egypt",
-      "remote_filter": null
-    },
-    {
-      "query": "IT Support Engineer",
-      "pages_configured": 2,
-      "pages_requested": 1,
-      "page_counts": [
-        1
-      ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
-      "errors": 0,
-      "lane": "egypt",
-      "search_location": "Egypt",
-      "remote_filter": null
-    },
-    {
-      "query": "Technical Support Engineer",
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
@@ -284,6 +256,34 @@
       "remote_filter": null
     },
     {
+      "query": "IT Support Engineer",
+      "pages_configured": 2,
+      "pages_requested": 1,
+      "page_counts": [
+        2
+      ],
+      "retry_page_counts": {},
+      "unique_cards": 2,
+      "errors": 0,
+      "lane": "egypt",
+      "search_location": "Egypt",
+      "remote_filter": null
+    },
+    {
+      "query": "Technical Support Engineer",
+      "pages_configured": 2,
+      "pages_requested": 1,
+      "page_counts": [
+        3
+      ],
+      "retry_page_counts": {},
+      "unique_cards": 3,
+      "errors": 0,
+      "lane": "egypt",
+      "search_location": "Egypt",
+      "remote_filter": null
+    },
+    {
       "query": "NOC Engineer",
       "pages_configured": 2,
       "pages_requested": 1,
@@ -291,9 +291,9 @@
         0
       ],
       "retry_page_counts": {
-        "1": 0
+        "1": 1
       },
-      "unique_cards": 0,
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -350,10 +350,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        1
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -378,12 +378,10 @@
       "pages_configured": 4,
       "pages_requested": 1,
       "page_counts": [
-        0
+        2
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -408,10 +406,12 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        2
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 2,
+      "retry_page_counts": {
+        "1": 0
+      },
+      "unique_cards": 0,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -436,10 +436,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        2
+        4
       ],
       "retry_page_counts": {},
-      "unique_cards": 2,
+      "unique_cards": 4,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -857,29 +857,22 @@
   "errors": [],
   "review_candidates": [
     {
-      "linkedin_job_id": "4460597480",
-      "title": "Member",
-      "company": "Opus Solutions GmbH",
-      "location": "Cairo, Egypt",
+      "linkedin_job_id": "4460802349",
+      "title": "Plumbing Engineer",
+      "company": "Solid Core",
+      "location": "El Tagamoa El Khames, Cairo, Egypt",
       "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "3 minutes ago",
-      "estimated_age_minutes": 3,
+      "linkedin_posted_text": "32 minutes ago",
+      "estimated_age_minutes": 32,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4460597480",
+      "first_seen_utc": "2026-08-29T09:44:06Z",
+      "url": "https://www.linkedin.com/jobs/view/4460802349",
       "matched_queries": [
         {
-          "query": "IT",
-          "weight": 0.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "Microsoft 365",
-          "weight": 3.0,
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
@@ -890,46 +883,55 @@
       "employment_type": "Full-time",
       "job_function": "Management and Manufacturing",
       "advisory_title_noise_signals": [],
-      "advisory_it_evidence": true,
-      "score": 8.0,
+      "advisory_it_evidence": false,
+      "score": 5.0,
       "role_hits_title": [],
-      "role_hits_description": [
-        {
-          "label": "IT Operations",
-          "weight": 7.0
-        }
-      ],
+      "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Role Description The Member role at Opus Solutions GmbH is a full-time remote position focused on contributing to collaborative projects, supporting operational processes, and helping deliver high-quality solutions to clients. Day-to-day tasks may include participating in virtual team meetings, coordinating with colleagues across functions, and completing assigned project work within agreed timelines and standards. Members are expected to document their work clearly, follow established workflows, and raise issues or risks early to enable timely resolution. The role also involves contributing ideas for process improvements, sharing knowledge with teammates, and maintaining strong, professional communication with internal and external stakeholders. Qualifications Ability to work effectively in remote, cross-functional teams, including strong communication, collaboration, and interpersonal skills. Solid organizational and time-management skills, with the capacity to prioritize tasks, meet deadlines, and manage multiple responsibilities. Comfort with digital tools and remote work technologies, such as collaboration platforms, project management software, and video conferencing tools. Analytical and problem-solving abilities, with attention to detail and a focus on delivering accurate, reliable results. Self-motivated and proactive work style, with a willingness to take ownership of tasks and contribute to continuous improvement. Relevant education or practical experience in business, technology, operations, or a related field; prior experience in a remote or international environment is a plus. Fluency in English; additional language skills and familiarity with European business practices are advantageous.",
+      "description": "Company Description Solid Core is a multidisciplinary engineering firm specializing in Mechanical, Electrical, and Plumbing (MEP), Architectural, and Structural design and coordination services. The team delivers high-quality Technical Office solutions, including detailed shop drawings, BIM modeling, design support, and coordination across all project phases. Solid Core focuses on precision, efficiency, and compliance with international standards, supporting clients with reliable and well-coordinated designs. The firm combines strong technical expertise with a commitment to excellence, creating a solid foundation for successful, high-performing projects. Role Description The Plumbing Engineer is a full-time, on-site role based in El Tagamoa El Khames. The role involves designing and reviewing plumbing systems for building projects, including water supply, drainage, and related building services, in alignment with project requirements and MEP standards. Daily tasks include preparing and checking design calculations, drawings, and technical documentation, coordinating with architectural, structural, and other MEP disciplines, and supporting BIM modeling and shop drawing production. The Plumbing Engineer will participate in design reviews, resolve technical issues, ensure compliance with relevant codes and standards, and assist in value engineering and optimization of plumbing systems. Collaboration with project managers and site teams to address design queries and provide technical support is a core part of the role. Qualifications Candidates should possess strong skills in Plumbing and Plumbing Design for building projects. Candidates should possess solid knowledge of Water Supply systems and related Building Services. Candidates should possess experience with Mechanical Electrical and Plumbing (MEP) coordination and standards. Candidates should possess proficiency in using design and drafting tools (e.g., AutoCAD, Revit or similar BIM software). Candidates should possess a relevant engineering degree (e.g., Mechanical Engineering or Building Services Engineering) and familiarity with international plumbing codes. Candidates should possess strong analytical and problem-solving abilities, attention to detail, and the capacity to work effectively within multidisciplinary teams on-site. Candidates should possess good communication skills in English, with the ability to document and present technical information clearly.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4460594524",
-      "title": "Light Current Technical Office Engineer",
-      "company": "Holoul",
+      "linkedin_job_id": "4458471689",
+      "title": "Senior Odoo implementor",
+      "company": "Websers",
       "location": "Cairo, Egypt",
       "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "10 minutes ago",
-      "estimated_age_minutes": 10,
+      "linkedin_posted_text": "6 minutes ago",
+      "estimated_age_minutes": 6,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4460594524",
+      "first_seen_utc": "2026-08-29T09:44:06Z",
+      "url": "https://www.linkedin.com/jobs/view/4458471689",
       "matched_queries": [
         {
-          "query": "System Engineer",
+          "query": "Systems Engineer",
           "weight": 4.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
         },
         {
-          "query": "Systems Engineer",
+          "query": "IT Administrator",
           "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Operations",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Support Engineer",
+          "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
@@ -942,24 +944,31 @@
           "remote_filter": null
         },
         {
-          "query": "IT Engineer",
+          "query": "IT Specialist",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
         },
         {
-          "query": "Microsoft 365",
-          "weight": 3.0,
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Entry level",
+      "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Engineering and Information Technology",
+      "job_function": "Information Technology",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 4.0,
@@ -967,103 +976,27 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "The applicant should be responsible for the following: 1. PAGA System Design & Implementation 2. PAGA System commissioning, Start up & Programming 3. Electric Bulk Material Technical Office Engineer 4. Managing Company’s proposals 5. Shadowing Sales Team from Technical Point of view",
+      "description": "Odoo Functional Consultant – Egypt Location: Egypt Employment Type: Full-time Department: Odoo / ERP Consulting We are expanding our Odoo consulting team in Egypt and are looking for an Odoo Functional Consultant to join our implementation and delivery team. The role is client-facing and covers Odoo implementation, Finance, Supply Chain, business-process analysis, testing, training, and go-live support . We are looking for someone who can understand how a business operates, translate business requirements into Odoo solutions, and take ownership of functional delivery. What You’ll DoOdoo Implementation Participate in and deliver end-to-end Odoo implementations. Gather and analyze business requirements. Conduct business-process and gap analysis. Configure Odoo according to business requirements. Prepare and execute testing and UAT. Prepare users and deliver Odoo training. Support data preparation and migration. Prepare and validate opening balances where applicable. Support go-live, hypercare, and post-go-live activities. Perform functional QA and support SLA requirements. Finance & Accounting Depending on your experience and project assignment, you may work on: Chart of Accounts design, setup, and mapping. Journals, taxes, and fiscal positions. AP/AR processes. Multi-currency operations. Banking and reconciliation. Costing and landed-cost workflows. Financial reporting and KPIs. Opening balances. Financial integrations and process automation. Multi-company accounting structures. WIP accounting. Foreign-currency processes. Capital and profit-distribution processes. Financial procedures and controls. Supply Chain You may also work on: Products, SKUs, variants, and units of measure. Product packaging. Purchasing and vendor management. Receipts, deliveries, and inventory operations. Stock locations and warehouse structures. Reordering rules and inventory adjustments. Vendor lead times and purchase agreements. Costing methods and landed costs. Inventory valuation. Routes and logistics workflows. MTO / MTS. Dropshipping. Manufacturing and BOMs. Subcontracting. Traceability and Quality. Multi-warehouse operations. Barcode workflows. Project Delivery Participate in project planning and milestone delivery. Lead or participate in client workshops. Translate business requirements into functional solutions. Prepare UAT scenarios and documentation. Participate in internal and client UAT sessions. Train end users and key users. Support go-live and hypercare. Prepare functional documentation. Coordinate with Project Managers and technical teams. Follow up on assigned tasks, deliverables, and deadlines. Provide ongoing functional support when required. What We’re Looking For Proven experience with Odoo ERP . Experience participating in or managing Odoo implementations. Strong understanding of business processes. Practical experience in Finance/Accounting and/or Supply Chain . Ability to perform requirements gathering and gap analysis. Experience with configuration, testing, UAT, and user training. Understanding of data migration and opening balances. Strong problem-solving and analytical skills. Ability to communicate with both business users and technical teams. Good written and spoken English . Strong Arabic communication skills. Ability to work in a client-facing consulting environment. Strongly Preferred Experience delivering end-to-end Odoo implementations . Experience with multi-company or multi-warehouse environments. Experience with inventory valuation, landed costs, costing, and foreign currency. Experience with Manufacturing, Quality, Barcode, or advanced Supply Chain workflows. Experience working with Odoo technical teams and understanding functional/technical boundaries. Experience working across different industries and business models. What We Value We are not looking for someone who only knows where Odoo's configuration menus are. We want consultants who can: Understand the business → identify the problem → design the process → configure Odoo → test it → train the users → support the business through go-live. The level of responsibility will depend on your experience and demonstrated capabilities. Apply If you have practical Odoo implementation experience and want to work on real ERP transformation projects across Finance, Supply Chain, and business operations, we would like to hear from you. Please send your CV and include: Years of Odoo experience Odoo versions worked with Number of implementations delivered Odoo modules you have implemented Your role in those implementations Finance vs. Supply Chain experience Industries you have worked with Examples of complex Odoo projects you have delivered",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4460813002",
-      "title": "Specification Manager - Egypt",
-      "company": "LIXIL",
-      "location": "Egypt",
-      "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "35 minutes ago",
-      "estimated_age_minutes": 35,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4460813002",
-      "matched_queries": [
-        {
-          "query": "Microsoft 365",
-          "weight": 3.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Not Applicable",
-      "employment_type": "Full-time",
-      "job_function": "Design, Art/Creative, and Information Technology",
-      "advisory_title_noise_signals": [],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "IMEA (India, Middle East, Africa) Egypt LE_0170-GROME Trading Limited (L.L.C.) Employee Assignment Not remote Full Time 1 September 2026 Primary Responsibilities Region: Egypt, Libya and Sudan Market Education Promote company products and solutions through various channels, including presentations, seminars, and marketing materials. Conduct technical presentations and provide training to educate specifiers about company products and solutions. Provide technical support, product knowledge, and guidance to specifiers. Specification And CRM Tracking Identify and engage with specifiers (architects, consultants, developers) early in the design process to influence product selection. Work with sales, marketing, and technical teams to align efforts and ensure a unified approach to product specification. Maintain and update CRM and specification tracking systems to monitor project progress and track specifications. Building Relationship With Professionals Across The Market Develop strong relationships with key stakeholders to secure product specifications. Plan and conduct quarter/annual activities relevant to PR development. Creating Sales Deliver increased brand awareness and higher sales results in innovative and new products in the Region through projects and specification demand generation. Increase pipeline and conversion rate with existing products & new product lines. Increase specified pipeline and ensuring progressive product specification which is difficult to break by the competition. Work closely with the project sales team to both support and fully maximize the project business across the region. Identify key channels and relevant targets in the region: Hotels - Residential - Healthcare and respective primary professionals’ targets. Qualifications And Education Bachelor’s degree in fine art or architecture. Business fluent English and Arabic Experience At least 5 years of experience in a comparable senior position. Same Industry or Related is a MUST. Experience in Specification of the same products category. Market knowledge of the region. Excellent Communication, presentation and interpersonal skills. Ability to build relationships and influence decisions. Technical expertise in interior design and bathroom products. Experience in Sales/ or Marketing within B2B environment. Willingness to frequent and short business trips",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4458465594",
-      "title": "Office Manager",
-      "company": "Boba Bhai",
-      "location": "Giza, Al Jizah, Egypt",
-      "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "41 minutes ago",
-      "estimated_age_minutes": 41,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4458465594",
-      "matched_queries": [
-        {
-          "query": "Microsoft 365",
-          "weight": 3.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Mid-Senior level",
-      "employment_type": "Full-time",
-      "job_function": "Administrative",
-      "advisory_title_noise_signals": [],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "Qualifications Candidates should possess strong Communication and Customer Service skills to interact effectively with team members, partners, and visitors. Candidates should possess Office Administration and Administrative Assistance skills for managing schedules, documentation, and day-to-day office procedures. Candidates should possess knowledge of Office Equipment and basic troubleshooting skills to ensure smooth operation of devices and supplies. Candidates should have solid organizational and time-management abilities, with attention to detail and reliability in follow-through. Candidates should be proficient with common office software (e.g., word processing, spreadsheets, email) and comfortable learning new systems. Candidates should have prior experience in office management, administration, or a similar role; experience in food and beverage or retail environments is an advantage. Candidates should ideally hold a diploma or degree in Business Administration, Management, or a related field, or have equivalent practical experience.",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4432754953",
-      "title": "Mechanical Design Engineer",
-      "company": "مجموعة خليفة القابضة - Khalifa Holding Group",
+      "linkedin_job_id": "4457884566",
+      "title": "performance Marketing Manager",
+      "company": "HR Global Network",
       "location": "Cairo, Egypt",
       "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "45 minutes ago",
-      "estimated_age_minutes": 45,
+      "linkedin_posted_text": "15 minutes ago",
+      "estimated_age_minutes": 15,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4432754953",
+      "first_seen_utc": "2026-08-29T09:44:06Z",
+      "url": "https://www.linkedin.com/jobs/view/4457884566",
       "matched_queries": [
         {
-          "query": "Microsoft 365",
+          "query": "Fortinet",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
@@ -1073,47 +1006,9 @@
       "application_status": "open_signal",
       "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Engineering",
-      "advisory_title_noise_signals": [],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "About us. We are a leading construction company in Libya, specializing in large-scale infrastructure & Construction projects. With a workforce of over 10,000 employees representing more than 23 nationalities, we take pride in our diverse and highly skilled team. Driven by a commitment to excellence, quality, and innovation, we consistently set industry benchmarks. To further strengthen our leadership structure. Position We are seeking an experienced Mechanical Design Engineer specialized in (Stormwater, Firefighting, Plumbing, and Wet Utilities) and focuses on designing systems that manage water (drainage, flood control) and fire protection for large projects like utilities, hospitals , malls , airports, and buildings projects, Coordinate with other disciplines (architectural, electrical, civil), Ensure compliance with international codes and standards for large projects and designs comply with local regulations and international standards. Responsibilities Reviewing of design calculations for HVAC system including Heat Load, Chiller capacity, Pressure drop calculations for chilled water system, Duct design calculations, External static pressure calculations, Exhaust system calculations, Fresh air calculations, Stair case pressurization calculations, Smoke exhaust system calculations etc. using ASHRAE standards and latest available software. Reviewing of Hydraulic calculations, pump sizing & system pipe sizing for Domestic water system, hot water system, central filtration system ,Firefighting pumps & tank capacity for Fire sprinkler system , firefighting dry and wet hydrant systems and drainage system using latest available software Preparation of Technical Bid Evaluation of equipment and highlight positive and negative aspects of the equipment proposed. Reviewing mechanical and architectural Design Drawings, structural drawings, combined services coordinated drawings & Shop Drawings in relation with MEP scope. Reviewing, Coordinating & finalizing field design changes. Preparing presentations, design reports & functional reports as per the instructions of the Line Manager Reviewing of Material specifications, list of manufacturers, available suppliers and general specifications. Technical clarification with the vendors for their proposed equipment. Design stormwater drainage systems (pipelines, culverts, channels, manholes). Perform hydraulic and hydrological calculations (rainfall, runoff, flood levels). Size pipes and slopes using standards and software. Design fire protection systems (hydrants, sprinklers, hose reels). Calculate water demand and pressure requirements. Prepare detailed drawings using software like AutoCAD, Revit, or Civil 3D. Attend design meetings and site visits. Ensure safety, reliability, and cost-effectiveness. Prepare design reports and calculations. Review shop drawings and material submittals. Develop basis of design reports (BODR) and technical memorandums for small-to- large size projects, setting criteria for following design stages. Review the design and specification of fire safety systems (fire alarm systems, notification systems, automation of Gas/water fire extinguishing /emergency escape systems). Ability to calculate number of nozzles, gas capacity, pipeline selection/layout, air pressure and water pressure etc. Routine Report & Write Technical note; Maintaining complete records and archives as company standards. Requirements Education: Bachelor’s degree in mechanical engineering or related field. Experience: Minimum 5 years' experience in design and reviewing design, installation, testing and commissioning for MEP systems for similar Projects. Technical Expertise: In-depth knowledge of international standards such as NFPA, ASHRAE, SMACNA, NPC, IBC, ASME,ANSI, MSS including MS office, AutoCAD, Revit etc. Detailed understanding of materials and equipment selection Adaptability: Strong troubleshooting skills and understanding of international codes. Communication: Native in Arabic (written and spoken); English proficiency is a strong advantage.",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4458781020",
-      "title": "Human Resources Manager",
-      "company": "Alorica",
-      "location": "Egypt",
-      "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "5 minutes ago",
-      "estimated_age_minutes": 5,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4458781020",
-      "matched_queries": [
-        {
-          "query": "Microsoft 365",
-          "weight": 3.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Not Applicable",
-      "employment_type": "Full-time",
-      "job_function": "Human Resources",
+      "job_function": "Marketing and Sales",
       "advisory_title_noise_signals": [
-        "human resources"
+        "marketing"
       ],
       "advisory_it_evidence": false,
       "score": 3.0,
@@ -1121,27 +1016,27 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "HR Manager – Egypt Join Alorica and Make an Impact About Us At Alorica, we only do one thing – make lives better, one interaction at a time. We're a global leader in customer service and experience, serving the world's biggest brands with tens of thousands of employees in hundreds of locations around the globe. We're the largest minority-owned CX provider, delivering digital-first, people-centered experiences for some of the world's most respected brands. For over 25 years, we've been helping businesses solve their toughest customer experience challenges — and we do it better than anyone else. As a Top Place to Work, we're serious about creating an environment where people show up as their genuine selves. Which means when you succeed, we all do. Here's What The Job Really Looks Like Reporting directly to the HR Director, you will manage day-to-day HR operations for Egypt, working in close partnership with the Director on compliance, employee relations, and site support. This is a hands-on, execution-focused role. You will support grievance investigations, onboarding and offboarding, disciplinary process, and day-to-day vendor and systems coordination, while directly managing the HR team. Manage the site day-to-day HR operations. Partner closely with the HR Director on policy application, performance management, disciplinary action, and employee relations matters. Keep HR policies and processes consistent with Egyptian regulatory requirements, and in line with our global policies Counsel employees and maintain positive employee relations; act as liaison between employees and management. Monitor team-level employee satisfaction and attrition trends and flag concerns early. Manage and develop the HR team, ensuring cross-trained coverage and consistent day-to-day delivery. How You'll Make An Impact Get fluent in Alorica's Egypt HR operations, compliance posture, and systems. Build strong working relationships with the HR team, Site Leadership, and cross-functional partners in addition to our external vendors. Be running Egypt HR operations day-to-day in close partnership with the HR Director. Contribute to a stronger compliance culture in Egypt, reduce operational risk, and help build a cross-trained team to support continued headcount growth. What'll Set You Up For Success 5+ years of HR experience, including HR operations, employee relations or compliance. Expert in Egyptian Labour Law. Experience in a BPO/CX, contact center, or other high-volume operational environment is a plus. Previous experience in managing a team is preferred. Strong communication and coordination skills; reliable follow-through and comfortable flagging issues early. Fluent in English is a must. WHY ALORICA? Our culture shows up in how we work together, support each other, and show up for our clients. We're bold enough to challenge how things have always been done, committed to delivering results that matter, and passionate about creating customer experiences that work. TIDE is our connection group built around real conversations, shared experiences, and genuine belonging. MLBA (Making Lives Better at Alorica) is our employee-led nonprofit where local teams raise funds and support colleagues and communities when it matters most. We don't just talk about culture, we build it, live it, and keep making lives better every day. OUR VALUES Bold – We challenge conventions and take smart risks. Relentless – We deliver results, no matter what it takes. Connected – We work as One Alorica because we're stronger together. True – We show up as our authentic selves, every single day. READY TO JOIN US? If you're looking for a place where your expertise matters, your voice is heard, and your work drives real impact in Alorica's largest EMEA market, let's talk. Apply today! Equal Opportunity Employer – Veterans/Disabled DISCLAIMER: The above information has been designed to indicate the general nature and level of work performed by employees in this classification. #AloricaEgypt #AloricaJobs",
+      "description": "Job Title: Performance Marketing Manager Location: Nasr City, Cairo, Egypt (Full-time, On-site) Industry: EdTech About the Role We are looking for a data-driven and results-oriented Performance Marketing Manager to lead our paid acquisition efforts. This is a high-impact role responsible for developing, executing, and optimizing our digital marketing strategy to drive student enrollment and achieve aggressive growth targets. You will be the owner of our paid media budget, responsible for maximizing return on ad spend (ROAS), reducing customer acquisition costs (CAC), and building a robust pipeline of qualified leads. Key Responsibilities Strategy & Execution: Develop, implement, and manage comprehensive paid advertising strategies across multiple digital channels, including but not limited to Google Ads (Search, Display, YouTube), Meta (Facebook & Instagram), TikTok, and LinkedIn. Build and execute full-funnel campaigns, focusing on both brand awareness and high-intent conversion stages to drive student enrollment and retention. Effectively manage the advertising budget, strategically allocating spend across platforms and campaigns to ensure maximum efficiency and ROI. Optimization & Analysis: Analyze campaign performance data daily and weekly, translating insights into actionable optimizations. Monitor key metrics like CPM, CPC, CTR, CPL, and ROAS. Continuously optimize for target KPIs, including Cost Per Lead (CPL), Customer Acquisition Cost (CAC), and Return on Ad Spend (ROAS). Lead A/B testing on all campaign elements, including ad copy, creative, audience targeting, and landing pages, to continuously improve performance. Monitor changes in advertising platform algorithms and update strategies accordingly to stay ahead of the curve. Collaboration & Reporting: Work closely with the creative and content teams to brief and produce high-performing ad creatives, videos, and landing pages that resonate with our target audience (students, parents, professionals). Prepare and deliver detailed monthly performance reports to management, outlining results, challenges, and strategic recommendations for improvement. Collaborate with the sales team to ensure alignment between marketing-qualified leads (MQLs) and sales goals, analyzing the complete customer journey from first click to enrollment. Qualifications & Requirements Experience & Education: Bachelor's degree in Marketing, Business Administration, or a related field. 3-5 years of hands-on experience in performance marketing or digital advertising, with a proven track record of managing large-scale campaigns. Previous experience in the EdTech, education, or subscription-based services sector is a strong plus. Technical Skills: Platform Expertise: Expert-level proficiency in managing and optimizing campaigns on Meta Ads Manager, Google Ads, TikTok Ads Manager, and LinkedIn Campaign Manager. Analytics & Tools: Deep familiarity with analytics and tracking tools, including Google Analytics 4 (GA4), Google Tag Manager, and pixel/API setup for conversion tracking. Experience with CRM systems (e.g., Salesforce, HubSpot) is advantageous. Data Analysis: Strong analytical and problem-solving skills with a demonstrated ability to interpret complex data sets and make data-driven decisions. Core Competencies: Strategic Mindset: Ability to develop high-level marketing strategies and translate them into actionable campaign plans. Testing & Experimentation: A relentless focus on testing and optimization (A/B testing, multivariate testing) to improve performance. Communication: Excellent communication and presentation skills, with the ability to clearly explain performance and strategic recommendations to stakeholders. Leadership: Experience managing or coordinating with a team and external partners is highly desirable.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4460588874",
-      "title": "Customer Service Specialist",
-      "company": "HR Egypt Network - HREN",
-      "location": "Cairo, Egypt",
+      "linkedin_job_id": "4460812213",
+      "title": "Quality Monitoring Specialist - English B2 speaker ( Call center )",
+      "company": "Xceed",
+      "location": "Qesm El Maadi, Cairo, Egypt",
       "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "1 hour ago",
-      "estimated_age_minutes": 60,
+      "linkedin_posted_text": "22 minutes ago",
+      "estimated_age_minutes": 22,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4460588874",
+      "first_seen_utc": "2026-08-29T09:44:06Z",
+      "url": "https://www.linkedin.com/jobs/view/4460812213",
       "matched_queries": [
         {
-          "query": "Microsoft 365",
+          "query": "Fortinet",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
@@ -1151,9 +1046,9 @@
       "application_status": "open_signal",
       "seniority": "Entry level",
       "employment_type": "Full-time",
-      "job_function": "Customer Service, Education, and Management",
+      "job_function": "Quality Assurance",
       "advisory_title_noise_signals": [
-        "customer service"
+        "call center"
       ],
       "advisory_it_evidence": false,
       "score": 3.0,
@@ -1161,27 +1056,27 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Job Title: Customer Support Specialist Location: Al-Wafa & Al-Amal, Nasr City – Cairo, Egypt Working Hours: 10:00 AM – 6:00 PM Working Days: Sunday – Thursday Education: University graduates only Experience Required: 1–3 years Key Responsibilities: Handle customer inquiries professionally and efficiently Log and track customer cases using follow-up systems and tools Coordinate with marketing and sales teams to resolve issues related to registrations or payments Ensure communication quality and respond to customers in a timely manner Requirements: Proficiency in computer usage and fast typing skills Excellent communication and interpersonal skills Positive attitude and strong customer service orientation Ability to work in a team and take responsibility Benefits: social insurance Supportive work environment Opportunities for professional development and career growth",
+      "description": "Role Description The Quality Monitoring Specialist – English B2 speaker (Call Center) is responsible for monitoring and evaluating customer interactions to ensure adherence to Xceed’s quality standards and client requirements. This is a full-time, on-site role based in Qesm El Maadi, where the specialist will review calls, chats, and other communication channels, assess agent performance, and provide constructive feedback and coaching insights. Daily activities include documenting quality findings, identifying trends in customer experience, collaborating with team leaders to address performance gaps, and supporting continuous improvement initiatives. The role also involves preparing quality reports, contributing to calibration sessions, and helping maintain compliance with internal policies and external guidelines. Qualifications Candidates should possess strong Quality Control and Quality Assurance skills to evaluate interactions and ensure compliance with standards. Candidates should possess Quality Auditing skills to systematically review performance, document findings, and support corrective actions. Candidates should possess solid Analytical Skills to interpret data, identify patterns, and recommend improvements in customer experience and processes. Candidates should possess excellent Communication skills to deliver clear feedback, collaborate with stakeholders, and interact effectively in English at B2 level. Previous experience in call center quality monitoring or contact center operations is highly beneficial. Ability to work on-site in Qesm El Maadi and adapt to a fast-paced, performance-driven environment.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4460802350",
-      "title": "Corporate Travel Consultant",
-      "company": "Mezwalah I مزوله",
-      "location": "Egypt",
+      "linkedin_job_id": "4458459778",
+      "title": "Cost Accounting Senior Officer - Construction Background",
+      "company": "SQUARE Engineering Firm",
+      "location": "Cairo, Egypt",
       "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "12 minutes ago",
-      "estimated_age_minutes": 12,
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4460802350",
+      "first_seen_utc": "2026-08-29T09:44:06Z",
+      "url": "https://www.linkedin.com/jobs/view/4458459778",
       "matched_queries": [
         {
-          "query": "Microsoft 365",
+          "query": "Fortinet",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
@@ -1191,7 +1086,7 @@
       "application_status": "open_signal",
       "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Management and Manufacturing",
+      "job_function": "Accounting/Auditing and Finance",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 3.0,
@@ -1199,7 +1094,7 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Company Description Mezwalah I مزوله is a destination management company specializing in tailored travel solutions with a strong focus on high-quality service. The team designs seamless multi-destination itineraries across Saudi Arabia and international markets, supporting corporate and business travel needs. By combining local expertise with global reach, Mezwalah offers customized travel experiences that align with client objectives and budgets. The company values professionalism, reliability, and client-centric service in every engagement. Role Description The Corporate Travel Consultant is a full-time remote role responsible for planning and managing end-to-end travel arrangements for corporate clients. Day-to-day tasks include consulting with clients to understand travel requirements, proposing itinerary options, and coordinating flights, hotels, ground transportation, and other travel services. The role involves handling reservations, monitoring bookings, and resolving issues or changes promptly to ensure smooth travel experiences. The consultant will maintain strong customer service standards, provide cost-effective travel solutions, and stay informed about travel policies, visa requirements, and destination-specific regulations. Collaboration with internal teams and suppliers to optimize travel programs and support corporate travel policies is also expected. Qualifications Candidates should possess skills in Travel Consulting and Travel Management to advise clients and oversee corporate travel programs effectively. Candidates should possess skills in Travel Arrangements and Reservations to coordinate bookings for flights, accommodations, and ground transportation. Candidates should possess strong Customer Service skills to handle inquiries, resolve issues, and deliver a positive client experience. Relevant experience with corporate or business travel, destination management, or travel agencies is highly beneficial. Proficiency in travel booking systems and online reservation platforms, along with strong organizational and time-management skills. Clear written and verbal communication skills in English; additional language abilities are an advantage. Ability to work independently in a remote setting, manage multiple client accounts, and adapt to changing travel requirements. A diploma or degree in Tourism, Hospitality, Business, or a related field is preferred but not mandatory with suitable experience.",
+      "description": "Company Description SQUARE Engineering Firm (Square S.A.E) is an Egyptian joint-stock company founded in 1992, specializing in contracting and distinguished architectural projects. The firm collaborates with a network of experienced consultants and architects, supported by committed associates and the expertise of its founders. A specialized technical office provides extensive knowledge of local and international practices, helping ensure high-quality project execution. This integrated know-how enables Square to deliver projects that meet strict technical and timing commitments while maintaining strong client relationships. Role Description The Cost Accounting Senior Officer – Construction Background is a full-time, on-site role based in Cairo, Egypt. The role is responsible for preparing, analyzing, and monitoring project cost reports, budgets, and forecasts to support effective financial control of construction projects. Daily tasks include reviewing and allocating project expenses, ensuring accurate cost coding, reconciling cost data with financial records, and supporting month-end closing activities. The position involves working closely with project managers, site engineers, and the finance team to verify quantities, validate subcontractor and vendor invoices, and assess cost variances against budgets. The Senior Officer will also support the preparation of management reports, contribute to financial planning for new projects, and recommend cost optimization measures while maintaining compliance with company policies and relevant accounting standards. Qualifications Strong knowledge of finance and cost accounting principles relevant to construction projects. Experience preparing and analyzing financial statements and project cost reports. Proficiency in accounting software and enterprise systems used for project cost control. Solid background in accounting, including general ledger, budgeting, and reconciliation. Advanced analytical skills to interpret financial data, identify variances, and recommend corrective actions. Bachelor’s degree in Accounting, Finance, or a related field; professional certification (e.g., CMA, CPA) is an advantage. Previous experience in construction or engineering industries in a similar cost accounting role. Strong attention to detail, organizational skills, and ability to manage multiple projects and deadlines. Effective communication and collaboration skills for working with cross-functional teams. Proficiency in MS Excel and other relevant financial analysis tools.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
@@ -1207,29 +1102,22 @@
   ],
   "new_matches": [
     {
-      "linkedin_job_id": "4460597480",
-      "title": "Member",
-      "company": "Opus Solutions GmbH",
-      "location": "Cairo, Egypt",
+      "linkedin_job_id": "4460802349",
+      "title": "Plumbing Engineer",
+      "company": "Solid Core",
+      "location": "El Tagamoa El Khames, Cairo, Egypt",
       "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "3 minutes ago",
-      "estimated_age_minutes": 3,
+      "linkedin_posted_text": "32 minutes ago",
+      "estimated_age_minutes": 32,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4460597480",
+      "first_seen_utc": "2026-08-29T09:44:06Z",
+      "url": "https://www.linkedin.com/jobs/view/4460802349",
       "matched_queries": [
         {
-          "query": "IT",
-          "weight": 0.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "Microsoft 365",
-          "weight": 3.0,
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
@@ -1240,46 +1128,55 @@
       "employment_type": "Full-time",
       "job_function": "Management and Manufacturing",
       "advisory_title_noise_signals": [],
-      "advisory_it_evidence": true,
-      "score": 8.0,
+      "advisory_it_evidence": false,
+      "score": 5.0,
       "role_hits_title": [],
-      "role_hits_description": [
-        {
-          "label": "IT Operations",
-          "weight": 7.0
-        }
-      ],
+      "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Role Description The Member role at Opus Solutions GmbH is a full-time remote position focused on contributing to collaborative projects, supporting operational processes, and helping deliver high-quality solutions to clients. Day-to-day tasks may include participating in virtual team meetings, coordinating with colleagues across functions, and completing assigned project work within agreed timelines and standards. Members are expected to document their work clearly, follow established workflows, and raise issues or risks early to enable timely resolution. The role also involves contributing ideas for process improvements, sharing knowledge with teammates, and maintaining strong, professional communication with internal and external stakeholders. Qualifications Ability to work effectively in remote, cross-functional teams, including strong communication, collaboration, and interpersonal skills. Solid organizational and time-management skills, with the capacity to prioritize tasks, meet deadlines, and manage multiple responsibilities. Comfort with digital tools and remote work technologies, such as collaboration platforms, project management software, and video conferencing tools. Analytical and problem-solving abilities, with attention to detail and a focus on delivering accurate, reliable results. Self-motivated and proactive work style, with a willingness to take ownership of tasks and contribute to continuous improvement. Relevant education or practical experience in business, technology, operations, or a related field; prior experience in a remote or international environment is a plus. Fluency in English; additional language skills and familiarity with European business practices are advantageous.",
+      "description": "Company Description Solid Core is a multidisciplinary engineering firm specializing in Mechanical, Electrical, and Plumbing (MEP), Architectural, and Structural design and coordination services. The team delivers high-quality Technical Office solutions, including detailed shop drawings, BIM modeling, design support, and coordination across all project phases. Solid Core focuses on precision, efficiency, and compliance with international standards, supporting clients with reliable and well-coordinated designs. The firm combines strong technical expertise with a commitment to excellence, creating a solid foundation for successful, high-performing projects. Role Description The Plumbing Engineer is a full-time, on-site role based in El Tagamoa El Khames. The role involves designing and reviewing plumbing systems for building projects, including water supply, drainage, and related building services, in alignment with project requirements and MEP standards. Daily tasks include preparing and checking design calculations, drawings, and technical documentation, coordinating with architectural, structural, and other MEP disciplines, and supporting BIM modeling and shop drawing production. The Plumbing Engineer will participate in design reviews, resolve technical issues, ensure compliance with relevant codes and standards, and assist in value engineering and optimization of plumbing systems. Collaboration with project managers and site teams to address design queries and provide technical support is a core part of the role. Qualifications Candidates should possess strong skills in Plumbing and Plumbing Design for building projects. Candidates should possess solid knowledge of Water Supply systems and related Building Services. Candidates should possess experience with Mechanical Electrical and Plumbing (MEP) coordination and standards. Candidates should possess proficiency in using design and drafting tools (e.g., AutoCAD, Revit or similar BIM software). Candidates should possess a relevant engineering degree (e.g., Mechanical Engineering or Building Services Engineering) and familiarity with international plumbing codes. Candidates should possess strong analytical and problem-solving abilities, attention to detail, and the capacity to work effectively within multidisciplinary teams on-site. Candidates should possess good communication skills in English, with the ability to document and present technical information clearly.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4460594524",
-      "title": "Light Current Technical Office Engineer",
-      "company": "Holoul",
+      "linkedin_job_id": "4458471689",
+      "title": "Senior Odoo implementor",
+      "company": "Websers",
       "location": "Cairo, Egypt",
       "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "10 minutes ago",
-      "estimated_age_minutes": 10,
+      "linkedin_posted_text": "6 minutes ago",
+      "estimated_age_minutes": 6,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4460594524",
+      "first_seen_utc": "2026-08-29T09:44:06Z",
+      "url": "https://www.linkedin.com/jobs/view/4458471689",
       "matched_queries": [
         {
-          "query": "System Engineer",
+          "query": "Systems Engineer",
           "weight": 4.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
         },
         {
-          "query": "Systems Engineer",
+          "query": "IT Administrator",
           "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Operations",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Support Engineer",
+          "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
@@ -1292,24 +1189,31 @@
           "remote_filter": null
         },
         {
-          "query": "IT Engineer",
+          "query": "IT Specialist",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
         },
         {
-          "query": "Microsoft 365",
-          "weight": 3.0,
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Entry level",
+      "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Engineering and Information Technology",
+      "job_function": "Information Technology",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 4.0,
@@ -1317,103 +1221,27 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "The applicant should be responsible for the following: 1. PAGA System Design & Implementation 2. PAGA System commissioning, Start up & Programming 3. Electric Bulk Material Technical Office Engineer 4. Managing Company’s proposals 5. Shadowing Sales Team from Technical Point of view",
+      "description": "Odoo Functional Consultant – Egypt Location: Egypt Employment Type: Full-time Department: Odoo / ERP Consulting We are expanding our Odoo consulting team in Egypt and are looking for an Odoo Functional Consultant to join our implementation and delivery team. The role is client-facing and covers Odoo implementation, Finance, Supply Chain, business-process analysis, testing, training, and go-live support . We are looking for someone who can understand how a business operates, translate business requirements into Odoo solutions, and take ownership of functional delivery. What You’ll DoOdoo Implementation Participate in and deliver end-to-end Odoo implementations. Gather and analyze business requirements. Conduct business-process and gap analysis. Configure Odoo according to business requirements. Prepare and execute testing and UAT. Prepare users and deliver Odoo training. Support data preparation and migration. Prepare and validate opening balances where applicable. Support go-live, hypercare, and post-go-live activities. Perform functional QA and support SLA requirements. Finance & Accounting Depending on your experience and project assignment, you may work on: Chart of Accounts design, setup, and mapping. Journals, taxes, and fiscal positions. AP/AR processes. Multi-currency operations. Banking and reconciliation. Costing and landed-cost workflows. Financial reporting and KPIs. Opening balances. Financial integrations and process automation. Multi-company accounting structures. WIP accounting. Foreign-currency processes. Capital and profit-distribution processes. Financial procedures and controls. Supply Chain You may also work on: Products, SKUs, variants, and units of measure. Product packaging. Purchasing and vendor management. Receipts, deliveries, and inventory operations. Stock locations and warehouse structures. Reordering rules and inventory adjustments. Vendor lead times and purchase agreements. Costing methods and landed costs. Inventory valuation. Routes and logistics workflows. MTO / MTS. Dropshipping. Manufacturing and BOMs. Subcontracting. Traceability and Quality. Multi-warehouse operations. Barcode workflows. Project Delivery Participate in project planning and milestone delivery. Lead or participate in client workshops. Translate business requirements into functional solutions. Prepare UAT scenarios and documentation. Participate in internal and client UAT sessions. Train end users and key users. Support go-live and hypercare. Prepare functional documentation. Coordinate with Project Managers and technical teams. Follow up on assigned tasks, deliverables, and deadlines. Provide ongoing functional support when required. What We’re Looking For Proven experience with Odoo ERP . Experience participating in or managing Odoo implementations. Strong understanding of business processes. Practical experience in Finance/Accounting and/or Supply Chain . Ability to perform requirements gathering and gap analysis. Experience with configuration, testing, UAT, and user training. Understanding of data migration and opening balances. Strong problem-solving and analytical skills. Ability to communicate with both business users and technical teams. Good written and spoken English . Strong Arabic communication skills. Ability to work in a client-facing consulting environment. Strongly Preferred Experience delivering end-to-end Odoo implementations . Experience with multi-company or multi-warehouse environments. Experience with inventory valuation, landed costs, costing, and foreign currency. Experience with Manufacturing, Quality, Barcode, or advanced Supply Chain workflows. Experience working with Odoo technical teams and understanding functional/technical boundaries. Experience working across different industries and business models. What We Value We are not looking for someone who only knows where Odoo's configuration menus are. We want consultants who can: Understand the business → identify the problem → design the process → configure Odoo → test it → train the users → support the business through go-live. The level of responsibility will depend on your experience and demonstrated capabilities. Apply If you have practical Odoo implementation experience and want to work on real ERP transformation projects across Finance, Supply Chain, and business operations, we would like to hear from you. Please send your CV and include: Years of Odoo experience Odoo versions worked with Number of implementations delivered Odoo modules you have implemented Your role in those implementations Finance vs. Supply Chain experience Industries you have worked with Examples of complex Odoo projects you have delivered",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4460813002",
-      "title": "Specification Manager - Egypt",
-      "company": "LIXIL",
-      "location": "Egypt",
-      "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "35 minutes ago",
-      "estimated_age_minutes": 35,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4460813002",
-      "matched_queries": [
-        {
-          "query": "Microsoft 365",
-          "weight": 3.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Not Applicable",
-      "employment_type": "Full-time",
-      "job_function": "Design, Art/Creative, and Information Technology",
-      "advisory_title_noise_signals": [],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "IMEA (India, Middle East, Africa) Egypt LE_0170-GROME Trading Limited (L.L.C.) Employee Assignment Not remote Full Time 1 September 2026 Primary Responsibilities Region: Egypt, Libya and Sudan Market Education Promote company products and solutions through various channels, including presentations, seminars, and marketing materials. Conduct technical presentations and provide training to educate specifiers about company products and solutions. Provide technical support, product knowledge, and guidance to specifiers. Specification And CRM Tracking Identify and engage with specifiers (architects, consultants, developers) early in the design process to influence product selection. Work with sales, marketing, and technical teams to align efforts and ensure a unified approach to product specification. Maintain and update CRM and specification tracking systems to monitor project progress and track specifications. Building Relationship With Professionals Across The Market Develop strong relationships with key stakeholders to secure product specifications. Plan and conduct quarter/annual activities relevant to PR development. Creating Sales Deliver increased brand awareness and higher sales results in innovative and new products in the Region through projects and specification demand generation. Increase pipeline and conversion rate with existing products & new product lines. Increase specified pipeline and ensuring progressive product specification which is difficult to break by the competition. Work closely with the project sales team to both support and fully maximize the project business across the region. Identify key channels and relevant targets in the region: Hotels - Residential - Healthcare and respective primary professionals’ targets. Qualifications And Education Bachelor’s degree in fine art or architecture. Business fluent English and Arabic Experience At least 5 years of experience in a comparable senior position. Same Industry or Related is a MUST. Experience in Specification of the same products category. Market knowledge of the region. Excellent Communication, presentation and interpersonal skills. Ability to build relationships and influence decisions. Technical expertise in interior design and bathroom products. Experience in Sales/ or Marketing within B2B environment. Willingness to frequent and short business trips",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4458465594",
-      "title": "Office Manager",
-      "company": "Boba Bhai",
-      "location": "Giza, Al Jizah, Egypt",
-      "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "41 minutes ago",
-      "estimated_age_minutes": 41,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4458465594",
-      "matched_queries": [
-        {
-          "query": "Microsoft 365",
-          "weight": 3.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Mid-Senior level",
-      "employment_type": "Full-time",
-      "job_function": "Administrative",
-      "advisory_title_noise_signals": [],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "Qualifications Candidates should possess strong Communication and Customer Service skills to interact effectively with team members, partners, and visitors. Candidates should possess Office Administration and Administrative Assistance skills for managing schedules, documentation, and day-to-day office procedures. Candidates should possess knowledge of Office Equipment and basic troubleshooting skills to ensure smooth operation of devices and supplies. Candidates should have solid organizational and time-management abilities, with attention to detail and reliability in follow-through. Candidates should be proficient with common office software (e.g., word processing, spreadsheets, email) and comfortable learning new systems. Candidates should have prior experience in office management, administration, or a similar role; experience in food and beverage or retail environments is an advantage. Candidates should ideally hold a diploma or degree in Business Administration, Management, or a related field, or have equivalent practical experience.",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4432754953",
-      "title": "Mechanical Design Engineer",
-      "company": "مجموعة خليفة القابضة - Khalifa Holding Group",
+      "linkedin_job_id": "4457884566",
+      "title": "performance Marketing Manager",
+      "company": "HR Global Network",
       "location": "Cairo, Egypt",
       "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "45 minutes ago",
-      "estimated_age_minutes": 45,
+      "linkedin_posted_text": "15 minutes ago",
+      "estimated_age_minutes": 15,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4432754953",
+      "first_seen_utc": "2026-08-29T09:44:06Z",
+      "url": "https://www.linkedin.com/jobs/view/4457884566",
       "matched_queries": [
         {
-          "query": "Microsoft 365",
+          "query": "Fortinet",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
@@ -1423,47 +1251,9 @@
       "application_status": "open_signal",
       "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Engineering",
-      "advisory_title_noise_signals": [],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "About us. We are a leading construction company in Libya, specializing in large-scale infrastructure & Construction projects. With a workforce of over 10,000 employees representing more than 23 nationalities, we take pride in our diverse and highly skilled team. Driven by a commitment to excellence, quality, and innovation, we consistently set industry benchmarks. To further strengthen our leadership structure. Position We are seeking an experienced Mechanical Design Engineer specialized in (Stormwater, Firefighting, Plumbing, and Wet Utilities) and focuses on designing systems that manage water (drainage, flood control) and fire protection for large projects like utilities, hospitals , malls , airports, and buildings projects, Coordinate with other disciplines (architectural, electrical, civil), Ensure compliance with international codes and standards for large projects and designs comply with local regulations and international standards. Responsibilities Reviewing of design calculations for HVAC system including Heat Load, Chiller capacity, Pressure drop calculations for chilled water system, Duct design calculations, External static pressure calculations, Exhaust system calculations, Fresh air calculations, Stair case pressurization calculations, Smoke exhaust system calculations etc. using ASHRAE standards and latest available software. Reviewing of Hydraulic calculations, pump sizing & system pipe sizing for Domestic water system, hot water system, central filtration system ,Firefighting pumps & tank capacity for Fire sprinkler system , firefighting dry and wet hydrant systems and drainage system using latest available software Preparation of Technical Bid Evaluation of equipment and highlight positive and negative aspects of the equipment proposed. Reviewing mechanical and architectural Design Drawings, structural drawings, combined services coordinated drawings & Shop Drawings in relation with MEP scope. Reviewing, Coordinating & finalizing field design changes. Preparing presentations, design reports & functional reports as per the instructions of the Line Manager Reviewing of Material specifications, list of manufacturers, available suppliers and general specifications. Technical clarification with the vendors for their proposed equipment. Design stormwater drainage systems (pipelines, culverts, channels, manholes). Perform hydraulic and hydrological calculations (rainfall, runoff, flood levels). Size pipes and slopes using standards and software. Design fire protection systems (hydrants, sprinklers, hose reels). Calculate water demand and pressure requirements. Prepare detailed drawings using software like AutoCAD, Revit, or Civil 3D. Attend design meetings and site visits. Ensure safety, reliability, and cost-effectiveness. Prepare design reports and calculations. Review shop drawings and material submittals. Develop basis of design reports (BODR) and technical memorandums for small-to- large size projects, setting criteria for following design stages. Review the design and specification of fire safety systems (fire alarm systems, notification systems, automation of Gas/water fire extinguishing /emergency escape systems). Ability to calculate number of nozzles, gas capacity, pipeline selection/layout, air pressure and water pressure etc. Routine Report & Write Technical note; Maintaining complete records and archives as company standards. Requirements Education: Bachelor’s degree in mechanical engineering or related field. Experience: Minimum 5 years' experience in design and reviewing design, installation, testing and commissioning for MEP systems for similar Projects. Technical Expertise: In-depth knowledge of international standards such as NFPA, ASHRAE, SMACNA, NPC, IBC, ASME,ANSI, MSS including MS office, AutoCAD, Revit etc. Detailed understanding of materials and equipment selection Adaptability: Strong troubleshooting skills and understanding of international codes. Communication: Native in Arabic (written and spoken); English proficiency is a strong advantage.",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4458781020",
-      "title": "Human Resources Manager",
-      "company": "Alorica",
-      "location": "Egypt",
-      "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "5 minutes ago",
-      "estimated_age_minutes": 5,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4458781020",
-      "matched_queries": [
-        {
-          "query": "Microsoft 365",
-          "weight": 3.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Not Applicable",
-      "employment_type": "Full-time",
-      "job_function": "Human Resources",
+      "job_function": "Marketing and Sales",
       "advisory_title_noise_signals": [
-        "human resources"
+        "marketing"
       ],
       "advisory_it_evidence": false,
       "score": 3.0,
@@ -1471,27 +1261,27 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "HR Manager – Egypt Join Alorica and Make an Impact About Us At Alorica, we only do one thing – make lives better, one interaction at a time. We're a global leader in customer service and experience, serving the world's biggest brands with tens of thousands of employees in hundreds of locations around the globe. We're the largest minority-owned CX provider, delivering digital-first, people-centered experiences for some of the world's most respected brands. For over 25 years, we've been helping businesses solve their toughest customer experience challenges — and we do it better than anyone else. As a Top Place to Work, we're serious about creating an environment where people show up as their genuine selves. Which means when you succeed, we all do. Here's What The Job Really Looks Like Reporting directly to the HR Director, you will manage day-to-day HR operations for Egypt, working in close partnership with the Director on compliance, employee relations, and site support. This is a hands-on, execution-focused role. You will support grievance investigations, onboarding and offboarding, disciplinary process, and day-to-day vendor and systems coordination, while directly managing the HR team. Manage the site day-to-day HR operations. Partner closely with the HR Director on policy application, performance management, disciplinary action, and employee relations matters. Keep HR policies and processes consistent with Egyptian regulatory requirements, and in line with our global policies Counsel employees and maintain positive employee relations; act as liaison between employees and management. Monitor team-level employee satisfaction and attrition trends and flag concerns early. Manage and develop the HR team, ensuring cross-trained coverage and consistent day-to-day delivery. How You'll Make An Impact Get fluent in Alorica's Egypt HR operations, compliance posture, and systems. Build strong working relationships with the HR team, Site Leadership, and cross-functional partners in addition to our external vendors. Be running Egypt HR operations day-to-day in close partnership with the HR Director. Contribute to a stronger compliance culture in Egypt, reduce operational risk, and help build a cross-trained team to support continued headcount growth. What'll Set You Up For Success 5+ years of HR experience, including HR operations, employee relations or compliance. Expert in Egyptian Labour Law. Experience in a BPO/CX, contact center, or other high-volume operational environment is a plus. Previous experience in managing a team is preferred. Strong communication and coordination skills; reliable follow-through and comfortable flagging issues early. Fluent in English is a must. WHY ALORICA? Our culture shows up in how we work together, support each other, and show up for our clients. We're bold enough to challenge how things have always been done, committed to delivering results that matter, and passionate about creating customer experiences that work. TIDE is our connection group built around real conversations, shared experiences, and genuine belonging. MLBA (Making Lives Better at Alorica) is our employee-led nonprofit where local teams raise funds and support colleagues and communities when it matters most. We don't just talk about culture, we build it, live it, and keep making lives better every day. OUR VALUES Bold – We challenge conventions and take smart risks. Relentless – We deliver results, no matter what it takes. Connected – We work as One Alorica because we're stronger together. True – We show up as our authentic selves, every single day. READY TO JOIN US? If you're looking for a place where your expertise matters, your voice is heard, and your work drives real impact in Alorica's largest EMEA market, let's talk. Apply today! Equal Opportunity Employer – Veterans/Disabled DISCLAIMER: The above information has been designed to indicate the general nature and level of work performed by employees in this classification. #AloricaEgypt #AloricaJobs",
+      "description": "Job Title: Performance Marketing Manager Location: Nasr City, Cairo, Egypt (Full-time, On-site) Industry: EdTech About the Role We are looking for a data-driven and results-oriented Performance Marketing Manager to lead our paid acquisition efforts. This is a high-impact role responsible for developing, executing, and optimizing our digital marketing strategy to drive student enrollment and achieve aggressive growth targets. You will be the owner of our paid media budget, responsible for maximizing return on ad spend (ROAS), reducing customer acquisition costs (CAC), and building a robust pipeline of qualified leads. Key Responsibilities Strategy & Execution: Develop, implement, and manage comprehensive paid advertising strategies across multiple digital channels, including but not limited to Google Ads (Search, Display, YouTube), Meta (Facebook & Instagram), TikTok, and LinkedIn. Build and execute full-funnel campaigns, focusing on both brand awareness and high-intent conversion stages to drive student enrollment and retention. Effectively manage the advertising budget, strategically allocating spend across platforms and campaigns to ensure maximum efficiency and ROI. Optimization & Analysis: Analyze campaign performance data daily and weekly, translating insights into actionable optimizations. Monitor key metrics like CPM, CPC, CTR, CPL, and ROAS. Continuously optimize for target KPIs, including Cost Per Lead (CPL), Customer Acquisition Cost (CAC), and Return on Ad Spend (ROAS). Lead A/B testing on all campaign elements, including ad copy, creative, audience targeting, and landing pages, to continuously improve performance. Monitor changes in advertising platform algorithms and update strategies accordingly to stay ahead of the curve. Collaboration & Reporting: Work closely with the creative and content teams to brief and produce high-performing ad creatives, videos, and landing pages that resonate with our target audience (students, parents, professionals). Prepare and deliver detailed monthly performance reports to management, outlining results, challenges, and strategic recommendations for improvement. Collaborate with the sales team to ensure alignment between marketing-qualified leads (MQLs) and sales goals, analyzing the complete customer journey from first click to enrollment. Qualifications & Requirements Experience & Education: Bachelor's degree in Marketing, Business Administration, or a related field. 3-5 years of hands-on experience in performance marketing or digital advertising, with a proven track record of managing large-scale campaigns. Previous experience in the EdTech, education, or subscription-based services sector is a strong plus. Technical Skills: Platform Expertise: Expert-level proficiency in managing and optimizing campaigns on Meta Ads Manager, Google Ads, TikTok Ads Manager, and LinkedIn Campaign Manager. Analytics & Tools: Deep familiarity with analytics and tracking tools, including Google Analytics 4 (GA4), Google Tag Manager, and pixel/API setup for conversion tracking. Experience with CRM systems (e.g., Salesforce, HubSpot) is advantageous. Data Analysis: Strong analytical and problem-solving skills with a demonstrated ability to interpret complex data sets and make data-driven decisions. Core Competencies: Strategic Mindset: Ability to develop high-level marketing strategies and translate them into actionable campaign plans. Testing & Experimentation: A relentless focus on testing and optimization (A/B testing, multivariate testing) to improve performance. Communication: Excellent communication and presentation skills, with the ability to clearly explain performance and strategic recommendations to stakeholders. Leadership: Experience managing or coordinating with a team and external partners is highly desirable.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4460588874",
-      "title": "Customer Service Specialist",
-      "company": "HR Egypt Network - HREN",
-      "location": "Cairo, Egypt",
+      "linkedin_job_id": "4460812213",
+      "title": "Quality Monitoring Specialist - English B2 speaker ( Call center )",
+      "company": "Xceed",
+      "location": "Qesm El Maadi, Cairo, Egypt",
       "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "1 hour ago",
-      "estimated_age_minutes": 60,
+      "linkedin_posted_text": "22 minutes ago",
+      "estimated_age_minutes": 22,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4460588874",
+      "first_seen_utc": "2026-08-29T09:44:06Z",
+      "url": "https://www.linkedin.com/jobs/view/4460812213",
       "matched_queries": [
         {
-          "query": "Microsoft 365",
+          "query": "Fortinet",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
@@ -1501,9 +1291,9 @@
       "application_status": "open_signal",
       "seniority": "Entry level",
       "employment_type": "Full-time",
-      "job_function": "Customer Service, Education, and Management",
+      "job_function": "Quality Assurance",
       "advisory_title_noise_signals": [
-        "customer service"
+        "call center"
       ],
       "advisory_it_evidence": false,
       "score": 3.0,
@@ -1511,27 +1301,27 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Job Title: Customer Support Specialist Location: Al-Wafa & Al-Amal, Nasr City – Cairo, Egypt Working Hours: 10:00 AM – 6:00 PM Working Days: Sunday – Thursday Education: University graduates only Experience Required: 1–3 years Key Responsibilities: Handle customer inquiries professionally and efficiently Log and track customer cases using follow-up systems and tools Coordinate with marketing and sales teams to resolve issues related to registrations or payments Ensure communication quality and respond to customers in a timely manner Requirements: Proficiency in computer usage and fast typing skills Excellent communication and interpersonal skills Positive attitude and strong customer service orientation Ability to work in a team and take responsibility Benefits: social insurance Supportive work environment Opportunities for professional development and career growth",
+      "description": "Role Description The Quality Monitoring Specialist – English B2 speaker (Call Center) is responsible for monitoring and evaluating customer interactions to ensure adherence to Xceed’s quality standards and client requirements. This is a full-time, on-site role based in Qesm El Maadi, where the specialist will review calls, chats, and other communication channels, assess agent performance, and provide constructive feedback and coaching insights. Daily activities include documenting quality findings, identifying trends in customer experience, collaborating with team leaders to address performance gaps, and supporting continuous improvement initiatives. The role also involves preparing quality reports, contributing to calibration sessions, and helping maintain compliance with internal policies and external guidelines. Qualifications Candidates should possess strong Quality Control and Quality Assurance skills to evaluate interactions and ensure compliance with standards. Candidates should possess Quality Auditing skills to systematically review performance, document findings, and support corrective actions. Candidates should possess solid Analytical Skills to interpret data, identify patterns, and recommend improvements in customer experience and processes. Candidates should possess excellent Communication skills to deliver clear feedback, collaborate with stakeholders, and interact effectively in English at B2 level. Previous experience in call center quality monitoring or contact center operations is highly beneficial. Ability to work on-site in Qesm El Maadi and adapt to a fast-paced, performance-driven environment.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4460802350",
-      "title": "Corporate Travel Consultant",
-      "company": "Mezwalah I مزوله",
-      "location": "Egypt",
+      "linkedin_job_id": "4458459778",
+      "title": "Cost Accounting Senior Officer - Construction Background",
+      "company": "SQUARE Engineering Firm",
+      "location": "Cairo, Egypt",
       "linkedin_date": "2026-08-29",
-      "linkedin_posted_text": "12 minutes ago",
-      "estimated_age_minutes": 12,
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-29T08:44:32Z",
-      "url": "https://www.linkedin.com/jobs/view/4460802350",
+      "first_seen_utc": "2026-08-29T09:44:06Z",
+      "url": "https://www.linkedin.com/jobs/view/4458459778",
       "matched_queries": [
         {
-          "query": "Microsoft 365",
+          "query": "Fortinet",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
@@ -1541,7 +1331,7 @@
       "application_status": "open_signal",
       "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Management and Manufacturing",
+      "job_function": "Accounting/Auditing and Finance",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 3.0,
@@ -1549,7 +1339,7 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Company Description Mezwalah I مزوله is a destination management company specializing in tailored travel solutions with a strong focus on high-quality service. The team designs seamless multi-destination itineraries across Saudi Arabia and international markets, supporting corporate and business travel needs. By combining local expertise with global reach, Mezwalah offers customized travel experiences that align with client objectives and budgets. The company values professionalism, reliability, and client-centric service in every engagement. Role Description The Corporate Travel Consultant is a full-time remote role responsible for planning and managing end-to-end travel arrangements for corporate clients. Day-to-day tasks include consulting with clients to understand travel requirements, proposing itinerary options, and coordinating flights, hotels, ground transportation, and other travel services. The role involves handling reservations, monitoring bookings, and resolving issues or changes promptly to ensure smooth travel experiences. The consultant will maintain strong customer service standards, provide cost-effective travel solutions, and stay informed about travel policies, visa requirements, and destination-specific regulations. Collaboration with internal teams and suppliers to optimize travel programs and support corporate travel policies is also expected. Qualifications Candidates should possess skills in Travel Consulting and Travel Management to advise clients and oversee corporate travel programs effectively. Candidates should possess skills in Travel Arrangements and Reservations to coordinate bookings for flights, accommodations, and ground transportation. Candidates should possess strong Customer Service skills to handle inquiries, resolve issues, and deliver a positive client experience. Relevant experience with corporate or business travel, destination management, or travel agencies is highly beneficial. Proficiency in travel booking systems and online reservation platforms, along with strong organizational and time-management skills. Clear written and verbal communication skills in English; additional language abilities are an advantage. Ability to work independently in a remote setting, manage multiple client accounts, and adapt to changing travel requirements. A diploma or degree in Tourism, Hospitality, Business, or a related field is preferred but not mandatory with suitable experience.",
+      "description": "Company Description SQUARE Engineering Firm (Square S.A.E) is an Egyptian joint-stock company founded in 1992, specializing in contracting and distinguished architectural projects. The firm collaborates with a network of experienced consultants and architects, supported by committed associates and the expertise of its founders. A specialized technical office provides extensive knowledge of local and international practices, helping ensure high-quality project execution. This integrated know-how enables Square to deliver projects that meet strict technical and timing commitments while maintaining strong client relationships. Role Description The Cost Accounting Senior Officer – Construction Background is a full-time, on-site role based in Cairo, Egypt. The role is responsible for preparing, analyzing, and monitoring project cost reports, budgets, and forecasts to support effective financial control of construction projects. Daily tasks include reviewing and allocating project expenses, ensuring accurate cost coding, reconciling cost data with financial records, and supporting month-end closing activities. The position involves working closely with project managers, site engineers, and the finance team to verify quantities, validate subcontractor and vendor invoices, and assess cost variances against budgets. The Senior Officer will also support the preparation of management reports, contribute to financial planning for new projects, and recommend cost optimization measures while maintaining compliance with company policies and relevant accounting standards. Qualifications Strong knowledge of finance and cost accounting principles relevant to construction projects. Experience preparing and analyzing financial statements and project cost reports. Proficiency in accounting software and enterprise systems used for project cost control. Solid background in accounting, including general ledger, budgeting, and reconciliation. Advanced analytical skills to interpret financial data, identify variances, and recommend corrective actions. Bachelor’s degree in Accounting, Finance, or a related field; professional certification (e.g., CMA, CPA) is an advantage. Previous experience in construction or engineering industries in a similar cost accounting role. Strong attention to detail, organizational skills, and ability to manage multiple projects and deadlines. Effective communication and collaboration skills for working with cross-functional teams. Proficiency in MS Excel and other relevant financial analysis tools.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
