@@ -1,11 +1,13 @@
 {
   "schema_version": 6,
   "config_version": 7,
-  "run_id": "20260830T054410Z",
-  "run_started_at_utc": "2026-08-30T05:44:10Z",
-  "generated_at_utc": "2026-08-30T05:47:23Z",
-  "health": "healthy",
-  "warnings": [],
+  "run_id": "20260830T064433Z",
+  "run_started_at_utc": "2026-08-30T06:44:33Z",
+  "generated_at_utc": "2026-08-30T06:47:50Z",
+  "health": "healthy_with_retries",
+  "warnings": [
+    "LinkedIn guest search needed recovery retries for 3 query bucket(s)"
+  ],
   "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
   "search_lanes": [
     {
@@ -31,38 +33,38 @@
     "principle": "Do not let code decide job fit after exact-detail retrieval; ChatGPT reviews every verified new candidate"
   },
   "stats": {
-    "unique_live_cards": 9,
-    "already_seen": 2,
-    "detail_attempts": 7,
-    "details_fetched": 7,
+    "unique_live_cards": 19,
+    "already_seen": 6,
+    "detail_attempts": 13,
+    "details_fetched": 13,
     "detail_failures": 0,
     "detail_budget_skipped": 0,
     "closed_candidates_kept": 0,
     "freshness_conflicts_kept": 0,
-    "low_it_evidence_candidates_kept": 7,
-    "title_noise_candidates_kept": 3,
+    "low_it_evidence_candidates_kept": 10,
+    "title_noise_candidates_kept": 1,
     "search_errors": 0,
-    "query_retry_recoveries": 0,
+    "query_retry_recoveries": 3,
     "query_count": 25,
     "search_bucket_count": 50,
-    "review_candidates": 7,
+    "review_candidates": 13,
     "relevance_rejections": 0,
     "lane_stats": {
       "egypt": {
         "query_count": 25,
-        "unique_live_cards": 9,
-        "already_seen": 2,
-        "detail_attempts": 7,
-        "details_fetched": 7,
+        "unique_live_cards": 19,
+        "already_seen": 6,
+        "detail_attempts": 13,
+        "details_fetched": 13,
         "detail_failures": 0,
         "detail_budget_skipped": 0,
-        "review_candidates": 7,
+        "review_candidates": 13,
         "closed_candidates_kept": 0,
         "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 7,
-        "title_noise_candidates_kept": 3,
+        "low_it_evidence_candidates_kept": 10,
+        "title_noise_candidates_kept": 1,
         "search_errors": 0,
-        "query_retry_recoveries": 0,
+        "query_retry_recoveries": 3,
         "relevance_rejections": 0
       },
       "emea_remote": {
@@ -138,12 +140,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        0
+        1
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -154,12 +154,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        0
+        6
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 6,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -250,12 +248,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        0
+        1
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -314,12 +310,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        0
+        1
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -346,12 +340,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        0
+        1
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 1,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -394,10 +386,12 @@
       "pages_configured": 4,
       "pages_requested": 1,
       "page_counts": [
-        4
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 4,
+      "retry_page_counts": {
+        "1": 8
+      },
+      "unique_cards": 8,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -408,10 +402,12 @@
       "pages_configured": 4,
       "pages_requested": 1,
       "page_counts": [
-        3
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 3,
+      "retry_page_counts": {
+        "1": 7
+      },
+      "unique_cards": 7,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -422,10 +418,12 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        3
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 3,
+      "retry_page_counts": {
+        "1": 7
+      },
+      "unique_cards": 7,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -450,10 +448,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        1
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -464,10 +462,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        5
+        10
       ],
       "retry_page_counts": {},
-      "unique_cards": 5,
+      "unique_cards": 10,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -871,21 +869,471 @@
   "errors": [],
   "review_candidates": [
     {
-      "linkedin_job_id": "4457897984",
-      "title": "Quality Monitoring Specialist-English-Speakers",
-      "company": "Xceed",
-      "location": "Cairo, Cairo, Egypt",
+      "linkedin_job_id": "4460888403",
+      "title": "Project Field Engineer",
+      "company": "ELBATTAT Steel - METRACO",
+      "location": "Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "1 hour ago",
-      "estimated_age_minutes": 60,
+      "linkedin_posted_text": "48 minutes ago",
+      "estimated_age_minutes": 48,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4457897984",
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460888403",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 7.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Microsoft 365",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "We are seeking a skilled and experienced  Field Engineer  to join our project execution team across Egypt . The ideal candidate will be responsible for leading site activities, supervising field teams, and ensuring that installation works are executed safely, accurately, and in accordance with approved technical and quality requirements. This role requires strong field leadership, sound technical judgment, and the ability to coordinate effectively with clients, subcontractors, and internal departments. Responsibilities: Lead and supervise the installation of steel pipelines, custom fittings, penstocks, radial gates, stop logs, and automatic cleaning weed screen systems. Manage site technicians and subcontractors, ensuring efficient workflow, workmanship, safety, and compliance with project requirements. Plan and coordinate manpower, equipment, materials, and site requirements ahead of execution to maintain project progress. Ensure installation works comply with approved drawings, welding procedures, coating specifications, QA/QC requirements, and applicable technical standards. Coordinate closely with the Technical Office, Production, Procurement, and other supporting functions to resolve site requirements and technical matters. Maintain accurate and timely daily reports covering progress, manpower, equipment, completed works, constraints, and site activities. Act as a professional point of coordination with clients, consultants, and project stakeholders throughout site execution. Identify and resolve field challenges promptly while maintaining the required standards of safety, quality, and productivity. Support inspections, measurements, handover documentation, and other project records required for completed works. Work across project sites throughout Egypt and relocate between sites according to project requirements. Qualifications: Bachelor’s degree in Mechanical Engineering or a related engineering discipline. Minimum 7 years of hands-on site experience, preferably within steel fabrication, pipelines, water infrastructure, or similar industrial projects. Proven ability to lead technicians, subcontractors, and multidisciplinary field teams in demanding site environments. Strong understanding of steel installation, welding, coating, QA/QC inspections, and site documentation. Strong communication and people-management skills, with the ability to work effectively with employees and managers at all levels. Strong command of Microsoft 365 applications. Excellent command of both English and Arabic. Proficiency in working with AI tools is required. What We Offer: We are proud to be an equal opportunity employer. Opportunity to play a key role in building and developing the HR function within a growing leading steel manufacturing company in Egypt. Direct exposure to senior management and involvement in company-wide organizational development.Ongoing training and professional development opportunities. Attractive package, compensation, and benefits. A workplace where people are encouraged to grow, contribute, and take ownership. Commitment to fostering a diverse, equitable, and inclusive environment where employees feel valued and empowered to succeed. Commitment to sustainable practices and responsible long-term growth. If you match the above criteria, are interested, and ready to grow with us, we would like to hear from you. Kindly send your CV to careers@elbattat.com , mentioning “Application for Field Engineer – [Your Full Name]” in the subject line.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460885456",
+      "title": "Application Senior Supervisor.",
+      "company": "Xceed",
+      "location": "Qesm El Maadi, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "18 minutes ago",
+      "estimated_age_minutes": 18,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460885456",
+      "matched_queries": [
+        {
+          "query": "Systems Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cloud Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 7.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Azure",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Key Responsibilities: - Lead software development projects from planning to production. - Design and maintain scalable software architecture. - Supervise, mentor, and support the development team. - Ensure code quality, security, and best development practices. - Oversee AI/LLM integration into software products. - Manage CI/CD pipelines, production deployments, and system performance. - Collaborate with business stakeholders to deliver technical solutions. - Drive continuous improvement and technology innovation. Requirements: - Bachelor's degree in Computer Science, Software Engineering, or a related field. - Minimum 6 years of software development experience, including 3+ years in a leadership role. - Strong experience with C#, ASP.NET Core, Entity Framework Core, REST APIs, and .NET. - Experience with PostgreSQL and/or SQL Server. - Knowledge of React or Angular. - Experience with Docker, CI/CD, AWS, or Azure is a plus. - Hands-on experience with AI/LLM integration and modern software architecture. - Strong leadership, communication, and problem-solving skills. - Fluent in English.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460883438",
+      "title": "Sr. Electrical Design Engineer & Sr. Mechanical Design Engineer",
+      "company": "Cairo Smart Consultant",
+      "location": "Giza, Al Jizah, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "38 minutes ago",
+      "estimated_age_minutes": 38,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460883438",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Routing/Switching",
+          "weight": 3.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "1. Senior Electrical Design Engineer Job Summary: We are seeking an experienced Senior Electrical Design Engineer to lead the electrical design aspects of our engineering projects. You will be responsible for conceptualizing, designing, and managing electrical systems from schematic design through construction administration, ensuring compliance with relevant codes and industry standards. Key Responsibilities: System Design: Design comprehensive low-voltage (LV), medium-voltage (MV), power distribution, lighting, fire alarm, and extra-low voltage (ELV) systems. Software Proficiency: Utilize AutoCAD and Revit (BIM) daily to produce detailed drawings, schematics, and 3D coordination models. Calculations & Compliance: Perform electrical calculations (e.g., lighting, cable sizing, voltage drop, and short-circuit analysis) complying with NEC, IEC, or local standards. Coordination: Collaborate closely with mechanical, plumbing, and structural teams to resolve clashes and ensure integrated building services design. Mentorship & Review: Review junior engineers' work, provide technical guidance, and ensure designs meet quality, budget, and schedule targets. Requirements & Qualifications: Education: Bachelor’s degree in Electrical Engineering. Experience: Minimum of 7 to 10 years of experience in electrical building services or industrial design. Technical Skills: Mandatory expertise in AutoCAD and Autodesk Revit for creating BIM-compliant deliverables. Certifications: Professional Engineer (PE) license or relevant certifications are a strong plus. 2. Senior Mechanical Design Engineer Job Summary: We are looking for a skilled Senior Mechanical Design Engineer to spearhead the mechanical, HVAC, plumbing, and fire protection design for our upcoming projects. The ideal candidate will combine strong analytical skills with advanced modeling capabilities to deliver efficient and sustainable building systems. Key Responsibilities: HVAC & Plumbing Design: Design energy-efficient HVAC, chilled water, ventilation, plumbing, and drainage systems for commercial, residential, or industrial facilities. Software Mastery: Generate accurate, high-quality 2D drafts and 3D parametric models using AutoCAD and Revit . Engineering Analysis: Conduct heat load calculations, duct/pipe sizing, static pressure calculations, and equipment selections. Interdisciplinary Coordination: Lead clash detection sessions and coordinate routing with electrical and structural disciplines within the Revit environment. Project Leadership: Oversee the preparation of technical specifications, tender packages, and bill of quantities (BOQ), guiding projects from concept to completion. Requirements & Qualifications: Education: Bachelor’s degree in Mechanical Engineering. Experience: Minimum of 7 to 10 years of dedicated mechanical design experience in the construction/consultancy sector. Technical Skills: Mandatory proficiency in AutoCAD and Revit for integrated MEP design workflows. Knowledge: Strong understanding of ASHRAE, ASME, and local building codes, as well as energy-modeling principles.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460881443",
+      "title": "𝗦𝗲𝗻𝗶𝗼𝗿 𝗕𝗜𝗠 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗮𝗹 𝗘𝗻𝗴𝗶𝗻𝗲𝗲𝗿",
+      "company": "SSH Design",
+      "location": "Qesm 1st New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "46 minutes ago",
+      "estimated_age_minutes": 46,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460881443",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "🚨Join Our Team at SSH Design – Egypt Office 𝗦𝗲𝗻𝗶𝗼𝗿 𝗕𝗜𝗠 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗮𝗹 𝗘𝗻𝗴𝗶𝗻𝗲𝗲𝗿 💼 Experience: 6–8 Years 📍 Location: New - Cairo 𝗞𝗲𝘆 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗶𝗯𝗶𝗹𝗶𝘁𝗶𝗲𝘀: – Manage, develop, review, and maintain accurate BIM models in accordance with project requirements, BIM standards, BEP & EIR. – Coordinate with Architecture, MEP, and other disciplines to identify and resolve design and model clashes. – Review and ensure the quality, accuracy, and consistency of BIM models and deliverables. – Prepare and review structural drawings, schedules, and BIM documentation. – Participate in BIM coordination meetings and provide technical solutions to modelling and coordination issues. – Manage model sharing, coordination, and information exchange through Autodesk Construction Cloud (ACC). – Conduct advanced clash detection, federated model coordination, and Clash Detective using Navisworks. 𝗤𝘂𝗮𝗹𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀: – Bachelor’s degree in Civil or Structural Engineering. – 6–8 years of experience in Structural BIM Modelling and Documentation. – Proficiency in Autodesk Revit Structure, AutoCAD, and Navisworks. – Strong knowledge of reinforced concrete structures, structural engineering drawings, detailing practices, and BIM workflows. – Good knowledge of reinforcement detailing, preparation of reinforcement drawings, and schedules. – Knowledge of Autodesk Construction Cloud (ACC) or BIM 360. – Excellent command of written and spoken English. 📩 To apply, send your updated CV to: 📧 Recruitment@sshic.com",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458830429",
+      "title": "Senior Technical Office Engineer-Civil (Alexandria Resident)",
+      "company": "Sabbour Consulting",
+      "location": "Alexandria, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "15 minutes ago",
+      "estimated_age_minutes": 15,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4458830429",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Associate",
+      "employment_type": "Full-time",
+      "job_function": "Engineering",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About Sabbour Consulting Since 1957, Sabbour Consulting has been a leading multidisciplinary engineering consulting firm delivering expert services in project management, design, cost control, and construction supervision across Egypt and the region. We pride ourselves on precision, innovation, and delivering projects that exceed client expectations. Job Summary Managing and coordinating all civil technical office activities within engineering consultancy projects. The role ensures the accuracy, compliance, and timely delivery of drawings, technical submissions, and documentation, while providing technical support to project teams, clients, and contractors in accordance with applicable codes, standards, and consultancy best practices. Key Responsibilities Review, prepare, and coordinate civil design drawings, shop drawings, and technical documents in compliance with project requirements and codes. Prepare and review technical submittals, method statements, and material approvals. Coordinate with design disciplines to resolve technical clashes and ensure design consistency. Support project planning by reviewing BOQs, specifications, and scope of work. Provide technical support to site teams and respond to RFIs and technical queries. Review contractor submissions and ensure compliance with approved drawings and specifications. Participate in value engineering proposals and technical optimization solutions. Ensure adherence to local and international codes, standards, and consultancy best practices. Assist in preparing tender documents, technical clarifications, and bid evaluations when required. Monitor technical progress and report issues, risks, and deviations to management. Coordinate with clients, contractors, and stakeholders on technical matters. Maintain proper documentation control for all technical office deliverables. Qualifications & Requirements Bachelor’s degree in civil engineering. 5+ years of relevant experience for Technical Office Engineers 8+ years of relevant experience for Senior Technical Office Engineers Experience in technical office roles within large-scale construction or infrastructure projects. Strong command of civil design standards, detailing, and construction practices. Proficiency in AutoCAD, Civil 3D, MS Office; knowledge of structural software (e.g., SAP2000, ETABS) is a plus. Familiarity with local and international codes (ACI, BS, ASTM, etc.). Excellent technical writing, documentation, and reporting skills. Strong coordination and communication skills in English (Arabic is an advantage). High attention to detail, problem-solving mindset, and ability to meet tight deadlines.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458843347",
+      "title": "Senior Technical Office Engineer-Civil",
+      "company": "Sabbour Consulting",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "12 minutes ago",
+      "estimated_age_minutes": 12,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4458843347",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Associate",
+      "employment_type": "Full-time",
+      "job_function": "Engineering",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About Sabbour Consulting Since 1957, Sabbour Consulting has been a leading multidisciplinary engineering consulting firm delivering expert services in project management, design, cost control, and construction supervision across Egypt and the region. We pride ourselves on precision, innovation, and delivering projects that exceed client expectations. Job Summary Managing and coordinating all civil technical office activities within engineering consultancy projects. The role ensures the accuracy, compliance, and timely delivery of drawings, technical submissions, and documentation, while providing technical support to project teams, clients, and contractors in accordance with applicable codes, standards, and consultancy best practices. Key Responsibilities Review, prepare, and coordinate civil design drawings, shop drawings, and technical documents in compliance with project requirements and codes. Prepare and review technical submittals, method statements, and material approvals. Coordinate with design disciplines to resolve technical clashes and ensure design consistency. Support project planning by reviewing BOQs, specifications, and scope of work. Provide technical support to site teams and respond to RFIs and technical queries. Review contractor submissions and ensure compliance with approved drawings and specifications. Participate in value engineering proposals and technical optimization solutions. Ensure adherence to local and international codes, standards, and consultancy best practices. Assist in preparing tender documents, technical clarifications, and bid evaluations when required. Monitor technical progress and report issues, risks, and deviations to management. Coordinate with clients, contractors, and stakeholders on technical matters. Maintain proper documentation control for all technical office deliverables. Qualifications & Requirements Bachelor’s degree in civil engineering. 5+ years of relevant experience for Technical Office Engineers 8+ years of relevant experience for Senior Technical Office Engineers Experience in technical office roles within large-scale construction or infrastructure projects. Strong command of civil design standards, detailing, and construction practices. Proficiency in AutoCAD, Civil 3D, MS Office; knowledge of structural software (e.g., SAP2000, ETABS) is a plus. Familiarity with local and international codes (ACI, BS, ASTM, etc.). Excellent technical writing, documentation, and reporting skills. Strong coordination and communication skills in English (Arabic is an advantage). High attention to detail, problem-solving mindset, and ability to meet tight deadlines.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458838345",
+      "title": "Senior Site Engineer - Civil (Alexandria Resident)",
+      "company": "Sabbour Consulting",
+      "location": "Alexandria, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "19 minutes ago",
+      "estimated_age_minutes": 19,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4458838345",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Associate",
+      "employment_type": "Full-time",
+      "job_function": "Engineering",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About Sabbour Consulting Since 1957, Sabbour Consulting has been a leading multidisciplinary engineering consulting firm delivering expert services in project management, design, cost control, and construction supervision across Egypt and the region. We pride ourselves on precision, innovation, and delivering projects that exceed client expectations. Job Summary Supervising civil works at the project site to ensure that construction activities are executed in accordance with approved drawings, technical specifications, project schedules, and quality standards. The role involves coordinating with contractors, consultants, and project stakeholders to ensure the successful delivery of construction works while maintaining compliance with safety and regulatory requirements. Key Responsibilities Supervise and monitor daily civil construction activities at the project site. Ensure that all works are executed according to approved drawings, specifications, and project standards. Review contractor shop drawings, method statements, and material submittals related to civil works. Coordinate with the Resident Engineer and other discipline engineers to resolve site technical issues. Monitor contractor performance and ensure compliance with project schedule and quality requirements. Conduct regular site inspections to verify workmanship, materials, and construction progress. Review and verify contractor work progress and quantities for interim payment certificates. Issue site instructions, non-conformance reports (NCRs), and observation reports when required. Attend site meetings with contractors and project stakeholders and provide technical input. Ensure compliance with project safety procedures and environmental requirements. Review as-built drawings and ensure accuracy before submission. Prepare daily and weekly site progress reports. Coordinate testing and inspection activities related to civil works. Support the Resident Engineer in resolving contractual and technical matters related to civil works. Qualifications Bachelor’s Degree in Civil Engineering . 5+ years of experience for Site Engineers, preferably in engineering consulting or construction supervision firms . 8+ years of experience For Senior Site Engineers. Strong knowledge of construction methods, materials, and site supervision practices . Experience in large-scale construction projects such as commercial, residential, or infrastructure projects. Familiarity with international standards and construction specifications . Strong problem-solving and technical coordination skills. Excellent communication and reporting skills. Proficiency in AutoCAD, MS Office, and project documentation systems .",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460873581",
+      "title": "Interior Designer",
+      "company": "Dar",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "15 minutes ago",
+      "estimated_age_minutes": 15,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460873581",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Design",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Overview : Dar, the founding member of the Sidara group, is an international multidisciplinary consulting organization specializing in engineering, architecture, planning, environment, project management, facilities management, and economics. Sidara operates in 60 countries with 20,500 professionals, Dar connects people, places, and communities through innovative solutions to the world's most complex challenges. We deliver projects from inception through completion, embracing challenges to empower communities worldwide. Learn more at www.dar.com. Role Summary : Independently creates high-quality architectural designs and visualizations. Applies creative problem-solving and technical skills to refine design concepts and effectively communicate design intent to project teams and clients. Responsibilities : Develop innovative architectural design concepts and high-quality visual presentations. Prepare detailed 3D models, renderings, and design documentation for client and internal reviews. Research design trends, materials, and architectural precedents to support concept development. Collaborate with multidisciplinary teams to integrate design concepts into project requirements. Resolve design challenges and adapt concepts in line with evolving project needs. Support client presentations by clearly communicating design concepts and rationale. Ensure accuracy and high standards across all design deliverables and visualizations. Contribute to internal design visualization standards and workflows. Prepare design reports and high-quality presentations. Effectively present design ideas to Project Senior Designers and key stakeholders. Requirements : Bachelor’s degree in Architecture or a related field. 1–5 years of relevant professional experience in architectural design. Strong proficiency in SketchUp, Rhino, Grasshopper, AutoCAD, Revit, and Adobe Creative Suite . Demonstrated ability to develop high-quality architectural models, visualizations, and presentations. Proficiency in AI-powered tools and workflows applicable to architectural design, visualization, and concept development. Strong visual communication, presentation, and design problem-solving skills. ** While we carefully review all applications, only candidates meeting the specified requirements will be contacted for further consideration. We appreciate your understanding and thank you for your interest.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460882518",
+      "title": "Graphic Designer",
+      "company": "HR Egypt Network - HREN",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "16 minutes ago",
+      "estimated_age_minutes": 16,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460882518",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Design, Art/Creative, and Marketing",
+      "advisory_title_noise_signals": [
+        "graphic designer"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Job Title: Graphic Designer Location: Zamalek, Cairo, Egypt Employment Type: Full-time Working Hours: 10:00 AM – 6:00 PM Days Off: Two days per week Role Overview: We are looking for a creative and detail-oriented Graphic Designer to join our team. You will be responsible for creating visually compelling content that reflects the brand’s identity, supports marketing efforts, and communicates our design philosophy across digital and print platforms. Key Responsibilities: Design engaging visuals for social media, website, email campaigns, and online ads Develop product presentations, catalogs, and marketing collateral Collaborate with the marketing and content teams to maintain brand consistency Create mockups, mood boards, and visual assets for new collections and campaigns Edit and retouch product images for e-commerce and promotional use Adapt designs for different platforms (Instagram, LinkedIn, website, etc.) Manage multiple projects and meet deadlines in a fast-paced environment Requirements: +3 years experience as a Graphic Designer (portfolio required) Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign) Strong sense of typography, color theory, and composition Attention to detail and ability to work independently Good communication and teamwork skills Familiarity with lighting, interior design, or luxury home products is a plus Bachelor’s degree in Graphic Design, Fine Arts, or a related field is preferred Work Arrangement: Hybrid model (combination of on-site work in Zamalek and remote days) On-site days to be coordinated with the team",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460336936",
+      "title": "Data & AI - Business Unit Manager",
+      "company": "Prosoft",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "11 minutes ago",
+      "estimated_age_minutes": 11,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460336936",
       "matched_queries": [
         {
           "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
           "weight": 1.0,
           "lane": "egypt",
           "search_location": "Egypt",
@@ -897,38 +1345,7 @@
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Mid-Senior level",
-      "employment_type": "Full-time",
-      "job_function": "Marketing, Public Relations, and Writing/Editing",
-      "advisory_title_noise_signals": [],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "Company Description Xceed is a leading multilingual Business Process Outsourcing (BPO) provider in the EMEA region, operating more than 10,000 web-enabled multichannel stations. The company manages outsourcing agreements for key government and commercial clients across 10 languages, delivering services such as inbound and outbound support, back-office operations, infrastructure management, recruitment process outsourcing, helpdesk support, and social media analysis. Xceed has operational sites in Egypt, Morocco, Mauritius, the UAE, and Saudi Arabia, offering diverse career opportunities in multiple locations. The organization is consistently recognized by IAOP, INSIGHTS Middle East Call Centre & CX Awards, Gulf Sustainability Awards, ICXA, IBXA, and Global ESG Awards for excellence in outsourcing, impact sourcing, sustainability, and diversity, equity, and inclusion. Xceed also maintains high-quality standards through multiple international certifications, including COPC, ISO 9001, ISO 14001, ISO 45001, ISO 22301, and ISO/IEC 27001, demonstrating its commitment to operational excellence and employee well-being. Role Description The Quality Monitoring Specialist – English Speakers is a full-time, on-site role based in Cairo. This role is responsible for monitoring and evaluating customer interactions (calls, chats, emails) to ensure adherence to quality standards, internal procedures, and client requirements. The specialist will analyze performance trends, identify areas for improvement, and provide clear, constructive feedback to customer service teams and supervisors. Day-to-day tasks include conducting regular audits, documenting findings, preparing quality reports, and contributing to coaching sessions to enhance customer experience and operational performance. The role also involves collaborating with operations, training, and management teams to refine quality frameworks, support calibration sessions, and help implement process improvements. Job Requirement: -Call center experience in telecommunication field (Vodafone – Orange – EX WE- Vodafone UK- AT&T - etc. -Experience as a Quality Analyst is 6 months - Excellent in the English language.",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4458745100",
-      "title": "Psychologist - EAMR Project",
-      "company": "Save the Children International",
-      "location": "Egypt",
-      "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "1 hour ago",
-      "estimated_age_minutes": 60,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4458745100",
-      "matched_queries": [
+        },
         {
           "query": "Microsoft 365",
           "weight": 3.0,
@@ -938,9 +1355,9 @@
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Not Applicable",
-      "employment_type": "Full-time",
-      "job_function": "Health Care Provider",
+      "seniority": "Entry level",
+      "employment_type": "Other",
+      "job_function": "Information Technology",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 3.0,
@@ -948,24 +1365,24 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Job Description TITLE: Psychologist East African Migration Routes Project (EAMR) TEAM/PROGRAMME: Program Operation Egypt Country Office LOCATION: Cairo, Egypt GRADE : 5 CONTRACT LENGTH: Until Dec 2026. With possible extension based on performance and budget availability. Contingent upon confirmation of funding [1] Child Safeguarding Level 3: The post holder will have contact with children and/or young people either frequently (e.g. once a week or more) or intensively (e.g. four days in one month or more or overnight) because they work country programs; or are visiting country programs; or because they are responsible for implementing the police checking/vetting process staff. Organisation Profile / Programme Summary Save the Children International is the world’s leading independent organisation for children. We work in 120 countries and work, together with our partners, to inspire breakthroughs in the way the world treats children and to achieve immediate and lasting change in their lives. In Egypt, Save the Children International has been working to ensure that children’s rights are respected, protected and promoted since 1982. We carry out both long-term development work and, more recently emergency humanitarian work. This project aims that children and youth in vulnerable situations have their rights respected and possess sound self-reliance capacities that allow them to improve their life perspectives. It will also target national and community organizations to enable them to provide effective protection and self-reliance services for children and youth. Role Purpose The Psychologist will be responsible for providing psychosocial support services in compliance with the relevant SCI guidelines at the country office level in support migrant and refugee children under the supervision of the Mental Health and Psycho-social Support (MHPSS) Officer and the (MHPSS) Technical Advisor (TA), The Psychologist will contribute directly to protection case management processes by providing individual/group sessions for at risk children and youth in need of psychosocial support identified through the project activities and referrals from case management team and protection team. S/he will be responsible to conduct the needed assessments and customize the session topics based on the identified needs of the target group. S/he will also be responsible for organizing group support and awareness sessions to children at risk and their families and refer those with acute psychological needs to specialized services. Scope Of Role Reports To: MHPSS Officer Dotted Line To: MHPSS Technical Advisor Staff Directly Reporting to this Post: None Key Areas Of Accountability Project Implementation Psychologist Support Services In close collaboration with the MHPSS Officer and MHPSS TA, the psychologist will: Contribute to the design of intake forms, session plans, and follow-up forms for children and their families when relevant. Collaborate with the MEAL team to administer the psychometric assessments upon need and deliver reports and data accordingly. Develop psychological intervention plans for identified cases and follow up on them regularly. Conduct one to one and group counselling sessions with children and families referred from other activities. Identify and assess severe cases and refer them to appropriate psychological or psychiatric service providers. Coordinate closely with the EAMR Case Management team and other SCI projects to ensure timely internal referrals, follow-up, case consultations, and integrated support planning for children and families. Prepare and submit individual case reports for all cases on their caseload and document case progress. Attend one-to-one and group supervision meetings (Face to face and online) with the MHPSS Officer and the MHPSS TA to ensure quality of MHPSS interventions. Ensure that all psychological interventions offered are informed by current scientific evidence. Adhere to the highest standards of practice. Work closely with the MHPSS officer and project manager to develop and implement the project work plan and activities. Other Project Activities Facilitate and co-facilitate a rolling program of recreational and psychosocial support (PSS) programs. Assist the PSS/project team in material development, training deliveries on topics regarding needs identified. Support the MHPSS Officer in monitoring, reporting, indicator tracking, and logistical arrangements related to MHPSS activities Ensure that MHPSS activities are implemented in a full respect to the child safeguarding polices of SC. Support in staff well-being activities that does not affect the professional relationship and confidentiality of staff (For Example: peer to peer support groups, work related stress awareness raising and stress management training). Responsible for all the Relevant and logistics work related to MHPSS operations within the project. Reporting And Documentation Draft concise, useful and analytical reports, case studies, and other documents as needed on a monthly and quarterly basis and as requested by SC, donors and other stakeholders. Regular reporting to project Officer with projects updates. Organize and maintain filing system of the sessions. Other Responsibilities Work closely with the MHPSS Officer to develop and implement the project work plan and activities. To work closely with the MHPSS officer and MHPSS technical advisor and other MHPSS team members on the contextualization of MHPSS materials to different refugee languages and cultures. Organize and maintain project files; maintain electronic and paper records. In Case Of Emergency Promote children's rights, contributing to their well-being and protection in times of emergencies, guided by humanitarian principles and code of conduct. During emergencies, he/she should act in a way that facilitates SCI’s response to emergencies, giving priority to all assigned. Be prepared to support SCI interventions in response to emergencies and show needed flexibility. General Demonstrate leadership in relation to Save the Children policies and practice with respect to safeguarding, code of conduct, health and safety, equal opportunities and other relevant policies and procedures. Comply with Save the Children policies and practice with respect to safeguarding policy, code of conduct, health and safety, equal opportunities and other relevant policies and procedures. Accountability SKILLS AND BEHAVIOURS (our Values in Practice): Holds self-accountable for making decisions, managing resources efficiently, achieving and role modelling Save the Children values. Holds the team and partners accountable to deliver on their responsibilities - giving them the freedom to deliver in the best way they see fit, providing the necessary development to improve performance and applying appropriate consequences when results are not achieved. Ambition Sets ambitious and challenging goals for themselves (and their team), takes responsibility for their own personal development and encourages others to do the same. Widely shares their personal vision for Save the Children, engages and motivates others. Future orientated, thinks strategically. Collaboration Builds and maintains effective relationships, with their team, colleagues, members and external partners and supporters. Values diversity, sees it as a source of competitive strength. Approachable, good listener, easy to talk to. Creativity Develops and encourages new and innovative solutions. Willing to take disciplined risks. Integrity Honest, encourages openness and transparency. Qualifications And Experience A university degree in psychology. 2-3 years of experience in family and/or child individual and group counselling, experience in working with migrants and refugees is an asset. Highly developed interpersonal and communication skills including team-leading and influencing. Extensive experience in delivering training. Excellent written and oral communication skills in Arabic and English are required. Comfortable with high levels of ambiguity and able to take decisions independently in a fluid context. Experience with refugee/marginalized communities desired. Commitment to Save the Children values and Child Safeguarding. Additional Job Responsibilities The duties and responsibilities as set out above are not exhaustive and the role holder may be required to carry out additional duties within reasonableness of their level of skills and experience. Equal Opportunities The role holder is required to carry out the duties in accordance with the SCI Equal Opportunities and Diversity policies and procedures. Child Safeguarding We need to keep children safe so our selection process, which includes rigorous background checks, reflects our commitment to the protection of children from abuse. Safeguarding Our Staff The post holder is required to carry out the duties in accordance with the SCI anti-harassment policy Health and Safety The role holder is required to carry out the duties in accordance with SCI Health and Safety policies and procedures. Updated By: Afaf Gamal Date: 18. August.2026 JD agreed by: Date: Updated By: Afaf Gamal Date: 18.August.2026 Evaluated: Date: About Us The Organization Education We employ approximately 25,000 people across the globe and work on the ground in over 100 countries to help children affected by crises, or those that need better healthcare, education and child protection. We also campaign and advocate at the highest levels to realise the right of children and to ensure their voices are heard. We are working towards three breakthroughs in how the world treats children by 2030: No child dies from preventable causes before their 5th birthday All children learn from a quality basic education and that, Violence against children is no longer tolerated We know that great people make a great organization, and that our employees play a crucial role in helping us achieve our ambitions for children.We value our people and offer a meaningful and rewarding career, along with a collaborative and inclusive workplace where ambition, creativity, and integrity are highly valued. Application Information Please apply using a cover letter and up-to-date CV as a single document. Please also include details of your current remuneration and salary expectations. A copy of the full role profile can be found at www.savethechildren.net/jobs We need to keep children safe so our selection process reflects our commitment to the protection of children from abuse.",
+      "description": "🌟 Role Overview We're looking for an experienced Data & AI Business Unit Manager to lead the technical strategy and go-to-market execution of our Data & AI portfolio. This leadership role combines technical ownership, customer engagement, partner collaboration, pipeline development, and team management. 🎯 Key Responsibilities 🔹 Own the technical direction and positioning of the Data & AI portfolio. 🔹 Lead customer discovery, solution positioning, and technical engagements. 🔹 Drive joint account planning with key partners and sales teams. 🔹 Build and accelerate pipeline alongside reseller sales teams. 🔹 Lead customer demos, workshops, and proof-of-concepts (PoCs). 🔹 Manage and develop a team of technical specialists. 🔹 Support strategic opportunities and Data & AI transformation initiatives. 💼 Experience & Qualifications ✅ 10–15 years of experience in enterprise technology with strong exposure to Data & AI. ✅ Proven background in Pre-Sales, Solution Architecture, Technical Consulting, or Technical Business Development. ✅ Strong knowledge of enterprise data technologies, including: 📊 Data Management 🔄 Data Integration 🛡️ Data Governance 🌐 Data Virtualization 📈 Analytics 🤖 Data Science, Machine Learning & AI ✅ Experience with enterprise-grade data platforms and modern data architectures, including: ☁️ Cloud & Hybrid Environments 🗄️ Data Lakes 🏢 Data Warehouses 🌊 Lakehouse Architectures ✅ Familiarity with leading technology ecosystems across: 🔗 Data Integration & Management 🌐 Data Virtualization 📊 Analytics 🤖 Data Science & AI Platforms ✅ Strong customer-facing skills with experience delivering: 🎤 Technical Presentations 💻 Customer Demos 🛠️ Workshops ✅ Proof-of-Concepts (PoCs) ✅ Experience working with Partners, Resellers, System Integrators, and Technology Vendors. ✅ Proven ability to lead and develop Technical or Pre-Sales Teams. 📩 Ready to make an impact? Send your CV to Alaa_yasser@prosoft.com.eg",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4459198928",
-      "title": "Marketing Manager",
-      "company": "Royal Sky Group",
-      "location": "Giza, Al Jizah, Egypt",
+      "linkedin_job_id": "4460889408",
+      "title": "Audit Readiness Section Head",
+      "company": "WELLKNOWN LIMITED",
+      "location": "Cairo, Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "31 minutes ago",
-      "estimated_age_minutes": 31,
+      "linkedin_posted_text": "16 minutes ago",
+      "estimated_age_minutes": 16,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4459198928",
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460889408",
       "matched_queries": [
         {
           "query": "Microsoft 365",
@@ -978,34 +1395,32 @@
       "application_status": "open_signal",
       "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Marketing and Sales",
-      "advisory_title_noise_signals": [
-        "marketing"
-      ],
+      "job_function": "Accounting/Auditing and Finance",
+      "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 3.0,
       "role_hits_title": [],
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Company Description Royal Sky Group is a diversified business group founded and owned by entrepreneur and internationally recognized business coach Mr. Ammar Omar. Headquartered in the UAE, the group has expanded with branches across the Gulf region and beyond. The company operates in multiple sectors including Construction, Food & Beverage, Business Consulting and Training, Marketing and Advertising, and IT & Digitalization. Team members benefit from exposure to varied industries, a growth-oriented environment, and opportunities to contribute to an expanding regional presence. Role Description This is a full-time, on-site Marketing Manager role based in Giza. The Marketing Manager oversees the planning and execution of marketing campaigns across Royal Sky Group’s business lines, ensuring brand consistency and alignment with strategic objectives. Daily responsibilities include developing marketing strategies, managing digital and offline campaigns, coordinating with internal stakeholders and external agencies, and monitoring performance metrics. The role also involves market research, budget management, and reporting on campaign effectiveness, while identifying opportunities to strengthen brand awareness and support business growth. Qualifications Strong marketing strategy and planning skills, including experience developing integrated campaigns across multiple channels. Proficiency in digital marketing practices such as social media management, content marketing, and performance tracking. Experience with brand management, marketing communications, and campaign execution in dynamic, multi-sector environments. Ability to conduct market research, analyze data, and translate insights into actionable marketing initiatives. Excellent written and verbal communication skills, with the ability to present ideas clearly to diverse stakeholders. Demonstrated project management skills, including time management, prioritization, and coordination of cross-functional teams. Previous experience in marketing roles, ideally within regional or international organizations in the Gulf or MENA region. Bachelor’s degree in Marketing, Business Administration, Communications, or a related field; advanced qualifications are an advantage. Comfort working on-site in Giza and collaborating closely with leadership and operational teams. Adaptability, problem-solving ability, and a proactive approach to continuous improvement and learning.",
+      "description": "**We’re Hiring | Audit Readiness Section Head** **Join one of the Top 5 Pharmaceutical Companies!** Are you an experienced **Quality Assurance professional** with a strong background in **GMP compliance, audit readiness, investigations, CAPA, and Quality Management Systems**? We’re looking for an **Audit Readiness Section Head** to support quality oversight across manufacturing, facilities, utilities, and warehouse operations, ensuring compliance with **GMP, regulatory requirements, and internal quality standards**. ### Key Responsibilities • Conduct routine **GMP Walk-throughs and Gemba activities** across GxP areas. • Monitor operations and identify compliance gaps and potential quality risks. • Participate in **real-time investigations** of deviations and non-conformances. • Support **Root Cause Analysis (RCA)** and the development of effective CAPAs. • Review CAPA responses and follow up on implementation, effectiveness, and timely closure. • Provide quality impact assessments for deviations and quality-related issues. • Support trending and analysis of deviations to identify recurring issues and improvement opportunities. • Contribute to **QMS improvement, gap analysis, and SOP review/update** activities. • Promote **Good Documentation Practices (GDP), Data Integrity, and Quality Culture** initiatives. • Support training effectiveness and provide coaching on GMP principles and quality best practices. • Support audit readiness activities and ensure continuous compliance across the site. ### Qualifications & Experience • Bachelor’s degree in **Pharmacy, Science, or a related field**. • **7–10 years of experience** in Quality Assurance within a pharmaceutical or regulated manufacturing environment. • Strong knowledge of **GMP, GDP, regulatory requirements, EDA, and ISO standards**. • Solid experience in **deviation management, investigations, CAPA, and QMS processes**. • Familiarity with **manufacturing, utilities, facilities, and warehouse operations** in a GxP environment. • Experience in **SOP review, documentation, and audit readiness**. • Good understanding of **Data Integrity and Quality Risk Management** principles. • Strong analytical, investigation, communication, and problem-solving skills. • Ability to influence stakeholders and promote a strong quality culture. **Location:** El Obour **Scope:** Site-level **Join a Top 5 pharmaceutical organization and play a key role in strengthening compliance, audit readiness, quality culture, and operational excellence.**",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4460884402",
-      "title": "Electrical Engineer - Design",
-      "company": "ANMAT",
-      "location": "Qesm 1st Nasser City, Cairo, Egypt",
+      "linkedin_job_id": "4460871647",
+      "title": "AEN Co-Teacher",
+      "company": "Malvern College Egypt",
+      "location": "Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "9 minutes ago",
-      "estimated_age_minutes": 9,
+      "linkedin_posted_text": "8 minutes ago",
+      "estimated_age_minutes": 8,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4460884402",
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460871647",
       "matched_queries": [
         {
           "query": "Microsoft 365",
@@ -1018,47 +1433,7 @@
       "application_status": "open_signal",
       "seniority": "Entry level",
       "employment_type": "Full-time",
-      "job_function": "Engineering and Information Technology",
-      "advisory_title_noise_signals": [
-        "electrical engineer"
-      ],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "We’re looking for an Electrical Design Engineer to join our team. 📍 Location: Nasr City, Cairo 🎯 Requirements: 🔹 Bachelor’s degree in Electrical Engineering 🔹 1–2 years of experience in Electrical Design 🔹 Good knowledge of AutoCAD & basic Revit 🔹 Basic experience in Load Calculations & Cable Sizing 🔹 Experience with Lighting Layouts & Single-Line Diagrams (SLD) 📩 HOW TO APPLY: Send your updated CV to: 📧 Talents@anmat.sa 📝 Subject: Electrical Design Engineer",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4460849141",
-      "title": "Deputy Chief Executive Officer",
-      "company": "City Glass",
-      "location": "Cairo, Egypt",
-      "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "32 minutes ago",
-      "estimated_age_minutes": 32,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4460849141",
-      "matched_queries": [
-        {
-          "query": "Microsoft 365",
-          "weight": 3.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Executive",
-      "employment_type": "Full-time",
-      "job_function": "Business Development and Sales",
+      "job_function": "Education and Training",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 3.0,
@@ -1066,24 +1441,24 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Company Description City Glass, founded in 1986, is dedicated to producing high-quality glass products using premium Soda-Lime glass and modern manufacturing technologies. The company operates multiple factories automated production, City Glass focuses on useful, affordable, and simple designs that highlight special moments in everyday life. Role Description The Deputy Chief Executive Officer is a full-time, on-site role based in Cairo, Egypt. This role supports the Chief Executive Officer in steering overall business performance, translating strategic objectives into actionable plans for operations, finance, sales, and production. The Deputy CEO oversees day-to-day operational activities, monitors key performance indicators, and ensures that manufacturing processes align with quality, cost, and safety targets. Responsibilities include collaborating with senior leaders to optimize resource allocation, drive revenue growth, maintain strong customer relationships, and reinforce brand positioning. The role also involves leading cross-functional projects, managing organizational change, developing leadership capabilities within the team, and representing the company in key internal and external meetings. Qualifications Strong Finance skills, including budgeting, cost control, and financial performance analysis. Proficiency in Operations Management, with experience overseeing production, process optimization, and supply chain efficiency. Expertise in Business Planning and Strategic Planning, with the ability to develop and implement long-term growth strategies. Proven track record in Sales, commercial leadership, and market development within manufacturing or related industries. Demonstrated leadership and people management skills, including team development and performance management. Excellent analytical, problem-solving, and decision-making abilities, with a data-informed approach. Strong communication and stakeholder management skills, with the ability to collaborate across functions and levels. Bachelor’s degree in Business, Finance, Engineering, or a related field; a graduate degree (MBA or equivalent) is an advantage. Experience in manufacturing or glassware production environments is highly beneficial. High level of integrity, adaptability, and commitment to quality, safety, and customer satisfaction.",
+      "description": "Role Description This is a full-time on-site role for a Front Desk Officer located at Malvern College Egypt in Cairo. The Front Desk Officer will be responsible for receptionist duties, customer service, office equipment upkeep, and office administration tasks. Furthermore, the Front Desk Officer will be responsible for maintaining a professional demeanor while serving as an upstanding representative of the College. Qualifications Excellent interpersonal skills, including active listening and problem-solving abilities Prior experience in performing receptionist duties Exceptional customer service skills for parents and students Ability to maintain and operate basic office equipment Office administration experience is required Familiarity with relevant software and databases Fluency in English and Arabic is required Bachelor's degree in any field or equivalent experience.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4458777690",
-      "title": "Health Information Officer",
-      "company": "Save the Children International",
-      "location": "Egypt",
+      "linkedin_job_id": "4458834415",
+      "title": "Customer Success Executive (Software)",
+      "company": "Techneya",
+      "location": "Qesm El Maadi, Cairo, Egypt",
       "linkedin_date": "2026-08-30",
       "linkedin_posted_text": "1 hour ago",
       "estimated_age_minutes": 60,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4458777690",
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4458834415",
       "matched_queries": [
         {
           "query": "Information Technology",
@@ -1108,9 +1483,9 @@
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Not Applicable",
+      "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Health Care Provider",
+      "job_function": "Business Development and Sales",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 1.0,
@@ -1118,66 +1493,7 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Job Description TITLE: Health Information Officer TEAM/PROGRAMME: Health Team LOCATION: Cairo, Maadi GRADE : 4 (Competitive package) CONTRACT LENGTH: Pending Doner Approval Child Safeguarding Level 3: the post holder will have contact with children and/or young people either frequently (e.g. once a week or more) or intensively (e.g. four days in one month or more or overnight) because they work country programs; or are visiting country programs; or because they are responsible for implementing the police checking/vetting process staff. Role Purpose Health information officer will lead on all the health information system of the health program medical data will play the key role in monitoring all project activities, evaluation of health outcomes, and implementation progress and work plan, and achieving project objectives. S/he will support the decision making by providing the data analysis results to the program manager, timely reporting on all project activities, including elective and emergency services. In addition, S/he will participate in monitoring and assessing the quality of health care services provided when needed. In the event of a major humanitarian emergency, the role holder, will be expected to work outside the normal role profile and be able to vary working hours accordingly. Scope Of Role Reports to: direct Program Manager and indirect to the MEAL Staff reporting to this post: NA Key Areas Of Accountability Project Implementation Design and create reporting format, line list and database and dashboards for all health project data and information, including primary and secondary medical referrals cases, and other project activities, that fulfil the donor requirements in Monitoring and evaluation plan. Collect, verify and enter and analyze the data that includes but is not limited to; health outcomes, medical interventions, cost/benefit analysis, prepare the monthly, quarterly, and annual reports as required All project data, information, databases, and reports should be saved and documented in the formal SCI SharePoint and cited as references Assist the health team by correcting data errors and guiding them to provide and submit accurate data and reports. Support with MEAL team on program specific learning processes, including documenting lessons learnt, organizing lessons learnt workshops etc. Ensure regular use, reporting and action tracking on the project's quality benchmarks Collaborate and contribute with MEAL team, project team and Accountability team to ensure a strong, accessible and inclusive feedback and reporting mechanism is available for beneficiaries. Participate in provider assessment when required. Respond to deviation and prepare the deviation report and participate in the investigation as assigned by the project manager. Conduct audit visits to project to assure compliance with project guidance and SOPs Holding regular meetings to present health analysis and enhance team awareness of the health information system and its role in decision-making. Perform any tasks assigned by the line manager as necessary. Reporting and documentation Collect, verify and analyze the project data, and MOVs prepare the monthly, quarterly, and annual reports and other reports as required. Prepare and submit the deviation report, including the cause/justification, incident evaluation, and corrective and preventive actions. Submit the reports on time to the Project Manager Ensure regular and timely reporting on the project IPTT (indicator performance tracking tool). Ensure regular and timely analysis reporting on indicators for donor reporting. Budgeting Support in quality budget phasing, monitoring and utilization, participates in cost/benefit assessment for admitted/hospitalized cases, guided by establish health referral SOP, considering the health outcomes BEHAVIOURS (Values In Practice) Accountability Holds self-accountable for making decisions, managing resources efficiently, achieving and role modelling Save the Children values Holds the team and partners accountable to deliver on their responsibilities - giving them the freedom to deliver in the best way they see fit, providing the necessary development to improve performance and applying appropriate consequences when results are not achieved. Ambition Sets ambitious and challenging goals for themselves and their team, takes responsibility for their own personal development and encourages their team to do the same Widely shares their personal vision for Save the Children, engages and motivates others Future orientated, thinks strategically and on a global scale. Collaboration Builds and maintain effective relationships with their team, colleagues, Members and external partners and supporters Values diversity, sees it as a source of competitive strength Approachable, good listener, easy to talk to. Creativity Develops and encourages new and innovative solutions Willing to take disciplined risks. Integrity Honest, encourages openness and transparency; demonstrates highest levels of integrity Qualifications Bachelor’s degree of health-related field. Medical and paramedical background is preferred Post graduate certificate or degree in public health / statistics, is preferred. Experience And Skills Minimum of 3–5 years of relevant professional experience in Health Information Systems, data management, monitoring and evaluation, or a related field, preferably with a UN agency or INGO. Previous experience working with health projects, humanitarian programmes, or vulnerable groups responses are highly desirable. Proven experience in data collection, data management, validation, analysis, and reporting, with strong attention to data quality and accuracy. Proven experience using statistical and data analysis software and digital data management platforms. Strong ability to develop and maintain data tracking tools, dashboards, databases, and routine programme reports. Good understanding of health indicators, data quality assurance, and reporting requirements. Strong analytical and problem-solving skills, with a demonstrated results-oriented approach. Excellent computer skills, particularly in Microsoft Excel and other data management and analysis tools. Strong interpersonal, communication, coordination, and teamwork skills. Strong government relations, networking, and stakeholder coordination skills. Fluency in English, with strong written and verbal communication skills. Knowledge of Child Safeguarding principles and humanitarian standards is an advantage. Commitment to Save the Children International's values, vision, mission, and safeguarding principles. Additional Job Responsibilities The duties and responsibilities as set out above are not exhaustive and the role holder may be required to carry out additional duties within reasonableness of their level of skills and experience. Equal Opportunities The role holder is required to carry out the duties in accordance with the SCI Equal Opportunities and Diversity policies and procedures. Child Safeguarding We need to keep children safe so our selection process, which includes rigorous background checks, reflects our commitment to the protection of children from abuse. Health and Safety The role holder is required to carry out the duties in accordance with SCI Health and Safety policies and procedures. Updated By: Omar El. Noman Date: August 2026 Reviewed and signoff By: Qais Jassar Date: August 2026",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4458836298",
-      "title": "Quality Assurance (QA) Software Engineer",
-      "company": "Unicorn Lab",
-      "location": "Egypt",
-      "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "1 hour ago",
-      "estimated_age_minutes": 60,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4458836298",
-      "matched_queries": [
-        {
-          "query": "Information Technology",
-          "weight": 1.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "IT",
-          "weight": 0.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "ICT",
-          "weight": 1.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Entry level",
-      "employment_type": "Contract",
-      "job_function": "Quality Assurance",
-      "advisory_title_noise_signals": [
-        "quality assurance"
-      ],
-      "advisory_it_evidence": false,
-      "score": -9.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [
-        {
-          "label": "Software Development",
-          "weight": -10.0
-        }
-      ],
-      "description": "Role Overview We are seeking a curious, detail-oriented, and self-driven QA Intern who can understand complex applications and business processes and help ensure the delivery of reliable, high-quality software. The successful candidate will contribute to both manual and automated testing across web applications, APIs, mobile applications, databases, and integrated systems. This role is ideal for someone with strong analytical and problem-solving skills who wants to build practical experience in modern software quality assurance. Key Responsibilities Understand complex application functionality, architecture, business processes, user journeys, and system integrations. Review requirements, user stories, acceptance criteria, workflows, and technical documentation to identify test scenarios. Prepare and execute clear, comprehensive manual test cases and checklists. Perform functional, regression, integration, system, usability, compatibility, exploratory, and smoke testing. Assist in creating and maintaining automated tests for web applications and APIs. Validate APIs, database records, data flows, and integrations between systems. Identify, document, and track defects with clear descriptions, severity, reproduction steps, evidence, and expected results. Retest resolved issues and perform regression testing to confirm that fixes do not affect existing functionality. Work closely with developers, business analysts, product owners, and other QA team members throughout the development lifecycle. Participate in requirement reviews, planning sessions, defect discussions, and release-readiness activities. Maintain test documentation, execution results, defect records, and quality reports. Learn and apply QA standards, testing techniques, automation practices, and development processes. Take ownership of assigned tasks and communicate progress, dependencies, risks, and blockers proactively. Required Skills and Knowledge Basic understanding of software testing concepts and the software development lifecycle. Ability to analyze and understand complex applications, workflows, requirements, and business rules. Knowledge of manual testing techniques and test-case design. Basic understanding of test automation principles. Familiarity with one or more programming or scripting languages, such as JavaScript, TypeScript, Java, Python, or C#. Basic knowledge of web technologies, including HTML, CSS, HTTP, browsers, and client-server architecture. Familiarity with REST APIs and API-testing tools such as Postman. Basic SQL knowledge for validating application data and database results. Strong analytical, problem-solving, observation, and troubleshooting skills. Ability to document findings clearly and communicate effectively with technical and non-technical team members. Willingness to learn new applications, domains, tools, and technologies. Preferred Skills Exposure to automation tools such as Playwright, Selenium, Cypress, Appium, or similar frameworks. Familiarity with automated API testing. Exposure to performance or load-testing tools such as JMeter or k6. Basic understanding of Git, CI/CD pipelines, Agile development, and defect-tracking tools. Familiarity with testing web, mobile, cloud-based, or distributed applications. Awareness of accessibility, security, cross-browser, and responsive-design testing. Experience from academic, personal, internship, or open-source software projects. Qualifications Currently pursuing or recently completed a degree or diploma in Computer Science, Software Engineering, Information Technology, or a related discipline. Academic or personal project experience involving software development or testing is an advantage. Relevant testing courses or entry-level certifications are beneficial but not required. Professional Competencies Detail-oriented, methodical, and committed to software quality. Curious and willing to investigate unexpected system behavior. Self-driven and accountable for assigned responsibilities. Able to learn complex applications and business domains quickly. Comfortable asking questions and challenging unclear requirements constructively. Works collaboratively and does not operate in silos. Communicates defects, risks, and progress clearly and professionally. Open to feedback and committed to continuous learning and improvement.",
+      "description": "Techneya is looking for a driven and commercially minded Business Development Executive to join our growing team and help us expand our client base and unlock new business opportunities. This role is ideal for someone who is not simply looking to manage existing accounts, but is passionate about finding new clients, opening doors, building relationships, identifying opportunities, and turning prospects into long-term business partnerships . Role Overview As a Business Development Executive, you will be responsible for driving new business for Techneya by identifying potential clients, generating leads, developing relationships with decision-makers, presenting Techneya's solutions and services, and converting opportunities into successful partnerships. You will play a key role in expanding Techneya's market presence and contributing directly to the company's growth. Key Responsibilities Identify and target potential clients and new business opportunities across relevant industries and markets. Build and maintain a strong pipeline of qualified prospects. Conduct market research to identify new sectors, companies, and opportunities for business growth. Develop relationships with key decision-makers, business owners, executives, and potential partners. Generate new leads through LinkedIn, networking, referrals, cold outreach, events, partnerships, and other channels. Conduct discovery meetings with prospective clients to understand their business needs and challenges. Present Techneya's services and value proposition to potential clients. Prepare and deliver commercial proposals, presentations, and business pitches. Follow up consistently with prospects and move opportunities through the sales cycle. Negotiate commercial terms and work with internal teams to successfully close deals. Develop strategic partnerships that can generate new business opportunities. Monitor competitors, market trends, and industry developments to identify potential opportunities. Maintain accurate records of leads, opportunities, activities, and pipeline performance in the company's CRM. Achieve agreed business development, revenue, and client acquisition targets. Build long-term relationships with newly acquired clients to support retention, upselling, and future opportunities. Provide regular reports and updates on pipeline, opportunities, and business development activities. What We're Looking For 2–5 years of experience in Business Development, Sales, B2B Sales, Account Acquisition, Partnerships, or a similar commercial role. Proven experience in generating new business and acquiring new clients. Strong B2B sales and relationship-building skills. Excellent communication, presentation, negotiation, and persuasion skills. Strong prospecting and lead-generation abilities. Ability to identify decision-makers and successfully open conversations with them. Commercial mindset with a strong understanding of the sales cycle. Self-motivated, proactive, and comfortable working independently. Strong networking and relationship management skills. Ability to manage multiple opportunities and maintain a structured sales pipeline. Good understanding of LinkedIn and other digital channels for business development. Strong English communication skills. Preferred Qualifications Experience selling technology, software, digital, IT, consulting, marketing, or other professional services. Existing network of potential B2B clients or decision-makers. Experience dealing with C-level executives, founders, directors, and senior managers. Experience working with CRM systems. Experience in opening new markets or launching new business lines. Experience working with clients across Egypt, GCC, or international markets. What Success Looks Like Success in this role means: Consistently generating qualified new leads. Opening conversations with high-value prospects. Building a healthy and predictable sales pipeline. Converting prospects into new Techneya clients. Creating strategic partnerships that generate recurring opportunities. Contributing directly to Techneya's revenue and market expansion. Why Join Techneya? Be part of a growing company with significant room for impact. Have direct ownership over business growth and client acquisition. Work closely with leadership and contribute to strategic business decisions. Build and expand your professional network. Opportunity to grow with the company as the business expands.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
@@ -1185,21 +1501,471 @@
   ],
   "new_matches": [
     {
-      "linkedin_job_id": "4457897984",
-      "title": "Quality Monitoring Specialist-English-Speakers",
-      "company": "Xceed",
-      "location": "Cairo, Cairo, Egypt",
+      "linkedin_job_id": "4460888403",
+      "title": "Project Field Engineer",
+      "company": "ELBATTAT Steel - METRACO",
+      "location": "Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "1 hour ago",
-      "estimated_age_minutes": 60,
+      "linkedin_posted_text": "48 minutes ago",
+      "estimated_age_minutes": 48,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4457897984",
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460888403",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 7.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Microsoft 365",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "We are seeking a skilled and experienced  Field Engineer  to join our project execution team across Egypt . The ideal candidate will be responsible for leading site activities, supervising field teams, and ensuring that installation works are executed safely, accurately, and in accordance with approved technical and quality requirements. This role requires strong field leadership, sound technical judgment, and the ability to coordinate effectively with clients, subcontractors, and internal departments. Responsibilities: Lead and supervise the installation of steel pipelines, custom fittings, penstocks, radial gates, stop logs, and automatic cleaning weed screen systems. Manage site technicians and subcontractors, ensuring efficient workflow, workmanship, safety, and compliance with project requirements. Plan and coordinate manpower, equipment, materials, and site requirements ahead of execution to maintain project progress. Ensure installation works comply with approved drawings, welding procedures, coating specifications, QA/QC requirements, and applicable technical standards. Coordinate closely with the Technical Office, Production, Procurement, and other supporting functions to resolve site requirements and technical matters. Maintain accurate and timely daily reports covering progress, manpower, equipment, completed works, constraints, and site activities. Act as a professional point of coordination with clients, consultants, and project stakeholders throughout site execution. Identify and resolve field challenges promptly while maintaining the required standards of safety, quality, and productivity. Support inspections, measurements, handover documentation, and other project records required for completed works. Work across project sites throughout Egypt and relocate between sites according to project requirements. Qualifications: Bachelor’s degree in Mechanical Engineering or a related engineering discipline. Minimum 7 years of hands-on site experience, preferably within steel fabrication, pipelines, water infrastructure, or similar industrial projects. Proven ability to lead technicians, subcontractors, and multidisciplinary field teams in demanding site environments. Strong understanding of steel installation, welding, coating, QA/QC inspections, and site documentation. Strong communication and people-management skills, with the ability to work effectively with employees and managers at all levels. Strong command of Microsoft 365 applications. Excellent command of both English and Arabic. Proficiency in working with AI tools is required. What We Offer: We are proud to be an equal opportunity employer. Opportunity to play a key role in building and developing the HR function within a growing leading steel manufacturing company in Egypt. Direct exposure to senior management and involvement in company-wide organizational development.Ongoing training and professional development opportunities. Attractive package, compensation, and benefits. A workplace where people are encouraged to grow, contribute, and take ownership. Commitment to fostering a diverse, equitable, and inclusive environment where employees feel valued and empowered to succeed. Commitment to sustainable practices and responsible long-term growth. If you match the above criteria, are interested, and ready to grow with us, we would like to hear from you. Kindly send your CV to careers@elbattat.com , mentioning “Application for Field Engineer – [Your Full Name]” in the subject line.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460885456",
+      "title": "Application Senior Supervisor.",
+      "company": "Xceed",
+      "location": "Qesm El Maadi, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "18 minutes ago",
+      "estimated_age_minutes": 18,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460885456",
+      "matched_queries": [
+        {
+          "query": "Systems Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cloud Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 7.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Azure",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Key Responsibilities: - Lead software development projects from planning to production. - Design and maintain scalable software architecture. - Supervise, mentor, and support the development team. - Ensure code quality, security, and best development practices. - Oversee AI/LLM integration into software products. - Manage CI/CD pipelines, production deployments, and system performance. - Collaborate with business stakeholders to deliver technical solutions. - Drive continuous improvement and technology innovation. Requirements: - Bachelor's degree in Computer Science, Software Engineering, or a related field. - Minimum 6 years of software development experience, including 3+ years in a leadership role. - Strong experience with C#, ASP.NET Core, Entity Framework Core, REST APIs, and .NET. - Experience with PostgreSQL and/or SQL Server. - Knowledge of React or Angular. - Experience with Docker, CI/CD, AWS, or Azure is a plus. - Hands-on experience with AI/LLM integration and modern software architecture. - Strong leadership, communication, and problem-solving skills. - Fluent in English.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460883438",
+      "title": "Sr. Electrical Design Engineer & Sr. Mechanical Design Engineer",
+      "company": "Cairo Smart Consultant",
+      "location": "Giza, Al Jizah, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "38 minutes ago",
+      "estimated_age_minutes": 38,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460883438",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Routing/Switching",
+          "weight": 3.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "1. Senior Electrical Design Engineer Job Summary: We are seeking an experienced Senior Electrical Design Engineer to lead the electrical design aspects of our engineering projects. You will be responsible for conceptualizing, designing, and managing electrical systems from schematic design through construction administration, ensuring compliance with relevant codes and industry standards. Key Responsibilities: System Design: Design comprehensive low-voltage (LV), medium-voltage (MV), power distribution, lighting, fire alarm, and extra-low voltage (ELV) systems. Software Proficiency: Utilize AutoCAD and Revit (BIM) daily to produce detailed drawings, schematics, and 3D coordination models. Calculations & Compliance: Perform electrical calculations (e.g., lighting, cable sizing, voltage drop, and short-circuit analysis) complying with NEC, IEC, or local standards. Coordination: Collaborate closely with mechanical, plumbing, and structural teams to resolve clashes and ensure integrated building services design. Mentorship & Review: Review junior engineers' work, provide technical guidance, and ensure designs meet quality, budget, and schedule targets. Requirements & Qualifications: Education: Bachelor’s degree in Electrical Engineering. Experience: Minimum of 7 to 10 years of experience in electrical building services or industrial design. Technical Skills: Mandatory expertise in AutoCAD and Autodesk Revit for creating BIM-compliant deliverables. Certifications: Professional Engineer (PE) license or relevant certifications are a strong plus. 2. Senior Mechanical Design Engineer Job Summary: We are looking for a skilled Senior Mechanical Design Engineer to spearhead the mechanical, HVAC, plumbing, and fire protection design for our upcoming projects. The ideal candidate will combine strong analytical skills with advanced modeling capabilities to deliver efficient and sustainable building systems. Key Responsibilities: HVAC & Plumbing Design: Design energy-efficient HVAC, chilled water, ventilation, plumbing, and drainage systems for commercial, residential, or industrial facilities. Software Mastery: Generate accurate, high-quality 2D drafts and 3D parametric models using AutoCAD and Revit . Engineering Analysis: Conduct heat load calculations, duct/pipe sizing, static pressure calculations, and equipment selections. Interdisciplinary Coordination: Lead clash detection sessions and coordinate routing with electrical and structural disciplines within the Revit environment. Project Leadership: Oversee the preparation of technical specifications, tender packages, and bill of quantities (BOQ), guiding projects from concept to completion. Requirements & Qualifications: Education: Bachelor’s degree in Mechanical Engineering. Experience: Minimum of 7 to 10 years of dedicated mechanical design experience in the construction/consultancy sector. Technical Skills: Mandatory proficiency in AutoCAD and Revit for integrated MEP design workflows. Knowledge: Strong understanding of ASHRAE, ASME, and local building codes, as well as energy-modeling principles.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460881443",
+      "title": "𝗦𝗲𝗻𝗶𝗼𝗿 𝗕𝗜𝗠 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗮𝗹 𝗘𝗻𝗴𝗶𝗻𝗲𝗲𝗿",
+      "company": "SSH Design",
+      "location": "Qesm 1st New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "46 minutes ago",
+      "estimated_age_minutes": 46,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460881443",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "🚨Join Our Team at SSH Design – Egypt Office 𝗦𝗲𝗻𝗶𝗼𝗿 𝗕𝗜𝗠 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗮𝗹 𝗘𝗻𝗴𝗶𝗻𝗲𝗲𝗿 💼 Experience: 6–8 Years 📍 Location: New - Cairo 𝗞𝗲𝘆 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗶𝗯𝗶𝗹𝗶𝘁𝗶𝗲𝘀: – Manage, develop, review, and maintain accurate BIM models in accordance with project requirements, BIM standards, BEP & EIR. – Coordinate with Architecture, MEP, and other disciplines to identify and resolve design and model clashes. – Review and ensure the quality, accuracy, and consistency of BIM models and deliverables. – Prepare and review structural drawings, schedules, and BIM documentation. – Participate in BIM coordination meetings and provide technical solutions to modelling and coordination issues. – Manage model sharing, coordination, and information exchange through Autodesk Construction Cloud (ACC). – Conduct advanced clash detection, federated model coordination, and Clash Detective using Navisworks. 𝗤𝘂𝗮𝗹𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀: – Bachelor’s degree in Civil or Structural Engineering. – 6–8 years of experience in Structural BIM Modelling and Documentation. – Proficiency in Autodesk Revit Structure, AutoCAD, and Navisworks. – Strong knowledge of reinforced concrete structures, structural engineering drawings, detailing practices, and BIM workflows. – Good knowledge of reinforcement detailing, preparation of reinforcement drawings, and schedules. – Knowledge of Autodesk Construction Cloud (ACC) or BIM 360. – Excellent command of written and spoken English. 📩 To apply, send your updated CV to: 📧 Recruitment@sshic.com",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458830429",
+      "title": "Senior Technical Office Engineer-Civil (Alexandria Resident)",
+      "company": "Sabbour Consulting",
+      "location": "Alexandria, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "15 minutes ago",
+      "estimated_age_minutes": 15,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4458830429",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Associate",
+      "employment_type": "Full-time",
+      "job_function": "Engineering",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About Sabbour Consulting Since 1957, Sabbour Consulting has been a leading multidisciplinary engineering consulting firm delivering expert services in project management, design, cost control, and construction supervision across Egypt and the region. We pride ourselves on precision, innovation, and delivering projects that exceed client expectations. Job Summary Managing and coordinating all civil technical office activities within engineering consultancy projects. The role ensures the accuracy, compliance, and timely delivery of drawings, technical submissions, and documentation, while providing technical support to project teams, clients, and contractors in accordance with applicable codes, standards, and consultancy best practices. Key Responsibilities Review, prepare, and coordinate civil design drawings, shop drawings, and technical documents in compliance with project requirements and codes. Prepare and review technical submittals, method statements, and material approvals. Coordinate with design disciplines to resolve technical clashes and ensure design consistency. Support project planning by reviewing BOQs, specifications, and scope of work. Provide technical support to site teams and respond to RFIs and technical queries. Review contractor submissions and ensure compliance with approved drawings and specifications. Participate in value engineering proposals and technical optimization solutions. Ensure adherence to local and international codes, standards, and consultancy best practices. Assist in preparing tender documents, technical clarifications, and bid evaluations when required. Monitor technical progress and report issues, risks, and deviations to management. Coordinate with clients, contractors, and stakeholders on technical matters. Maintain proper documentation control for all technical office deliverables. Qualifications & Requirements Bachelor’s degree in civil engineering. 5+ years of relevant experience for Technical Office Engineers 8+ years of relevant experience for Senior Technical Office Engineers Experience in technical office roles within large-scale construction or infrastructure projects. Strong command of civil design standards, detailing, and construction practices. Proficiency in AutoCAD, Civil 3D, MS Office; knowledge of structural software (e.g., SAP2000, ETABS) is a plus. Familiarity with local and international codes (ACI, BS, ASTM, etc.). Excellent technical writing, documentation, and reporting skills. Strong coordination and communication skills in English (Arabic is an advantage). High attention to detail, problem-solving mindset, and ability to meet tight deadlines.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458843347",
+      "title": "Senior Technical Office Engineer-Civil",
+      "company": "Sabbour Consulting",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "12 minutes ago",
+      "estimated_age_minutes": 12,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4458843347",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Associate",
+      "employment_type": "Full-time",
+      "job_function": "Engineering",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About Sabbour Consulting Since 1957, Sabbour Consulting has been a leading multidisciplinary engineering consulting firm delivering expert services in project management, design, cost control, and construction supervision across Egypt and the region. We pride ourselves on precision, innovation, and delivering projects that exceed client expectations. Job Summary Managing and coordinating all civil technical office activities within engineering consultancy projects. The role ensures the accuracy, compliance, and timely delivery of drawings, technical submissions, and documentation, while providing technical support to project teams, clients, and contractors in accordance with applicable codes, standards, and consultancy best practices. Key Responsibilities Review, prepare, and coordinate civil design drawings, shop drawings, and technical documents in compliance with project requirements and codes. Prepare and review technical submittals, method statements, and material approvals. Coordinate with design disciplines to resolve technical clashes and ensure design consistency. Support project planning by reviewing BOQs, specifications, and scope of work. Provide technical support to site teams and respond to RFIs and technical queries. Review contractor submissions and ensure compliance with approved drawings and specifications. Participate in value engineering proposals and technical optimization solutions. Ensure adherence to local and international codes, standards, and consultancy best practices. Assist in preparing tender documents, technical clarifications, and bid evaluations when required. Monitor technical progress and report issues, risks, and deviations to management. Coordinate with clients, contractors, and stakeholders on technical matters. Maintain proper documentation control for all technical office deliverables. Qualifications & Requirements Bachelor’s degree in civil engineering. 5+ years of relevant experience for Technical Office Engineers 8+ years of relevant experience for Senior Technical Office Engineers Experience in technical office roles within large-scale construction or infrastructure projects. Strong command of civil design standards, detailing, and construction practices. Proficiency in AutoCAD, Civil 3D, MS Office; knowledge of structural software (e.g., SAP2000, ETABS) is a plus. Familiarity with local and international codes (ACI, BS, ASTM, etc.). Excellent technical writing, documentation, and reporting skills. Strong coordination and communication skills in English (Arabic is an advantage). High attention to detail, problem-solving mindset, and ability to meet tight deadlines.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458838345",
+      "title": "Senior Site Engineer - Civil (Alexandria Resident)",
+      "company": "Sabbour Consulting",
+      "location": "Alexandria, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "19 minutes ago",
+      "estimated_age_minutes": 19,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4458838345",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Associate",
+      "employment_type": "Full-time",
+      "job_function": "Engineering",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "About Sabbour Consulting Since 1957, Sabbour Consulting has been a leading multidisciplinary engineering consulting firm delivering expert services in project management, design, cost control, and construction supervision across Egypt and the region. We pride ourselves on precision, innovation, and delivering projects that exceed client expectations. Job Summary Supervising civil works at the project site to ensure that construction activities are executed in accordance with approved drawings, technical specifications, project schedules, and quality standards. The role involves coordinating with contractors, consultants, and project stakeholders to ensure the successful delivery of construction works while maintaining compliance with safety and regulatory requirements. Key Responsibilities Supervise and monitor daily civil construction activities at the project site. Ensure that all works are executed according to approved drawings, specifications, and project standards. Review contractor shop drawings, method statements, and material submittals related to civil works. Coordinate with the Resident Engineer and other discipline engineers to resolve site technical issues. Monitor contractor performance and ensure compliance with project schedule and quality requirements. Conduct regular site inspections to verify workmanship, materials, and construction progress. Review and verify contractor work progress and quantities for interim payment certificates. Issue site instructions, non-conformance reports (NCRs), and observation reports when required. Attend site meetings with contractors and project stakeholders and provide technical input. Ensure compliance with project safety procedures and environmental requirements. Review as-built drawings and ensure accuracy before submission. Prepare daily and weekly site progress reports. Coordinate testing and inspection activities related to civil works. Support the Resident Engineer in resolving contractual and technical matters related to civil works. Qualifications Bachelor’s Degree in Civil Engineering . 5+ years of experience for Site Engineers, preferably in engineering consulting or construction supervision firms . 8+ years of experience For Senior Site Engineers. Strong knowledge of construction methods, materials, and site supervision practices . Experience in large-scale construction projects such as commercial, residential, or infrastructure projects. Familiarity with international standards and construction specifications . Strong problem-solving and technical coordination skills. Excellent communication and reporting skills. Proficiency in AutoCAD, MS Office, and project documentation systems .",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460873581",
+      "title": "Interior Designer",
+      "company": "Dar",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "15 minutes ago",
+      "estimated_age_minutes": 15,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460873581",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Design",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Overview : Dar, the founding member of the Sidara group, is an international multidisciplinary consulting organization specializing in engineering, architecture, planning, environment, project management, facilities management, and economics. Sidara operates in 60 countries with 20,500 professionals, Dar connects people, places, and communities through innovative solutions to the world's most complex challenges. We deliver projects from inception through completion, embracing challenges to empower communities worldwide. Learn more at www.dar.com. Role Summary : Independently creates high-quality architectural designs and visualizations. Applies creative problem-solving and technical skills to refine design concepts and effectively communicate design intent to project teams and clients. Responsibilities : Develop innovative architectural design concepts and high-quality visual presentations. Prepare detailed 3D models, renderings, and design documentation for client and internal reviews. Research design trends, materials, and architectural precedents to support concept development. Collaborate with multidisciplinary teams to integrate design concepts into project requirements. Resolve design challenges and adapt concepts in line with evolving project needs. Support client presentations by clearly communicating design concepts and rationale. Ensure accuracy and high standards across all design deliverables and visualizations. Contribute to internal design visualization standards and workflows. Prepare design reports and high-quality presentations. Effectively present design ideas to Project Senior Designers and key stakeholders. Requirements : Bachelor’s degree in Architecture or a related field. 1–5 years of relevant professional experience in architectural design. Strong proficiency in SketchUp, Rhino, Grasshopper, AutoCAD, Revit, and Adobe Creative Suite . Demonstrated ability to develop high-quality architectural models, visualizations, and presentations. Proficiency in AI-powered tools and workflows applicable to architectural design, visualization, and concept development. Strong visual communication, presentation, and design problem-solving skills. ** While we carefully review all applications, only candidates meeting the specified requirements will be contacted for further consideration. We appreciate your understanding and thank you for your interest.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460882518",
+      "title": "Graphic Designer",
+      "company": "HR Egypt Network - HREN",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "16 minutes ago",
+      "estimated_age_minutes": 16,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460882518",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Design, Art/Creative, and Marketing",
+      "advisory_title_noise_signals": [
+        "graphic designer"
+      ],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Job Title: Graphic Designer Location: Zamalek, Cairo, Egypt Employment Type: Full-time Working Hours: 10:00 AM – 6:00 PM Days Off: Two days per week Role Overview: We are looking for a creative and detail-oriented Graphic Designer to join our team. You will be responsible for creating visually compelling content that reflects the brand’s identity, supports marketing efforts, and communicates our design philosophy across digital and print platforms. Key Responsibilities: Design engaging visuals for social media, website, email campaigns, and online ads Develop product presentations, catalogs, and marketing collateral Collaborate with the marketing and content teams to maintain brand consistency Create mockups, mood boards, and visual assets for new collections and campaigns Edit and retouch product images for e-commerce and promotional use Adapt designs for different platforms (Instagram, LinkedIn, website, etc.) Manage multiple projects and meet deadlines in a fast-paced environment Requirements: +3 years experience as a Graphic Designer (portfolio required) Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign) Strong sense of typography, color theory, and composition Attention to detail and ability to work independently Good communication and teamwork skills Familiarity with lighting, interior design, or luxury home products is a plus Bachelor’s degree in Graphic Design, Fine Arts, or a related field is preferred Work Arrangement: Hybrid model (combination of on-site work in Zamalek and remote days) On-site days to be coordinated with the team",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4460336936",
+      "title": "Data & AI - Business Unit Manager",
+      "company": "Prosoft",
+      "location": "Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "11 minutes ago",
+      "estimated_age_minutes": 11,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460336936",
       "matched_queries": [
         {
           "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
           "weight": 1.0,
           "lane": "egypt",
           "search_location": "Egypt",
@@ -1211,38 +1977,7 @@
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Mid-Senior level",
-      "employment_type": "Full-time",
-      "job_function": "Marketing, Public Relations, and Writing/Editing",
-      "advisory_title_noise_signals": [],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "Company Description Xceed is a leading multilingual Business Process Outsourcing (BPO) provider in the EMEA region, operating more than 10,000 web-enabled multichannel stations. The company manages outsourcing agreements for key government and commercial clients across 10 languages, delivering services such as inbound and outbound support, back-office operations, infrastructure management, recruitment process outsourcing, helpdesk support, and social media analysis. Xceed has operational sites in Egypt, Morocco, Mauritius, the UAE, and Saudi Arabia, offering diverse career opportunities in multiple locations. The organization is consistently recognized by IAOP, INSIGHTS Middle East Call Centre & CX Awards, Gulf Sustainability Awards, ICXA, IBXA, and Global ESG Awards for excellence in outsourcing, impact sourcing, sustainability, and diversity, equity, and inclusion. Xceed also maintains high-quality standards through multiple international certifications, including COPC, ISO 9001, ISO 14001, ISO 45001, ISO 22301, and ISO/IEC 27001, demonstrating its commitment to operational excellence and employee well-being. Role Description The Quality Monitoring Specialist – English Speakers is a full-time, on-site role based in Cairo. This role is responsible for monitoring and evaluating customer interactions (calls, chats, emails) to ensure adherence to quality standards, internal procedures, and client requirements. The specialist will analyze performance trends, identify areas for improvement, and provide clear, constructive feedback to customer service teams and supervisors. Day-to-day tasks include conducting regular audits, documenting findings, preparing quality reports, and contributing to coaching sessions to enhance customer experience and operational performance. The role also involves collaborating with operations, training, and management teams to refine quality frameworks, support calibration sessions, and help implement process improvements. Job Requirement: -Call center experience in telecommunication field (Vodafone – Orange – EX WE- Vodafone UK- AT&T - etc. -Experience as a Quality Analyst is 6 months - Excellent in the English language.",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4458745100",
-      "title": "Psychologist - EAMR Project",
-      "company": "Save the Children International",
-      "location": "Egypt",
-      "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "1 hour ago",
-      "estimated_age_minutes": 60,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4458745100",
-      "matched_queries": [
+        },
         {
           "query": "Microsoft 365",
           "weight": 3.0,
@@ -1252,9 +1987,9 @@
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Not Applicable",
-      "employment_type": "Full-time",
-      "job_function": "Health Care Provider",
+      "seniority": "Entry level",
+      "employment_type": "Other",
+      "job_function": "Information Technology",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 3.0,
@@ -1262,24 +1997,24 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Job Description TITLE: Psychologist East African Migration Routes Project (EAMR) TEAM/PROGRAMME: Program Operation Egypt Country Office LOCATION: Cairo, Egypt GRADE : 5 CONTRACT LENGTH: Until Dec 2026. With possible extension based on performance and budget availability. Contingent upon confirmation of funding [1] Child Safeguarding Level 3: The post holder will have contact with children and/or young people either frequently (e.g. once a week or more) or intensively (e.g. four days in one month or more or overnight) because they work country programs; or are visiting country programs; or because they are responsible for implementing the police checking/vetting process staff. Organisation Profile / Programme Summary Save the Children International is the world’s leading independent organisation for children. We work in 120 countries and work, together with our partners, to inspire breakthroughs in the way the world treats children and to achieve immediate and lasting change in their lives. In Egypt, Save the Children International has been working to ensure that children’s rights are respected, protected and promoted since 1982. We carry out both long-term development work and, more recently emergency humanitarian work. This project aims that children and youth in vulnerable situations have their rights respected and possess sound self-reliance capacities that allow them to improve their life perspectives. It will also target national and community organizations to enable them to provide effective protection and self-reliance services for children and youth. Role Purpose The Psychologist will be responsible for providing psychosocial support services in compliance with the relevant SCI guidelines at the country office level in support migrant and refugee children under the supervision of the Mental Health and Psycho-social Support (MHPSS) Officer and the (MHPSS) Technical Advisor (TA), The Psychologist will contribute directly to protection case management processes by providing individual/group sessions for at risk children and youth in need of psychosocial support identified through the project activities and referrals from case management team and protection team. S/he will be responsible to conduct the needed assessments and customize the session topics based on the identified needs of the target group. S/he will also be responsible for organizing group support and awareness sessions to children at risk and their families and refer those with acute psychological needs to specialized services. Scope Of Role Reports To: MHPSS Officer Dotted Line To: MHPSS Technical Advisor Staff Directly Reporting to this Post: None Key Areas Of Accountability Project Implementation Psychologist Support Services In close collaboration with the MHPSS Officer and MHPSS TA, the psychologist will: Contribute to the design of intake forms, session plans, and follow-up forms for children and their families when relevant. Collaborate with the MEAL team to administer the psychometric assessments upon need and deliver reports and data accordingly. Develop psychological intervention plans for identified cases and follow up on them regularly. Conduct one to one and group counselling sessions with children and families referred from other activities. Identify and assess severe cases and refer them to appropriate psychological or psychiatric service providers. Coordinate closely with the EAMR Case Management team and other SCI projects to ensure timely internal referrals, follow-up, case consultations, and integrated support planning for children and families. Prepare and submit individual case reports for all cases on their caseload and document case progress. Attend one-to-one and group supervision meetings (Face to face and online) with the MHPSS Officer and the MHPSS TA to ensure quality of MHPSS interventions. Ensure that all psychological interventions offered are informed by current scientific evidence. Adhere to the highest standards of practice. Work closely with the MHPSS officer and project manager to develop and implement the project work plan and activities. Other Project Activities Facilitate and co-facilitate a rolling program of recreational and psychosocial support (PSS) programs. Assist the PSS/project team in material development, training deliveries on topics regarding needs identified. Support the MHPSS Officer in monitoring, reporting, indicator tracking, and logistical arrangements related to MHPSS activities Ensure that MHPSS activities are implemented in a full respect to the child safeguarding polices of SC. Support in staff well-being activities that does not affect the professional relationship and confidentiality of staff (For Example: peer to peer support groups, work related stress awareness raising and stress management training). Responsible for all the Relevant and logistics work related to MHPSS operations within the project. Reporting And Documentation Draft concise, useful and analytical reports, case studies, and other documents as needed on a monthly and quarterly basis and as requested by SC, donors and other stakeholders. Regular reporting to project Officer with projects updates. Organize and maintain filing system of the sessions. Other Responsibilities Work closely with the MHPSS Officer to develop and implement the project work plan and activities. To work closely with the MHPSS officer and MHPSS technical advisor and other MHPSS team members on the contextualization of MHPSS materials to different refugee languages and cultures. Organize and maintain project files; maintain electronic and paper records. In Case Of Emergency Promote children's rights, contributing to their well-being and protection in times of emergencies, guided by humanitarian principles and code of conduct. During emergencies, he/she should act in a way that facilitates SCI’s response to emergencies, giving priority to all assigned. Be prepared to support SCI interventions in response to emergencies and show needed flexibility. General Demonstrate leadership in relation to Save the Children policies and practice with respect to safeguarding, code of conduct, health and safety, equal opportunities and other relevant policies and procedures. Comply with Save the Children policies and practice with respect to safeguarding policy, code of conduct, health and safety, equal opportunities and other relevant policies and procedures. Accountability SKILLS AND BEHAVIOURS (our Values in Practice): Holds self-accountable for making decisions, managing resources efficiently, achieving and role modelling Save the Children values. Holds the team and partners accountable to deliver on their responsibilities - giving them the freedom to deliver in the best way they see fit, providing the necessary development to improve performance and applying appropriate consequences when results are not achieved. Ambition Sets ambitious and challenging goals for themselves (and their team), takes responsibility for their own personal development and encourages others to do the same. Widely shares their personal vision for Save the Children, engages and motivates others. Future orientated, thinks strategically. Collaboration Builds and maintains effective relationships, with their team, colleagues, members and external partners and supporters. Values diversity, sees it as a source of competitive strength. Approachable, good listener, easy to talk to. Creativity Develops and encourages new and innovative solutions. Willing to take disciplined risks. Integrity Honest, encourages openness and transparency. Qualifications And Experience A university degree in psychology. 2-3 years of experience in family and/or child individual and group counselling, experience in working with migrants and refugees is an asset. Highly developed interpersonal and communication skills including team-leading and influencing. Extensive experience in delivering training. Excellent written and oral communication skills in Arabic and English are required. Comfortable with high levels of ambiguity and able to take decisions independently in a fluid context. Experience with refugee/marginalized communities desired. Commitment to Save the Children values and Child Safeguarding. Additional Job Responsibilities The duties and responsibilities as set out above are not exhaustive and the role holder may be required to carry out additional duties within reasonableness of their level of skills and experience. Equal Opportunities The role holder is required to carry out the duties in accordance with the SCI Equal Opportunities and Diversity policies and procedures. Child Safeguarding We need to keep children safe so our selection process, which includes rigorous background checks, reflects our commitment to the protection of children from abuse. Safeguarding Our Staff The post holder is required to carry out the duties in accordance with the SCI anti-harassment policy Health and Safety The role holder is required to carry out the duties in accordance with SCI Health and Safety policies and procedures. Updated By: Afaf Gamal Date: 18. August.2026 JD agreed by: Date: Updated By: Afaf Gamal Date: 18.August.2026 Evaluated: Date: About Us The Organization Education We employ approximately 25,000 people across the globe and work on the ground in over 100 countries to help children affected by crises, or those that need better healthcare, education and child protection. We also campaign and advocate at the highest levels to realise the right of children and to ensure their voices are heard. We are working towards three breakthroughs in how the world treats children by 2030: No child dies from preventable causes before their 5th birthday All children learn from a quality basic education and that, Violence against children is no longer tolerated We know that great people make a great organization, and that our employees play a crucial role in helping us achieve our ambitions for children.We value our people and offer a meaningful and rewarding career, along with a collaborative and inclusive workplace where ambition, creativity, and integrity are highly valued. Application Information Please apply using a cover letter and up-to-date CV as a single document. Please also include details of your current remuneration and salary expectations. A copy of the full role profile can be found at www.savethechildren.net/jobs We need to keep children safe so our selection process reflects our commitment to the protection of children from abuse.",
+      "description": "🌟 Role Overview We're looking for an experienced Data & AI Business Unit Manager to lead the technical strategy and go-to-market execution of our Data & AI portfolio. This leadership role combines technical ownership, customer engagement, partner collaboration, pipeline development, and team management. 🎯 Key Responsibilities 🔹 Own the technical direction and positioning of the Data & AI portfolio. 🔹 Lead customer discovery, solution positioning, and technical engagements. 🔹 Drive joint account planning with key partners and sales teams. 🔹 Build and accelerate pipeline alongside reseller sales teams. 🔹 Lead customer demos, workshops, and proof-of-concepts (PoCs). 🔹 Manage and develop a team of technical specialists. 🔹 Support strategic opportunities and Data & AI transformation initiatives. 💼 Experience & Qualifications ✅ 10–15 years of experience in enterprise technology with strong exposure to Data & AI. ✅ Proven background in Pre-Sales, Solution Architecture, Technical Consulting, or Technical Business Development. ✅ Strong knowledge of enterprise data technologies, including: 📊 Data Management 🔄 Data Integration 🛡️ Data Governance 🌐 Data Virtualization 📈 Analytics 🤖 Data Science, Machine Learning & AI ✅ Experience with enterprise-grade data platforms and modern data architectures, including: ☁️ Cloud & Hybrid Environments 🗄️ Data Lakes 🏢 Data Warehouses 🌊 Lakehouse Architectures ✅ Familiarity with leading technology ecosystems across: 🔗 Data Integration & Management 🌐 Data Virtualization 📊 Analytics 🤖 Data Science & AI Platforms ✅ Strong customer-facing skills with experience delivering: 🎤 Technical Presentations 💻 Customer Demos 🛠️ Workshops ✅ Proof-of-Concepts (PoCs) ✅ Experience working with Partners, Resellers, System Integrators, and Technology Vendors. ✅ Proven ability to lead and develop Technical or Pre-Sales Teams. 📩 Ready to make an impact? Send your CV to Alaa_yasser@prosoft.com.eg",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4459198928",
-      "title": "Marketing Manager",
-      "company": "Royal Sky Group",
-      "location": "Giza, Al Jizah, Egypt",
+      "linkedin_job_id": "4460889408",
+      "title": "Audit Readiness Section Head",
+      "company": "WELLKNOWN LIMITED",
+      "location": "Cairo, Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "31 minutes ago",
-      "estimated_age_minutes": 31,
+      "linkedin_posted_text": "16 minutes ago",
+      "estimated_age_minutes": 16,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4459198928",
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460889408",
       "matched_queries": [
         {
           "query": "Microsoft 365",
@@ -1292,34 +2027,32 @@
       "application_status": "open_signal",
       "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Marketing and Sales",
-      "advisory_title_noise_signals": [
-        "marketing"
-      ],
+      "job_function": "Accounting/Auditing and Finance",
+      "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 3.0,
       "role_hits_title": [],
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Company Description Royal Sky Group is a diversified business group founded and owned by entrepreneur and internationally recognized business coach Mr. Ammar Omar. Headquartered in the UAE, the group has expanded with branches across the Gulf region and beyond. The company operates in multiple sectors including Construction, Food & Beverage, Business Consulting and Training, Marketing and Advertising, and IT & Digitalization. Team members benefit from exposure to varied industries, a growth-oriented environment, and opportunities to contribute to an expanding regional presence. Role Description This is a full-time, on-site Marketing Manager role based in Giza. The Marketing Manager oversees the planning and execution of marketing campaigns across Royal Sky Group’s business lines, ensuring brand consistency and alignment with strategic objectives. Daily responsibilities include developing marketing strategies, managing digital and offline campaigns, coordinating with internal stakeholders and external agencies, and monitoring performance metrics. The role also involves market research, budget management, and reporting on campaign effectiveness, while identifying opportunities to strengthen brand awareness and support business growth. Qualifications Strong marketing strategy and planning skills, including experience developing integrated campaigns across multiple channels. Proficiency in digital marketing practices such as social media management, content marketing, and performance tracking. Experience with brand management, marketing communications, and campaign execution in dynamic, multi-sector environments. Ability to conduct market research, analyze data, and translate insights into actionable marketing initiatives. Excellent written and verbal communication skills, with the ability to present ideas clearly to diverse stakeholders. Demonstrated project management skills, including time management, prioritization, and coordination of cross-functional teams. Previous experience in marketing roles, ideally within regional or international organizations in the Gulf or MENA region. Bachelor’s degree in Marketing, Business Administration, Communications, or a related field; advanced qualifications are an advantage. Comfort working on-site in Giza and collaborating closely with leadership and operational teams. Adaptability, problem-solving ability, and a proactive approach to continuous improvement and learning.",
+      "description": "**We’re Hiring | Audit Readiness Section Head** **Join one of the Top 5 Pharmaceutical Companies!** Are you an experienced **Quality Assurance professional** with a strong background in **GMP compliance, audit readiness, investigations, CAPA, and Quality Management Systems**? We’re looking for an **Audit Readiness Section Head** to support quality oversight across manufacturing, facilities, utilities, and warehouse operations, ensuring compliance with **GMP, regulatory requirements, and internal quality standards**. ### Key Responsibilities • Conduct routine **GMP Walk-throughs and Gemba activities** across GxP areas. • Monitor operations and identify compliance gaps and potential quality risks. • Participate in **real-time investigations** of deviations and non-conformances. • Support **Root Cause Analysis (RCA)** and the development of effective CAPAs. • Review CAPA responses and follow up on implementation, effectiveness, and timely closure. • Provide quality impact assessments for deviations and quality-related issues. • Support trending and analysis of deviations to identify recurring issues and improvement opportunities. • Contribute to **QMS improvement, gap analysis, and SOP review/update** activities. • Promote **Good Documentation Practices (GDP), Data Integrity, and Quality Culture** initiatives. • Support training effectiveness and provide coaching on GMP principles and quality best practices. • Support audit readiness activities and ensure continuous compliance across the site. ### Qualifications & Experience • Bachelor’s degree in **Pharmacy, Science, or a related field**. • **7–10 years of experience** in Quality Assurance within a pharmaceutical or regulated manufacturing environment. • Strong knowledge of **GMP, GDP, regulatory requirements, EDA, and ISO standards**. • Solid experience in **deviation management, investigations, CAPA, and QMS processes**. • Familiarity with **manufacturing, utilities, facilities, and warehouse operations** in a GxP environment. • Experience in **SOP review, documentation, and audit readiness**. • Good understanding of **Data Integrity and Quality Risk Management** principles. • Strong analytical, investigation, communication, and problem-solving skills. • Ability to influence stakeholders and promote a strong quality culture. **Location:** El Obour **Scope:** Site-level **Join a Top 5 pharmaceutical organization and play a key role in strengthening compliance, audit readiness, quality culture, and operational excellence.**",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4460884402",
-      "title": "Electrical Engineer - Design",
-      "company": "ANMAT",
-      "location": "Qesm 1st Nasser City, Cairo, Egypt",
+      "linkedin_job_id": "4460871647",
+      "title": "AEN Co-Teacher",
+      "company": "Malvern College Egypt",
+      "location": "Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "9 minutes ago",
-      "estimated_age_minutes": 9,
+      "linkedin_posted_text": "8 minutes ago",
+      "estimated_age_minutes": 8,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4460884402",
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4460871647",
       "matched_queries": [
         {
           "query": "Microsoft 365",
@@ -1332,47 +2065,7 @@
       "application_status": "open_signal",
       "seniority": "Entry level",
       "employment_type": "Full-time",
-      "job_function": "Engineering and Information Technology",
-      "advisory_title_noise_signals": [
-        "electrical engineer"
-      ],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "We’re looking for an Electrical Design Engineer to join our team. 📍 Location: Nasr City, Cairo 🎯 Requirements: 🔹 Bachelor’s degree in Electrical Engineering 🔹 1–2 years of experience in Electrical Design 🔹 Good knowledge of AutoCAD & basic Revit 🔹 Basic experience in Load Calculations & Cable Sizing 🔹 Experience with Lighting Layouts & Single-Line Diagrams (SLD) 📩 HOW TO APPLY: Send your updated CV to: 📧 Talents@anmat.sa 📝 Subject: Electrical Design Engineer",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4460849141",
-      "title": "Deputy Chief Executive Officer",
-      "company": "City Glass",
-      "location": "Cairo, Egypt",
-      "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "32 minutes ago",
-      "estimated_age_minutes": 32,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4460849141",
-      "matched_queries": [
-        {
-          "query": "Microsoft 365",
-          "weight": 3.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Executive",
-      "employment_type": "Full-time",
-      "job_function": "Business Development and Sales",
+      "job_function": "Education and Training",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 3.0,
@@ -1380,24 +2073,24 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Company Description City Glass, founded in 1986, is dedicated to producing high-quality glass products using premium Soda-Lime glass and modern manufacturing technologies. The company operates multiple factories automated production, City Glass focuses on useful, affordable, and simple designs that highlight special moments in everyday life. Role Description The Deputy Chief Executive Officer is a full-time, on-site role based in Cairo, Egypt. This role supports the Chief Executive Officer in steering overall business performance, translating strategic objectives into actionable plans for operations, finance, sales, and production. The Deputy CEO oversees day-to-day operational activities, monitors key performance indicators, and ensures that manufacturing processes align with quality, cost, and safety targets. Responsibilities include collaborating with senior leaders to optimize resource allocation, drive revenue growth, maintain strong customer relationships, and reinforce brand positioning. The role also involves leading cross-functional projects, managing organizational change, developing leadership capabilities within the team, and representing the company in key internal and external meetings. Qualifications Strong Finance skills, including budgeting, cost control, and financial performance analysis. Proficiency in Operations Management, with experience overseeing production, process optimization, and supply chain efficiency. Expertise in Business Planning and Strategic Planning, with the ability to develop and implement long-term growth strategies. Proven track record in Sales, commercial leadership, and market development within manufacturing or related industries. Demonstrated leadership and people management skills, including team development and performance management. Excellent analytical, problem-solving, and decision-making abilities, with a data-informed approach. Strong communication and stakeholder management skills, with the ability to collaborate across functions and levels. Bachelor’s degree in Business, Finance, Engineering, or a related field; a graduate degree (MBA or equivalent) is an advantage. Experience in manufacturing or glassware production environments is highly beneficial. High level of integrity, adaptability, and commitment to quality, safety, and customer satisfaction.",
+      "description": "Role Description This is a full-time on-site role for a Front Desk Officer located at Malvern College Egypt in Cairo. The Front Desk Officer will be responsible for receptionist duties, customer service, office equipment upkeep, and office administration tasks. Furthermore, the Front Desk Officer will be responsible for maintaining a professional demeanor while serving as an upstanding representative of the College. Qualifications Excellent interpersonal skills, including active listening and problem-solving abilities Prior experience in performing receptionist duties Exceptional customer service skills for parents and students Ability to maintain and operate basic office equipment Office administration experience is required Familiarity with relevant software and databases Fluency in English and Arabic is required Bachelor's degree in any field or equivalent experience.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4458777690",
-      "title": "Health Information Officer",
-      "company": "Save the Children International",
-      "location": "Egypt",
+      "linkedin_job_id": "4458834415",
+      "title": "Customer Success Executive (Software)",
+      "company": "Techneya",
+      "location": "Qesm El Maadi, Cairo, Egypt",
       "linkedin_date": "2026-08-30",
       "linkedin_posted_text": "1 hour ago",
       "estimated_age_minutes": 60,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4458777690",
+      "first_seen_utc": "2026-08-30T06:44:33Z",
+      "url": "https://www.linkedin.com/jobs/view/4458834415",
       "matched_queries": [
         {
           "query": "Information Technology",
@@ -1422,9 +2115,9 @@
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Not Applicable",
+      "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Health Care Provider",
+      "job_function": "Business Development and Sales",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
       "score": 1.0,
@@ -1432,66 +2125,7 @@
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Job Description TITLE: Health Information Officer TEAM/PROGRAMME: Health Team LOCATION: Cairo, Maadi GRADE : 4 (Competitive package) CONTRACT LENGTH: Pending Doner Approval Child Safeguarding Level 3: the post holder will have contact with children and/or young people either frequently (e.g. once a week or more) or intensively (e.g. four days in one month or more or overnight) because they work country programs; or are visiting country programs; or because they are responsible for implementing the police checking/vetting process staff. Role Purpose Health information officer will lead on all the health information system of the health program medical data will play the key role in monitoring all project activities, evaluation of health outcomes, and implementation progress and work plan, and achieving project objectives. S/he will support the decision making by providing the data analysis results to the program manager, timely reporting on all project activities, including elective and emergency services. In addition, S/he will participate in monitoring and assessing the quality of health care services provided when needed. In the event of a major humanitarian emergency, the role holder, will be expected to work outside the normal role profile and be able to vary working hours accordingly. Scope Of Role Reports to: direct Program Manager and indirect to the MEAL Staff reporting to this post: NA Key Areas Of Accountability Project Implementation Design and create reporting format, line list and database and dashboards for all health project data and information, including primary and secondary medical referrals cases, and other project activities, that fulfil the donor requirements in Monitoring and evaluation plan. Collect, verify and enter and analyze the data that includes but is not limited to; health outcomes, medical interventions, cost/benefit analysis, prepare the monthly, quarterly, and annual reports as required All project data, information, databases, and reports should be saved and documented in the formal SCI SharePoint and cited as references Assist the health team by correcting data errors and guiding them to provide and submit accurate data and reports. Support with MEAL team on program specific learning processes, including documenting lessons learnt, organizing lessons learnt workshops etc. Ensure regular use, reporting and action tracking on the project's quality benchmarks Collaborate and contribute with MEAL team, project team and Accountability team to ensure a strong, accessible and inclusive feedback and reporting mechanism is available for beneficiaries. Participate in provider assessment when required. Respond to deviation and prepare the deviation report and participate in the investigation as assigned by the project manager. Conduct audit visits to project to assure compliance with project guidance and SOPs Holding regular meetings to present health analysis and enhance team awareness of the health information system and its role in decision-making. Perform any tasks assigned by the line manager as necessary. Reporting and documentation Collect, verify and analyze the project data, and MOVs prepare the monthly, quarterly, and annual reports and other reports as required. Prepare and submit the deviation report, including the cause/justification, incident evaluation, and corrective and preventive actions. Submit the reports on time to the Project Manager Ensure regular and timely reporting on the project IPTT (indicator performance tracking tool). Ensure regular and timely analysis reporting on indicators for donor reporting. Budgeting Support in quality budget phasing, monitoring and utilization, participates in cost/benefit assessment for admitted/hospitalized cases, guided by establish health referral SOP, considering the health outcomes BEHAVIOURS (Values In Practice) Accountability Holds self-accountable for making decisions, managing resources efficiently, achieving and role modelling Save the Children values Holds the team and partners accountable to deliver on their responsibilities - giving them the freedom to deliver in the best way they see fit, providing the necessary development to improve performance and applying appropriate consequences when results are not achieved. Ambition Sets ambitious and challenging goals for themselves and their team, takes responsibility for their own personal development and encourages their team to do the same Widely shares their personal vision for Save the Children, engages and motivates others Future orientated, thinks strategically and on a global scale. Collaboration Builds and maintain effective relationships with their team, colleagues, Members and external partners and supporters Values diversity, sees it as a source of competitive strength Approachable, good listener, easy to talk to. Creativity Develops and encourages new and innovative solutions Willing to take disciplined risks. Integrity Honest, encourages openness and transparency; demonstrates highest levels of integrity Qualifications Bachelor’s degree of health-related field. Medical and paramedical background is preferred Post graduate certificate or degree in public health / statistics, is preferred. Experience And Skills Minimum of 3–5 years of relevant professional experience in Health Information Systems, data management, monitoring and evaluation, or a related field, preferably with a UN agency or INGO. Previous experience working with health projects, humanitarian programmes, or vulnerable groups responses are highly desirable. Proven experience in data collection, data management, validation, analysis, and reporting, with strong attention to data quality and accuracy. Proven experience using statistical and data analysis software and digital data management platforms. Strong ability to develop and maintain data tracking tools, dashboards, databases, and routine programme reports. Good understanding of health indicators, data quality assurance, and reporting requirements. Strong analytical and problem-solving skills, with a demonstrated results-oriented approach. Excellent computer skills, particularly in Microsoft Excel and other data management and analysis tools. Strong interpersonal, communication, coordination, and teamwork skills. Strong government relations, networking, and stakeholder coordination skills. Fluency in English, with strong written and verbal communication skills. Knowledge of Child Safeguarding principles and humanitarian standards is an advantage. Commitment to Save the Children International's values, vision, mission, and safeguarding principles. Additional Job Responsibilities The duties and responsibilities as set out above are not exhaustive and the role holder may be required to carry out additional duties within reasonableness of their level of skills and experience. Equal Opportunities The role holder is required to carry out the duties in accordance with the SCI Equal Opportunities and Diversity policies and procedures. Child Safeguarding We need to keep children safe so our selection process, which includes rigorous background checks, reflects our commitment to the protection of children from abuse. Health and Safety The role holder is required to carry out the duties in accordance with SCI Health and Safety policies and procedures. Updated By: Omar El. Noman Date: August 2026 Reviewed and signoff By: Qais Jassar Date: August 2026",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4458836298",
-      "title": "Quality Assurance (QA) Software Engineer",
-      "company": "Unicorn Lab",
-      "location": "Egypt",
-      "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "1 hour ago",
-      "estimated_age_minutes": 60,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T05:44:10Z",
-      "url": "https://www.linkedin.com/jobs/view/4458836298",
-      "matched_queries": [
-        {
-          "query": "Information Technology",
-          "weight": 1.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "IT",
-          "weight": 0.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "ICT",
-          "weight": 1.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Entry level",
-      "employment_type": "Contract",
-      "job_function": "Quality Assurance",
-      "advisory_title_noise_signals": [
-        "quality assurance"
-      ],
-      "advisory_it_evidence": false,
-      "score": -9.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [
-        {
-          "label": "Software Development",
-          "weight": -10.0
-        }
-      ],
-      "description": "Role Overview We are seeking a curious, detail-oriented, and self-driven QA Intern who can understand complex applications and business processes and help ensure the delivery of reliable, high-quality software. The successful candidate will contribute to both manual and automated testing across web applications, APIs, mobile applications, databases, and integrated systems. This role is ideal for someone with strong analytical and problem-solving skills who wants to build practical experience in modern software quality assurance. Key Responsibilities Understand complex application functionality, architecture, business processes, user journeys, and system integrations. Review requirements, user stories, acceptance criteria, workflows, and technical documentation to identify test scenarios. Prepare and execute clear, comprehensive manual test cases and checklists. Perform functional, regression, integration, system, usability, compatibility, exploratory, and smoke testing. Assist in creating and maintaining automated tests for web applications and APIs. Validate APIs, database records, data flows, and integrations between systems. Identify, document, and track defects with clear descriptions, severity, reproduction steps, evidence, and expected results. Retest resolved issues and perform regression testing to confirm that fixes do not affect existing functionality. Work closely with developers, business analysts, product owners, and other QA team members throughout the development lifecycle. Participate in requirement reviews, planning sessions, defect discussions, and release-readiness activities. Maintain test documentation, execution results, defect records, and quality reports. Learn and apply QA standards, testing techniques, automation practices, and development processes. Take ownership of assigned tasks and communicate progress, dependencies, risks, and blockers proactively. Required Skills and Knowledge Basic understanding of software testing concepts and the software development lifecycle. Ability to analyze and understand complex applications, workflows, requirements, and business rules. Knowledge of manual testing techniques and test-case design. Basic understanding of test automation principles. Familiarity with one or more programming or scripting languages, such as JavaScript, TypeScript, Java, Python, or C#. Basic knowledge of web technologies, including HTML, CSS, HTTP, browsers, and client-server architecture. Familiarity with REST APIs and API-testing tools such as Postman. Basic SQL knowledge for validating application data and database results. Strong analytical, problem-solving, observation, and troubleshooting skills. Ability to document findings clearly and communicate effectively with technical and non-technical team members. Willingness to learn new applications, domains, tools, and technologies. Preferred Skills Exposure to automation tools such as Playwright, Selenium, Cypress, Appium, or similar frameworks. Familiarity with automated API testing. Exposure to performance or load-testing tools such as JMeter or k6. Basic understanding of Git, CI/CD pipelines, Agile development, and defect-tracking tools. Familiarity with testing web, mobile, cloud-based, or distributed applications. Awareness of accessibility, security, cross-browser, and responsive-design testing. Experience from academic, personal, internship, or open-source software projects. Qualifications Currently pursuing or recently completed a degree or diploma in Computer Science, Software Engineering, Information Technology, or a related discipline. Academic or personal project experience involving software development or testing is an advantage. Relevant testing courses or entry-level certifications are beneficial but not required. Professional Competencies Detail-oriented, methodical, and committed to software quality. Curious and willing to investigate unexpected system behavior. Self-driven and accountable for assigned responsibilities. Able to learn complex applications and business domains quickly. Comfortable asking questions and challenging unclear requirements constructively. Works collaboratively and does not operate in silos. Communicates defects, risks, and progress clearly and professionally. Open to feedback and committed to continuous learning and improvement.",
+      "description": "Techneya is looking for a driven and commercially minded Business Development Executive to join our growing team and help us expand our client base and unlock new business opportunities. This role is ideal for someone who is not simply looking to manage existing accounts, but is passionate about finding new clients, opening doors, building relationships, identifying opportunities, and turning prospects into long-term business partnerships . Role Overview As a Business Development Executive, you will be responsible for driving new business for Techneya by identifying potential clients, generating leads, developing relationships with decision-makers, presenting Techneya's solutions and services, and converting opportunities into successful partnerships. You will play a key role in expanding Techneya's market presence and contributing directly to the company's growth. Key Responsibilities Identify and target potential clients and new business opportunities across relevant industries and markets. Build and maintain a strong pipeline of qualified prospects. Conduct market research to identify new sectors, companies, and opportunities for business growth. Develop relationships with key decision-makers, business owners, executives, and potential partners. Generate new leads through LinkedIn, networking, referrals, cold outreach, events, partnerships, and other channels. Conduct discovery meetings with prospective clients to understand their business needs and challenges. Present Techneya's services and value proposition to potential clients. Prepare and deliver commercial proposals, presentations, and business pitches. Follow up consistently with prospects and move opportunities through the sales cycle. Negotiate commercial terms and work with internal teams to successfully close deals. Develop strategic partnerships that can generate new business opportunities. Monitor competitors, market trends, and industry developments to identify potential opportunities. Maintain accurate records of leads, opportunities, activities, and pipeline performance in the company's CRM. Achieve agreed business development, revenue, and client acquisition targets. Build long-term relationships with newly acquired clients to support retention, upselling, and future opportunities. Provide regular reports and updates on pipeline, opportunities, and business development activities. What We're Looking For 2–5 years of experience in Business Development, Sales, B2B Sales, Account Acquisition, Partnerships, or a similar commercial role. Proven experience in generating new business and acquiring new clients. Strong B2B sales and relationship-building skills. Excellent communication, presentation, negotiation, and persuasion skills. Strong prospecting and lead-generation abilities. Ability to identify decision-makers and successfully open conversations with them. Commercial mindset with a strong understanding of the sales cycle. Self-motivated, proactive, and comfortable working independently. Strong networking and relationship management skills. Ability to manage multiple opportunities and maintain a structured sales pipeline. Good understanding of LinkedIn and other digital channels for business development. Strong English communication skills. Preferred Qualifications Experience selling technology, software, digital, IT, consulting, marketing, or other professional services. Existing network of potential B2B clients or decision-makers. Experience dealing with C-level executives, founders, directors, and senior managers. Experience working with CRM systems. Experience in opening new markets or launching new business lines. Experience working with clients across Egypt, GCC, or international markets. What Success Looks Like Success in this role means: Consistently generating qualified new leads. Opening conversations with high-value prospects. Building a healthy and predictable sales pipeline. Converting prospects into new Techneya clients. Creating strategic partnerships that generate recurring opportunities. Contributing directly to Techneya's revenue and market expansion. Why Join Techneya? Be part of a growing company with significant room for impact. Have direct ownership over business growth and client acquisition. Work closely with leadership and contribute to strategic business decisions. Build and expand your professional network. Opportunity to grow with the company as the business expands.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
