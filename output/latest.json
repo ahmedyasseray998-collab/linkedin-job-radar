@@ -1,11 +1,13 @@
 {
   "schema_version": 6,
   "config_version": 7,
-  "run_id": "20260830T184414Z",
-  "run_started_at_utc": "2026-08-30T18:44:14Z",
-  "generated_at_utc": "2026-08-30T18:46:44Z",
-  "health": "healthy",
-  "warnings": [],
+  "run_id": "20260830T194413Z",
+  "run_started_at_utc": "2026-08-30T19:44:13Z",
+  "generated_at_utc": "2026-08-30T19:46:57Z",
+  "health": "healthy_with_retries",
+  "warnings": [
+    "LinkedIn guest search needed recovery retries for 2 query bucket(s)"
+  ],
   "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
   "search_lanes": [
     {
@@ -31,38 +33,38 @@
     "principle": "Do not let code decide job fit after exact-detail retrieval; ChatGPT reviews every verified new candidate"
   },
   "stats": {
-    "unique_live_cards": 14,
-    "already_seen": 9,
-    "detail_attempts": 5,
-    "details_fetched": 5,
+    "unique_live_cards": 22,
+    "already_seen": 11,
+    "detail_attempts": 11,
+    "details_fetched": 11,
     "detail_failures": 0,
     "detail_budget_skipped": 0,
     "closed_candidates_kept": 0,
     "freshness_conflicts_kept": 0,
-    "low_it_evidence_candidates_kept": 4,
-    "title_noise_candidates_kept": 2,
+    "low_it_evidence_candidates_kept": 11,
+    "title_noise_candidates_kept": 0,
     "search_errors": 0,
-    "query_retry_recoveries": 0,
+    "query_retry_recoveries": 2,
     "query_count": 25,
     "search_bucket_count": 50,
-    "review_candidates": 5,
+    "review_candidates": 11,
     "relevance_rejections": 0,
     "lane_stats": {
       "egypt": {
         "query_count": 25,
-        "unique_live_cards": 14,
-        "already_seen": 9,
-        "detail_attempts": 5,
-        "details_fetched": 5,
+        "unique_live_cards": 22,
+        "already_seen": 11,
+        "detail_attempts": 11,
+        "details_fetched": 11,
         "detail_failures": 0,
         "detail_budget_skipped": 0,
-        "review_candidates": 5,
+        "review_candidates": 11,
         "closed_candidates_kept": 0,
         "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 4,
-        "title_noise_candidates_kept": 2,
+        "low_it_evidence_candidates_kept": 11,
+        "title_noise_candidates_kept": 0,
         "search_errors": 0,
-        "query_retry_recoveries": 0,
+        "query_retry_recoveries": 2,
         "relevance_rejections": 0
       },
       "emea_remote": {
@@ -90,10 +92,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        4
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 4,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -118,10 +120,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        2
+        4
       ],
       "retry_page_counts": {},
-      "unique_cards": 2,
+      "unique_cards": 4,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -160,10 +162,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        5
+        3
       ],
       "retry_page_counts": {},
-      "unique_cards": 5,
+      "unique_cards": 3,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -204,10 +206,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        1
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -218,10 +220,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        2
+        5
       ],
       "retry_page_counts": {},
-      "unique_cards": 2,
+      "unique_cards": 5,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -274,10 +276,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        1
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -316,20 +318,6 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        3
-      ],
-      "retry_page_counts": {},
-      "unique_cards": 3,
-      "errors": 0,
-      "lane": "egypt",
-      "search_location": "Egypt",
-      "remote_filter": null
-    },
-    {
-      "query": "IT Specialist",
-      "pages_configured": 3,
-      "pages_requested": 1,
-      "page_counts": [
         5
       ],
       "retry_page_counts": {},
@@ -340,13 +328,29 @@
       "remote_filter": null
     },
     {
+      "query": "IT Specialist",
+      "pages_configured": 3,
+      "pages_requested": 1,
+      "page_counts": [
+        1
+      ],
+      "retry_page_counts": {},
+      "unique_cards": 1,
+      "errors": 0,
+      "lane": "egypt",
+      "search_location": "Egypt",
+      "remote_filter": null
+    },
+    {
       "query": "IT Support",
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        3
+        0
       ],
-      "retry_page_counts": {},
+      "retry_page_counts": {
+        "1": 3
+      },
       "unique_cards": 3,
       "errors": 0,
       "lane": "egypt",
@@ -356,14 +360,13 @@
     {
       "query": "Information Technology",
       "pages_configured": 4,
-      "pages_requested": 1,
+      "pages_requested": 2,
       "page_counts": [
+        10,
         0
       ],
-      "retry_page_counts": {
-        "1": 0
-      },
-      "unique_cards": 0,
+      "retry_page_counts": {},
+      "unique_cards": 10,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -374,11 +377,13 @@
       "pages_configured": 4,
       "pages_requested": 2,
       "page_counts": [
-        10,
-        3
+        0,
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 13,
+      "retry_page_counts": {
+        "1": 10
+      },
+      "unique_cards": 10,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -404,10 +409,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        0
+        4
       ],
       "retry_page_counts": {},
-      "unique_cards": 0,
+      "unique_cards": 4,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -432,10 +437,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        0
+        10
       ],
       "retry_page_counts": {},
-      "unique_cards": 0,
+      "unique_cards": 10,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -839,219 +844,59 @@
   "errors": [],
   "review_candidates": [
     {
-      "linkedin_job_id": "4455852170",
-      "title": "DevOps Engineer - Remote",
-      "company": "YO HR Consultancy",
-      "location": "Egypt",
+      "linkedin_job_id": "4461028180",
+      "title": "Virtual Assistant",
+      "company": "Dark Pyramid",
+      "location": "New Cairo, Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "36 minutes ago",
-      "estimated_age_minutes": 36,
+      "linkedin_posted_text": "12 minutes ago",
+      "estimated_age_minutes": 12,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T18:44:14Z",
-      "url": "https://www.linkedin.com/jobs/view/4455852170",
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461028180",
       "matched_queries": [
         {
-          "query": "System Administrator",
-          "weight": 4.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "IT Infrastructure",
-          "weight": 5.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "Technical Support Engineer",
+          "query": "VMware",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
-        },
-        {
-          "query": "Cybersecurity Engineer",
-          "weight": 4.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "IT Specialist",
-          "weight": 3.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "IT",
-          "weight": 0.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "ICT",
-          "weight": 1.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Mid-Senior level",
-      "employment_type": "Contract",
-      "job_function": "Engineering and Information Technology",
+      "seniority": "Entry level",
+      "employment_type": "Part-time",
+      "job_function": "Administrative",
       "advisory_title_noise_signals": [],
-      "advisory_it_evidence": true,
-      "score": 10.5,
-      "role_hits_title": [],
-      "role_hits_description": [
-        {
-          "label": "Cloud Infrastructure",
-          "weight": 3.0
-        }
-      ],
-      "skill_hits": [
-        {
-          "label": "Azure",
-          "weight": 2.0
-        },
-        {
-          "label": "Linux",
-          "weight": 2.5
-        }
-      ],
-      "negative_hits": [
-        {
-          "label": "DevOps/SRE",
-          "weight": -2.0
-        }
-      ],
-      "description": "Role Title: DevOps Engineer Role Type: Contractor Location: Remote DevOps Engineers to contribute to a dynamic customer project focused on scalable, modern cloud infrastructure. In this role, you'll apply your expertise to help train next-generation AI systems. Your work will shape how models learn, reason, and perform through high-quality, real-world input. No prior experience in AI is required — your domain knowledge is what matters. This opportunity is ideal for professionals passionate about automation, infrastructure as code, and continuous improvement, with a special focus on strong written and verbal communication skills. Key Responsibilities Design realistic DevOps tasks based on production-style scenarios (CI/CD, containers, orchestration, IaC, monitoring, incident response) Write working reference solutions with clear setup and validation steps Review AI-generated output, identify failures, and write precise corrections with reasoning Maintain a strict quality bar on correctness and reproducibility Share structured feedback that improves future task design Required Qualifications 3+ years of professional experience in DevOps, SRE, Platform, or Infrastructure engineering Strong coding ability in Python, Go, Bash, or TypeScript (this role needs real code, not scripts alone) Practical depth in CI/CD (GitHub Actions, GitLab CI, Jenkins), Docker, Kubernetes, and at least one cloud (AWS, GCP, Azure) Infrastructure as Code experience (Terraform, Ansible, Pulumi, or CloudFormation) Advanced Linux and Git Professional English, written and spoken Availability of at least 20 hours per week Preferred Qualifications Observability stack experience (Prometheus, Grafana, Datadog, OpenTelemetry) Security, secrets management, or platform reliability background Open source contributions or technical writing Previous AI training data or model evaluation work Skills: ci,infrastructure,code,devops,ansible,cd,aws,cloud",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4371956332",
-      "title": "Customer Service Advisor – English Speakers - Hurghada",
-      "company": "Concentrix",
-      "location": "Hurghada, Al Bahr al Ahmar, Egypt",
-      "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "1 hour ago",
-      "estimated_age_minutes": 60,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T18:44:14Z",
-      "url": "https://www.linkedin.com/jobs/view/4371956332",
-      "matched_queries": [
-        {
-          "query": "IT Support",
-          "weight": 2.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "IT",
-          "weight": 0.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "ICT",
-          "weight": 1.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Not Applicable",
-      "employment_type": "Full-time",
-      "job_function": "Other",
-      "advisory_title_noise_signals": [
-        "customer service"
-      ],
       "advisory_it_evidence": false,
-      "score": 2.0,
+      "score": 3.0,
       "role_hits_title": [],
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Job Title Customer Service Advisor – English Speakers - Hurghada Job Description Join Concentrix Today! Advisor I, Blended Support position interfaces with customers via inbound calls/chats/emails, outbound calls/chats/emails, or through the Internet depending upon client requirements. This position provides customer service support and resolution of routine problems regarding clients’ products or services. Exploring this vacancy gives you the opportunity to discover and apply across multiple sectors, including Customer Service, Technical Support, Sales, Banking, Retail, and Telecommunications, with the flexibility to select programs that align with your skills, interests, and career goals. In This Role, You'll Be the friendly voice of leading brands, delivering high-quality support through phone, email, and chat. Assist customers with inquiries, order processing, troubleshooting, and guidance. Build deep product and service knowledge to deliver confident and accurate support. Handle customer issues with patience, professionalism, and a solution-oriented mindset. Create positive customer experiences through personalized assistance and clear communication. Collaborate within a dynamic and supportive team to achieve shared service and performance goals. Essential Functions / Core Responsibilities Ensure service delivery meets contractual Key Performance Indicators (KPIs). Clarify customer requirements using effective probing and decision-support tools. Listen attentively, demonstrate empathy, and build strong customer rapport. Greet customers in a courteous, friendly, and professional manner following agreed procedures. Maintain working knowledge of client products and services. Prepare complete and accurate documentation, including account notations. Participate in initiatives aimed at improving customer satisfaction and business performance. Identify opportunities to offer additional products or services when appropriate. Candidate Profile High school diploma required; relevant experience is an advantage. Excellent communication, interpersonal, and customer engagement skills. Comfortable working in a fast-paced, performance-driven environment. Strong multitasking, prioritization, and adaptability skills. Basic computer skills and system navigation capability. Ability to work independently and collaboratively within a team. Detail-oriented, dependable, and professional. Patient, composed, and solution-oriented in all customer interactions. Flexible to work rotating shifts as required. Strong problem-solving and analytical skills with a customer-centric mindset. Career Framework Role Each program requires a foundational skill set and product-specific knowledge to perform routine tasks within clearly defined processes. The role operates under close supervision, with structured procedures, supporting continuous learning and performance development. What We Offer Competitive Salary Transportation Provided Medical & Social Insurance Fast track for promotions within 6 months Exposure to multiple sectors (Customer Service, Technical Support, Sales, Banking, Retail, Telecommunications) Supportive, inclusive, and growth-focused work environment Additional Information Program requirements, responsibilities, and expectations may vary based on operational needs and the sectors selected. Disclaimer The above statements describe the general nature and level of work performed by individuals assigned to this role. They are not an exhaustive list of all responsibilities, duties, or skills. Concentrix is an equal-opportunity employer and considers all qualified applicants based on role requirements and business needs.",
+      "description": "🚀 We’re Hiring: Virtual Assistant / Executive & Content Coordinator I’m looking for a smart, highly organized, and proactive Virtual Assistant to work closely with me and support the day-to-day operations of my personal brand, Elkholy Hacker. This role is not just about scheduling meetings or handling basic administrative tasks. I’m looking for someone who can understand the bigger picture, communicate professionally, think independently, and help turn ideas into execution. What you’ll be working on: • Managing and organizing meetings, appointments, follow-ups, and priorities. • Coordinating with team members, partners, clients, and external contacts. • Preparing meeting agendas, notes, action points, and follow-up tasks. • Helping organize and develop monthly and weekly content plans for Elkholy Hacker. • Researching content ideas, trends, competitors, AI tools, business topics, and opportunities. • Supporting the preparation of presentations, documents, proposals, and reports. • Following up on collaborations, partnerships, projects, and business opportunities. • Helping organize content production, shoots, deadlines, and publishing schedules. • Supporting social media operations and making sure tasks move from idea to execution. • Using AI tools to improve research, productivity, content planning, and daily workflows. • Handling different operational tasks related to the Elkholy Hacker brand when needed. What I’m looking for: • Very good written and spoken English. • Excellent communication and interpersonal skills. • Strong organization and time-management skills. • Professional attitude and strong follow-up skills. • Good understanding of AI, technology, business, entrepreneurship, and social media. • Ability to research, learn quickly, and understand new topics. • Comfortable using AI tools such as ChatGPT and other productivity platforms. • Able to think independently and suggest solutions instead of waiting for detailed instructions for every task. • Strong attention to detail and the ability to handle multiple priorities. • Presentable, confident, and comfortable attending and coordinating business meetings. Location & Availability The role can include remote work, but you must have the flexibility to come to Madinaty when required for meetings, content planning sessions, shoots, brainstorming sessions, or other important work. I’m looking for someone who wants to become a real part of the operation—not simply complete assigned tasks. If you are organized, ambitious, curious about AI and business, and you know how to get things done, I’d love to hear from you. 📩 Send your CV, LinkedIn profile, and a short introduction about yourself to: ahmed.elkholy@darkpyramid.net Email Subject: Virtual Assistant – Elkholy Hacker",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4445031676",
-      "title": "GitHub Contributor - Remote",
-      "company": "YO HR Consultancy",
-      "location": "Egypt",
+      "linkedin_job_id": "4461021168",
+      "title": "Telesales Specialist",
+      "company": "IMETS Medical School",
+      "location": "Nasr City, Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "36 minutes ago",
-      "estimated_age_minutes": 36,
+      "linkedin_posted_text": "44 minutes ago",
+      "estimated_age_minutes": 44,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T18:44:14Z",
-      "url": "https://www.linkedin.com/jobs/view/4445031676",
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461021168",
       "matched_queries": [
         {
-          "query": "IT",
-          "weight": 0.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "ICT",
-          "weight": 1.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Mid-Senior level",
-      "employment_type": "Contract",
-      "job_function": "Other",
-      "advisory_title_noise_signals": [],
-      "advisory_it_evidence": false,
-      "score": 1.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "Role Title: GitHub Contributor Role Type : Contractor (~15 hrs a week) Location: Remote Expert Senior Software Engineers to support a customer’s innovative project. In this role, you'll apply your expertise to help train next-generation AI systems. Your work will shape how models learn, reason, and perform through high-quality, real-world input. No prior experience in AI is required — your domain knowledge is what matters. As an expert you will be creating Reinforcement Learning Environments which test and AI model’s ability to solve complex software engineering problems related to fixing code, creating features, refactoring code and optimizing performance. You will be tasked with creating a reproducible environment and golden reference solution for the problem. Applicants must have clear open source contributions and profiles to showcase it like GitHub or GitLab. (Preferably with C++, Python, JAVA, GoLang, Typescript, or Rust) Scope of Work Contribute expert-level code samples, debugging strategies, and development insights in Python3, Java, Rust, Go, C++, or TypeScript. Analyze, troubleshoot, and resolve complex software defects and performance bottlenecks in diverse codebases. Implement robust new features, ensuring scalability, maintainability, and adherence to software best practices. Refactor and optimize legacy code to improve clarity, efficiency, and long-term reliability. Document technical reasoning, solution approaches, and code decisions to enhance AI training data quality. Review and validate peer-contributed code and technical submissions for accuracy and clarity. Preferred Qualifications Significant hands-on expertise in at least one of the following: Python3, Java, Rust, Go, C++, or TypeScript. Deep understanding of algorithms, data structures, and software engineering principles. Proven ability to debug complex systems, resolve bugs, and deliver effective optimizations. Experience with large codebase refactoring and legacy system modernization. Track record of delivering high-impact features from conception through delivery within cross-functional projects. Strong documentation and communication skills to articulate technical concepts clearly. Interest in or curiosity about AI and its technical challenges (previous AI experience not required). Process Apply to the role, filling out the screening questions Complete AI interview (aprox. 30 minutes) Technical Assessment (Tentative) Hiring Manager review Compensation Structure Compensation is output-based; experts are paid per task that meets the project specifications. The time required to complete work may vary depending on the expert’s experience and workflow. Minimum submission requirements apply. Experts must submit a minimum of tasks per week. Start Timeline & Availability We typically fill roles within 48 hours and are looking for experts ready to jump in right away. If selected, we expect you to start your first tasks within 24–48 hours of completing onboarding. Skills: c,code,software,github,java,rust,typescript",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4461031013",
-      "title": "Sales Engineer - Wood Flooring",
-      "company": "Connectalents Community",
-      "location": "Cairo, Cairo, Egypt",
-      "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "30 minutes ago",
-      "estimated_age_minutes": 30,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T18:44:14Z",
-      "url": "https://www.linkedin.com/jobs/view/4461031013",
-      "matched_queries": [
-        {
-          "query": "Technical Support Engineer",
+          "query": "Microsoft 365",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
@@ -1064,42 +909,348 @@
       "job_function": "Sales and Business Development",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
-      "score": -3.0,
+      "score": 3.0,
       "role_hits_title": [],
       "role_hits_description": [],
       "skill_hits": [],
-      "negative_hits": [
-        {
-          "label": "Presales/Sales",
-          "weight": -6.0
-        }
-      ],
-      "description": "Connectalents is a recruitment and HRO solutions company that provides recruitment executive search, RPO across Egypt and the MENA region. is hiring a \"Sales Engineer\" for a leading provider of luxurious HDF and engineered wood flooring solutions in Sheikh Zayed . Job scope: Provide technical consultation to customers and architects regarding wood species, installation methods, and technical specifications Interpret AutoCAD drawings and architectural plans to prepare accurate material estimations Prepare quotations, follow up on leads, and manage client accounts from the first visit through final delivery. Stay updated on market trends and maintain strong knowledge of the company's product portfolio to achieve sales targets. Maintain a high-standard showroom environment that reflects the brand's quality. Requirements: Bachelor's degree in engineering (Architecture, Civil, or related field) or Fine Arts 3-6 months of Sales or Tele sales experience. Experience in wood, furniture, or building materials is a strong plus. Proficiency in AutoCAD and the ability to comfortably read architectural drawings/ blueprints. Excellent interpersonal skills with the ability to manage multiple client accounts. If you're interested and meet the requirements, send your updated CV with the subject \"Sales Engineer\" to mayada.m@connectalents.com",
+      "negative_hits": [],
+      "description": "Company Description IMETS Medical School is dedicated to transforming healthcare education through innovative, comprehensive, and specialized programs tailored to the evolving needs of healthcare professionals. The school focuses on delivering high-quality curricula that integrate modern teaching methods and practical applications. By emphasizing skill development and real-world readiness, IMETS aims to support learners in advancing their careers and improving patient care. The institution values excellence, accessibility, and continuous improvement in all its educational offerings. Role Description The Telesales Specialist is a full-time role responsible for engaging prospective students and healthcare professionals to promote IMETS Medical School programs. The role is hybrid, based in Nasr City, with a combination of on-site presence and some work-from-home flexibility. Day-to-day tasks include making outbound calls, responding to inbound inquiries, explaining program features and benefits, and guiding individuals through the enrollment process. The Telesales Specialist will maintain accurate records in CRM systems, follow up on leads, and collaborate with the marketing and admissions teams to meet enrollment targets. The role also involves handling basic customer support issues, providing clear information on course offerings, and participating in occasional training sessions to stay updated on program changes and sales techniques. Qualifications Candidates should possess strong Customer Service and Customer Support skills to handle inquiries and provide a positive experience for prospective students. Candidates should possess excellent Communication skills, including clear speaking, active listening, and professional phone etiquette. Candidates should possess solid Sales skills, including lead qualification, objection handling, and closing techniques. Candidates should possess Training-related skills, such as the ability to learn new programs quickly and apply coaching or feedback to improve performance. Prior telesales, call center, or admissions experience, ideally in education or healthcare, is beneficial. Comfort using CRM tools and basic office software, with strong attention to detail and record-keeping. Ability to work toward defined targets, manage time effectively, and collaborate with on-site and remote team members. Relevant diploma or bachelor’s degree in business, marketing, communications, or a related field is preferred but not mandatory. Medical Sales Representative – Indoor We are looking for a motivated Medical Sales Representative to promote medical/educational products, follow up with customers, generate leads, and achieve sales targets. Requirements: • 6+ months of Medical Sales experience. • Academic Sales experience is preferred. • Veterinary Medicine, Science, or Agriculture graduate. • Based in Cairo. • Good English & strong communication skills. Benefits: 💰 Fixed Salary + Commission + Bonuses 🕐 Full-time | 📍 Cairo",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4461017168",
-      "title": "Sr Backend Developer",
-      "company": "Valleysoft | Center of Excellence",
-      "location": "Cairo, Egypt",
+      "linkedin_job_id": "4461033195",
+      "title": "Receptionist (Female)",
+      "company": "Core HR Solutions",
+      "location": "Cairo, Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "28 minutes ago",
-      "estimated_age_minutes": 28,
+      "linkedin_posted_text": "7 minutes ago",
+      "estimated_age_minutes": 7,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T18:44:14Z",
-      "url": "https://www.linkedin.com/jobs/view/4461017168",
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461033195",
       "matched_queries": [
         {
-          "query": "IT",
-          "weight": 0.0,
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Administrative",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "...",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4405875701",
+      "title": "Procurement Representative",
+      "company": "Nalco Water, An Ecolab Company",
+      "location": "Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4405875701",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Purchasing and Supply Chain",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Overview Nalco, an Ecolab Company, is seeking a Procurement Representative – Direct Materials (Egypt & North Africa) to join the Supply Chain function. This role is responsible for leading procurement operations and strategic sourcing initiatives for direct materials, including raw materials, packaging, and toll/contract manufacturing. The position is accountable for delivering cost savings and working capital improvements, while ensuring supply continuity across the region. The role also supports key business initiatives and works closely with regional and global stakeholders to deploy sourcing strategies locally. What’s In It For You After 1–2 years in this role, you will: Develop functional expertise in procurement and sourcing Strengthen negotiation skills Build broader knowledge of procurement processes and stakeholder management Execute end-to-end total cost / total delivered cost sourcing processes Gain exposure to cross-functional and leadership stakeholders Enhance presentation and communication skills What Will You Do Lead compliance, safety, and ethical procurement initiatives Manage and negotiate direct materials (raw materials, packaging, toll/contract manufacturing) across Egypt and North Africa Own an annual spend of approximately $15M and deliver targeted cost savings Drive working capital improvements through payment terms, inventory optimization, and collaboration with supply planning Act as a subject matter expert for e-auctions and sourcing tools, ensuring best practices Support tactical volumes and key business initiatives by securing supply, optimizing costs, and managing risks Collaborate with Global Category Leads to implement sourcing strategies locally Manage supplier performance, ensuring quality, service, and responsiveness Identify and qualify alternative suppliers/materials to enhance supply resilience Own end-to-end contracting processes and ensure proper documentation Manage financial reporting related to savings, risks, and working capital Support quality improvements through supplier collaboration and corrective actions Build and execute sourcing and productivity initiatives aligned with business targets Collaborate with regional and global teams to align on sourcing priorities and market insights Minimum Qualifications Bachelor’s degree in a relevant field 4–5 years of experience in procurement, sourcing, or supply chain Strong understanding of procurement processes and supplier management Strong negotiation, analytical, and problem-solving skills Fluency in English Proficiency in MS Office and ERP/procurement systems Preferred Qualifications Degree in Chemistry or Engineering (Chemical, Mechanical, or Industrial) Experience in FMCG or chemical industry Knowledge of total cost / total delivered cost sourcing methodologies Experience working in regional or global environments French language is an advantage Our Commitment to a Culture of Inclusion & Belonging Ecolab is committed to fair and equal treatment of associates and applicants and furthering the principles of Equal Opportunity to Employment. We will recruit, hire, promote, transfer and provide opportunities for advancement based on individual qualifications and job performance in all matters affecting employment, compensation, benefits, working conditions, and opportunities for advancement. Ecolab will not discriminate against any associate or applicant for employment because of race, religion, color, creed, national origin,citizenship status, sex, sexual orientation, gender identity and expressions, genetic information, marital status, age, or disability.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4461028177",
+      "title": "OD Specialist",
+      "company": "Midas Furniture",
+      "location": "Giza, Al Jizah, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "20 minutes ago",
+      "estimated_age_minutes": 20,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461028177",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description Midas Furniture, established in 1993, is a leading home and office furniture retailer focused on providing affordable, high-quality furniture and accessories. The company has grown to operate 16 large showrooms and employs over 2,000 team members across Kuwait, Jordan, Iraq, Qatar, Dubai, and Saudi Arabia. A diverse workforce supports the brand through expertise in sales, engineering, interior design, labor, and logistics. Midas delivers a wide range of products and services, including retail furniture, commercial tenders, design-and-build solutions, and interior design consultation. The company emphasizes sustainable growth, strong corporate infrastructure, and customer-centric service. Role Description The OD (Organizational Development) Specialist will support the design, implementation, and continuous improvement of organizational structures, processes, and people-development initiatives at Midas Furniture. This full-time, on-site role is based in Giza and involves partnering with HR and business leaders to assess organizational needs, analyze workforce data, and recommend OD interventions. Daily responsibilities may include developing and updating job roles and competencies, supporting change management programs, and coordinating training and development initiatives. The OD Specialist will help design performance management frameworks, support employee engagement activities, and contribute to succession planning and talent development strategies. The role requires close collaboration with cross-functional teams to ensure OD projects are aligned with business goals and implemented effectively. Qualifications Experience in organizational development, including designing OD initiatives, structures, and processes. Skills in HR analysis, workforce planning, and interpreting data to inform OD decisions. Knowledge of performance management, competency frameworks, and talent development practices. Ability to support change management, employee engagement, and culture-building programs. Strong communication, facilitation, and stakeholder management skills. Proficiency with common office and collaboration tools (e.g., Excel, PowerPoint, HRIS/OD systems). Bachelor’s degree in Human Resources, Business Administration, Psychology, or a related field; OD or HR certifications are an advantage. Experience in retail, furniture, or related industries is beneficial, especially in multi-site or multi-country environments. Ability to work on-site in Giza, manage multiple projects, and adapt to a dynamic, growth-oriented organization.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4461024119",
+      "title": "Interior Designer",
+      "company": "Infinite landscaping",
+      "location": "Tanta, Al Gharbiyah, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461024119",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Part-time",
+      "job_function": "Design, Art/Creative, and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Role Description This part-time remote Interior Designer role at infinite landscaping focuses on designing functional and aesthetically pleasing residential interiors. The Interior Designer will collaborate with clients virtually to understand their needs, preferences, and budget, then develop design concepts, mood boards, and layouts. Daily tasks include space planning, preparing design presentations, selecting furniture, fixtures, and finishes, and coordinating with vendors and contractors as needed. The role also involves producing or reviewing construction drawings, ensuring designs align with architectural constraints, and maintaining project documentation and timelines. The Interior Designer will work closely with the broader team to ensure consistent design quality and client satisfaction across all projects. Qualifications Candidates should possess strong Interior Design and Space Planning skills, with the ability to create functional layouts for diverse residential spaces. Candidates should possess knowledge of Architecture and the ability to collaborate effectively with architects and related professionals. Candidates should possess experience preparing or reviewing Construction Drawings and understanding basic building codes and standards. Candidates should possess FF&E skills, including selecting and specifying furniture, fixtures, equipment, and finishes that align with design concepts and budgets. Candidates should possess proficiency in design and visualization software (e.g., AutoCAD, SketchUp, Revit, or similar) and basic digital collaboration tools. Candidates should possess strong communication, time management, and remote collaboration skills, with the ability to manage multiple part-time projects. Candidates should possess a relevant educational background in Interior Design, Architecture, or a closely related field; professional certification or licensure is a plus. Candidates should possess prior experience in residential interior design; experience with online or remote design services is advantageous.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4461028213",
+      "title": "Front Office Receptionist",
+      "company": "Talent Solutions",
+      "location": "New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "5 minutes ago",
+      "estimated_age_minutes": 5,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461028213",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description Talent Solutions plays a key role in helping organizations optimize their workforce and achieve their business objectives through tailored HR and business services. The company delivers customized solutions that fit different types and sizes of businesses, focusing on building positive and productive work environments. Its vision is to ensure that each client's workforce is equipped to drive success and growth. Core services include business consultation, workforce management solutions, hiring services, payroll services, performance management, training, and medical insurance support. Role Description The Front Office Receptionist is a full-time, on-site role based in New Cairo, responsible for managing daily front office operations and serving as the first point of contact for visitors and callers. This role includes greeting guests, answering and directing phone calls, handling inquiries, and ensuring a professional and welcoming reception area. The Front Office Receptionist will coordinate appointment scheduling, manage incoming and outgoing mail, and support basic administrative tasks such as filing and data entry. The role also requires close collaboration with internal teams to route information efficiently and uphold a high standard of customer service at all times. Qualifications Candidates should possess strong Front Office and Receptionist Duties skills, including managing visitors, appointments, and basic administrative tasks. Candidates should possess excellent Customer Service and Communication skills to interact effectively with clients, visitors, and team members. Candidates should possess professional Phone Etiquette skills to handle calls, route inquiries, and provide clear information. Candidates should possess solid organizational and time-management abilities to manage multiple tasks and maintain an orderly reception area. Previous experience in a receptionist or front office role is preferred, ideally within a corporate or consultancy environment. Proficiency with office software (e.g., email, calendars, word processing) and basic data entry is beneficial. A high school diploma or equivalent is required; additional training in administration or customer service is an advantage. Ability to maintain confidentiality, present a professional appearance, and work on-site full time in New Cairo.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458868137",
+      "title": "Executive Administrative Assistant",
+      "company": "ALHAYAT TENDERS",
+      "location": "New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4458868137",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Administrative",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Al Hayat Tenders is hiring an organized and proactive Executive & Administrative Assistant to support C-level management and the Operations team. The role’s main purpose is to take ownership of recurring administrative duties, the Founder’s personal administrative requests, and occasional off-site errands, executing them accurately and reducing the team’s day-to-day administrative workload. Key Responsibilities: • Review management emails and handle routine actions and follow-ups • Prepare a concise daily management report • Record, assign, execute, and follow up on ClickUp tasks • Complete recurring administrative tasks arising from emails, meetings, and messages • Maintain accurate Excel trackers and administrative records • Organize Google Drive files and consolidate historical documents • Support monthly finance records and expense documentation • Coordinate travel, bookings, office supplies, cleaning, and office logistics • Handle other daily administrative requirements as needed • Provide practical personal assistance to the Founder and completing local errands • Be available to complete occasional administrative errands outside the office when required Requirements: • Bachelor’s degree in Business Administration, Management, Commerce, Languages, or a related field • Fresh graduates and candidates with up to five years of experience are welcome • Fluent written and spoken English is essential (C1 or C2) • French is an advantage • Excellent organization, accuracy, and follow-up skills • Good knowledge of Excel, Google Sheets, Gmail, and Google Drive • Experience with ClickUp and AI tools is preferred • Proactive, reliable, and able to handle confidential information • A valid driving licence and access to a personal car are an advantage due to occasional off-site errands 📍 Location: Rehab City 💰 Salary: EGP 10,000 to EGP 20,000 per month, based on experience and qualifications To apply, please send your CV and availability.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458869200",
+      "title": "English Teammate (Voice)",
+      "company": "TaskUs",
+      "location": "Giza, Al Jizah, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "30 minutes ago",
+      "estimated_age_minutes": 30,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4458869200",
+      "matched_queries": [
+        {
+          "query": "ICT",
+          "weight": 1.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
         },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Contract",
+      "job_function": "Education and Training",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Job Description About TaskUs: TaskUs is a provider of outsourced digital services and next-generation customer experience to fast-growing technology companies, helping its clients represent, protect and grow their brands. Leveraging a cloud-based infrastructure, TaskUs serves clients in the fastest-growing sectors, including social media, e-commerce, gaming, streaming media, food delivery, ride-sharing, HiTech, FinTech, and HealthTech. The People First culture at TaskUs has enabled the company to expand its workforce to approximately 60,000 employees globally. Presently, we have a presence in twenty-three locations across twelve countries, which include the Philippines, India, and the United States. It started with one ridiculously good idea to create a different breed of Business Processing Outsourcing (BPO)! We at TaskUs understand that achieving growth for our partners requires a culture of constant motion, exploring new technologies, being ready to handle any challenge at a moment's notice, and mastering consistency in an ever-changing world. What We Offer: At TaskUs, we prioritize our employees' well-being by offering competitive industry salaries and comprehensive benefits packages. Our commitment to a People First culture is reflected in the various departments we have established, including Total Rewards, Wellness, HR, and Diversity. We take pride in our inclusive environment and positive impact on the community. Moreover, we actively encourage internal mobility and professional growth at all stages of an employee's career within TaskUs. Join our team today and experience firsthand our dedication to supporting People First. About The Role As an English Teammate, you will be the first point of contact for our customers, providing excellent support and ensuring a positive experience. This role requires strong communication skills and a passion for problem-solving. Key Responsibilities Provide support to customers via written and verbal communication channels (e.g., chat, email, or phone). Diagnose, troubleshoot, and resolve customer issues accurately and efficiently. Maintain a high level of customer satisfaction in line with company and client quality standards. Document all customer interactions and resolutions accurately in the CRM system. Collaborate with internal teams to escalate and resolve complex issues. Adhere to all company policies, procedures, and security protocols. Qualifications Proven experience in a customer service, BPO, or contact center environment is preferred. Strong verbal and written communication skills in English. The client's minimum requirement for the English language is B2. Ability to work independently and as part of a team in a fast-paced environment. Proficiency with desktop applications, including web browsers and email. Experience in content moderation is a plus . Schedule & Logistics The role may require shifts outside of standard business hours, including nights and weekends. How We Partner To Protect You: TaskUs will neither solicit money from you during your application process nor require any form of payment in order to proceed with your application. Kindly ensure that you are always in communication with only authorized recruiters of TaskUs. DEI: In TaskUs we believe that innovation and higher performance are brought by people from all walks of life. We welcome applicants of different backgrounds, demographics, and circumstances. Inclusive and equitable practices are our responsibility as a business. TaskUs is committed to providing equal access to opportunities. If you need reasonable accommodations in any part of the hiring process, please let us know. We invite you to explore all TaskUs career opportunities and apply through the provided URL https://www.taskus.com/careers/ . TaskUs is proud to be an equal opportunity workplace and is an affirmative action employer. We celebrate and support diversity; we are committed to creating an inclusive environment for all employees. TaskUs people first culture thrives on it for the benefit of our employees, our clients, our services, and our community. Req Id: R_2512_17021 Posted At: Wed Dec 17 2025 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458861258",
+      "title": "English Teammate (Voice)",
+      "company": "TaskUs",
+      "location": "Giza, Al Jizah, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "30 minutes ago",
+      "estimated_age_minutes": 30,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4458861258",
+      "matched_queries": [
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Contract",
+      "job_function": "Education and Training",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Job Description About TaskUs: TaskUs is a provider of outsourced digital services and next-generation customer experience to fast-growing technology companies, helping its clients represent, protect and grow their brands. Leveraging a cloud-based infrastructure, TaskUs serves clients in the fastest-growing sectors, including social media, e-commerce, gaming, streaming media, food delivery, ride-sharing, HiTech, FinTech, and HealthTech. The People First culture at TaskUs has enabled the company to expand its workforce to approximately 60,000 employees globally. Presently, we have a presence in twenty-three locations across twelve countries, which include the Philippines, India, and the United States. It started with one ridiculously good idea to create a different breed of Business Processing Outsourcing (BPO)! We at TaskUs understand that achieving growth for our partners requires a culture of constant motion, exploring new technologies, being ready to handle any challenge at a moment's notice, and mastering consistency in an ever-changing world. What We Offer: At TaskUs, we prioritize our employees' well-being by offering competitive industry salaries and comprehensive benefits packages. Our commitment to a People First culture is reflected in the various departments we have established, including Total Rewards, Wellness, HR, and Diversity. We take pride in our inclusive environment and positive impact on the community. Moreover, we actively encourage internal mobility and professional growth at all stages of an employee's career within TaskUs. Join our team today and experience firsthand our dedication to supporting People First. As a Customer Care Agent, you will be the key point of contact for customers, responsible for solving problems, owning the customer issue from start to finish, and fostering a connection to build trust and brand affinity . This role requires a flexible schedule, as it may include working various shift patterns, including weekends . Key Responsibilities Provide empathetic and personalized service, consistently meeting the brand's service standards . Work to resolve customer queries on the first contact, always taking ownership of the customer's problem . Handle customer interactions across multiple communication channels, including phone, messaging, social media, and email . Collaborate with internal teams (e.g., operations, specialists) to resolve complex or patient-specific queries . Maintain accurate records of customer enquiries, complaints, and any safeguarding concerns within the system . Handle sensitive customer queries in a confidential and professional manner . Support 'out of inbox' projects as needed, such as creating macros, assisting with new starter training, or other business-critical tasks . Act as the 'voice of the customer' by sharing insights and suggesting process improvements to other teams in the business . Demonstrate the ability to work effectively and with a high degree of independence . Qualifications & Skills Language Proficiency: Exceptional English skills (both written and spoken) are essential . Customer Focus: A passion for problem-solving and a strong desire to provide excellent customer care by going the extra mile to achieve customer happiness . Experience: Previous experience in customer service, ideally in a fast-paced environment. Technical Aptitude: Tech-savvy with the ability to quickly learn new software, including CRM tools (like Salesforce) and communication platforms (like Intercom or similar equivalents) . Adaptability: Experience working in an environment that requires high ownership and the ability to navigate light process infrastructure is desirable . Typing Speed: Some roles may require a minimum typing speed and accuracy, such as 30+ words per minute with high accuracy . How We Partner To Protect You: TaskUs will neither solicit money from you during your application process nor require any form of payment in order to proceed with your application. Kindly ensure that you are always in communication with only authorized recruiters of TaskUs. DEI: In TaskUs we believe that innovation and higher performance are brought by people from all walks of life. We welcome applicants of different backgrounds, demographics, and circumstances. Inclusive and equitable practices are our responsibility as a business. TaskUs is committed to providing equal access to opportunities. If you need reasonable accommodations in any part of the hiring process, please let us know. We invite you to explore all TaskUs career opportunities and apply through the provided URL https://www.taskus.com/careers/ . TaskUs is proud to be an equal opportunity workplace and is an affirmative action employer. We celebrate and support diversity; we are committed to creating an inclusive environment for all employees. TaskUs people first culture thrives on it for the benefit of our employees, our clients, our services, and our community. Req Id: R_2512_17432 Posted At: Fri Dec 26 2025 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4461015392",
+      "title": "Quality Specialist - English Telecom Account",
+      "company": "Xceed",
+      "location": "Qesm El Maadi, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "1 minute ago",
+      "estimated_age_minutes": 1,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461015392",
+      "matched_queries": [
         {
           "query": "ICT",
           "weight": 1.0,
@@ -1109,24 +1260,17 @@
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Mid-Senior level",
+      "seniority": "Entry level",
       "employment_type": "Full-time",
-      "job_function": "Engineering and Information Technology",
-      "advisory_title_noise_signals": [
-        "backend"
-      ],
+      "job_function": "Quality Assurance",
+      "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
-      "score": -9.0,
+      "score": 1.0,
       "role_hits_title": [],
       "role_hits_description": [],
       "skill_hits": [],
-      "negative_hits": [
-        {
-          "label": "Software Development",
-          "weight": -10.0
-        }
-      ],
-      "description": "Senior Backend Developer - Java & Spring Boot Description Valleysoft is a regional IT services provider delivering enterprise software, process management, and technology solutions for global clients. Working across the Information Technology and Services sector, the company supports complex business needs with reliable, scalable systems built for real-world enterprise environments.   This role offers the opportunity to contribute to backend systems that power business-critical platforms and integrations. As a Senior Backend Developer – Java & Spring Boot, you will help shape robust application architecture, improve system performance, and build services that support secure, dependable digital experiences for enterprise clients.   You will play a hands-on role in the design and evolution of backend services, working closely with cross-functional teams across design, development, testing, deployment, and production support. The position is well suited to someone who enjoys technical ownership, values clean engineering practices, and brings a thoughtful approach to building maintainable, high-performance software.   Responsibilities Design, develop, and maintain scalable backend applications using Java and Spring Boot. Develop and maintain secure, reliable, and high-performance RESTful APIs. Design and implement backend services following clean architecture, OOP principles, design patterns, and SOLID practices. Build and support integrations with internal and external enterprise systems. Work with SQL and NoSQL databases to design, query, and optimize data access. Implement API security using technologies such as JWT and OAuth 2.0. Write and maintain unit and integration tests. Troubleshoot application issues, identify root causes, and deliver effective technical solutions. Optimize application performance, scalability, and reliability. Participate in code reviews and collaborate with cross-functional teams across design, development, testing, deployment, and production support. Take ownership of backend features and services from requirements through production. Prepare and maintain technical documentation. Requirements Bachelor’s degree in Computer Science, Software Engineering, Information Technology, Information Systems, Engineering, or a related technical field. 5+ years of hands-on backend development experience with strong production experience in Java and Spring Boot. Experience developing and maintaining REST APIs, including performance tuning and optimization of backend services, APIs, and database interactions. Experience building enterprise system integrations with third-party and internal services. Strong experience with SQL databases, particularly Oracle and/or SQL Server, along with experience optimizing data access in production environments. Experience with API security using JWT and OAuth 2.0. Strong unit and integration testing experience using tools such as JUnit and Mockito. Experience with production support and troubleshooting, including root-cause analysis and resolving critical issues. Experience owning backend features or services from requirements through development, testing, deployment, and production. Experience with microservices architecture and distributed backend services. Experience collaborating with cross-functional teams including frontend or mobile developers, QA, DevOps, business analysts or product owners, solution architects or technical leads, database teams or DBAs, production support or operations teams, and other developers through code reviews and technical discussions. Experience in Banking or FinTech. Preferred Qualifications Experience with NoSQL databases, particularly MongoDB. Experience with CI/CD, Docker, and cloud or containerized environments. Experience with payment systems, digital banking, cards, wallets, or financial APIs. Experience collaborating with Security or InfoSec teams, particularly for API security and authentication. Experience coordinating across distributed or offshore and onshore teams.",
+      "negative_hits": [],
+      "description": "Role Description The Quality Specialist for the English Telecom Account is a full-time, on-site role based in Qesm El Maadi. In this position, the specialist monitors and evaluates customer interactions, ensuring adherence to quality standards, call handling guidelines, and telecom client requirements. Daily responsibilities include conducting call and case audits, documenting findings, preparing quality reports, and recommending improvements to enhance customer experience and operational performance. The role involves coaching and providing constructive feedback to frontline team members, collaborating with team leaders and operations managers on action plans, and supporting calibration sessions to maintain consistent evaluation criteria. The specialist also contributes to process improvement initiatives, identifies recurring issues, and supports compliance with internal policies and external client expectations. Qualifications Candidates should possess strong analytical skills to interpret performance data, identify trends, and provide actionable insights. Candidates should possess quality control and quality assurance skills to monitor adherence to standards and drive continuous improvement. Candidates should possess quality auditing skills to conduct structured evaluations of calls, cases, and processes for the telecom account. Candidates should possess effective communication skills to deliver clear feedback, collaborate with cross-functional teams, and document quality findings. Previous experience in contact center quality roles, particularly within telecom accounts, is highly beneficial. Familiarity with quality frameworks, KPIs, and customer experience metrics in BPO or customer service environments is an advantage. Proficiency in English (spoken and written) and strong report-writing skills are required. Ability to work on-site in Qesm El Maadi, manage multiple priorities, and use quality monitoring tools and MS Office applications effectively.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
@@ -1134,219 +1278,59 @@
   ],
   "new_matches": [
     {
-      "linkedin_job_id": "4455852170",
-      "title": "DevOps Engineer - Remote",
-      "company": "YO HR Consultancy",
-      "location": "Egypt",
+      "linkedin_job_id": "4461028180",
+      "title": "Virtual Assistant",
+      "company": "Dark Pyramid",
+      "location": "New Cairo, Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "36 minutes ago",
-      "estimated_age_minutes": 36,
+      "linkedin_posted_text": "12 minutes ago",
+      "estimated_age_minutes": 12,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T18:44:14Z",
-      "url": "https://www.linkedin.com/jobs/view/4455852170",
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461028180",
       "matched_queries": [
         {
-          "query": "System Administrator",
-          "weight": 4.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "IT Infrastructure",
-          "weight": 5.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "Technical Support Engineer",
+          "query": "VMware",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
-        },
-        {
-          "query": "Cybersecurity Engineer",
-          "weight": 4.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "IT Specialist",
-          "weight": 3.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "IT",
-          "weight": 0.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "ICT",
-          "weight": 1.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Mid-Senior level",
-      "employment_type": "Contract",
-      "job_function": "Engineering and Information Technology",
+      "seniority": "Entry level",
+      "employment_type": "Part-time",
+      "job_function": "Administrative",
       "advisory_title_noise_signals": [],
-      "advisory_it_evidence": true,
-      "score": 10.5,
-      "role_hits_title": [],
-      "role_hits_description": [
-        {
-          "label": "Cloud Infrastructure",
-          "weight": 3.0
-        }
-      ],
-      "skill_hits": [
-        {
-          "label": "Azure",
-          "weight": 2.0
-        },
-        {
-          "label": "Linux",
-          "weight": 2.5
-        }
-      ],
-      "negative_hits": [
-        {
-          "label": "DevOps/SRE",
-          "weight": -2.0
-        }
-      ],
-      "description": "Role Title: DevOps Engineer Role Type: Contractor Location: Remote DevOps Engineers to contribute to a dynamic customer project focused on scalable, modern cloud infrastructure. In this role, you'll apply your expertise to help train next-generation AI systems. Your work will shape how models learn, reason, and perform through high-quality, real-world input. No prior experience in AI is required — your domain knowledge is what matters. This opportunity is ideal for professionals passionate about automation, infrastructure as code, and continuous improvement, with a special focus on strong written and verbal communication skills. Key Responsibilities Design realistic DevOps tasks based on production-style scenarios (CI/CD, containers, orchestration, IaC, monitoring, incident response) Write working reference solutions with clear setup and validation steps Review AI-generated output, identify failures, and write precise corrections with reasoning Maintain a strict quality bar on correctness and reproducibility Share structured feedback that improves future task design Required Qualifications 3+ years of professional experience in DevOps, SRE, Platform, or Infrastructure engineering Strong coding ability in Python, Go, Bash, or TypeScript (this role needs real code, not scripts alone) Practical depth in CI/CD (GitHub Actions, GitLab CI, Jenkins), Docker, Kubernetes, and at least one cloud (AWS, GCP, Azure) Infrastructure as Code experience (Terraform, Ansible, Pulumi, or CloudFormation) Advanced Linux and Git Professional English, written and spoken Availability of at least 20 hours per week Preferred Qualifications Observability stack experience (Prometheus, Grafana, Datadog, OpenTelemetry) Security, secrets management, or platform reliability background Open source contributions or technical writing Previous AI training data or model evaluation work Skills: ci,infrastructure,code,devops,ansible,cd,aws,cloud",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4371956332",
-      "title": "Customer Service Advisor – English Speakers - Hurghada",
-      "company": "Concentrix",
-      "location": "Hurghada, Al Bahr al Ahmar, Egypt",
-      "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "1 hour ago",
-      "estimated_age_minutes": 60,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T18:44:14Z",
-      "url": "https://www.linkedin.com/jobs/view/4371956332",
-      "matched_queries": [
-        {
-          "query": "IT Support",
-          "weight": 2.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "IT",
-          "weight": 0.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "ICT",
-          "weight": 1.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Not Applicable",
-      "employment_type": "Full-time",
-      "job_function": "Other",
-      "advisory_title_noise_signals": [
-        "customer service"
-      ],
       "advisory_it_evidence": false,
-      "score": 2.0,
+      "score": 3.0,
       "role_hits_title": [],
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Job Title Customer Service Advisor – English Speakers - Hurghada Job Description Join Concentrix Today! Advisor I, Blended Support position interfaces with customers via inbound calls/chats/emails, outbound calls/chats/emails, or through the Internet depending upon client requirements. This position provides customer service support and resolution of routine problems regarding clients’ products or services. Exploring this vacancy gives you the opportunity to discover and apply across multiple sectors, including Customer Service, Technical Support, Sales, Banking, Retail, and Telecommunications, with the flexibility to select programs that align with your skills, interests, and career goals. In This Role, You'll Be the friendly voice of leading brands, delivering high-quality support through phone, email, and chat. Assist customers with inquiries, order processing, troubleshooting, and guidance. Build deep product and service knowledge to deliver confident and accurate support. Handle customer issues with patience, professionalism, and a solution-oriented mindset. Create positive customer experiences through personalized assistance and clear communication. Collaborate within a dynamic and supportive team to achieve shared service and performance goals. Essential Functions / Core Responsibilities Ensure service delivery meets contractual Key Performance Indicators (KPIs). Clarify customer requirements using effective probing and decision-support tools. Listen attentively, demonstrate empathy, and build strong customer rapport. Greet customers in a courteous, friendly, and professional manner following agreed procedures. Maintain working knowledge of client products and services. Prepare complete and accurate documentation, including account notations. Participate in initiatives aimed at improving customer satisfaction and business performance. Identify opportunities to offer additional products or services when appropriate. Candidate Profile High school diploma required; relevant experience is an advantage. Excellent communication, interpersonal, and customer engagement skills. Comfortable working in a fast-paced, performance-driven environment. Strong multitasking, prioritization, and adaptability skills. Basic computer skills and system navigation capability. Ability to work independently and collaboratively within a team. Detail-oriented, dependable, and professional. Patient, composed, and solution-oriented in all customer interactions. Flexible to work rotating shifts as required. Strong problem-solving and analytical skills with a customer-centric mindset. Career Framework Role Each program requires a foundational skill set and product-specific knowledge to perform routine tasks within clearly defined processes. The role operates under close supervision, with structured procedures, supporting continuous learning and performance development. What We Offer Competitive Salary Transportation Provided Medical & Social Insurance Fast track for promotions within 6 months Exposure to multiple sectors (Customer Service, Technical Support, Sales, Banking, Retail, Telecommunications) Supportive, inclusive, and growth-focused work environment Additional Information Program requirements, responsibilities, and expectations may vary based on operational needs and the sectors selected. Disclaimer The above statements describe the general nature and level of work performed by individuals assigned to this role. They are not an exhaustive list of all responsibilities, duties, or skills. Concentrix is an equal-opportunity employer and considers all qualified applicants based on role requirements and business needs.",
+      "description": "🚀 We’re Hiring: Virtual Assistant / Executive & Content Coordinator I’m looking for a smart, highly organized, and proactive Virtual Assistant to work closely with me and support the day-to-day operations of my personal brand, Elkholy Hacker. This role is not just about scheduling meetings or handling basic administrative tasks. I’m looking for someone who can understand the bigger picture, communicate professionally, think independently, and help turn ideas into execution. What you’ll be working on: • Managing and organizing meetings, appointments, follow-ups, and priorities. • Coordinating with team members, partners, clients, and external contacts. • Preparing meeting agendas, notes, action points, and follow-up tasks. • Helping organize and develop monthly and weekly content plans for Elkholy Hacker. • Researching content ideas, trends, competitors, AI tools, business topics, and opportunities. • Supporting the preparation of presentations, documents, proposals, and reports. • Following up on collaborations, partnerships, projects, and business opportunities. • Helping organize content production, shoots, deadlines, and publishing schedules. • Supporting social media operations and making sure tasks move from idea to execution. • Using AI tools to improve research, productivity, content planning, and daily workflows. • Handling different operational tasks related to the Elkholy Hacker brand when needed. What I’m looking for: • Very good written and spoken English. • Excellent communication and interpersonal skills. • Strong organization and time-management skills. • Professional attitude and strong follow-up skills. • Good understanding of AI, technology, business, entrepreneurship, and social media. • Ability to research, learn quickly, and understand new topics. • Comfortable using AI tools such as ChatGPT and other productivity platforms. • Able to think independently and suggest solutions instead of waiting for detailed instructions for every task. • Strong attention to detail and the ability to handle multiple priorities. • Presentable, confident, and comfortable attending and coordinating business meetings. Location & Availability The role can include remote work, but you must have the flexibility to come to Madinaty when required for meetings, content planning sessions, shoots, brainstorming sessions, or other important work. I’m looking for someone who wants to become a real part of the operation—not simply complete assigned tasks. If you are organized, ambitious, curious about AI and business, and you know how to get things done, I’d love to hear from you. 📩 Send your CV, LinkedIn profile, and a short introduction about yourself to: ahmed.elkholy@darkpyramid.net Email Subject: Virtual Assistant – Elkholy Hacker",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4445031676",
-      "title": "GitHub Contributor - Remote",
-      "company": "YO HR Consultancy",
-      "location": "Egypt",
+      "linkedin_job_id": "4461021168",
+      "title": "Telesales Specialist",
+      "company": "IMETS Medical School",
+      "location": "Nasr City, Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "36 minutes ago",
-      "estimated_age_minutes": 36,
+      "linkedin_posted_text": "44 minutes ago",
+      "estimated_age_minutes": 44,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T18:44:14Z",
-      "url": "https://www.linkedin.com/jobs/view/4445031676",
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461021168",
       "matched_queries": [
         {
-          "query": "IT",
-          "weight": 0.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        },
-        {
-          "query": "ICT",
-          "weight": 1.0,
-          "lane": "egypt",
-          "search_location": "Egypt",
-          "remote_filter": null
-        }
-      ],
-      "application_status": "open_signal",
-      "seniority": "Mid-Senior level",
-      "employment_type": "Contract",
-      "job_function": "Other",
-      "advisory_title_noise_signals": [],
-      "advisory_it_evidence": false,
-      "score": 1.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "Role Title: GitHub Contributor Role Type : Contractor (~15 hrs a week) Location: Remote Expert Senior Software Engineers to support a customer’s innovative project. In this role, you'll apply your expertise to help train next-generation AI systems. Your work will shape how models learn, reason, and perform through high-quality, real-world input. No prior experience in AI is required — your domain knowledge is what matters. As an expert you will be creating Reinforcement Learning Environments which test and AI model’s ability to solve complex software engineering problems related to fixing code, creating features, refactoring code and optimizing performance. You will be tasked with creating a reproducible environment and golden reference solution for the problem. Applicants must have clear open source contributions and profiles to showcase it like GitHub or GitLab. (Preferably with C++, Python, JAVA, GoLang, Typescript, or Rust) Scope of Work Contribute expert-level code samples, debugging strategies, and development insights in Python3, Java, Rust, Go, C++, or TypeScript. Analyze, troubleshoot, and resolve complex software defects and performance bottlenecks in diverse codebases. Implement robust new features, ensuring scalability, maintainability, and adherence to software best practices. Refactor and optimize legacy code to improve clarity, efficiency, and long-term reliability. Document technical reasoning, solution approaches, and code decisions to enhance AI training data quality. Review and validate peer-contributed code and technical submissions for accuracy and clarity. Preferred Qualifications Significant hands-on expertise in at least one of the following: Python3, Java, Rust, Go, C++, or TypeScript. Deep understanding of algorithms, data structures, and software engineering principles. Proven ability to debug complex systems, resolve bugs, and deliver effective optimizations. Experience with large codebase refactoring and legacy system modernization. Track record of delivering high-impact features from conception through delivery within cross-functional projects. Strong documentation and communication skills to articulate technical concepts clearly. Interest in or curiosity about AI and its technical challenges (previous AI experience not required). Process Apply to the role, filling out the screening questions Complete AI interview (aprox. 30 minutes) Technical Assessment (Tentative) Hiring Manager review Compensation Structure Compensation is output-based; experts are paid per task that meets the project specifications. The time required to complete work may vary depending on the expert’s experience and workflow. Minimum submission requirements apply. Experts must submit a minimum of tasks per week. Start Timeline & Availability We typically fill roles within 48 hours and are looking for experts ready to jump in right away. If selected, we expect you to start your first tasks within 24–48 hours of completing onboarding. Skills: c,code,software,github,java,rust,typescript",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
-      "discovery_lane": "egypt"
-    },
-    {
-      "linkedin_job_id": "4461031013",
-      "title": "Sales Engineer - Wood Flooring",
-      "company": "Connectalents Community",
-      "location": "Cairo, Cairo, Egypt",
-      "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "30 minutes ago",
-      "estimated_age_minutes": 30,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T18:44:14Z",
-      "url": "https://www.linkedin.com/jobs/view/4461031013",
-      "matched_queries": [
-        {
-          "query": "Technical Support Engineer",
+          "query": "Microsoft 365",
           "weight": 3.0,
           "lane": "egypt",
           "search_location": "Egypt",
@@ -1359,42 +1343,348 @@
       "job_function": "Sales and Business Development",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
-      "score": -3.0,
+      "score": 3.0,
       "role_hits_title": [],
       "role_hits_description": [],
       "skill_hits": [],
-      "negative_hits": [
-        {
-          "label": "Presales/Sales",
-          "weight": -6.0
-        }
-      ],
-      "description": "Connectalents is a recruitment and HRO solutions company that provides recruitment executive search, RPO across Egypt and the MENA region. is hiring a \"Sales Engineer\" for a leading provider of luxurious HDF and engineered wood flooring solutions in Sheikh Zayed . Job scope: Provide technical consultation to customers and architects regarding wood species, installation methods, and technical specifications Interpret AutoCAD drawings and architectural plans to prepare accurate material estimations Prepare quotations, follow up on leads, and manage client accounts from the first visit through final delivery. Stay updated on market trends and maintain strong knowledge of the company's product portfolio to achieve sales targets. Maintain a high-standard showroom environment that reflects the brand's quality. Requirements: Bachelor's degree in engineering (Architecture, Civil, or related field) or Fine Arts 3-6 months of Sales or Tele sales experience. Experience in wood, furniture, or building materials is a strong plus. Proficiency in AutoCAD and the ability to comfortably read architectural drawings/ blueprints. Excellent interpersonal skills with the ability to manage multiple client accounts. If you're interested and meet the requirements, send your updated CV with the subject \"Sales Engineer\" to mayada.m@connectalents.com",
+      "negative_hits": [],
+      "description": "Company Description IMETS Medical School is dedicated to transforming healthcare education through innovative, comprehensive, and specialized programs tailored to the evolving needs of healthcare professionals. The school focuses on delivering high-quality curricula that integrate modern teaching methods and practical applications. By emphasizing skill development and real-world readiness, IMETS aims to support learners in advancing their careers and improving patient care. The institution values excellence, accessibility, and continuous improvement in all its educational offerings. Role Description The Telesales Specialist is a full-time role responsible for engaging prospective students and healthcare professionals to promote IMETS Medical School programs. The role is hybrid, based in Nasr City, with a combination of on-site presence and some work-from-home flexibility. Day-to-day tasks include making outbound calls, responding to inbound inquiries, explaining program features and benefits, and guiding individuals through the enrollment process. The Telesales Specialist will maintain accurate records in CRM systems, follow up on leads, and collaborate with the marketing and admissions teams to meet enrollment targets. The role also involves handling basic customer support issues, providing clear information on course offerings, and participating in occasional training sessions to stay updated on program changes and sales techniques. Qualifications Candidates should possess strong Customer Service and Customer Support skills to handle inquiries and provide a positive experience for prospective students. Candidates should possess excellent Communication skills, including clear speaking, active listening, and professional phone etiquette. Candidates should possess solid Sales skills, including lead qualification, objection handling, and closing techniques. Candidates should possess Training-related skills, such as the ability to learn new programs quickly and apply coaching or feedback to improve performance. Prior telesales, call center, or admissions experience, ideally in education or healthcare, is beneficial. Comfort using CRM tools and basic office software, with strong attention to detail and record-keeping. Ability to work toward defined targets, manage time effectively, and collaborate with on-site and remote team members. Relevant diploma or bachelor’s degree in business, marketing, communications, or a related field is preferred but not mandatory. Medical Sales Representative – Indoor We are looking for a motivated Medical Sales Representative to promote medical/educational products, follow up with customers, generate leads, and achieve sales targets. Requirements: • 6+ months of Medical Sales experience. • Academic Sales experience is preferred. • Veterinary Medicine, Science, or Agriculture graduate. • Based in Cairo. • Good English & strong communication skills. Benefits: 💰 Fixed Salary + Commission + Bonuses 🕐 Full-time | 📍 Cairo",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
     },
     {
-      "linkedin_job_id": "4461017168",
-      "title": "Sr Backend Developer",
-      "company": "Valleysoft | Center of Excellence",
-      "location": "Cairo, Egypt",
+      "linkedin_job_id": "4461033195",
+      "title": "Receptionist (Female)",
+      "company": "Core HR Solutions",
+      "location": "Cairo, Cairo, Egypt",
       "linkedin_date": "2026-08-30",
-      "linkedin_posted_text": "28 minutes ago",
-      "estimated_age_minutes": 28,
+      "linkedin_posted_text": "7 minutes ago",
+      "estimated_age_minutes": 7,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-08-30T18:44:14Z",
-      "url": "https://www.linkedin.com/jobs/view/4461017168",
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461033195",
       "matched_queries": [
         {
-          "query": "IT",
-          "weight": 0.0,
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Administrative",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "...",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4405875701",
+      "title": "Procurement Representative",
+      "company": "Nalco Water, An Ecolab Company",
+      "location": "Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4405875701",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Purchasing and Supply Chain",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Overview Nalco, an Ecolab Company, is seeking a Procurement Representative – Direct Materials (Egypt & North Africa) to join the Supply Chain function. This role is responsible for leading procurement operations and strategic sourcing initiatives for direct materials, including raw materials, packaging, and toll/contract manufacturing. The position is accountable for delivering cost savings and working capital improvements, while ensuring supply continuity across the region. The role also supports key business initiatives and works closely with regional and global stakeholders to deploy sourcing strategies locally. What’s In It For You After 1–2 years in this role, you will: Develop functional expertise in procurement and sourcing Strengthen negotiation skills Build broader knowledge of procurement processes and stakeholder management Execute end-to-end total cost / total delivered cost sourcing processes Gain exposure to cross-functional and leadership stakeholders Enhance presentation and communication skills What Will You Do Lead compliance, safety, and ethical procurement initiatives Manage and negotiate direct materials (raw materials, packaging, toll/contract manufacturing) across Egypt and North Africa Own an annual spend of approximately $15M and deliver targeted cost savings Drive working capital improvements through payment terms, inventory optimization, and collaboration with supply planning Act as a subject matter expert for e-auctions and sourcing tools, ensuring best practices Support tactical volumes and key business initiatives by securing supply, optimizing costs, and managing risks Collaborate with Global Category Leads to implement sourcing strategies locally Manage supplier performance, ensuring quality, service, and responsiveness Identify and qualify alternative suppliers/materials to enhance supply resilience Own end-to-end contracting processes and ensure proper documentation Manage financial reporting related to savings, risks, and working capital Support quality improvements through supplier collaboration and corrective actions Build and execute sourcing and productivity initiatives aligned with business targets Collaborate with regional and global teams to align on sourcing priorities and market insights Minimum Qualifications Bachelor’s degree in a relevant field 4–5 years of experience in procurement, sourcing, or supply chain Strong understanding of procurement processes and supplier management Strong negotiation, analytical, and problem-solving skills Fluency in English Proficiency in MS Office and ERP/procurement systems Preferred Qualifications Degree in Chemistry or Engineering (Chemical, Mechanical, or Industrial) Experience in FMCG or chemical industry Knowledge of total cost / total delivered cost sourcing methodologies Experience working in regional or global environments French language is an advantage Our Commitment to a Culture of Inclusion & Belonging Ecolab is committed to fair and equal treatment of associates and applicants and furthering the principles of Equal Opportunity to Employment. We will recruit, hire, promote, transfer and provide opportunities for advancement based on individual qualifications and job performance in all matters affecting employment, compensation, benefits, working conditions, and opportunities for advancement. Ecolab will not discriminate against any associate or applicant for employment because of race, religion, color, creed, national origin,citizenship status, sex, sexual orientation, gender identity and expressions, genetic information, marital status, age, or disability.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4461028177",
+      "title": "OD Specialist",
+      "company": "Midas Furniture",
+      "location": "Giza, Al Jizah, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "20 minutes ago",
+      "estimated_age_minutes": 20,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461028177",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description Midas Furniture, established in 1993, is a leading home and office furniture retailer focused on providing affordable, high-quality furniture and accessories. The company has grown to operate 16 large showrooms and employs over 2,000 team members across Kuwait, Jordan, Iraq, Qatar, Dubai, and Saudi Arabia. A diverse workforce supports the brand through expertise in sales, engineering, interior design, labor, and logistics. Midas delivers a wide range of products and services, including retail furniture, commercial tenders, design-and-build solutions, and interior design consultation. The company emphasizes sustainable growth, strong corporate infrastructure, and customer-centric service. Role Description The OD (Organizational Development) Specialist will support the design, implementation, and continuous improvement of organizational structures, processes, and people-development initiatives at Midas Furniture. This full-time, on-site role is based in Giza and involves partnering with HR and business leaders to assess organizational needs, analyze workforce data, and recommend OD interventions. Daily responsibilities may include developing and updating job roles and competencies, supporting change management programs, and coordinating training and development initiatives. The OD Specialist will help design performance management frameworks, support employee engagement activities, and contribute to succession planning and talent development strategies. The role requires close collaboration with cross-functional teams to ensure OD projects are aligned with business goals and implemented effectively. Qualifications Experience in organizational development, including designing OD initiatives, structures, and processes. Skills in HR analysis, workforce planning, and interpreting data to inform OD decisions. Knowledge of performance management, competency frameworks, and talent development practices. Ability to support change management, employee engagement, and culture-building programs. Strong communication, facilitation, and stakeholder management skills. Proficiency with common office and collaboration tools (e.g., Excel, PowerPoint, HRIS/OD systems). Bachelor’s degree in Human Resources, Business Administration, Psychology, or a related field; OD or HR certifications are an advantage. Experience in retail, furniture, or related industries is beneficial, especially in multi-site or multi-country environments. Ability to work on-site in Giza, manage multiple projects, and adapt to a dynamic, growth-oriented organization.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4461024119",
+      "title": "Interior Designer",
+      "company": "Infinite landscaping",
+      "location": "Tanta, Al Gharbiyah, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461024119",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Part-time",
+      "job_function": "Design, Art/Creative, and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Role Description This part-time remote Interior Designer role at infinite landscaping focuses on designing functional and aesthetically pleasing residential interiors. The Interior Designer will collaborate with clients virtually to understand their needs, preferences, and budget, then develop design concepts, mood boards, and layouts. Daily tasks include space planning, preparing design presentations, selecting furniture, fixtures, and finishes, and coordinating with vendors and contractors as needed. The role also involves producing or reviewing construction drawings, ensuring designs align with architectural constraints, and maintaining project documentation and timelines. The Interior Designer will work closely with the broader team to ensure consistent design quality and client satisfaction across all projects. Qualifications Candidates should possess strong Interior Design and Space Planning skills, with the ability to create functional layouts for diverse residential spaces. Candidates should possess knowledge of Architecture and the ability to collaborate effectively with architects and related professionals. Candidates should possess experience preparing or reviewing Construction Drawings and understanding basic building codes and standards. Candidates should possess FF&E skills, including selecting and specifying furniture, fixtures, equipment, and finishes that align with design concepts and budgets. Candidates should possess proficiency in design and visualization software (e.g., AutoCAD, SketchUp, Revit, or similar) and basic digital collaboration tools. Candidates should possess strong communication, time management, and remote collaboration skills, with the ability to manage multiple part-time projects. Candidates should possess a relevant educational background in Interior Design, Architecture, or a closely related field; professional certification or licensure is a plus. Candidates should possess prior experience in residential interior design; experience with online or remote design services is advantageous.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4461028213",
+      "title": "Front Office Receptionist",
+      "company": "Talent Solutions",
+      "location": "New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "5 minutes ago",
+      "estimated_age_minutes": 5,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461028213",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description Talent Solutions plays a key role in helping organizations optimize their workforce and achieve their business objectives through tailored HR and business services. The company delivers customized solutions that fit different types and sizes of businesses, focusing on building positive and productive work environments. Its vision is to ensure that each client's workforce is equipped to drive success and growth. Core services include business consultation, workforce management solutions, hiring services, payroll services, performance management, training, and medical insurance support. Role Description The Front Office Receptionist is a full-time, on-site role based in New Cairo, responsible for managing daily front office operations and serving as the first point of contact for visitors and callers. This role includes greeting guests, answering and directing phone calls, handling inquiries, and ensuring a professional and welcoming reception area. The Front Office Receptionist will coordinate appointment scheduling, manage incoming and outgoing mail, and support basic administrative tasks such as filing and data entry. The role also requires close collaboration with internal teams to route information efficiently and uphold a high standard of customer service at all times. Qualifications Candidates should possess strong Front Office and Receptionist Duties skills, including managing visitors, appointments, and basic administrative tasks. Candidates should possess excellent Customer Service and Communication skills to interact effectively with clients, visitors, and team members. Candidates should possess professional Phone Etiquette skills to handle calls, route inquiries, and provide clear information. Candidates should possess solid organizational and time-management abilities to manage multiple tasks and maintain an orderly reception area. Previous experience in a receptionist or front office role is preferred, ideally within a corporate or consultancy environment. Proficiency with office software (e.g., email, calendars, word processing) and basic data entry is beneficial. A high school diploma or equivalent is required; additional training in administration or customer service is an advantage. Ability to maintain confidentiality, present a professional appearance, and work on-site full time in New Cairo.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458868137",
+      "title": "Executive Administrative Assistant",
+      "company": "ALHAYAT TENDERS",
+      "location": "New Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4458868137",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Administrative",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Al Hayat Tenders is hiring an organized and proactive Executive & Administrative Assistant to support C-level management and the Operations team. The role’s main purpose is to take ownership of recurring administrative duties, the Founder’s personal administrative requests, and occasional off-site errands, executing them accurately and reducing the team’s day-to-day administrative workload. Key Responsibilities: • Review management emails and handle routine actions and follow-ups • Prepare a concise daily management report • Record, assign, execute, and follow up on ClickUp tasks • Complete recurring administrative tasks arising from emails, meetings, and messages • Maintain accurate Excel trackers and administrative records • Organize Google Drive files and consolidate historical documents • Support monthly finance records and expense documentation • Coordinate travel, bookings, office supplies, cleaning, and office logistics • Handle other daily administrative requirements as needed • Provide practical personal assistance to the Founder and completing local errands • Be available to complete occasional administrative errands outside the office when required Requirements: • Bachelor’s degree in Business Administration, Management, Commerce, Languages, or a related field • Fresh graduates and candidates with up to five years of experience are welcome • Fluent written and spoken English is essential (C1 or C2) • French is an advantage • Excellent organization, accuracy, and follow-up skills • Good knowledge of Excel, Google Sheets, Gmail, and Google Drive • Experience with ClickUp and AI tools is preferred • Proactive, reliable, and able to handle confidential information • A valid driving licence and access to a personal car are an advantage due to occasional off-site errands 📍 Location: Rehab City 💰 Salary: EGP 10,000 to EGP 20,000 per month, based on experience and qualifications To apply, please send your CV and availability.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458869200",
+      "title": "English Teammate (Voice)",
+      "company": "TaskUs",
+      "location": "Giza, Al Jizah, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "30 minutes ago",
+      "estimated_age_minutes": 30,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4458869200",
+      "matched_queries": [
+        {
+          "query": "ICT",
+          "weight": 1.0,
           "lane": "egypt",
           "search_location": "Egypt",
           "remote_filter": null
         },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Contract",
+      "job_function": "Education and Training",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Job Description About TaskUs: TaskUs is a provider of outsourced digital services and next-generation customer experience to fast-growing technology companies, helping its clients represent, protect and grow their brands. Leveraging a cloud-based infrastructure, TaskUs serves clients in the fastest-growing sectors, including social media, e-commerce, gaming, streaming media, food delivery, ride-sharing, HiTech, FinTech, and HealthTech. The People First culture at TaskUs has enabled the company to expand its workforce to approximately 60,000 employees globally. Presently, we have a presence in twenty-three locations across twelve countries, which include the Philippines, India, and the United States. It started with one ridiculously good idea to create a different breed of Business Processing Outsourcing (BPO)! We at TaskUs understand that achieving growth for our partners requires a culture of constant motion, exploring new technologies, being ready to handle any challenge at a moment's notice, and mastering consistency in an ever-changing world. What We Offer: At TaskUs, we prioritize our employees' well-being by offering competitive industry salaries and comprehensive benefits packages. Our commitment to a People First culture is reflected in the various departments we have established, including Total Rewards, Wellness, HR, and Diversity. We take pride in our inclusive environment and positive impact on the community. Moreover, we actively encourage internal mobility and professional growth at all stages of an employee's career within TaskUs. Join our team today and experience firsthand our dedication to supporting People First. About The Role As an English Teammate, you will be the first point of contact for our customers, providing excellent support and ensuring a positive experience. This role requires strong communication skills and a passion for problem-solving. Key Responsibilities Provide support to customers via written and verbal communication channels (e.g., chat, email, or phone). Diagnose, troubleshoot, and resolve customer issues accurately and efficiently. Maintain a high level of customer satisfaction in line with company and client quality standards. Document all customer interactions and resolutions accurately in the CRM system. Collaborate with internal teams to escalate and resolve complex issues. Adhere to all company policies, procedures, and security protocols. Qualifications Proven experience in a customer service, BPO, or contact center environment is preferred. Strong verbal and written communication skills in English. The client's minimum requirement for the English language is B2. Ability to work independently and as part of a team in a fast-paced environment. Proficiency with desktop applications, including web browsers and email. Experience in content moderation is a plus . Schedule & Logistics The role may require shifts outside of standard business hours, including nights and weekends. How We Partner To Protect You: TaskUs will neither solicit money from you during your application process nor require any form of payment in order to proceed with your application. Kindly ensure that you are always in communication with only authorized recruiters of TaskUs. DEI: In TaskUs we believe that innovation and higher performance are brought by people from all walks of life. We welcome applicants of different backgrounds, demographics, and circumstances. Inclusive and equitable practices are our responsibility as a business. TaskUs is committed to providing equal access to opportunities. If you need reasonable accommodations in any part of the hiring process, please let us know. We invite you to explore all TaskUs career opportunities and apply through the provided URL https://www.taskus.com/careers/ . TaskUs is proud to be an equal opportunity workplace and is an affirmative action employer. We celebrate and support diversity; we are committed to creating an inclusive environment for all employees. TaskUs people first culture thrives on it for the benefit of our employees, our clients, our services, and our community. Req Id: R_2512_17021 Posted At: Wed Dec 17 2025 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4458861258",
+      "title": "English Teammate (Voice)",
+      "company": "TaskUs",
+      "location": "Giza, Al Jizah, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "30 minutes ago",
+      "estimated_age_minutes": 30,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4458861258",
+      "matched_queries": [
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "open_signal",
+      "seniority": "Not Applicable",
+      "employment_type": "Contract",
+      "job_function": "Education and Training",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Job Description About TaskUs: TaskUs is a provider of outsourced digital services and next-generation customer experience to fast-growing technology companies, helping its clients represent, protect and grow their brands. Leveraging a cloud-based infrastructure, TaskUs serves clients in the fastest-growing sectors, including social media, e-commerce, gaming, streaming media, food delivery, ride-sharing, HiTech, FinTech, and HealthTech. The People First culture at TaskUs has enabled the company to expand its workforce to approximately 60,000 employees globally. Presently, we have a presence in twenty-three locations across twelve countries, which include the Philippines, India, and the United States. It started with one ridiculously good idea to create a different breed of Business Processing Outsourcing (BPO)! We at TaskUs understand that achieving growth for our partners requires a culture of constant motion, exploring new technologies, being ready to handle any challenge at a moment's notice, and mastering consistency in an ever-changing world. What We Offer: At TaskUs, we prioritize our employees' well-being by offering competitive industry salaries and comprehensive benefits packages. Our commitment to a People First culture is reflected in the various departments we have established, including Total Rewards, Wellness, HR, and Diversity. We take pride in our inclusive environment and positive impact on the community. Moreover, we actively encourage internal mobility and professional growth at all stages of an employee's career within TaskUs. Join our team today and experience firsthand our dedication to supporting People First. As a Customer Care Agent, you will be the key point of contact for customers, responsible for solving problems, owning the customer issue from start to finish, and fostering a connection to build trust and brand affinity . This role requires a flexible schedule, as it may include working various shift patterns, including weekends . Key Responsibilities Provide empathetic and personalized service, consistently meeting the brand's service standards . Work to resolve customer queries on the first contact, always taking ownership of the customer's problem . Handle customer interactions across multiple communication channels, including phone, messaging, social media, and email . Collaborate with internal teams (e.g., operations, specialists) to resolve complex or patient-specific queries . Maintain accurate records of customer enquiries, complaints, and any safeguarding concerns within the system . Handle sensitive customer queries in a confidential and professional manner . Support 'out of inbox' projects as needed, such as creating macros, assisting with new starter training, or other business-critical tasks . Act as the 'voice of the customer' by sharing insights and suggesting process improvements to other teams in the business . Demonstrate the ability to work effectively and with a high degree of independence . Qualifications & Skills Language Proficiency: Exceptional English skills (both written and spoken) are essential . Customer Focus: A passion for problem-solving and a strong desire to provide excellent customer care by going the extra mile to achieve customer happiness . Experience: Previous experience in customer service, ideally in a fast-paced environment. Technical Aptitude: Tech-savvy with the ability to quickly learn new software, including CRM tools (like Salesforce) and communication platforms (like Intercom or similar equivalents) . Adaptability: Experience working in an environment that requires high ownership and the ability to navigate light process infrastructure is desirable . Typing Speed: Some roles may require a minimum typing speed and accuracy, such as 30+ words per minute with high accuracy . How We Partner To Protect You: TaskUs will neither solicit money from you during your application process nor require any form of payment in order to proceed with your application. Kindly ensure that you are always in communication with only authorized recruiters of TaskUs. DEI: In TaskUs we believe that innovation and higher performance are brought by people from all walks of life. We welcome applicants of different backgrounds, demographics, and circumstances. Inclusive and equitable practices are our responsibility as a business. TaskUs is committed to providing equal access to opportunities. If you need reasonable accommodations in any part of the hiring process, please let us know. We invite you to explore all TaskUs career opportunities and apply through the provided URL https://www.taskus.com/careers/ . TaskUs is proud to be an equal opportunity workplace and is an affirmative action employer. We celebrate and support diversity; we are committed to creating an inclusive environment for all employees. TaskUs people first culture thrives on it for the benefit of our employees, our clients, our services, and our community. Req Id: R_2512_17432 Posted At: Fri Dec 26 2025 00:00:00 GMT+0000 (Coordinated Universal Time)",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt"
+    },
+    {
+      "linkedin_job_id": "4461015392",
+      "title": "Quality Specialist - English Telecom Account",
+      "company": "Xceed",
+      "location": "Qesm El Maadi, Cairo, Egypt",
+      "linkedin_date": "2026-08-30",
+      "linkedin_posted_text": "1 minute ago",
+      "estimated_age_minutes": 1,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-08-30T19:44:13Z",
+      "url": "https://www.linkedin.com/jobs/view/4461015392",
+      "matched_queries": [
         {
           "query": "ICT",
           "weight": 1.0,
@@ -1404,24 +1694,17 @@
         }
       ],
       "application_status": "open_signal",
-      "seniority": "Mid-Senior level",
+      "seniority": "Entry level",
       "employment_type": "Full-time",
-      "job_function": "Engineering and Information Technology",
-      "advisory_title_noise_signals": [
-        "backend"
-      ],
+      "job_function": "Quality Assurance",
+      "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
-      "score": -9.0,
+      "score": 1.0,
       "role_hits_title": [],
       "role_hits_description": [],
       "skill_hits": [],
-      "negative_hits": [
-        {
-          "label": "Software Development",
-          "weight": -10.0
-        }
-      ],
-      "description": "Senior Backend Developer - Java & Spring Boot Description Valleysoft is a regional IT services provider delivering enterprise software, process management, and technology solutions for global clients. Working across the Information Technology and Services sector, the company supports complex business needs with reliable, scalable systems built for real-world enterprise environments.   This role offers the opportunity to contribute to backend systems that power business-critical platforms and integrations. As a Senior Backend Developer – Java & Spring Boot, you will help shape robust application architecture, improve system performance, and build services that support secure, dependable digital experiences for enterprise clients.   You will play a hands-on role in the design and evolution of backend services, working closely with cross-functional teams across design, development, testing, deployment, and production support. The position is well suited to someone who enjoys technical ownership, values clean engineering practices, and brings a thoughtful approach to building maintainable, high-performance software.   Responsibilities Design, develop, and maintain scalable backend applications using Java and Spring Boot. Develop and maintain secure, reliable, and high-performance RESTful APIs. Design and implement backend services following clean architecture, OOP principles, design patterns, and SOLID practices. Build and support integrations with internal and external enterprise systems. Work with SQL and NoSQL databases to design, query, and optimize data access. Implement API security using technologies such as JWT and OAuth 2.0. Write and maintain unit and integration tests. Troubleshoot application issues, identify root causes, and deliver effective technical solutions. Optimize application performance, scalability, and reliability. Participate in code reviews and collaborate with cross-functional teams across design, development, testing, deployment, and production support. Take ownership of backend features and services from requirements through production. Prepare and maintain technical documentation. Requirements Bachelor’s degree in Computer Science, Software Engineering, Information Technology, Information Systems, Engineering, or a related technical field. 5+ years of hands-on backend development experience with strong production experience in Java and Spring Boot. Experience developing and maintaining REST APIs, including performance tuning and optimization of backend services, APIs, and database interactions. Experience building enterprise system integrations with third-party and internal services. Strong experience with SQL databases, particularly Oracle and/or SQL Server, along with experience optimizing data access in production environments. Experience with API security using JWT and OAuth 2.0. Strong unit and integration testing experience using tools such as JUnit and Mockito. Experience with production support and troubleshooting, including root-cause analysis and resolving critical issues. Experience owning backend features or services from requirements through development, testing, deployment, and production. Experience with microservices architecture and distributed backend services. Experience collaborating with cross-functional teams including frontend or mobile developers, QA, DevOps, business analysts or product owners, solution architects or technical leads, database teams or DBAs, production support or operations teams, and other developers through code reviews and technical discussions. Experience in Banking or FinTech. Preferred Qualifications Experience with NoSQL databases, particularly MongoDB. Experience with CI/CD, Docker, and cloud or containerized environments. Experience with payment systems, digital banking, cards, wallets, or financial APIs. Experience collaborating with Security or InfoSec teams, particularly for API security and authentication. Experience coordinating across distributed or offshore and onshore teams.",
+      "negative_hits": [],
+      "description": "Role Description The Quality Specialist for the English Telecom Account is a full-time, on-site role based in Qesm El Maadi. In this position, the specialist monitors and evaluates customer interactions, ensuring adherence to quality standards, call handling guidelines, and telecom client requirements. Daily responsibilities include conducting call and case audits, documenting findings, preparing quality reports, and recommending improvements to enhance customer experience and operational performance. The role involves coaching and providing constructive feedback to frontline team members, collaborating with team leaders and operations managers on action plans, and supporting calibration sessions to maintain consistent evaluation criteria. The specialist also contributes to process improvement initiatives, identifies recurring issues, and supports compliance with internal policies and external client expectations. Qualifications Candidates should possess strong analytical skills to interpret performance data, identify trends, and provide actionable insights. Candidates should possess quality control and quality assurance skills to monitor adherence to standards and drive continuous improvement. Candidates should possess quality auditing skills to conduct structured evaluations of calls, cases, and processes for the telecom account. Candidates should possess effective communication skills to deliver clear feedback, collaborate with cross-functional teams, and document quality findings. Previous experience in contact center quality roles, particularly within telecom accounts, is highly beneficial. Familiarity with quality frameworks, KPIs, and customer experience metrics in BPO or customer service environments is an advantage. Proficiency in English (spoken and written) and strong report-writing skills are required. Ability to work on-site in Qesm El Maadi, manage multiple priorities, and use quality monitoring tools and MS Office applications effectively.",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
       "discovery_lane": "egypt"
