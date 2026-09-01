@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import random
 import re
 import subprocess
 import sys
@@ -33,6 +34,13 @@ def load_json(path, default):
 def save_json(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def jitter_sleep(seconds):
+    """Spread public-endpoint requests without narrowing discovery coverage."""
+    delay = max(0.0, float(seconds))
+    if delay:
+        time.sleep(delay * random.uniform(0.8, 1.35))
 
 
 def run_cli(cli_path, args, timeout=90):
@@ -238,6 +246,10 @@ def main():
     matched_queries = defaultdict(list)
     query_stats = []
     errors = []
+    priority_retry_queries = {
+        str(query).casefold().strip()
+        for query in config.get("priority_retry_queries", [])
+    }
 
     for spec in config["queries"]:
         query = spec["query"]
@@ -271,8 +283,12 @@ def main():
                 page_counts.append(None)
                 errors.append({"stage": "search", "query": query, "page": page, "error": str(exc)[:500]})
 
-            if page == 1 and not results and bool(spec.get("retry_if_empty", False)):
-                time.sleep(float(config.get("empty_retry_delay_seconds", 2.5)))
+            retry_allowed = (
+                bool(spec.get("retry_if_empty", False))
+                and (not priority_retry_queries or query.casefold().strip() in priority_retry_queries)
+            )
+            if page == 1 and not results and retry_allowed:
+                jitter_sleep(config.get("empty_retry_delay_seconds", 2.5))
                 try:
                     retried = search_page(cli_path, query, config["location"], config["window_minutes"], 1)
                     retry_counts[str(page)] = len(retried)
@@ -284,7 +300,7 @@ def main():
                     errors.append({"stage": "search_retry", "query": query, "page": 1, "error": str(exc)[:500]})
 
             ingest(results)
-            time.sleep(float(config.get("delay_seconds", 1.0)))
+            jitter_sleep(config.get("delay_seconds", 1.0))
             if len(results) < 10:
                 break
 
@@ -390,7 +406,7 @@ def main():
             "application_status": application_status,
             "score": scoring["score"],
         }
-        time.sleep(float(config.get("delay_seconds", 1.0)))
+        jitter_sleep(config.get("delay_seconds", 1.0))
 
     # Every successfully exact-detail-fetched new card must reach the review queue.
     if len(review_candidates) != details_fetched:
