@@ -105,3 +105,37 @@ jobs:
             git pull --rebase origin main
             git push origin main
           fi
+
+
+      - name: Signal completed scan
+        if: github.event_name != 'pull_request'
+        working-directory: radar
+        env:
+          RADAR_EVENT_BRANCH: radar-events
+        run: |
+          set -euo pipefail
+          run_id="$(python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path("output/latest.json").read_text(encoding="utf-8"))
+          print(payload.get("run_id", ""))
+          PY
+          )"
+          if [ -z "$run_id" ]; then
+            echo "No run ID available; skipping completion signal."
+            exit 0
+          fi
+
+          git fetch origin "$RADAR_EVENT_BRANCH"
+          git switch --detach "origin/$RADAR_EVENT_BRANCH"
+          printf '%s\n' "$run_id" > .radar_event
+          git add .radar_event
+          if git diff --cached --quiet; then
+            echo "Completion signal already current."
+          else
+            git config user.name "linkedin-job-radar[bot]"
+            git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
+            git commit -m "radar event: $run_id"
+            git push origin "HEAD:$RADAR_EVENT_BRANCH"
+          fi
