@@ -110,9 +110,17 @@ jobs:
         working-directory: radar
         run: |
           set -euo pipefail
-          git fetch origin main radar-events
+          git fetch origin main
+          radar_event_remote_sha="$(git ls-remote --heads origin radar-events | awk '{print $1}')"
+          if [ -n "$radar_event_remote_sha" ]; then
+            git fetch origin radar-events:refs/remotes/origin/radar-events
+          fi
           git checkout -B radar-events origin/main
           date -u +'%Y-%m-%dT%H:%M:%SZ' > .radar_event
           git add .radar_event
           git commit -m "radar event: $(date -u +'%Y-%m-%dT%H:%MZ')"
-          git push --force-with-lease origin radar-events
+          if [ -n "$radar_event_remote_sha" ]; then
+            git push --force-with-lease=refs/heads/radar-events:"$radar_event_remote_sha" origin radar-events
+          else
+            git push origin radar-events
+          fi
