@@ -8,7 +8,11 @@
   "seen_retention_days": 60,
   "max_detail_fetches": 150,
   "filtered_sample_limit": 20,
-  "remote_locations": ["Egypt", "Middle East", "Africa", "European Union", "Worldwide"],
+  "remote_locations": [
+    "Worldwide",
+    "Middle East",
+    "Egypt"
+  ],
   "remote_pages_per_query": 1,
   "lane_empty_warning_runs": 3,
   "run_archive_retention_hours": 168,
@@ -29,31 +33,156 @@
     "ICT"
   ],
   "queries": [
-    {"query": "System Administrator", "pages": 3, "query_weight": 4.0, "retry_if_empty": true},
-    {"query": "Systems Administrator", "pages": 2, "query_weight": 4.0, "retry_if_empty": true},
-    {"query": "System Engineer", "pages": 3, "query_weight": 4.0, "retry_if_empty": true},
-    {"query": "Systems Engineer", "pages": 3, "query_weight": 4.0, "retry_if_empty": true},
-    {"query": "Infrastructure Engineer", "pages": 3, "query_weight": 5.0, "retry_if_empty": true},
-    {"query": "IT Infrastructure", "pages": 3, "query_weight": 5.0, "retry_if_empty": true},
-    {"query": "Network Engineer", "pages": 3, "query_weight": 5.0, "retry_if_empty": true},
-    {"query": "Network Administrator", "pages": 2, "query_weight": 4.0, "retry_if_empty": true},
-    {"query": "Network Security", "pages": 2, "query_weight": 5.0, "retry_if_empty": true},
-    {"query": "IT Administrator", "pages": 2, "query_weight": 4.0, "retry_if_empty": true},
-    {"query": "IT Operations", "pages": 2, "query_weight": 4.0, "retry_if_empty": true},
-    {"query": "IT Support Engineer", "pages": 2, "query_weight": 3.0, "retry_if_empty": true},
-    {"query": "Technical Support Engineer", "pages": 2, "query_weight": 3.0, "retry_if_empty": true},
-    {"query": "NOC Engineer", "pages": 2, "query_weight": 4.0, "retry_if_empty": true},
-    {"query": "Cloud Engineer", "pages": 2, "query_weight": 3.0, "retry_if_empty": true},
-    {"query": "Cybersecurity Engineer", "pages": 2, "query_weight": 4.0, "retry_if_empty": true},
-    {"query": "IT Engineer", "pages": 3, "query_weight": 3.0, "retry_if_empty": true},
-    {"query": "IT Specialist", "pages": 3, "query_weight": 3.0, "retry_if_empty": true},
-    {"query": "IT Support", "pages": 3, "query_weight": 2.0, "retry_if_empty": true},
-    {"query": "Information Technology", "pages": 4, "query_weight": 1.0, "retry_if_empty": true},
-    {"query": "IT", "pages": 4, "query_weight": 0.0, "retry_if_empty": true},
-    {"query": "ICT", "pages": 3, "query_weight": 1.0, "retry_if_empty": true},
-    {"query": "VMware", "pages": 1, "query_weight": 3.0, "retry_if_empty": false},
-    {"query": "Fortinet", "pages": 1, "query_weight": 3.0, "retry_if_empty": false},
-    {"query": "Microsoft 365", "pages": 1, "query_weight": 3.0, "retry_if_empty": false}
+    {
+      "query": "System Administrator",
+      "pages": 3,
+      "query_weight": 4,
+      "retry_if_empty": true
+    },
+    {
+      "query": "Systems Administrator",
+      "pages": 2,
+      "query_weight": 4,
+      "retry_if_empty": true
+    },
+    {
+      "query": "System Engineer",
+      "pages": 3,
+      "query_weight": 4,
+      "retry_if_empty": true
+    },
+    {
+      "query": "Systems Engineer",
+      "pages": 3,
+      "query_weight": 4,
+      "retry_if_empty": true
+    },
+    {
+      "query": "Infrastructure Engineer",
+      "pages": 3,
+      "query_weight": 5,
+      "retry_if_empty": true
+    },
+    {
+      "query": "IT Infrastructure",
+      "pages": 3,
+      "query_weight": 5,
+      "retry_if_empty": true
+    },
+    {
+      "query": "Network Engineer",
+      "pages": 3,
+      "query_weight": 5,
+      "retry_if_empty": true
+    },
+    {
+      "query": "Network Administrator",
+      "pages": 2,
+      "query_weight": 4,
+      "retry_if_empty": true
+    },
+    {
+      "query": "Network Security",
+      "pages": 2,
+      "query_weight": 5,
+      "retry_if_empty": true
+    },
+    {
+      "query": "IT Administrator",
+      "pages": 2,
+      "query_weight": 4,
+      "retry_if_empty": true
+    },
+    {
+      "query": "IT Operations",
+      "pages": 2,
+      "query_weight": 4,
+      "retry_if_empty": true
+    },
+    {
+      "query": "IT Support Engineer",
+      "pages": 2,
+      "query_weight": 3,
+      "retry_if_empty": true
+    },
+    {
+      "query": "Technical Support Engineer",
+      "pages": 2,
+      "query_weight": 3,
+      "retry_if_empty": true
+    },
+    {
+      "query": "NOC Engineer",
+      "pages": 2,
+      "query_weight": 4,
+      "retry_if_empty": true
+    },
+    {
+      "query": "Cloud Engineer",
+      "pages": 2,
+      "query_weight": 3,
+      "retry_if_empty": true
+    },
+    {
+      "query": "Cybersecurity Engineer",
+      "pages": 2,
+      "query_weight": 4,
+      "retry_if_empty": true
+    },
+    {
+      "query": "IT Engineer",
+      "pages": 3,
+      "query_weight": 3,
+      "retry_if_empty": true
+    },
+    {
+      "query": "IT Specialist",
+      "pages": 3,
+      "query_weight": 3,
+      "retry_if_empty": true
+    },
+    {
+      "query": "IT Support",
+      "pages": 3,
+      "query_weight": 2,
+      "retry_if_empty": true
+    },
+    {
+      "query": "Information Technology",
+      "pages": 4,
+      "query_weight": 1,
+      "retry_if_empty": true
+    },
+    {
+      "query": "IT",
+      "pages": 4,
+      "query_weight": 0,
+      "retry_if_empty": true
+    },
+    {
+      "query": "ICT",
+      "pages": 3,
+      "query_weight": 1,
+      "retry_if_empty": true
+    },
+    {
+      "query": "VMware",
+      "pages": 1,
+      "query_weight": 3,
+      "retry_if_empty": false
+    },
+    {
+      "query": "Fortinet",
+      "pages": 1,
+      "query_weight": 3,
+      "retry_if_empty": false
+    },
+    {
+      "query": "Microsoft 365",
+      "pages": 1,
+      "query_weight": 3,
+      "retry_if_empty": false
+    }
   ],
   "hard_exclude_title": [
     "intern",
@@ -94,47 +223,324 @@
     "physical security"
   ],
   "role_signals": {
-    "IT Infrastructure": {"weight": 8.0, "variants": ["it infrastructure", "infrastructure engineer", "infrastructure specialist", "infrastructure administrator", "infrastructure support"]},
-    "Systems Administration": {"weight": 8.0, "variants": ["system administrator", "systems administrator", "sysadmin", "system admin", "systems admin"]},
-    "Systems Engineering": {"weight": 7.0, "variants": ["systems engineer", "system engineer"]},
-    "Network Engineering": {"weight": 8.0, "variants": ["network engineer", "network administrator", "network specialist", "network infrastructure"]},
-    "Network Security": {"weight": 8.0, "variants": ["network security", "infrastructure security"]},
-    "IT Operations": {"weight": 7.0, "variants": ["it operations", "infrastructure operations", "technology operations"]},
-    "IT Administration": {"weight": 7.0, "variants": ["it administrator", "information technology administrator"]},
-    "Security Engineering": {"weight": 6.0, "variants": ["security engineer", "cybersecurity engineer", "cyber security engineer", "security operations"]},
-    "Virtualization": {"weight": 5.0, "variants": ["virtualization engineer", "vmware engineer", "virtual infrastructure"]},
-    "Technical Support": {"weight": 4.0, "variants": ["it support engineer", "technical support engineer", "infrastructure support engineer", "systems support engineer"]},
-    "Endpoint": {"weight": 4.0, "variants": ["endpoint engineer", "endpoint administrator", "desktop engineer"]},
-    "Cloud Infrastructure": {"weight": 3.0, "variants": ["cloud engineer", "cloud infrastructure", "azure engineer"]},
-    "NOC": {"weight": 3.0, "variants": ["noc engineer", "network operations center"]},
-    "SOC": {"weight": 3.0, "variants": ["soc analyst", "security operations center"]},
-    "IT/ICT General": {"weight": 3.0, "variants": ["it engineer", "it specialist", "ict engineer", "ict specialist", "information technology specialist"]}
+    "IT Infrastructure": {
+      "weight": 8,
+      "variants": [
+        "it infrastructure",
+        "infrastructure engineer",
+        "infrastructure specialist",
+        "infrastructure administrator",
+        "infrastructure support"
+      ]
+    },
+    "Systems Administration": {
+      "weight": 8,
+      "variants": [
+        "system administrator",
+        "systems administrator",
+        "sysadmin",
+        "system admin",
+        "systems admin"
+      ]
+    },
+    "Systems Engineering": {
+      "weight": 7,
+      "variants": [
+        "systems engineer",
+        "system engineer"
+      ]
+    },
+    "Network Engineering": {
+      "weight": 8,
+      "variants": [
+        "network engineer",
+        "network administrator",
+        "network specialist",
+        "network infrastructure"
+      ]
+    },
+    "Network Security": {
+      "weight": 8,
+      "variants": [
+        "network security",
+        "infrastructure security"
+      ]
+    },
+    "IT Operations": {
+      "weight": 7,
+      "variants": [
+        "it operations",
+        "infrastructure operations",
+        "technology operations"
+      ]
+    },
+    "IT Administration": {
+      "weight": 7,
+      "variants": [
+        "it administrator",
+        "information technology administrator"
+      ]
+    },
+    "Security Engineering": {
+      "weight": 6,
+      "variants": [
+        "security engineer",
+        "cybersecurity engineer",
+        "cyber security engineer",
+        "security operations"
+      ]
+    },
+    "Virtualization": {
+      "weight": 5,
+      "variants": [
+        "virtualization engineer",
+        "vmware engineer",
+        "virtual infrastructure"
+      ]
+    },
+    "Technical Support": {
+      "weight": 4,
+      "variants": [
+        "it support engineer",
+        "technical support engineer",
+        "infrastructure support engineer",
+        "systems support engineer"
+      ]
+    },
+    "Endpoint": {
+      "weight": 4,
+      "variants": [
+        "endpoint engineer",
+        "endpoint administrator",
+        "desktop engineer"
+      ]
+    },
+    "Cloud Infrastructure": {
+      "weight": 3,
+      "variants": [
+        "cloud engineer",
+        "cloud infrastructure",
+        "azure engineer"
+      ]
+    },
+    "NOC": {
+      "weight": 3,
+      "variants": [
+        "noc engineer",
+        "network operations center"
+      ]
+    },
+    "SOC": {
+      "weight": 3,
+      "variants": [
+        "soc analyst",
+        "security operations center"
+      ]
+    },
+    "IT/ICT General": {
+      "weight": 3,
+      "variants": [
+        "it engineer",
+        "it specialist",
+        "ict engineer",
+        "ict specialist",
+        "information technology specialist"
+      ]
+    }
   },
   "negative_signals": {
-    "Software Development": {"weight": -10.0, "variants": ["software engineer", "software developer", "frontend", "backend", "full stack", "application developer", "web developer"]},
-    "Data/AI": {"weight": -8.0, "variants": ["data engineer", "data scientist", "machine learning engineer", "ai engineer"]},
-    "DevOps/SRE": {"weight": -2.0, "variants": ["devops engineer", "site reliability engineer", "sre"]},
-    "Management": {"weight": -4.0, "variants": ["it manager", "infrastructure manager", "network manager", "director of it", "head of it", "head of infrastructure"]},
-    "Presales/Sales": {"weight": -6.0, "variants": ["presales", "pre-sales", "sales engineer", "solutions consultant"]}
+    "Software Development": {
+      "weight": -10,
+      "variants": [
+        "software engineer",
+        "software developer",
+        "frontend",
+        "backend",
+        "full stack",
+        "application developer",
+        "web developer"
+      ]
+    },
+    "Data/AI": {
+      "weight": -8,
+      "variants": [
+        "data engineer",
+        "data scientist",
+        "machine learning engineer",
+        "ai engineer"
+      ]
+    },
+    "DevOps/SRE": {
+      "weight": -2,
+      "variants": [
+        "devops engineer",
+        "site reliability engineer",
+        "sre"
+      ]
+    },
+    "Management": {
+      "weight": -4,
+      "variants": [
+        "it manager",
+        "infrastructure manager",
+        "network manager",
+        "director of it",
+        "head of it",
+        "head of infrastructure"
+      ]
+    },
+    "Presales/Sales": {
+      "weight": -6,
+      "variants": [
+        "presales",
+        "pre-sales",
+        "sales engineer",
+        "solutions consultant"
+      ]
+    }
   },
   "skills": {
-    "Windows Server": {"weight": 3.5, "variants": ["windows server"]},
-    "Active Directory": {"weight": 3.5, "variants": ["active directory", "entra id", "azure ad"]},
-    "DNS/DHCP": {"weight": 2.5, "variants": ["dns", "dhcp"]},
-    "Group Policy": {"weight": 2.5, "variants": ["group policy", "gpo"]},
-    "VMware": {"weight": 3.5, "variants": ["vmware", "esxi", "vcenter"]},
-    "Hyper-V": {"weight": 2.5, "variants": ["hyper-v", "hyper v"]},
-    "Fortinet": {"weight": 3.5, "variants": ["fortigate", "fortinet", "fortianalyzer"]},
-    "Cisco": {"weight": 3.0, "variants": ["cisco", "ccna", "ccnp"]},
-    "Routing/Switching": {"weight": 3.0, "variants": ["routing", "switching", "vlan", "tcp/ip", "lan", "wan"]},
-    "VPN": {"weight": 2.0, "variants": ["vpn", "ipsec", "ssl vpn"]},
-    "Microsoft 365": {"weight": 2.5, "variants": ["microsoft 365", "office 365", "m365"]},
-    "Azure": {"weight": 2.0, "variants": ["azure"]},
-    "Linux": {"weight": 2.5, "variants": ["linux", "ubuntu", "centos", "red hat", "rhel"]},
-    "Veeam": {"weight": 3.0, "variants": ["veeam"]},
-    "Backup/DR": {"weight": 2.0, "variants": ["backup", "disaster recovery", "business continuity"]},
-    "Infrastructure Security": {"weight": 2.5, "variants": ["firewall", "endpoint security", "edr", "ids", "ips", "siem"]},
-    "Google Workspace": {"weight": 1.5, "variants": ["google workspace", "g suite"]},
-    "DigitalOcean": {"weight": 1.0, "variants": ["digitalocean", "digital ocean"]}
-  }
+    "Windows Server": {
+      "weight": 3.5,
+      "variants": [
+        "windows server"
+      ]
+    },
+    "Active Directory": {
+      "weight": 3.5,
+      "variants": [
+        "active directory",
+        "entra id",
+        "azure ad"
+      ]
+    },
+    "DNS/DHCP": {
+      "weight": 2.5,
+      "variants": [
+        "dns",
+        "dhcp"
+      ]
+    },
+    "Group Policy": {
+      "weight": 2.5,
+      "variants": [
+        "group policy",
+        "gpo"
+      ]
+    },
+    "VMware": {
+      "weight": 3.5,
+      "variants": [
+        "vmware",
+        "esxi",
+        "vcenter"
+      ]
+    },
+    "Hyper-V": {
+      "weight": 2.5,
+      "variants": [
+        "hyper-v",
+        "hyper v"
+      ]
+    },
+    "Fortinet": {
+      "weight": 3.5,
+      "variants": [
+        "fortigate",
+        "fortinet",
+        "fortianalyzer"
+      ]
+    },
+    "Cisco": {
+      "weight": 3,
+      "variants": [
+        "cisco",
+        "ccna",
+        "ccnp"
+      ]
+    },
+    "Routing/Switching": {
+      "weight": 3,
+      "variants": [
+        "routing",
+        "switching",
+        "vlan",
+        "tcp/ip",
+        "lan",
+        "wan"
+      ]
+    },
+    "VPN": {
+      "weight": 2,
+      "variants": [
+        "vpn",
+        "ipsec",
+        "ssl vpn"
+      ]
+    },
+    "Microsoft 365": {
+      "weight": 2.5,
+      "variants": [
+        "microsoft 365",
+        "office 365",
+        "m365"
+      ]
+    },
+    "Azure": {
+      "weight": 2,
+      "variants": [
+        "azure"
+      ]
+    },
+    "Linux": {
+      "weight": 2.5,
+      "variants": [
+        "linux",
+        "ubuntu",
+        "centos",
+        "red hat",
+        "rhel"
+      ]
+    },
+    "Veeam": {
+      "weight": 3,
+      "variants": [
+        "veeam"
+      ]
+    },
+    "Backup/DR": {
+      "weight": 2,
+      "variants": [
+        "backup",
+        "disaster recovery",
+        "business continuity"
+      ]
+    },
+    "Infrastructure Security": {
+      "weight": 2.5,
+      "variants": [
+        "firewall",
+        "endpoint security",
+        "edr",
+        "ids",
+        "ips",
+        "siem"
+      ]
+    },
+    "Google Workspace": {
+      "weight": 1.5,
+      "variants": [
+        "google workspace",
+        "g suite"
+      ]
+    },
+    "DigitalOcean": {
+      "weight": 1,
+      "variants": [
+        "digitalocean",
+        "digital ocean"
+      ]
+    }
+  },
+  "remote_max_detail_fetches_per_lane": 50
 }
