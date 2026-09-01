@@ -6,6 +6,15 @@ on:
   schedule:
     - cron: '37 * * * *'
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'radar_v5.py'
+      - 'radar_multilane.py'
+      - 'queries.json'
+      - 'patch_upstream.py'
+      - 'test_radar.py'
+      - '.github/workflows/radar.yml'
   push:
     branches: [main]
     paths:
@@ -37,6 +46,7 @@ jobs:
           fetch-depth: 0
 
       - name: Refresh radar checkout to latest main
+        if: github.event_name != 'pull_request'
         working-directory: radar
         run: |
           set -euo pipefail
@@ -80,6 +90,7 @@ jobs:
           python3 radar_multilane.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
 
       - name: Persist state, durable queue, and latest results
+        if: github.event_name != 'pull_request'
         working-directory: radar
         run: |
           set -euo pipefail
@@ -95,6 +106,7 @@ jobs:
           fi
 
       - name: Publish completed-run event to the radar PR
+        if: github.event_name != 'pull_request'
         working-directory: radar
         run: |
           set -euo pipefail
