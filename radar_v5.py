@@ -148,6 +148,15 @@ def has_it_evidence(scoring):
     return bool(scoring["role_hits_title"] or scoring["role_hits_description"] or scoring["skill_hits"])
 
 
+def detail_application_status(detail):
+    """Preserve explicit legacy status while using upstream's scoped closed banner."""
+    if detail.get("applicationStatus"):
+        return detail["applicationStatus"]
+    if detail.get("isActive") is False:
+        return "closed_explicit"
+    return "unknown"
+
+
 def validate_config(config):
     errors = []
     for key in ("location", "window_minutes", "queries", "role_signals", "skills"):
@@ -360,7 +369,7 @@ def main():
         freshness = freshness_info(card, config["window_minutes"], config.get("freshness_tolerance_minutes", 15))
         title_noise = advisory_title_signals(title, config)
         it_evidence = has_it_evidence(scoring)
-        application_status = detail.get("applicationStatus") or "unknown"
+        application_status = detail_application_status(detail)
 
         if application_status == "closed_explicit":
             closed_candidates += 1
@@ -504,3 +513,4 @@ if __name__ == "__main__":
     except Exception as exc:
         print(f"radar failed: {exc}", file=sys.stderr)
         raise
+

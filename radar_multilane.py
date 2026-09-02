@@ -184,36 +184,29 @@ def is_egypt_candidate(candidate):
 
 
 def delivery_bucket(candidate, config):
-    """Return a conservative GPT-review bucket or a mechanical exclusion reason."""
-    if candidate.get("application_status") == "closed_explicit":
-        return None, "closed_explicit"
+    """Return a GPT-review bucket; only evidence-free search noise is excluded."""
     if not candidate.get("advisory_it_evidence"):
         return None, "no_it_evidence"
 
     remote = remote_eligibility_annotation(candidate)
-    if remote["status"] == "explicit_location_or_work_authorization_restriction":
-        return None, "explicit_eligibility_restriction"
     if is_egypt_candidate(candidate):
         return "local", "egypt_or_egypt_remote"
-    if remote["status"] == "explicit_egypt_emea_or_global_signal":
-        if candidate_score(candidate) < float(config.get("delivery_remote_min_score", 8)):
-            return None, "remote_below_score_floor"
-        return "remote", "explicit_egypt_emea_or_global_remote"
-    if candidate_score(candidate) < float(config.get("delivery_relocation_min_score", 18)):
-        return None, "relocation_below_score_floor"
+    lane = str(candidate.get("discovery_lane") or "").casefold()
+    discovered_as_remote = candidate.get("discovery_remote_filter") == "remote" or lane.startswith("remote_")
+    if discovered_as_remote or remote["status"] != "requires_full_review":
+        if remote["status"] == "explicit_location_or_work_authorization_restriction":
+            return "remote", "remote_with_explicit_restriction_for_gpt_review"
+        if remote["status"] == "explicit_egypt_emea_or_global_signal":
+            return "remote", "explicit_egypt_emea_or_global_remote"
+        return "remote", "remote_discovery_requires_full_review"
     return "relocation", "strong_foreign_fit_sponsorship_unknown"
 
 
 def build_delivery_shortlist(candidates, config):
-    """Reduce a lossless run to a bounded GPT queue while preserving odd IT titles."""
-    caps = {
-        "local": int(config.get("delivery_local_cap", 15)),
-        "remote": int(config.get("delivery_remote_cap", 10)),
-        "relocation": int(config.get("delivery_relocation_cap", 5)),
-    }
-    maximum = int(config.get("delivery_max_candidates_per_run", sum(caps.values())))
-    buckets = {name: [] for name in caps}
+    """Deliver every plausible IT result; closed/restricted jobs stay annotated."""
+    buckets = {name: [] for name in ("local", "remote", "relocation")}
     filtered = {}
+    annotations = {"closed_explicit": 0, "explicit_eligibility_restriction": 0}
     for candidate in candidates:
         bucket, reason = delivery_bucket(candidate, config)
         if bucket is None:
@@ -223,28 +216,30 @@ def build_delivery_shortlist(candidates, config):
         item["delivery_tier"] = bucket
         item["delivery_reason"] = reason
         buckets[bucket].append(item)
+        if candidate.get("application_status") == "closed_explicit":
+            annotations["closed_explicit"] += 1
+        remote = remote_eligibility_annotation(candidate)
+        if remote["status"] == "explicit_location_or_work_authorization_restriction":
+            annotations["explicit_eligibility_restriction"] += 1
 
     key = lambda item: (
         candidate_score(item), len(item.get("skill_hits") or []),
         len(item.get("role_hits_title") or []), item.get("title") or "",
     )
     selected = []
-    capped = {}
     for name in ("local", "remote", "relocation"):
         ranked = sorted(buckets[name], key=key, reverse=True)
-        take = min(caps[name], max(0, maximum - len(selected)))
-        selected.extend(ranked[:take])
-        if len(ranked) > take:
-            capped[f"{name}_cap"] = len(ranked) - take
+        selected.extend(ranked)
 
     audit = {
         "input_candidates": len(candidates),
         "delivery_candidates": len(selected),
         "mechanically_filtered": sum(filtered.values()),
         "filtered_reasons": filtered,
+        "annotation_counts": annotations,
         "eligible_before_caps": {name: len(items) for name, items in buckets.items()},
-        "capped_reasons": capped,
-        "caps": dict(caps, maximum=maximum),
+        "capped_reasons": {},
+        "caps": {"enabled": False, "maximum": None},
     }
     return selected, audit
 
@@ -423,14 +418,14 @@ def merge_payloads(base, definitions, raw_payloads, orchestrator_started):
         "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
         "search_lanes": definitions,
         "window_minutes": int(base.get("window_minutes", 180)),
-        "design": "broad multi-region discovery -> exact detail fetch -> deterministic evidence filter -> bounded GPT review queue",
+        "design": "broad multi-region discovery -> exact detail fetch -> evidence-only noise filter -> uncapped GPT review queue",
         "policy": {
             "relevance_rejections": delivery_audit["mechanically_filtered"],
             "closed_application_rejections": delivery_audit["filtered_reasons"].get("closed_explicit", 0),
             "freshness_conflict_rejections": 0,
             "weak_keyword_rejections": 0,
             "title_noise_rejections": 0,
-            "principle": "Code removes only explicit blocks and evidence-poor noise, preserves every exact record, and sends a capped local/remote/relocation shortlist to ChatGPT",
+            "principle": "Code removes only evidence-free search noise; closed, restricted, local, remote, and relocation IT candidates all reach ChatGPT with annotations",
         },
         "delivery_audit": delivery_audit,
         "stats": stats,

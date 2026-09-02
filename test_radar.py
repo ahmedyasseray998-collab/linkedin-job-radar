@@ -52,8 +52,12 @@ class RadarTests(unittest.TestCase):
         self.assertEqual(radar.advisory_title_signals('Network Security Engineer', config), [])
 
     def test_closed_status_is_representable(self):
-        detail = {'applicationStatus': 'closed_explicit'}
-        self.assertEqual(detail['applicationStatus'], 'closed_explicit')
+        self.assertEqual(radar.detail_application_status({'isActive': False}), 'closed_explicit')
+        self.assertEqual(radar.detail_application_status({'isActive': True}), 'unknown')
+        self.assertEqual(
+            radar.detail_application_status({'applicationStatus': 'closed_explicit', 'isActive': True}),
+            'closed_explicit',
+        )
 
     def test_remote_config_keeps_broad_queries(self):
         base = {
@@ -263,15 +267,8 @@ class RadarTests(unittest.TestCase):
         annotation = multilane.remote_eligibility_annotation(candidate)
         self.assertEqual(annotation['status'], 'explicit_location_or_work_authorization_restriction')
 
-    def test_delivery_shortlist_filters_noise_and_preserves_weird_local_it_title(self):
-        config = {
-            'delivery_max_candidates_per_run': 3,
-            'delivery_local_cap': 1,
-            'delivery_remote_cap': 1,
-            'delivery_relocation_cap': 1,
-            'delivery_remote_min_score': 8,
-            'delivery_relocation_min_score': 18,
-        }
+    def test_delivery_is_uncapped_and_preserves_closed_restricted_and_odd_it_titles(self):
+        config = {'delivery_mode': 'all_plausible_it_candidates'}
         candidates = [
             {
                 'linkedin_job_id': 'local', 'title': 'Technology Happiness Officer',
@@ -298,15 +295,27 @@ class RadarTests(unittest.TestCase):
                 'description': 'Global team; applicants must be authorized to work in the US.',
             },
             {
+                'linkedin_job_id': 'closed', 'title': 'Infrastructure Engineer',
+                'location': 'Cairo, Egypt', 'discovery_lane': 'egypt', 'score': 30,
+                'advisory_it_evidence': True, 'application_status': 'closed_explicit',
+                'description': 'Maintain Windows Server and VMware infrastructure.',
+            },
+            {
                 'linkedin_job_id': 'noise', 'title': 'Sales Coordinator',
                 'location': 'Cairo, Egypt', 'discovery_lane': 'egypt', 'score': 3,
                 'advisory_it_evidence': False, 'description': 'Coordinate sales orders.',
             },
         ]
         shortlist, audit = multilane.build_delivery_shortlist(candidates, config)
-        self.assertEqual({item['linkedin_job_id'] for item in shortlist}, {'local', 'remote', 'relocation'})
-        self.assertEqual(audit['filtered_reasons']['explicit_eligibility_restriction'], 1)
+        self.assertEqual(
+            {item['linkedin_job_id'] for item in shortlist},
+            {'local', 'remote', 'relocation', 'blocked', 'closed'},
+        )
         self.assertEqual(audit['filtered_reasons']['no_it_evidence'], 1)
+        self.assertEqual(audit['annotation_counts']['explicit_eligibility_restriction'], 1)
+        self.assertEqual(audit['annotation_counts']['closed_explicit'], 1)
+        self.assertFalse(audit['caps']['enabled'])
+        self.assertEqual(audit['capped_reasons'], {})
 
     def test_archive_keeps_lossless_candidates_but_delivers_only_shortlist(self):
         all_candidates = [
@@ -339,8 +348,7 @@ class RadarTests(unittest.TestCase):
 
     def test_existing_large_delivery_is_rebuilt_under_new_policy(self):
         config = {
-            'config_version': 11, 'delivery_max_candidates_per_run': 2,
-            'delivery_local_cap': 2, 'delivery_remote_cap': 0, 'delivery_relocation_cap': 0,
+            'config_version': 12, 'delivery_mode': 'all_plausible_it_candidates',
         }
         candidates = [
             {
@@ -391,7 +399,7 @@ class RadarTests(unittest.TestCase):
             rebuilt = json.loads((delivery / Path(old['delivery_parts'][0]['path']).name).read_text(encoding='utf-8'))
             self.assertEqual(old['audited_candidate_count'], 2)
             self.assertEqual(old['candidate_count'], 1)
-            self.assertEqual(old['delivery_policy_version'], 11)
+            self.assertEqual(old['delivery_policy_version'], 12)
             self.assertEqual([item['linkedin_job_id'] for item in rebuilt['review_candidates']], ['it'])
 
     def test_large_compact_batch_preserves_every_id_and_reduces_payload(self):
