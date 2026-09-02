@@ -94,6 +94,8 @@ def build(payload):
     generated = clean(payload.get("generated_at_utc") or "unknown time")
     warnings = [clean(item) for item in payload.get("warnings") or []]
     parts = [
+        f"<!-- radar-run:{run_id} -->",
+        "",
         f"## Radar finished: {len(candidates)} new Job IDs",
         "",
         f"Run `{run_id}` completed at **{generated}**. This is the immediate broad alert; GPT will still provide the detailed hourly fit report in ChatGPT.",
