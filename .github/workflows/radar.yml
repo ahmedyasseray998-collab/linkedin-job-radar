@@ -99,7 +99,13 @@ jobs:
           alert_file="$(mktemp)"
           python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --output "$alert_file"
           if [ -s "$alert_file" ]; then
-            gh issue comment "$RADAR_ALERT_ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$alert_file"
+            run_id="$(python3 -c 'import json; print(json.load(open("output/latest.json", encoding="utf-8"))["run_id"])')"
+            existing="$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/$RADAR_ALERT_ISSUE/comments" --jq '.[].body' | grep -F "<!-- radar-run:$run_id -->" | head -n 1 || true)"
+            if [ -z "$existing" ]; then
+              gh issue comment "$RADAR_ALERT_ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$alert_file"
+            else
+              echo "Run $run_id was already alerted."
+            fi
           fi
           python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --mark-alerted
 
@@ -121,7 +127,13 @@ jobs:
           alert_file="$(mktemp)"
           python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --output "$alert_file"
           if [ -s "$alert_file" ]; then
-            gh issue comment "$RADAR_ALERT_ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$alert_file"
+            run_id="$(python3 -c 'import json; print(json.load(open("output/latest.json", encoding="utf-8"))["run_id"])')"
+            existing="$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/$RADAR_ALERT_ISSUE/comments" --jq '.[].body' | grep -F "<!-- radar-run:$run_id -->" | head -n 1 || true)"
+            if [ -z "$existing" ]; then
+              gh issue comment "$RADAR_ALERT_ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$alert_file"
+            else
+              echo "Run $run_id was already alerted."
+            fi
           fi
           python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --mark-alerted
 
