@@ -255,6 +255,88 @@ class RadarTests(unittest.TestCase):
         self.assertEqual(compact['full_record_part'], 'output/runs/source.json')
         self.assertEqual(compact['remote_eligibility']['status'], 'explicit_egypt_emea_or_global_signal')
 
+    def test_remote_restriction_wins_over_global_signal(self):
+        candidate = {
+            'location': 'Worldwide',
+            'description': 'Global remote role. Applicants must reside in the United States.',
+        }
+        annotation = multilane.remote_eligibility_annotation(candidate)
+        self.assertEqual(annotation['status'], 'explicit_location_or_work_authorization_restriction')
+
+    def test_delivery_shortlist_filters_noise_and_preserves_weird_local_it_title(self):
+        config = {
+            'delivery_max_candidates_per_run': 3,
+            'delivery_local_cap': 1,
+            'delivery_remote_cap': 1,
+            'delivery_relocation_cap': 1,
+            'delivery_remote_min_score': 8,
+            'delivery_relocation_min_score': 18,
+        }
+        candidates = [
+            {
+                'linkedin_job_id': 'local', 'title': 'Technology Happiness Officer',
+                'location': 'Cairo, Egypt', 'discovery_lane': 'egypt', 'score': 9,
+                'advisory_it_evidence': True, 'description': 'Own Active Directory and VMware.',
+                'skill_hits': [{'label': 'Active Directory'}], 'role_hits_title': [],
+            },
+            {
+                'linkedin_job_id': 'remote', 'title': 'Systems Administrator',
+                'location': 'Worldwide', 'discovery_lane': 'remote_worldwide', 'score': 20,
+                'advisory_it_evidence': True, 'description': 'Work from anywhere in the world.',
+                'skill_hits': [], 'role_hits_title': [{'label': 'Systems Administration'}],
+            },
+            {
+                'linkedin_job_id': 'relocation', 'title': 'Network Engineer',
+                'location': 'Berlin, Germany', 'discovery_lane': 'remote_worldwide', 'score': 25,
+                'advisory_it_evidence': True, 'description': 'Build enterprise networks.',
+                'skill_hits': [], 'role_hits_title': [{'label': 'Network Engineering'}],
+            },
+            {
+                'linkedin_job_id': 'blocked', 'title': 'Senior Systems Engineer',
+                'location': 'Worldwide', 'discovery_lane': 'remote_worldwide', 'score': 50,
+                'advisory_it_evidence': True,
+                'description': 'Global team; applicants must be authorized to work in the US.',
+            },
+            {
+                'linkedin_job_id': 'noise', 'title': 'Sales Coordinator',
+                'location': 'Cairo, Egypt', 'discovery_lane': 'egypt', 'score': 3,
+                'advisory_it_evidence': False, 'description': 'Coordinate sales orders.',
+            },
+        ]
+        shortlist, audit = multilane.build_delivery_shortlist(candidates, config)
+        self.assertEqual({item['linkedin_job_id'] for item in shortlist}, {'local', 'remote', 'relocation'})
+        self.assertEqual(audit['filtered_reasons']['explicit_eligibility_restriction'], 1)
+        self.assertEqual(audit['filtered_reasons']['no_it_evidence'], 1)
+
+    def test_archive_keeps_lossless_candidates_but_delivers_only_shortlist(self):
+        all_candidates = [
+            {'linkedin_job_id': str(index), 'title': f'Role {index}', 'description': 'Manage infrastructure.'}
+            for index in range(3)
+        ]
+        payload = {
+            'run_id': '20260901T090000Z', 'generated_at_utc': '2026-09-01T09:03:00Z',
+            'health': 'healthy', 'warnings': [], 'review_candidates': all_candidates,
+            'delivery_candidates': [all_candidates[0]],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pending, reported = root / 'pending.json', root / 'reported.json'
+            runs, delivery = root / 'runs', root / 'delivery'
+            reported.write_text(json.dumps({
+                'schema_version': 2, 'reported_runs': {}, 'reported_parts': {},
+            }), encoding='utf-8')
+            index = multilane.archive_run(
+                payload, pending_path=pending, reported_path=reported,
+                runs_dir=runs, delivery_dir=delivery,
+            )
+            entry = index['runs'][0]
+            self.assertEqual(entry['audited_candidate_count'], 3)
+            self.assertEqual(entry['candidate_count'], 1)
+            source = json.loads((runs / Path(entry['parts'][0]).name).read_text(encoding='utf-8'))
+            compact = json.loads((delivery / Path(entry['delivery_parts'][0]['path']).name).read_text(encoding='utf-8'))
+            self.assertEqual(len(source['review_candidates']), 3)
+            self.assertEqual([item['linkedin_job_id'] for item in compact['review_candidates']], ['0'])
+
     def test_large_compact_batch_preserves_every_id_and_reduces_payload(self):
         candidates = [{
             'linkedin_job_id': str(index),
@@ -277,3 +359,4 @@ class RadarTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
