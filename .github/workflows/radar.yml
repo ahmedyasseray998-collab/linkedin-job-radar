@@ -1,6 +1,6 @@
 name: LinkedIn Job Radar
 
-# Broad live discovery with newest-batch retention and GPT review handoff.
+# Broad live discovery with durable unreviewed-batch retention and GPT review handoff.
 # GPT must validate every candidate count before acknowledging a batch.
 on:
   schedule:
@@ -36,7 +36,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Checkout radar
@@ -105,4 +105,3 @@ jobs:
             git pull --rebase origin main
             git push origin main
           fi
-

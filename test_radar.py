@@ -57,7 +57,7 @@ class RadarTests(unittest.TestCase):
 
     def test_remote_config_keeps_broad_queries(self):
         base = {
-            'remote_pages_per_query': 1,
+            'remote_pages_per_query': 2,
             'max_detail_fetches': 500,
             'priority_retry_queries': ['IT'],
             'queries': [
@@ -67,10 +67,24 @@ class RadarTests(unittest.TestCase):
         }
         remote = multilane.prepare_remote_config(base, 'Worldwide')
         self.assertEqual([item['query'] for item in remote['queries']], ['IT', 'Unexpected HR Title'])
-        self.assertEqual([item['pages'] for item in remote['queries']], [1, 1])
+        self.assertEqual([item['pages'] for item in remote['queries']], [2, 2])
         self.assertEqual(remote['max_detail_fetches'], 500)
         self.assertTrue(remote['queries'][0]['retry_if_empty'])
         self.assertFalse(remote['queries'][1]['retry_if_empty'])
+
+    def test_lane_definitions_include_worldwide_emea_mena_and_egypt(self):
+        definitions = multilane.lane_definitions({
+            'remote_locations': ['Worldwide', 'EMEA', 'MENA', 'Middle East', 'Egypt'],
+            'remote_pages_per_query': 2,
+            'location': 'Egypt',
+        })
+        self.assertEqual(
+            [item['name'] for item in definitions],
+            ['remote_worldwide', 'remote_emea', 'remote_mena', 'remote_middle_east', 'remote_egypt', 'egypt'],
+        )
+        self.assertTrue(all(item['remote_filter'] == 'remote' for item in definitions[:-1]))
+        self.assertTrue(all(item['pages_per_query'] == 2 for item in definitions[:-1]))
+        self.assertIsNone(definitions[-1]['remote_filter'])
 
     def test_lane_health_detects_repeated_silent_empty(self):
         definitions = [{'name': 'remote_worldwide', 'location': 'Worldwide', 'remote_filter': 'remote'}]

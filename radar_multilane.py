@@ -335,7 +335,7 @@ def merge_payloads(base, definitions, raw_payloads, orchestrator_started):
         "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
         "search_lanes": definitions,
         "window_minutes": int(base.get("window_minutes", 180)),
-        "design": "broad multi-region discovery -> exact detail fetch -> immediate GitHub alert -> newest-run GPT review",
+        "design": "broad multi-region discovery -> exact detail fetch -> durable audited GPT review queue",
         "policy": {
             "relevance_rejections": 0,
             "closed_application_rejections": 0,
@@ -414,7 +414,7 @@ def migrate_delivery_parts(entry, runs_dir, delivery_dir, excerpt_chars):
 
 def archive_run(payload, retention_hours=168, chunk_size=25, pending_path=PENDING_RUNS,
                 reported_path=REPORTED_RUNS, runs_dir=RUNS_DIR, delivery_dir=DELIVERY_DIR,
-                excerpt_chars=900, backlog_warning_candidates=250, latest_only=False):
+                excerpt_chars=900, backlog_warning_candidates=250):
     now = parse_utc(payload["generated_at_utc"]) or datetime.now(timezone.utc)
     reported_state = read_json(
         reported_path,
@@ -465,20 +465,6 @@ def archive_run(payload, retention_hours=168, chunk_size=25, pending_path=PENDIN
             entry["parts"] = unreported_sources
             entry["candidate_count"] = sum(int(part.get("candidate_count", 0)) for part in unreported)
             kept.append(entry)
-
-    if latest_only:
-        # Immediate GitHub delivery replaces the old multi-hour GPT backlog.
-        # Keep only the newest run's compact and lossless files for the next GPT review.
-        for entry in kept:
-            for reference in entry.get("parts", []):
-                path = queue_path(reference, runs_dir)
-                if path.is_file():
-                    path.unlink()
-            for part in entry.get("delivery_parts", []):
-                path = queue_path(part.get("path", ""), delivery_dir)
-                if path.is_file():
-                    path.unlink()
-        kept = []
 
     run_id = payload["run_id"]
     candidates = payload.get("review_candidates", [])
@@ -567,7 +553,6 @@ def main():
         chunk_size=int(base.get("run_archive_chunk_size", 25)),
         excerpt_chars=int(base.get("delivery_excerpt_chars", 900)),
         backlog_warning_candidates=int(base.get("delivery_backlog_warning_candidates", 250)),
-        latest_only=True,
     )
     merged["delivery_queue"] = dict(pending["backlog"], **{
         "index": "output/pending_runs.json",
@@ -581,7 +566,7 @@ def main():
         "candidate_count": candidate_count,
         "compact_delivery_index": "output/pending_runs.json",
         "lossless_records": "output/runs",
-        "note": "Only the newest run is retained for GPT review; all Job IDs are alerted immediately through GitHub.",
+        "note": "Every unacknowledged run is retained until GPT records a successful audited review.",
     }
     merged["review_candidates"] = []
     merged["new_matches"] = []
