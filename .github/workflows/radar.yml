@@ -14,6 +14,7 @@ on:
       - 'queries.json'
       - 'patch_upstream.py'
       - 'test_radar.py'
+      - 'github_urgent_alert.py'
       - '.github/workflows/radar.yml'
   push:
     branches: [main]
@@ -24,10 +25,12 @@ on:
       - 'queries.json'
       - 'patch_upstream.py'
       - 'test_radar.py'
+      - 'github_urgent_alert.py'
       - '.github/workflows/radar.yml'
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: linkedin-job-radar
@@ -82,6 +85,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 -m unittest -v test_radar.py
+          python3 -m py_compile github_urgent_alert.py
 
       - name: Run live LinkedIn scan
         if: github.event_name != 'pull_request'
@@ -106,6 +110,23 @@ jobs:
             git push origin main
           fi
 
+
+      - name: Publish immediate broad GitHub alert
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        working-directory: radar
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RADAR_ALERT_ISSUE: "5"
+        run: |
+          set -euo pipefail
+          alert_file="$(mktemp)"
+          python3 github_urgent_alert.py --input output/latest.json --output "$alert_file"
+          if [ ! -s "$alert_file" ]; then
+            echo "No new candidates; no immediate alert needed."
+            exit 0
+          fi
+          gh issue comment "$RADAR_ALERT_ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$alert_file"
 
       - name: Signal completed scan
         if: github.event_name != 'pull_request'
