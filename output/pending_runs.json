@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at_utc": "2026-09-02T21:03:50Z",
+  "updated_at_utc": "2026-09-02T21:59:00Z",
   "retention_hours": 168,
   "runs": [
     {
@@ -221,13 +221,89 @@
           "compact_chars": 26800
         }
       ]
+    },
+    {
+      "run_id": "20260902T214444Z",
+      "generated_at_utc": "2026-09-02T21:59:00Z",
+      "health": "healthy_with_retries",
+      "warnings": [
+        "LinkedIn guest search needed recovery retries for 1 query bucket(s)",
+        "LinkedIn guest search needed recovery retries for 2 query bucket(s)"
+      ],
+      "candidate_count": 120,
+      "audited_candidate_count": 151,
+      "mechanically_filtered_candidate_count": 31,
+      "delivery_audit": {
+        "input_candidates": 151,
+        "delivery_candidates": 120,
+        "mechanically_filtered": 31,
+        "filtered_reasons": {
+          "no_it_evidence": 31
+        },
+        "annotation_counts": {
+          "closed_explicit": 0,
+          "explicit_eligibility_restriction": 15
+        },
+        "eligible_before_caps": {
+          "local": 2,
+          "remote": 118,
+          "relocation": 0
+        },
+        "capped_reasons": {},
+        "caps": {
+          "enabled": false,
+          "maximum": null
+        }
+      },
+      "delivery_policy_version": 12,
+      "parts": [
+        "output/runs/20260902T214444Z-audit-001.json",
+        "output/runs/20260902T214444Z-audit-002.json",
+        "output/runs/20260902T214444Z-audit-003.json",
+        "output/runs/20260902T214444Z-audit-004.json",
+        "output/runs/20260902T214444Z-audit-005.json",
+        "output/runs/20260902T214444Z-audit-006.json",
+        "output/runs/20260902T214444Z-audit-007.json"
+      ],
+      "delivery_parts": [
+        {
+          "part_id": "20260902T214444Z-part-001",
+          "path": "output/delivery/20260902T214444Z-part-001.json",
+          "candidate_count": 25,
+          "compact_chars": 44543
+        },
+        {
+          "part_id": "20260902T214444Z-part-002",
+          "path": "output/delivery/20260902T214444Z-part-002.json",
+          "candidate_count": 25,
+          "compact_chars": 43835
+        },
+        {
+          "part_id": "20260902T214444Z-part-003",
+          "path": "output/delivery/20260902T214444Z-part-003.json",
+          "candidate_count": 25,
+          "compact_chars": 42766
+        },
+        {
+          "part_id": "20260902T214444Z-part-004",
+          "path": "output/delivery/20260902T214444Z-part-004.json",
+          "candidate_count": 25,
+          "compact_chars": 41947
+        },
+        {
+          "part_id": "20260902T214444Z-part-005",
+          "path": "output/delivery/20260902T214444Z-part-005.json",
+          "candidate_count": 20,
+          "compact_chars": 33427
+        }
+      ]
     }
   ],
   "backlog": {
-    "pending_run_count": 3,
-    "pending_part_count": 14,
-    "pending_candidate_count": 337,
-    "oldest_candidate_age_minutes": 92,
-    "warning": false
+    "pending_run_count": 4,
+    "pending_part_count": 19,
+    "pending_candidate_count": 457,
+    "oldest_candidate_age_minutes": 147,
+    "warning": true
   }
 }
