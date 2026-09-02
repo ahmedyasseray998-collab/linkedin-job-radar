@@ -136,14 +136,43 @@ def load_latest_delivery(latest_path, pending_path):
     return dict(latest, review_candidates=candidates)
 
 
+def read_alerted(path):
+    try:
+        return json.loads(Path(path).read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {"schema_version": 1, "alerted_runs": {}}
+
+
+def mark_alerted(path, payload):
+    state = read_alerted(path)
+    runs = state.setdefault("alerted_runs", {})
+    run_id = str(payload.get("run_id") or "")
+    if run_id:
+        runs[run_id] = payload.get("generated_at_utc")
+    state["schema_version"] = 1
+    state["updated_at_utc"] = payload.get("generated_at_utc")
+    state["alerted_runs"] = dict(list(runs.items())[-500:])
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    Path(path).write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--latest", default="output/latest.json")
     parser.add_argument("--pending", default="output/pending_runs.json")
-    parser.add_argument("--output", required=True)
+    parser.add_argument("--state", default="state/alerted_runs.json")
+    parser.add_argument("--mark-alerted", action="store_true")
+    parser.add_argument("--output")
     args = parser.parse_args()
     payload = load_latest_delivery(args.latest, args.pending)
-    Path(args.output).write_text(build(payload), encoding="utf-8")
+    if args.mark_alerted:
+        mark_alerted(args.state, payload)
+        return
+    if not args.output:
+        parser.error("--output is required unless --mark-alerted is used")
+    alerted = read_alerted(args.state).get("alerted_runs", {})
+    body = "" if str(payload.get("run_id") or "") in alerted else build(payload)
+    Path(args.output).write_text(body, encoding="utf-8")
 
 
 if __name__ == "__main__":
