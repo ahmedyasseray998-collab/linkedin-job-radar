@@ -151,17 +151,102 @@ def remote_eligibility_annotation(candidate):
     restriction_patterns = [
         "must reside in", "must be located in", "must be based in",
         "authorized to work in", "authorised to work in", "us citizenship required",
-        "u.s. citizenship required", "security clearance required", "no visa sponsorship",
+        "u.s. citizenship required", "citizenship is required", "security clearance required",
+        "active security clearance", "no visa sponsorship", "does not offer sponsorship",
+        "do not offer sponsorship", "cannot sponsor", "without sponsorship",
+        "right to work in", "must be eligible to work in", "remote within the united states",
+        "remote in the united states", "us-only", "u.s.-only",
     ]
     eligible = [pattern for pattern in eligible_patterns if pattern in text]
     restrictions = [pattern for pattern in restriction_patterns if pattern in text]
-    if eligible:
-        status = "explicit_egypt_emea_or_global_signal"
-    elif restrictions:
+    if restrictions:
         status = "explicit_location_or_work_authorization_restriction"
+    elif eligible:
+        status = "explicit_egypt_emea_or_global_signal"
     else:
         status = "requires_full_review"
     return {"status": status, "eligible_signals": eligible, "restriction_signals": restrictions}
+
+
+def candidate_score(candidate):
+    try:
+        return float(candidate.get("score") or 0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def is_egypt_candidate(candidate):
+    lane = str(candidate.get("discovery_lane") or "").casefold()
+    location = str(candidate.get("location") or "").casefold()
+    return lane in {"egypt", "remote_egypt"} or any(
+        marker in location for marker in ("egypt", "cairo", "giza", "alexandria")
+    )
+
+
+def delivery_bucket(candidate, config):
+    """Return a conservative GPT-review bucket or a mechanical exclusion reason."""
+    if candidate.get("application_status") == "closed_explicit":
+        return None, "closed_explicit"
+    if not candidate.get("advisory_it_evidence"):
+        return None, "no_it_evidence"
+
+    remote = remote_eligibility_annotation(candidate)
+    if remote["status"] == "explicit_location_or_work_authorization_restriction":
+        return None, "explicit_eligibility_restriction"
+    if is_egypt_candidate(candidate):
+        return "local", "egypt_or_egypt_remote"
+    if remote["status"] == "explicit_egypt_emea_or_global_signal":
+        if candidate_score(candidate) < float(config.get("delivery_remote_min_score", 8)):
+            return None, "remote_below_score_floor"
+        return "remote", "explicit_egypt_emea_or_global_remote"
+    if candidate_score(candidate) < float(config.get("delivery_relocation_min_score", 18)):
+        return None, "relocation_below_score_floor"
+    return "relocation", "strong_foreign_fit_sponsorship_unknown"
+
+
+def build_delivery_shortlist(candidates, config):
+    """Reduce a lossless run to a bounded GPT queue while preserving odd IT titles."""
+    caps = {
+        "local": int(config.get("delivery_local_cap", 15)),
+        "remote": int(config.get("delivery_remote_cap", 10)),
+        "relocation": int(config.get("delivery_relocation_cap", 5)),
+    }
+    maximum = int(config.get("delivery_max_candidates_per_run", sum(caps.values())))
+    buckets = {name: [] for name in caps}
+    filtered = {}
+    for candidate in candidates:
+        bucket, reason = delivery_bucket(candidate, config)
+        if bucket is None:
+            filtered[reason] = filtered.get(reason, 0) + 1
+            continue
+        item = copy.deepcopy(candidate)
+        item["delivery_tier"] = bucket
+        item["delivery_reason"] = reason
+        buckets[bucket].append(item)
+
+    key = lambda item: (
+        candidate_score(item), len(item.get("skill_hits") or []),
+        len(item.get("role_hits_title") or []), item.get("title") or "",
+    )
+    selected = []
+    capped = {}
+    for name in ("local", "remote", "relocation"):
+        ranked = sorted(buckets[name], key=key, reverse=True)
+        take = min(caps[name], max(0, maximum - len(selected)))
+        selected.extend(ranked[:take])
+        if len(ranked) > take:
+            capped[f"{name}_cap"] = len(ranked) - take
+
+    audit = {
+        "input_candidates": len(candidates),
+        "delivery_candidates": len(selected),
+        "mechanically_filtered": sum(filtered.values()),
+        "filtered_reasons": filtered,
+        "eligible_before_caps": {name: len(items) for name, items in buckets.items()},
+        "capped_reasons": capped,
+        "caps": dict(caps, maximum=maximum),
+    }
+    return selected, audit
 
 
 def compact_description(value, max_chars=900):
@@ -290,6 +375,7 @@ def merge_payloads(base, definitions, raw_payloads, orchestrator_started):
         float(item.get("score") or 0), len(item.get("skill_hits") or []),
         len(item.get("role_hits_title") or []), item.get("title") or "",
     ), reverse=True)
+    delivery_candidates, delivery_audit = build_delivery_shortlist(candidates, base)
 
     query_stats, errors, warnings = [], [], []
     for payload in payloads:
@@ -316,6 +402,8 @@ def merge_payloads(base, definitions, raw_payloads, orchestrator_started):
         "query_count": len(base.get("queries", [])),
         "search_bucket_count": len(query_stats),
         "review_candidates": len(candidates),
+        "delivery_candidates": len(delivery_candidates),
+        "mechanically_filtered_candidates": delivery_audit["mechanically_filtered"],
         "relevance_rejections": 0,
         "lane_stats": {definition["name"]: payload.get("stats", {}) for definition, payload in zip(definitions, payloads)},
     })
@@ -335,19 +423,21 @@ def merge_payloads(base, definitions, raw_payloads, orchestrator_started):
         "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
         "search_lanes": definitions,
         "window_minutes": int(base.get("window_minutes", 180)),
-        "design": "broad multi-region discovery -> exact detail fetch -> durable audited GPT review queue",
+        "design": "broad multi-region discovery -> exact detail fetch -> deterministic evidence filter -> bounded GPT review queue",
         "policy": {
-            "relevance_rejections": 0,
-            "closed_application_rejections": 0,
+            "relevance_rejections": delivery_audit["mechanically_filtered"],
+            "closed_application_rejections": delivery_audit["filtered_reasons"].get("closed_explicit", 0),
             "freshness_conflict_rejections": 0,
             "weak_keyword_rejections": 0,
             "title_noise_rejections": 0,
-            "principle": "HR titles and metadata are advisory only; ChatGPT reviews every exact-detail-fetched candidate",
+            "principle": "Code removes only explicit blocks and evidence-poor noise, preserves every exact record, and sends a capped local/remote/relocation shortlist to ChatGPT",
         },
+        "delivery_audit": delivery_audit,
         "stats": stats,
         "query_stats": query_stats,
         "errors": errors[:100],
         "review_candidates": candidates,
+        "delivery_candidates": delivery_candidates,
         "new_matches": candidates,
     }
 
@@ -445,53 +535,73 @@ def archive_run(payload, retention_hours=168, chunk_size=25, pending_path=PENDIN
             )
 
         unreported = []
-        unreported_sources = []
         for part in entry.get("delivery_parts", []):
             if part.get("part_id") in reported_parts:
-                for reference, directory in (
-                    (part.get("path", ""), delivery_dir),
-                    (part.get("source_part", ""), runs_dir),
-                ):
-                    path = queue_path(reference, directory)
-                    if path.is_file():
-                        path.unlink()
+                path = queue_path(part.get("path", ""), delivery_dir)
+                if path.is_file():
+                    path.unlink()
                 continue
             unreported.append(part)
-            if part.get("source_part"):
-                unreported_sources.append(part["source_part"])
 
         if unreported:
             entry["delivery_parts"] = unreported
-            entry["parts"] = unreported_sources
             entry["candidate_count"] = sum(int(part.get("candidate_count", 0)) for part in unreported)
             kept.append(entry)
+        else:
+            for reference in entry.get("parts", []):
+                path = queue_path(reference, runs_dir)
+                if path.is_file():
+                    path.unlink()
 
     run_id = payload["run_id"]
-    candidates = payload.get("review_candidates", [])
-    chunks = [candidates[index:index + chunk_size] for index in range(0, len(candidates), chunk_size)] or [[]]
+    audit_candidates = payload.get("review_candidates", [])
+    delivery_candidates = payload.get("delivery_candidates", audit_candidates)
+    audit_chunks = [audit_candidates[index:index + chunk_size] for index in range(0, len(audit_candidates), chunk_size)] or [[]]
+    delivery_chunks = [delivery_candidates[index:index + chunk_size] for index in range(0, len(delivery_candidates), chunk_size)] or [[]]
     full_parts, delivery_parts = [], []
+    source_by_job_id = {}
     runs_dir.mkdir(parents=True, exist_ok=True)
     delivery_dir.mkdir(parents=True, exist_ok=True)
-    for index, candidates_part in enumerate(chunks, start=1):
-        part_id = f"{run_id}-part-{index:03d}"
+    for index, candidates_part in enumerate(audit_chunks, start=1):
+        part_id = f"{run_id}-audit-{index:03d}"
         filename = f"{part_id}.json"
         source_reference = queue_reference(runs_dir, filename, RUNS_DIR)
-        delivery_reference = queue_reference(delivery_dir, filename, DELIVERY_DIR)
         source_path = runs_dir / filename
-        delivery_path = delivery_dir / filename
         write_json(source_path, {
             "schema_version": 2, "run_id": run_id, "generated_at_utc": payload["generated_at_utc"],
             "health": payload["health"], "warnings": payload.get("warnings", []),
-            "part": index, "part_count": len(chunks), "review_candidates": candidates_part,
+            "part": index, "part_count": len(audit_chunks), "review_candidates": candidates_part,
         })
-        delivery = delivery_part_from_source(
-            source_path, delivery_path, source_reference, excerpt_chars, part_id=part_id,
-        )
         full_parts.append(source_reference)
+        for candidate in candidates_part:
+            job_id = str(candidate.get("linkedin_job_id") or "")
+            if job_id:
+                source_by_job_id[job_id] = source_reference
+
+    for index, candidates_part in enumerate(delivery_chunks, start=1):
+        part_id = f"{run_id}-part-{index:03d}"
+        filename = f"{part_id}.json"
+        delivery_reference = queue_reference(delivery_dir, filename, DELIVERY_DIR)
+        delivery_path = delivery_dir / filename
+        compact = [
+            compact_candidate(
+                candidate,
+                source_by_job_id.get(str(candidate.get("linkedin_job_id") or ""), full_parts[0]),
+                excerpt_chars,
+            )
+            for candidate in candidates_part
+        ]
+        delivery = {
+            "schema_version": 3, "part_id": part_id, "run_id": run_id,
+            "generated_at_utc": payload["generated_at_utc"], "health": payload["health"],
+            "warnings": payload.get("warnings", []), "part": index,
+            "part_count": len(delivery_chunks), "candidate_count": len(compact),
+            "review_candidates": compact,
+        }
+        write_json(delivery_path, delivery)
         delivery_parts.append({
             "part_id": part_id,
             "path": delivery_reference,
-            "source_part": source_reference,
             "candidate_count": delivery["candidate_count"],
             "compact_chars": len(json.dumps(delivery, ensure_ascii=False)),
         })
@@ -500,7 +610,10 @@ def archive_run(payload, retention_hours=168, chunk_size=25, pending_path=PENDIN
     kept.append({
         "run_id": run_id, "generated_at_utc": payload["generated_at_utc"],
         "health": payload["health"], "warnings": payload.get("warnings", []),
-        "candidate_count": len(candidates), "parts": full_parts,
+        "candidate_count": len(delivery_candidates),
+        "audited_candidate_count": len(audit_candidates),
+        "mechanically_filtered_candidate_count": len(audit_candidates) - len(delivery_candidates),
+        "delivery_audit": payload.get("delivery_audit", {}), "parts": full_parts,
         "delivery_parts": delivery_parts,
     })
     candidate_count = sum(int(entry.get("candidate_count", 0)) for entry in kept)
@@ -561,14 +674,17 @@ def main():
         "reported_state": "state/reported_runs.json",
         "acknowledgement_granularity": "part",
     })
-    candidate_count = len(merged["review_candidates"])
+    audited_candidate_count = len(merged["review_candidates"])
+    candidate_count = len(merged["delivery_candidates"])
     merged["candidate_payload"] = {
         "candidate_count": candidate_count,
+        "audited_candidate_count": audited_candidate_count,
         "compact_delivery_index": "output/pending_runs.json",
         "lossless_records": "output/runs",
-        "note": "Every unacknowledged run is retained until GPT records a successful audited review.",
+        "note": "Every exact record is archived, while GPT receives only the bounded evidence-based shortlist until it acknowledges the run.",
     }
     merged["review_candidates"] = []
+    merged["delivery_candidates"] = []
     merged["new_matches"] = []
     write_json(FINAL_LATEST, merged)
     print(json.dumps({
@@ -582,3 +698,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
