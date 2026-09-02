@@ -1,35 +1,42 @@
 {
   "schema_version": 2,
-  "updated_at_utc": "2026-09-02T00:42:40Z",
+  "updated_at_utc": "2026-09-02T00:48:51Z",
   "retention_hours": 168,
   "runs": [
     {
-      "run_id": "20260902T003914Z",
-      "generated_at_utc": "2026-09-02T00:42:40Z",
+      "run_id": "20260902T004440Z",
+      "generated_at_utc": "2026-09-02T00:48:51Z",
       "health": "healthy_with_retries",
       "warnings": [
-        "LinkedIn guest search needed recovery retries for 3 query bucket(s)",
-        "LinkedIn guest search needed recovery retries for 2 query bucket(s)"
+        "LinkedIn guest search needed recovery retries for 1 query bucket(s)"
       ],
-      "candidate_count": 10,
+      "candidate_count": 32,
       "parts": [
-        "output/runs/20260902T003914Z-part-001.json"
+        "output/runs/20260902T004440Z-part-001.json",
+        "output/runs/20260902T004440Z-part-002.json"
       ],
       "delivery_parts": [
         {
-          "part_id": "20260902T003914Z-part-001",
-          "path": "output/delivery/20260902T003914Z-part-001.json",
-          "source_part": "output/runs/20260902T003914Z-part-001.json",
-          "candidate_count": 10,
-          "compact_chars": 20387
+          "part_id": "20260902T004440Z-part-001",
+          "path": "output/delivery/20260902T004440Z-part-001.json",
+          "source_part": "output/runs/20260902T004440Z-part-001.json",
+          "candidate_count": 25,
+          "compact_chars": 52286
+        },
+        {
+          "part_id": "20260902T004440Z-part-002",
+          "path": "output/delivery/20260902T004440Z-part-002.json",
+          "source_part": "output/runs/20260902T004440Z-part-002.json",
+          "candidate_count": 7,
+          "compact_chars": 14756
         }
       ]
     }
   ],
   "backlog": {
     "pending_run_count": 1,
-    "pending_part_count": 1,
-    "pending_candidate_count": 10,
+    "pending_part_count": 2,
+    "pending_candidate_count": 32,
     "oldest_candidate_age_minutes": 0,
     "warning": false
   }
