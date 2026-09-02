@@ -337,6 +337,63 @@ class RadarTests(unittest.TestCase):
             self.assertEqual(len(source['review_candidates']), 3)
             self.assertEqual([item['linkedin_job_id'] for item in compact['review_candidates']], ['0'])
 
+    def test_existing_large_delivery_is_rebuilt_under_new_policy(self):
+        config = {
+            'config_version': 11, 'delivery_max_candidates_per_run': 2,
+            'delivery_local_cap': 2, 'delivery_remote_cap': 0, 'delivery_relocation_cap': 0,
+        }
+        candidates = [
+            {
+                'linkedin_job_id': 'it', 'title': 'Unusual Technology Custodian',
+                'location': 'Cairo, Egypt', 'discovery_lane': 'egypt', 'score': 9,
+                'advisory_it_evidence': True, 'description': 'Maintain Active Directory.',
+            },
+            {
+                'linkedin_job_id': 'noise', 'title': 'Sales Coordinator',
+                'location': 'Cairo, Egypt', 'discovery_lane': 'egypt', 'score': 2,
+                'advisory_it_evidence': False, 'description': 'Coordinate sales.',
+            },
+        ]
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            pending, reported = root / 'pending.json', root / 'reported.json'
+            runs, delivery = root / 'runs', root / 'delivery'
+            runs.mkdir(); delivery.mkdir()
+            source_name = 'old-part.json'
+            (runs / source_name).write_text(json.dumps({
+                'review_candidates': candidates,
+            }), encoding='utf-8')
+            (delivery / source_name).write_text(json.dumps({
+                'review_candidates': candidates,
+            }), encoding='utf-8')
+            pending.write_text(json.dumps({
+                'runs': [{
+                    'run_id': 'old', 'generated_at_utc': '2026-09-01T09:00:00Z',
+                    'health': 'healthy', 'warnings': [], 'candidate_count': 2,
+                    'parts': [source_name], 'delivery_parts': [{
+                        'part_id': 'old-part', 'path': source_name, 'candidate_count': 2,
+                    }],
+                }],
+            }), encoding='utf-8')
+            reported.write_text(json.dumps({
+                'reported_runs': {}, 'reported_parts': {},
+            }), encoding='utf-8')
+            next_payload = {
+                'run_id': 'new', 'generated_at_utc': '2026-09-01T10:00:00Z',
+                'health': 'healthy', 'warnings': [], 'review_candidates': [],
+                'delivery_candidates': [],
+            }
+            index = multilane.archive_run(
+                next_payload, pending_path=pending, reported_path=reported,
+                runs_dir=runs, delivery_dir=delivery, delivery_config=config,
+            )
+            old = next(entry for entry in index['runs'] if entry['run_id'] == 'old')
+            rebuilt = json.loads((delivery / Path(old['delivery_parts'][0]['path']).name).read_text(encoding='utf-8'))
+            self.assertEqual(old['audited_candidate_count'], 2)
+            self.assertEqual(old['candidate_count'], 1)
+            self.assertEqual(old['delivery_policy_version'], 11)
+            self.assertEqual([item['linkedin_job_id'] for item in rebuilt['review_candidates']], ['it'])
+
     def test_large_compact_batch_preserves_every_id_and_reduces_payload(self):
         candidates = [{
             'linkedin_job_id': str(index),
