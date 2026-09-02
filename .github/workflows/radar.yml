@@ -1,10 +1,10 @@
 name: LinkedIn Job Radar
 
-# Lossless-review workflow: pinned dependencies, verified upstream patching, unit tests, live scan.
-# Full-candidate validation re-runs every recent card through the review queue without relevance rejection.
+# Broad live discovery with newest-batch retention and GPT review handoff.
+# GPT must validate every candidate count before acknowledging a batch.
 on:
   schedule:
-    - cron: '37 * * * *'
+    - cron: '30 * * * *'
   workflow_dispatch:
   pull_request:
     branches: [main]
@@ -14,7 +14,6 @@ on:
       - 'queries.json'
       - 'patch_upstream.py'
       - 'test_radar.py'
-      - 'github_urgent_alert.py'
       - '.github/workflows/radar.yml'
   push:
     branches: [main]
@@ -25,12 +24,10 @@ on:
       - 'queries.json'
       - 'patch_upstream.py'
       - 'test_radar.py'
-      - 'github_urgent_alert.py'
       - '.github/workflows/radar.yml'
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
   group: linkedin-job-radar
@@ -85,29 +82,6 @@ jobs:
         run: |
           set -euo pipefail
           python3 -m unittest -v test_radar.py
-          python3 -m py_compile github_urgent_alert.py
-
-
-      - name: Retry any undelivered immediate alert
-        if: github.event_name != 'pull_request'
-        working-directory: radar
-        env:
-          GH_TOKEN: ${{ github.token }}
-          RADAR_ALERT_ISSUE: "5"
-        run: |
-          set -euo pipefail
-          alert_file="$(mktemp)"
-          python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --output "$alert_file"
-          if [ -s "$alert_file" ]; then
-            run_id="$(python3 -c 'import json; print(json.load(open("output/latest.json", encoding="utf-8"))["run_id"])')"
-            existing="$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/$RADAR_ALERT_ISSUE/comments" --jq '.[].body' | grep -F "<!-- radar-run:$run_id -->" | head -n 1 || true)"
-            if [ -z "$existing" ]; then
-              gh issue comment "$RADAR_ALERT_ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$alert_file"
-            else
-              echo "Run $run_id was already alerted."
-            fi
-          fi
-          python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --mark-alerted
 
       - name: Run live LinkedIn scan
         if: github.event_name != 'pull_request'
@@ -116,27 +90,6 @@ jobs:
           set -euo pipefail
           python3 radar_multilane.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
 
-      - name: Publish immediate broad GitHub alert
-        if: github.event_name != 'pull_request'
-        working-directory: radar
-        env:
-          GH_TOKEN: ${{ github.token }}
-          RADAR_ALERT_ISSUE: "5"
-        run: |
-          set -euo pipefail
-          alert_file="$(mktemp)"
-          python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --output "$alert_file"
-          if [ -s "$alert_file" ]; then
-            run_id="$(python3 -c 'import json; print(json.load(open("output/latest.json", encoding="utf-8"))["run_id"])')"
-            existing="$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/$RADAR_ALERT_ISSUE/comments" --jq '.[].body' | grep -F "<!-- radar-run:$run_id -->" | head -n 1 || true)"
-            if [ -z "$existing" ]; then
-              gh issue comment "$RADAR_ALERT_ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$alert_file"
-            else
-              echo "Run $run_id was already alerted."
-            fi
-          fi
-          python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --mark-alerted
-
       - name: Persist state, newest review batch, and latest results
         if: github.event_name != 'pull_request'
         working-directory: radar
@@ -144,7 +97,7 @@ jobs:
           set -euo pipefail
           git config user.name "linkedin-job-radar[bot]"
           git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
-          git add state/seen.json state/lane_health.json state/alerted_runs.json output/latest.json output/pending_runs.json output/runs output/delivery
+          git add state/seen.json state/lane_health.json output/latest.json output/pending_runs.json output/runs output/delivery
           if git diff --cached --quiet; then
             echo "No state changes to commit."
           else
@@ -153,35 +106,3 @@ jobs:
             git push origin main
           fi
 
-      - name: Signal completed scan
-        if: github.event_name != 'pull_request'
-        working-directory: radar
-        env:
-          RADAR_EVENT_BRANCH: radar-events
-        run: |
-          set -euo pipefail
-          run_id="$(python3 - <<'PY'
-          import json
-          from pathlib import Path
-
-          payload = json.loads(Path("output/latest.json").read_text(encoding="utf-8"))
-          print(payload.get("run_id", ""))
-          PY
-          )"
-          if [ -z "$run_id" ]; then
-            echo "No run ID available; skipping completion signal."
-            exit 0
-          fi
-
-          git fetch origin "$RADAR_EVENT_BRANCH"
-          git switch --detach "origin/$RADAR_EVENT_BRANCH"
-          printf '%s\n' "$run_id" > .radar_event
-          git add .radar_event
-          if git diff --cached --quiet; then
-            echo "Completion signal already current."
-          else
-            git config user.name "linkedin-job-radar[bot]"
-            git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
-            git commit -m "radar event: $run_id"
-            git push origin "HEAD:$RADAR_EVENT_BRANCH"
-          fi
