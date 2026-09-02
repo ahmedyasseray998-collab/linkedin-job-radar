@@ -87,33 +87,9 @@ jobs:
           python3 -m unittest -v test_radar.py
           python3 -m py_compile github_urgent_alert.py
 
-      - name: Run live LinkedIn scan
-        if: github.event_name != 'pull_request'
-        working-directory: radar
-        run: |
-          set -euo pipefail
-          python3 radar_multilane.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
 
-      - name: Persist state, durable queue, and latest results
+      - name: Retry any undelivered immediate alert
         if: github.event_name != 'pull_request'
-        working-directory: radar
-        run: |
-          set -euo pipefail
-          git config user.name "linkedin-job-radar[bot]"
-          git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
-          git add state/seen.json state/lane_health.json output/latest.json output/pending_runs.json output/runs output/delivery
-          if git diff --cached --quiet; then
-            echo "No state changes to commit."
-          else
-            git commit -m "radar: update $(date -u +'%Y-%m-%dT%H:%MZ')"
-            git pull --rebase origin main
-            git push origin main
-          fi
-
-
-      - name: Publish immediate broad GitHub alert
-        if: github.event_name != 'pull_request'
-        continue-on-error: true
         working-directory: radar
         env:
           GH_TOKEN: ${{ github.token }}
@@ -121,12 +97,49 @@ jobs:
         run: |
           set -euo pipefail
           alert_file="$(mktemp)"
-          python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --output "$alert_file"
-          if [ ! -s "$alert_file" ]; then
-            echo "No new candidates; no immediate alert needed."
-            exit 0
+          python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --output "$alert_file"
+          if [ -s "$alert_file" ]; then
+            gh issue comment "$RADAR_ALERT_ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$alert_file"
           fi
-          gh issue comment "$RADAR_ALERT_ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$alert_file"
+          python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --mark-alerted
+
+      - name: Run live LinkedIn scan
+        if: github.event_name != 'pull_request'
+        working-directory: radar
+        run: |
+          set -euo pipefail
+          python3 radar_multilane.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
+
+      - name: Publish immediate broad GitHub alert
+        if: github.event_name != 'pull_request'
+        working-directory: radar
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RADAR_ALERT_ISSUE: "5"
+        run: |
+          set -euo pipefail
+          alert_file="$(mktemp)"
+          python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --output "$alert_file"
+          if [ -s "$alert_file" ]; then
+            gh issue comment "$RADAR_ALERT_ISSUE" --repo "$GITHUB_REPOSITORY" --body-file "$alert_file"
+          fi
+          python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --state state/alerted_runs.json --mark-alerted
+
+      - name: Persist state, newest review batch, and latest results
+        if: github.event_name != 'pull_request'
+        working-directory: radar
+        run: |
+          set -euo pipefail
+          git config user.name "linkedin-job-radar[bot]"
+          git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
+          git add state/seen.json state/lane_health.json state/alerted_runs.json output/latest.json output/pending_runs.json output/runs output/delivery
+          if git diff --cached --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "radar: update $(date -u +'%Y-%m-%dT%H:%MZ')"
+            git pull --rebase origin main
+            git push origin main
+          fi
 
       - name: Signal completed scan
         if: github.event_name != 'pull_request'
