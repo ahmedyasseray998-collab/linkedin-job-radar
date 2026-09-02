@@ -502,9 +502,41 @@ def migrate_delivery_parts(entry, runs_dir, delivery_dir, excerpt_chars):
     return migrated
 
 
+def write_delivery_parts(run_id, generated_at, health, warnings, candidates,
+                         source_by_job_id, fallback_source, chunk_size,
+                         delivery_dir, excerpt_chars):
+    chunks = [candidates[index:index + chunk_size] for index in range(0, len(candidates), chunk_size)] or [[]]
+    parts = []
+    delivery_dir.mkdir(parents=True, exist_ok=True)
+    for index, candidates_part in enumerate(chunks, start=1):
+        part_id = f"{run_id}-part-{index:03d}"
+        filename = f"{part_id}.json"
+        reference = queue_reference(delivery_dir, filename, DELIVERY_DIR)
+        compact = [
+            compact_candidate(
+                candidate,
+                source_by_job_id.get(str(candidate.get("linkedin_job_id") or ""), fallback_source),
+                excerpt_chars,
+            )
+            for candidate in candidates_part
+        ]
+        payload = {
+            "schema_version": 3, "part_id": part_id, "run_id": run_id,
+            "generated_at_utc": generated_at, "health": health,
+            "warnings": warnings, "part": index, "part_count": len(chunks),
+            "candidate_count": len(compact), "review_candidates": compact,
+        }
+        write_json(delivery_dir / filename, payload)
+        parts.append({
+            "part_id": part_id, "path": reference, "candidate_count": len(compact),
+            "compact_chars": len(json.dumps(payload, ensure_ascii=False)),
+        })
+    return parts
+
+
 def archive_run(payload, retention_hours=168, chunk_size=25, pending_path=PENDING_RUNS,
                 reported_path=REPORTED_RUNS, runs_dir=RUNS_DIR, delivery_dir=DELIVERY_DIR,
-                excerpt_chars=900, backlog_warning_candidates=250):
+                excerpt_chars=900, backlog_warning_candidates=250, delivery_config=None):
     now = parse_utc(payload["generated_at_utc"]) or datetime.now(timezone.utc)
     reported_state = read_json(
         reported_path,
@@ -528,6 +560,36 @@ def archive_run(payload, retention_hours=168, chunk_size=25, pending_path=PENDIN
                 if path.is_file():
                     path.unlink()
             continue
+
+        policy_version = int((delivery_config or {}).get("config_version", 0))
+        if delivery_config and int(entry.get("delivery_policy_version", 0) or 0) != policy_version:
+            archived, source_by_job_id = [], {}
+            for reference in entry.get("parts", []):
+                path = queue_path(reference, runs_dir)
+                if not path.is_file():
+                    continue
+                for candidate in read_json(path).get("review_candidates", []):
+                    archived.append(candidate)
+                    job_id = str(candidate.get("linkedin_job_id") or "")
+                    if job_id:
+                        source_by_job_id[job_id] = reference
+            if archived:
+                shortlist, audit = build_delivery_shortlist(archived, delivery_config)
+                for old_part in entry.get("delivery_parts", []):
+                    path = queue_path(old_part.get("path", ""), delivery_dir)
+                    if path.is_file():
+                        path.unlink()
+                fallback = entry.get("parts", [""])[0] if entry.get("parts") else ""
+                entry["delivery_parts"] = write_delivery_parts(
+                    entry["run_id"], entry.get("generated_at_utc"), entry.get("health"),
+                    entry.get("warnings", []), shortlist, source_by_job_id, fallback,
+                    chunk_size, delivery_dir, excerpt_chars,
+                )
+                entry["candidate_count"] = len(shortlist)
+                entry["audited_candidate_count"] = len(archived)
+                entry["mechanically_filtered_candidate_count"] = len(archived) - len(shortlist)
+                entry["delivery_audit"] = audit
+                entry["delivery_policy_version"] = policy_version
 
         if not entry.get("delivery_parts"):
             entry["delivery_parts"] = migrate_delivery_parts(
@@ -557,7 +619,6 @@ def archive_run(payload, retention_hours=168, chunk_size=25, pending_path=PENDIN
     audit_candidates = payload.get("review_candidates", [])
     delivery_candidates = payload.get("delivery_candidates", audit_candidates)
     audit_chunks = [audit_candidates[index:index + chunk_size] for index in range(0, len(audit_candidates), chunk_size)] or [[]]
-    delivery_chunks = [delivery_candidates[index:index + chunk_size] for index in range(0, len(delivery_candidates), chunk_size)] or [[]]
     full_parts, delivery_parts = [], []
     source_by_job_id = {}
     runs_dir.mkdir(parents=True, exist_ok=True)
@@ -578,33 +639,11 @@ def archive_run(payload, retention_hours=168, chunk_size=25, pending_path=PENDIN
             if job_id:
                 source_by_job_id[job_id] = source_reference
 
-    for index, candidates_part in enumerate(delivery_chunks, start=1):
-        part_id = f"{run_id}-part-{index:03d}"
-        filename = f"{part_id}.json"
-        delivery_reference = queue_reference(delivery_dir, filename, DELIVERY_DIR)
-        delivery_path = delivery_dir / filename
-        compact = [
-            compact_candidate(
-                candidate,
-                source_by_job_id.get(str(candidate.get("linkedin_job_id") or ""), full_parts[0]),
-                excerpt_chars,
-            )
-            for candidate in candidates_part
-        ]
-        delivery = {
-            "schema_version": 3, "part_id": part_id, "run_id": run_id,
-            "generated_at_utc": payload["generated_at_utc"], "health": payload["health"],
-            "warnings": payload.get("warnings", []), "part": index,
-            "part_count": len(delivery_chunks), "candidate_count": len(compact),
-            "review_candidates": compact,
-        }
-        write_json(delivery_path, delivery)
-        delivery_parts.append({
-            "part_id": part_id,
-            "path": delivery_reference,
-            "candidate_count": delivery["candidate_count"],
-            "compact_chars": len(json.dumps(delivery, ensure_ascii=False)),
-        })
+    delivery_parts = write_delivery_parts(
+        run_id, payload["generated_at_utc"], payload["health"], payload.get("warnings", []),
+        delivery_candidates, source_by_job_id, full_parts[0], chunk_size,
+        delivery_dir, excerpt_chars,
+    )
 
     kept = [entry for entry in kept if entry.get("run_id") != run_id]
     kept.append({
@@ -613,7 +652,9 @@ def archive_run(payload, retention_hours=168, chunk_size=25, pending_path=PENDIN
         "candidate_count": len(delivery_candidates),
         "audited_candidate_count": len(audit_candidates),
         "mechanically_filtered_candidate_count": len(audit_candidates) - len(delivery_candidates),
-        "delivery_audit": payload.get("delivery_audit", {}), "parts": full_parts,
+        "delivery_audit": payload.get("delivery_audit", {}),
+        "delivery_policy_version": int((delivery_config or {}).get("config_version", 0)),
+        "parts": full_parts,
         "delivery_parts": delivery_parts,
     })
     candidate_count = sum(int(entry.get("candidate_count", 0)) for entry in kept)
@@ -666,6 +707,7 @@ def main():
         chunk_size=int(base.get("run_archive_chunk_size", 25)),
         excerpt_chars=int(base.get("delivery_excerpt_chars", 900)),
         backlog_warning_candidates=int(base.get("delivery_backlog_warning_candidates", 250)),
+        delivery_config=base,
     )
     merged["delivery_queue"] = dict(pending["backlog"], **{
         "index": "output/pending_runs.json",
