@@ -42,7 +42,7 @@ def candidate_text(candidate):
     return " ".join([
         str(candidate.get("title") or ""),
         str(candidate.get("location") or ""),
-        str(candidate.get("description") or ""),
+        str(candidate.get("description_excerpt") or candidate.get("description") or ""),
     ]).casefold()
 
 
@@ -116,12 +116,33 @@ def build(payload):
     return "\n".join(parts).rstrip() + "\n"
 
 
+def load_latest_delivery(latest_path, pending_path):
+    latest = json.loads(Path(latest_path).read_text(encoding="utf-8"))
+    pending = json.loads(Path(pending_path).read_text(encoding="utf-8"))
+    runs = pending.get("runs") or []
+    if not runs:
+        return dict(latest, review_candidates=[])
+    run_id = str(latest.get("run_id") or "")
+    entry = next((item for item in reversed(runs) if str(item.get("run_id")) == run_id), runs[-1])
+    candidates = []
+    root = Path(pending_path).resolve().parent.parent
+    for part in entry.get("delivery_parts") or []:
+        reference = Path(str(part.get("path") or ""))
+        path = reference if reference.is_absolute() else root / reference
+        if not path.is_file():
+            continue
+        delivery = json.loads(path.read_text(encoding="utf-8"))
+        candidates.extend(delivery.get("review_candidates") or [])
+    return dict(latest, review_candidates=candidates)
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", default="output/latest.json")
+    parser.add_argument("--latest", default="output/latest.json")
+    parser.add_argument("--pending", default="output/pending_runs.json")
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
-    payload = json.loads(Path(args.input).read_text(encoding="utf-8"))
+    payload = load_latest_delivery(args.latest, args.pending)
     Path(args.output).write_text(build(payload), encoding="utf-8")
 
 
