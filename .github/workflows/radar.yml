@@ -121,7 +121,7 @@ jobs:
         run: |
           set -euo pipefail
           alert_file="$(mktemp)"
-          python3 github_urgent_alert.py --input output/latest.json --output "$alert_file"
+          python3 github_urgent_alert.py --latest output/latest.json --pending output/pending_runs.json --output "$alert_file"
           if [ ! -s "$alert_file" ]; then
             echo "No new candidates; no immediate alert needed."
             exit 0
