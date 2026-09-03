@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at_utc": "2026-09-03T13:09:55Z",
+  "updated_at_utc": "2026-09-03T14:00:52Z",
   "retention_hours": 168,
   "runs": [
     {
@@ -121,13 +121,88 @@
           "compact_chars": 7224
         }
       ]
+    },
+    {
+      "run_id": "20260903T134619Z",
+      "generated_at_utc": "2026-09-03T14:00:52Z",
+      "health": "healthy_with_retries",
+      "warnings": [
+        "LinkedIn guest search needed recovery retries for 1 query bucket(s)"
+      ],
+      "candidate_count": 114,
+      "audited_candidate_count": 156,
+      "mechanically_filtered_candidate_count": 42,
+      "delivery_audit": {
+        "input_candidates": 156,
+        "delivery_candidates": 114,
+        "mechanically_filtered": 42,
+        "filtered_reasons": {
+          "no_it_evidence": 42
+        },
+        "annotation_counts": {
+          "closed_explicit": 0,
+          "explicit_eligibility_restriction": 10
+        },
+        "eligible_before_caps": {
+          "local": 5,
+          "remote": 109,
+          "relocation": 0
+        },
+        "capped_reasons": {},
+        "caps": {
+          "enabled": false,
+          "maximum": null
+        }
+      },
+      "delivery_policy_version": 12,
+      "parts": [
+        "output/runs/20260903T134619Z-audit-001.json",
+        "output/runs/20260903T134619Z-audit-002.json",
+        "output/runs/20260903T134619Z-audit-003.json",
+        "output/runs/20260903T134619Z-audit-004.json",
+        "output/runs/20260903T134619Z-audit-005.json",
+        "output/runs/20260903T134619Z-audit-006.json",
+        "output/runs/20260903T134619Z-audit-007.json"
+      ],
+      "delivery_parts": [
+        {
+          "part_id": "20260903T134619Z-part-001",
+          "path": "output/delivery/20260903T134619Z-part-001.json",
+          "candidate_count": 25,
+          "compact_chars": 44905
+        },
+        {
+          "part_id": "20260903T134619Z-part-002",
+          "path": "output/delivery/20260903T134619Z-part-002.json",
+          "candidate_count": 25,
+          "compact_chars": 44010
+        },
+        {
+          "part_id": "20260903T134619Z-part-003",
+          "path": "output/delivery/20260903T134619Z-part-003.json",
+          "candidate_count": 25,
+          "compact_chars": 42584
+        },
+        {
+          "part_id": "20260903T134619Z-part-004",
+          "path": "output/delivery/20260903T134619Z-part-004.json",
+          "candidate_count": 25,
+          "compact_chars": 42529
+        },
+        {
+          "part_id": "20260903T134619Z-part-005",
+          "path": "output/delivery/20260903T134619Z-part-005.json",
+          "candidate_count": 14,
+          "compact_chars": 23480
+        }
+      ]
     }
   ],
   "backlog": {
-    "pending_run_count": 1,
-    "pending_part_count": 11,
-    "pending_candidate_count": 254,
-    "oldest_candidate_age_minutes": 0,
+    "pending_run_count": 2,
+    "pending_part_count": 16,
+    "pending_candidate_count": 368,
+    "oldest_candidate_age_minutes": 50,
     "warning": false
   }
 }
