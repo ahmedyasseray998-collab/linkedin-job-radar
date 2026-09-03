@@ -80,7 +80,11 @@ def _part_job_ids(payload: dict[str, Any]) -> list[str]:
     candidates = payload.get("review_candidates")
     if not isinstance(candidates, list):
         raise ValueError("review_candidates must be a list")
-    job_ids = normalize_job_ids([candidate.get("linkedin_job_id") for candidate in candidates if isinstance(candidate, dict)])
+    job_ids = normalize_job_ids([
+        candidate.get("linkedin_job_id")
+        for candidate in candidates
+        if isinstance(candidate, dict)
+    ])
     if len(job_ids) != len(candidates):
         raise ValueError("every review candidate must have a non-empty linkedin_job_id")
     if len(set(job_ids)) != len(job_ids):
@@ -88,7 +92,10 @@ def _part_job_ids(payload: dict[str, Any]) -> list[str]:
     return job_ids
 
 
-def validate_part_payload(payload: dict[str, Any], metadata: dict[str, Any] | None = None) -> dict[str, Any]:
+def validate_part_payload(
+    payload: dict[str, Any],
+    metadata: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     job_ids = _part_job_ids(payload)
     declared = int(payload.get("candidate_count", -1))
     if declared != len(job_ids):
@@ -114,10 +121,17 @@ def validate_part_payload(payload: dict[str, Any], metadata: dict[str, Any] | No
         if metadata.get("job_ids_sha256") and metadata["job_ids_sha256"] != digest:
             raise ValueError("pending index Job-ID digest mismatch")
 
-    return {"candidate_count": len(job_ids), "job_ids": job_ids, "job_ids_sha256": digest}
+    return {
+        "candidate_count": len(job_ids),
+        "job_ids": job_ids,
+        "job_ids_sha256": digest,
+    }
 
 
-def refresh_part_payload(payload: dict[str, Any], candidates: list[dict[str, Any]]) -> dict[str, Any]:
+def refresh_part_payload(
+    payload: dict[str, Any],
+    candidates: list[dict[str, Any]],
+) -> dict[str, Any]:
     refreshed = dict(payload)
     refreshed["review_candidates"] = candidates
     job_ids = normalize_job_ids([candidate.get("linkedin_job_id") for candidate in candidates])
@@ -131,7 +145,11 @@ def refresh_part_payload(payload: dict[str, Any], candidates: list[dict[str, Any
     return refreshed
 
 
-def refresh_part_metadata(metadata: dict[str, Any], validation: dict[str, Any], compact_chars: int) -> dict[str, Any]:
+def refresh_part_metadata(
+    metadata: dict[str, Any],
+    validation: dict[str, Any],
+    compact_chars: int,
+) -> dict[str, Any]:
     refreshed = dict(metadata)
     refreshed["candidate_count"] = validation["candidate_count"]
     refreshed["job_ids"] = validation["job_ids"]
@@ -161,13 +179,12 @@ def canonicalize_part_file(
     payload: dict[str, Any],
     path: Path,
 ) -> tuple[dict[str, Any], dict[str, Any], Path, dict[str, Any]]:
-    """Rename schema-v4 packets when an older receipt reused their ordinal ID."""
+    """Rename schema-v4 packets to a Job-ID-manifest-addressed ID."""
     validation = validate_part_payload(payload)
     current_id = str(payload.get("part_id") or part.get("part_id") or "")
     canonical_id = content_addressed_part_id(current_id, validation["job_ids_sha256"])
     target = path.with_name(f"{canonical_id}.json")
-    changed = canonical_id != current_id or target != path
-    if changed:
+    if canonical_id != current_id or target != path:
         payload = dict(payload)
         payload["part_id"] = canonical_id
         atomic_write_json(target, payload)
@@ -191,14 +208,16 @@ def reconcile_pending_queue(
 ) -> dict[str, Any]:
     """Apply receipts, validate survivors, and atomically rebuild pending_runs.json."""
     now = now or datetime.now(timezone.utc)
-    pending = read_json(pending_path, {"schema_version": 2, "retention_hours": 168, "runs": []})
+    pending = read_json(
+        pending_path,
+        {"schema_version": 2, "retention_hours": 168, "runs": []},
+    )
     reported = read_json(
         reported_path,
         {"schema_version": 3, "reported_runs": {}, "reported_parts": {}, "reported_jobs": {}},
     )
     reported_runs = set((reported.get("reported_runs") or {}).keys())
-    reported_part_receipts = reported.get("reported_parts") or {}
-    reported_parts = set(reported_part_receipts.keys())
+    reported_parts = set((reported.get("reported_parts") or {}).keys())
     reported_jobs = set((reported.get("reported_jobs") or {}).keys())
 
     kept_runs: list[dict[str, Any]] = []
@@ -215,17 +234,11 @@ def reconcile_pending_queue(
             for part in parts:
                 path = resolve_reference(root, part.get("path", ""), "output/delivery")
                 if delete_acknowledged:
-                    try:
-                        path.unlink()
-                    except FileNotFoundError:
-                        pass
+                    path.unlink(missing_ok=True)
             for reference in entry.get("parts", []):
                 path = resolve_reference(root, reference, "output/runs")
                 if delete_acknowledged:
-                    try:
-                        path.unlink()
-                    except FileNotFoundError:
-                        pass
+                    path.unlink(missing_ok=True)
             removed_parts += len(parts)
             continue
 
@@ -237,26 +250,16 @@ def reconcile_pending_queue(
                 raise FileNotFoundError(f"pending delivery part is missing: {path}")
             payload = read_json(path)
 
-            validation = validate_part_payload(payload)
-            part_id = str(part.get("part_id") or "")
-            stale_receipt = False
-            if part_id in reported_parts and int(payload.get("schema_version", 0) or 0) >= 4:
-                receipt = reported_part_receipts.get(part_id)
-                receipt_time = parse_utc(receipt.get("reviewed_at_utc")) if isinstance(receipt, dict) else parse_utc(receipt)
-                receipt_digest = str(receipt.get("job_ids_sha256") or "") if isinstance(receipt, dict) else ""
-                generated_time = parse_utc(payload.get("generated_at_utc"))
-                # A receipt created before this packet existed belongs to older
-                # content that reused the same ordinal part ID. Never let it
-                # acknowledge the new manifest. A supplied digest must also match.
-                stale_receipt = bool(
-                    (receipt_digest and receipt_digest != validation["job_ids_sha256"])
-                    or (receipt_time and generated_time and receipt_time < generated_time)
-                )
-                if stale_receipt:
-                    part, payload, path, validation = canonicalize_part_file(part, payload, path)
-                    part_id = str(part.get("part_id") or "")
+            # Schema-v4 packet IDs include the Job-ID manifest digest. A receipt
+            # for old `run-part-001` content can therefore never acknowledge a
+            # different packet that happens to reuse ordinal 001 after re-chunking.
+            if int(payload.get("schema_version", 0) or 0) >= 4:
+                part, payload, path, validation = canonicalize_part_file(part, payload, path)
+            else:
+                validation = validate_part_payload(payload)
 
-            if part_id in reported_parts and not stale_receipt:
+            part_id = str(part.get("part_id") or "")
+            if part_id in reported_parts:
                 if delete_acknowledged:
                     path.unlink(missing_ok=True)
                 removed_parts += 1
@@ -265,7 +268,8 @@ def reconcile_pending_queue(
             candidates = list(payload.get("review_candidates") or [])
             if reported_jobs:
                 survivors = [
-                    candidate for candidate in candidates
+                    candidate
+                    for candidate in candidates
                     if str(candidate.get("linkedin_job_id") or "") not in reported_jobs
                 ]
                 removed_jobs += len(candidates) - len(survivors)
@@ -276,8 +280,11 @@ def reconcile_pending_queue(
                     continue
                 if len(survivors) != len(candidates):
                     payload = refresh_part_payload(payload, survivors)
-                    atomic_write_json(path, payload)
-                    validation = validate_part_payload(payload)
+                    if int(payload.get("schema_version", 0) or 0) >= 4:
+                        part, payload, path, validation = canonicalize_part_file(part, payload, path)
+                    else:
+                        atomic_write_json(path, payload)
+                        validation = validate_part_payload(payload)
 
             compact_chars = len(json.dumps(payload, ensure_ascii=False))
             part = refresh_part_metadata(part, validation, compact_chars)
@@ -289,10 +296,7 @@ def reconcile_pending_queue(
             for reference in entry.get("parts", []):
                 path = resolve_reference(root, reference, "output/runs")
                 if delete_acknowledged:
-                    try:
-                        path.unlink()
-                    except FileNotFoundError:
-                        pass
+                    path.unlink(missing_ok=True)
             continue
 
         entry["delivery_parts"] = remaining_parts

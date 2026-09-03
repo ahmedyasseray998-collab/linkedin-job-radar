@@ -7,6 +7,7 @@ from pathlib import Path
 import radar_pipeline_v13 as pipeline
 from queue_integrity import (
     atomic_write_json,
+    content_addressed_part_id,
     job_ids_digest,
     reconcile_pending_queue,
     validate_part_payload,
@@ -70,9 +71,18 @@ class PipelineV13Tests(unittest.TestCase):
         self.assertEqual(config["queries"][0]["query"], "EMEA systems")
 
     def test_alexandria_virginia_is_not_egypt(self):
-        self.assertFalse(pipeline.is_egypt_candidate({"location": "Alexandria, VA", "discovery_lane": "remote_middle_east"}))
-        self.assertTrue(pipeline.is_egypt_candidate({"location": "Alexandria, Egypt", "discovery_lane": "remote_worldwide"}))
-        self.assertTrue(pipeline.is_egypt_candidate({"location": "Cairo", "discovery_lane": "remote_worldwide"}))
+        self.assertFalse(pipeline.is_egypt_candidate({
+            "location": "Alexandria, VA",
+            "discovery_lane": "remote_middle_east",
+        }))
+        self.assertTrue(pipeline.is_egypt_candidate({
+            "location": "Alexandria, Egypt",
+            "discovery_lane": "remote_worldwide",
+        }))
+        self.assertTrue(pipeline.is_egypt_candidate({
+            "location": "Cairo",
+            "discovery_lane": "remote_worldwide",
+        }))
 
     def test_generic_worldwide_company_text_is_not_remote_evidence(self):
         annotation = pipeline.remote_eligibility_annotation({
@@ -114,7 +124,9 @@ class PipelineV13Tests(unittest.TestCase):
             self.assertTrue(all(part["candidate_count"] <= 4 for part in remote_parts))
             self.assertEqual(sum(part["candidate_count"] for part in parts), len(candidates))
             for part in parts:
-                payload = json.loads((delivery / Path(part["path"]).name).read_text(encoding="utf-8"))
+                payload = json.loads(
+                    (delivery / Path(part["path"]).name).read_text(encoding="utf-8")
+                )
                 validation = validate_part_payload(payload, part)
                 self.assertEqual(validation["job_ids"], part["job_ids"])
 
@@ -125,7 +137,7 @@ class PipelineV13Tests(unittest.TestCase):
             delivery.mkdir(parents=True)
             first = self._write_part(delivery / "run-part-001.json", "run-part-001", ["1"])
             second = self._write_part(delivery / "run-part-002.json", "run-part-002", ["2", "3"])
-            pending = {
+            atomic_write_json(root / "output" / "pending_runs.json", {
                 "schema_version": 3,
                 "retention_hours": 168,
                 "runs": [{
@@ -135,12 +147,11 @@ class PipelineV13Tests(unittest.TestCase):
                     "parts": [],
                     "candidate_count": 3,
                 }],
-            }
-            atomic_write_json(root / "output" / "pending_runs.json", pending)
+            })
             atomic_write_json(root / "state" / "reported_runs.json", {
                 "schema_version": 3,
                 "reported_runs": {},
-                "reported_parts": {"run-part-001": "2026-09-03T18:05:00Z"},
+                "reported_parts": {first["part_id"]: "2026-09-03T18:05:00Z"},
                 "reported_jobs": {},
             })
             result = reconcile_pending_queue(
@@ -149,7 +160,8 @@ class PipelineV13Tests(unittest.TestCase):
                 root / "state" / "reported_runs.json",
                 now=datetime(2026, 9, 3, 18, 10, tzinfo=timezone.utc),
             )
-            self.assertFalse((delivery / "run-part-001.json").exists())
+            self.assertFalse((root / first["path"]).exists())
+            self.assertTrue((root / second["path"]).exists())
             self.assertEqual(result["backlog"]["pending_part_count"], 1)
             self.assertEqual(result["backlog"]["pending_candidate_count"], 2)
             self.assertEqual(result["integrity"]["status"], "validated")
@@ -183,16 +195,62 @@ class PipelineV13Tests(unittest.TestCase):
                 root / "state" / "reported_runs.json",
                 now=datetime(2026, 9, 3, 18, 10, tzinfo=timezone.utc),
             )
-            payload = json.loads((delivery / "run-part-001.json").read_text(encoding="utf-8"))
+            remaining = result["runs"][0]["delivery_parts"][0]
+            payload = json.loads((root / remaining["path"]).read_text(encoding="utf-8"))
             self.assertEqual(payload["expected_job_ids"], ["2"])
+            self.assertEqual(payload["part_id"], remaining["part_id"])
             self.assertEqual(result["backlog"]["pending_candidate_count"], 1)
             self.assertEqual(result["integrity"]["removed_acknowledged_jobs"], 1)
 
-    def _write_part(self, path, part_id, ids):
+    def test_legacy_ordinal_receipt_cannot_acknowledge_rechunked_v4_content(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            delivery = root / "output" / "delivery"
+            delivery.mkdir(parents=True)
+            part = self._write_part(
+                delivery / "run-part-001.json",
+                "run-part-001",
+                ["new-job"],
+                canonical=False,
+            )
+            atomic_write_json(root / "output" / "pending_runs.json", {
+                "schema_version": 3,
+                "retention_hours": 168,
+                "runs": [{
+                    "run_id": "run",
+                    "generated_at_utc": "2026-09-03T18:00:00Z",
+                    "delivery_parts": [part],
+                    "parts": [],
+                    "candidate_count": 1,
+                }],
+            })
+            atomic_write_json(root / "state" / "reported_runs.json", {
+                "schema_version": 3,
+                "reported_runs": {},
+                "reported_parts": {"run-part-001": "2026-09-03T18:05:00Z"},
+                "reported_jobs": {},
+            })
+            result = reconcile_pending_queue(
+                root,
+                root / "output" / "pending_runs.json",
+                root / "state" / "reported_runs.json",
+                now=datetime(2026, 9, 3, 18, 10, tzinfo=timezone.utc),
+            )
+            remaining = result["runs"][0]["delivery_parts"][0]
+            self.assertEqual(result["backlog"]["pending_candidate_count"], 1)
+            self.assertNotEqual(remaining["part_id"], "run-part-001")
+            self.assertTrue(remaining["part_id"].startswith("run-part-001-"))
+            self.assertTrue((root / remaining["path"]).exists())
+            self.assertFalse((delivery / "run-part-001.json").exists())
+
+    def _write_part(self, path, part_id, ids, canonical=True):
         candidates = [{"linkedin_job_id": job_id, "title": "Role"} for job_id in ids]
+        digest = job_ids_digest(ids)
+        actual_id = content_addressed_part_id(part_id, digest) if canonical else part_id
+        actual_path = path.with_name(f"{actual_id}.json") if canonical else path
         payload = {
             "schema_version": 4,
-            "part_id": part_id,
+            "part_id": actual_id,
             "run_id": "run",
             "generated_at_utc": "2026-09-03T18:00:00Z",
             "candidate_count": len(ids),
@@ -200,17 +258,17 @@ class PipelineV13Tests(unittest.TestCase):
             "integrity": {
                 "complete_candidate_list": True,
                 "job_id_count": len(ids),
-                "job_ids_sha256": job_ids_digest(ids),
+                "job_ids_sha256": digest,
             },
             "review_candidates": candidates,
         }
-        atomic_write_json(path, payload)
+        atomic_write_json(actual_path, payload)
         return {
-            "part_id": part_id,
-            "path": f"output/delivery/{path.name}",
+            "part_id": actual_id,
+            "path": f"output/delivery/{actual_path.name}",
             "candidate_count": len(ids),
             "job_ids": ids,
-            "job_ids_sha256": job_ids_digest(ids),
+            "job_ids_sha256": digest,
             "compact_chars": len(json.dumps(payload)),
         }
 
