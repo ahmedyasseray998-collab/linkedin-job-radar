@@ -1,7 +1,7 @@
 name: LinkedIn Job Radar
 
-# Broad live discovery with durable unreviewed-batch retention and GPT review handoff.
-# GPT must validate every candidate count before acknowledging a batch.
+# Egypt-first discovery with repaired regional remote lanes, durable review
+# packets, integrity validation, and race-safe GPT acknowledgement reconciliation.
 on:
   schedule:
     - cron: '35 * * * *'
@@ -11,9 +11,14 @@ on:
     paths:
       - 'radar_v5.py'
       - 'radar_multilane.py'
+      - 'radar_pipeline_v13.py'
+      - 'queue_integrity.py'
+      - 'reconcile_queue.py'
       - 'queries.json'
+      - 'queries_v13.json'
       - 'patch_upstream.py'
       - 'test_radar.py'
+      - 'test_pipeline_v13.py'
       - '.github/workflows/radar.yml'
   push:
     branches: [main]
@@ -21,9 +26,14 @@ on:
       - '.radar_trigger'
       - 'radar_v5.py'
       - 'radar_multilane.py'
+      - 'radar_pipeline_v13.py'
+      - 'queue_integrity.py'
+      - 'reconcile_queue.py'
       - 'queries.json'
+      - 'queries_v13.json'
       - 'patch_upstream.py'
       - 'test_radar.py'
+      - 'test_pipeline_v13.py'
       - '.github/workflows/radar.yml'
 
 permissions:
@@ -81,28 +91,57 @@ jobs:
         working-directory: radar
         run: |
           set -euo pipefail
-          python3 -m unittest -v test_radar.py
+          python3 -m unittest -v test_radar.py test_pipeline_v13.py
 
       - name: Run live LinkedIn scan
         if: github.event_name != 'pull_request'
         working-directory: radar
         run: |
           set -euo pipefail
-          python3 radar_multilane.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
+          python3 radar_pipeline_v13.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
 
-      - name: Persist state, newest review batch, and latest results
+      - name: Persist state and reconcile latest GPT acknowledgements
         if: github.event_name != 'pull_request'
         working-directory: radar
         run: |
           set -euo pipefail
           git config user.name "linkedin-job-radar[bot]"
           git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
+
+          made_commit=0
           git add state/seen.json state/lane_health.json output/latest.json output/pending_runs.json output/runs output/delivery
-          if git diff --cached --quiet; then
-            echo "No state changes to commit."
-          else
+          if ! git diff --cached --quiet; then
             git commit -m "radar: update $(date -u +'%Y-%m-%dT%H:%MZ')"
-            git pull --rebase origin main
-            git push origin main
+            made_commit=1
           fi
 
+          # An acknowledgement may land while the long scan is running. Rebase,
+          # rebuild the queue from the newest receipt ledger, amend, and retry if
+          # another acknowledgement wins the race before push.
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            python3 reconcile_queue.py
+            git add -A output/pending_runs.json output/runs output/delivery
+
+            if ! git diff --cached --quiet; then
+              if [ "$made_commit" -eq 1 ]; then
+                git commit --amend --no-edit
+              else
+                git commit -m "radar: reconcile acknowledgements $(date -u +'%Y-%m-%dT%H:%MZ')"
+                made_commit=1
+              fi
+            fi
+
+            if [ "$made_commit" -eq 0 ]; then
+              echo "No state changes to commit."
+              exit 0
+            fi
+
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push raced with another main update; reconciling again (attempt $attempt)."
+          done
+
+          echo "Failed to publish a reconciled radar state after 3 attempts." >&2
+          exit 1
