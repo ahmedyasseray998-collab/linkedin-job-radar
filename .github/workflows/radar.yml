@@ -1,7 +1,7 @@
 name: LinkedIn Job Radar
 
-# Egypt-first discovery with repaired regional remote lanes, durable review
-# packets, integrity validation, and race-safe GPT acknowledgement reconciliation.
+# Egypt-first discovery with repaired regional remote lanes, a targeted review
+# queue, integrity validation, and race-safe GPT acknowledgement reconciliation.
 on:
   schedule:
     - cron: '35 * * * *'
@@ -12,15 +12,14 @@ on:
       - 'radar_v5.py'
       - 'radar_multilane.py'
       - 'radar_pipeline_v13.py'
+      - 'radar_pipeline_v14.py'
+      - 'targeted_queue_v14.py'
       - 'queue_integrity.py'
       - 'reconcile_queue.py'
       - 'queries.json'
       - 'queries_v13.json'
       - 'patch_upstream.py'
-      - 'test_radar.py'
-      - 'test_pipeline_v13.py'
-      - 'test_remote_region_eligibility.py'
-      - 'test_compact_review_packets.py'
+      - 'test_*.py'
       - '.github/workflows/radar.yml'
   # Normal code changes are validated by pull requests. A push should launch a
   # live scan only when the explicit trigger file changes.
@@ -32,8 +31,8 @@ on:
 permissions:
   contents: write
 
-# PR tests no longer wait behind a 15-20 minute live scan. All live producers
-# still share one serial group so two scans cannot mutate the queue together.
+# PR tests no longer wait behind a live scan. All live producers still share
+# one serial group so two scans cannot mutate the queue together.
 concurrency:
   group: linkedin-job-radar-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'live' }}
   cancel-in-progress: false
@@ -88,12 +87,12 @@ jobs:
           set -euo pipefail
           python3 -m unittest discover -v
 
-      - name: Run live LinkedIn scan
+      - name: Run live LinkedIn scan and target GPT queue
         if: github.event_name != 'pull_request'
         working-directory: radar
         run: |
           set -euo pipefail
-          python3 radar_pipeline_v13.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
+          python3 radar_pipeline_v14.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
 
       - name: Persist state and reconcile latest GPT acknowledgements
         if: github.event_name != 'pull_request'
@@ -104,7 +103,7 @@ jobs:
           git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
 
           made_commit=0
-          git add state/seen.json state/lane_health.json output/latest.json output/pending_runs.json output/runs output/delivery
+          git add state/seen.json state/lane_health.json output/latest.json output/pending_runs.json output/deferred_summary.json output/runs output/delivery
           if ! git diff --cached --quiet; then
             git commit -m "radar: update $(date -u +'%Y-%m-%dT%H:%MZ')"
             made_commit=1
