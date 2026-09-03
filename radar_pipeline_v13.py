@@ -94,6 +94,23 @@ NON_REMOTE_PATTERNS = (
     ("working pattern hybrid", r"\bworking pattern\s*:\s*hybrid\b"),
 )
 
+COMPACT_DROP_KEYS = (
+    "linkedin_date",
+    "freshness_within_requested_window",
+    "first_seen_utc",
+    "job_function",
+    "advisory_title_noise_signals",
+    "advisory_it_evidence",
+    "full_description_chars",
+    "full_review_rule",
+)
+COMPACT_OPTIONAL_LIST_KEYS = (
+    "role_hits_title",
+    "role_hits_description",
+    "skill_hits",
+    "negative_hits",
+)
+
 
 def lane_definitions(base: dict[str, Any]) -> list[dict[str, Any]]:
     """Priority order matters because all passes share the same seen-job ledger."""
@@ -163,18 +180,27 @@ def prepare_lane_config(base: dict[str, Any], definition: dict[str, Any]) -> dic
 
 
 def _pattern_hits(text: str, patterns: tuple[tuple[str, str], ...]) -> list[str]:
-    return [label for label, pattern in patterns if re.search(pattern, text, flags=re.IGNORECASE | re.DOTALL)]
+    return [
+        label
+        for label, pattern in patterns
+        if re.search(pattern, text, flags=re.IGNORECASE | re.DOTALL)
+    ]
 
 
 def is_egypt_candidate(candidate: dict[str, Any]) -> bool:
-    """Avoid the historical Alexandria, Virginia -> Egypt false positive."""
+    """Avoid the historical Alexandria, Virginia to Egypt false positive."""
     lane = str(candidate.get("discovery_lane") or "").casefold()
     if lane in {"egypt", "remote_egypt"}:
         return True
     location = str(candidate.get("location") or "").casefold()
     if re.search(r"\begypt\b|\bcairo\b|\bgiza\b|\bnew cairo\b|\b6th of october\b", location):
         return True
-    return bool(re.search(r"\balexandria\b.{0,30}\begypt\b|\begypt\b.{0,30}\balexandria\b", location))
+    return bool(
+        re.search(
+            r"\balexandria\b.{0,30}\begypt\b|\begypt\b.{0,30}\balexandria\b",
+            location,
+        )
+    )
 
 
 def remote_eligibility_annotation(candidate: dict[str, Any]) -> dict[str, Any]:
@@ -195,7 +221,9 @@ def remote_eligibility_annotation(candidate: dict[str, Any]) -> dict[str, Any]:
             "candidates must be based in",
             "only candidates in",
         }
-        restrictions = [label for label in restrictions if label not in generic_geography_labels]
+        restrictions = [
+            label for label in restrictions if label not in generic_geography_labels
+        ]
         eligible = list(dict.fromkeys([*eligible, *allowed_requirements]))
 
     if restrictions:
@@ -217,7 +245,10 @@ def remote_eligibility_annotation(candidate: dict[str, Any]) -> dict[str, Any]:
         "restriction_signals": restrictions,
         "non_remote_signals": non_remote,
         "confidence": confidence,
-        "note": "Generic company words such as 'worldwide' do not count. Europe-only remote wording is not treated as open to Egypt.",
+        "note": (
+            "Generic company words such as 'worldwide' do not count. "
+            "Europe-only remote wording is not treated as open to Egypt."
+        ),
     }
 
 
@@ -228,7 +259,11 @@ def regional_evidence(candidate: dict[str, Any]) -> dict[str, Any]:
         str(candidate.get("location") or ""),
         str(candidate.get("description") or "")[:7000],
     ]).casefold()
-    signals = [term for term in terms if re.search(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", text)]
+    signals = [
+        term
+        for term in terms
+        if re.search(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", text)
+    ]
     return {
         "lane": lane,
         "signals": signals,
@@ -237,14 +272,23 @@ def regional_evidence(candidate: dict[str, Any]) -> dict[str, Any]:
 
 
 def priority_lane(candidate: dict[str, Any]) -> str:
-    lane = str(candidate.get("discovery_lane") or "").casefold()
+    """Use proven geography, not the discovery query alone, for report ordering."""
     if is_egypt_candidate(candidate):
         return "egypt"
-    if lane in {"remote_mena", "remote_middle_east"}:
+
+    lane = str(candidate.get("discovery_lane") or "").casefold()
+    annotation = remote_eligibility_annotation(candidate)
+    evidence = regional_evidence(candidate).get("signals") or []
+
+    if annotation["status"] == "explicit_non_remote":
+        return "relocation"
+    if annotation["status"] == "explicit_location_or_work_authorization_restriction":
+        return "restricted_remote"
+    if lane in {"remote_mena", "remote_middle_east"} and evidence:
         return "remote_mena_middle_east"
-    if lane == "remote_emea":
+    if lane == "remote_emea" and evidence:
         return "remote_emea"
-    if lane == "remote_worldwide":
+    if lane.startswith("remote_"):
         return "remote_worldwide"
     return "relocation"
 
@@ -257,7 +301,9 @@ def delivery_bucket(candidate: dict[str, Any], config: dict[str, Any]):
 
     annotation = remote_eligibility_annotation(candidate)
     lane = str(candidate.get("discovery_lane") or "").casefold()
-    discovered_as_remote = candidate.get("discovery_remote_filter") == "remote" or lane.startswith("remote_")
+    discovered_as_remote = (
+        candidate.get("discovery_remote_filter") == "remote" or lane.startswith("remote_")
+    )
 
     if annotation["status"] == "explicit_non_remote":
         return "relocation", "remote_search_returned_explicit_non_remote_role"
@@ -270,15 +316,39 @@ def delivery_bucket(candidate: dict[str, Any], config: dict[str, Any]):
     return "relocation", "foreign_fit_sponsorship_unknown"
 
 
-def compact_candidate(candidate: dict[str, Any], source_part: str, excerpt_chars: int = 650) -> dict[str, Any]:
-    compact = _ORIGINAL_COMPACT_CANDIDATE(candidate, source_part, excerpt_chars)
-    compact["priority_lane"] = priority_lane(candidate)
-    compact["regional_evidence"] = regional_evidence(candidate)
-    compact["remote_eligibility"] = remote_eligibility_annotation(candidate)
-    compact["review_integrity"] = {
-        "must_decide_job_id": str(candidate.get("linkedin_job_id") or ""),
-        "acknowledge_only_after_explicit_decision": True,
+def compact_candidate(
+    candidate: dict[str, Any],
+    source_part: str,
+    excerpt_chars: int = 500,
+) -> dict[str, Any]:
+    """Keep decision-bearing evidence while removing repeated packet ballast."""
+    compact = _ORIGINAL_COMPACT_CANDIDATE(
+        candidate,
+        source_part,
+        min(int(excerpt_chars), 500),
+    )
+
+    matched_queries = list(compact.get("matched_queries") or [])
+    compact["matched_query_count"] = len(matched_queries)
+    compact["matched_queries"] = matched_queries[:6]
+
+    for key in COMPACT_DROP_KEYS:
+        compact.pop(key, None)
+    for key in COMPACT_OPTIONAL_LIST_KEYS:
+        if not compact.get(key):
+            compact.pop(key, None)
+
+    annotation = remote_eligibility_annotation(candidate)
+    annotation.pop("note", None)
+    compact["remote_eligibility"] = annotation
+
+    regional = regional_evidence(candidate)
+    compact["regional_evidence"] = {
+        "signals": list(regional.get("signals") or [])[:6],
+        "confidence": regional.get("confidence"),
     }
+    compact["priority_lane"] = priority_lane(candidate)
+    compact["decision_required_for_job_id"] = str(candidate.get("linkedin_job_id") or "")
     return compact
 
 
@@ -286,7 +356,9 @@ def _compact_size(value: dict[str, Any]) -> int:
     return len(json.dumps(value, ensure_ascii=False, separators=(",", ":")))
 
 
-def _chunk_compact_candidates(prepared: list[tuple[str, dict[str, Any]]]) -> list[tuple[str, list[dict[str, Any]]]]:
+def _chunk_compact_candidates(
+    prepared: list[tuple[str, dict[str, Any]]],
+) -> list[tuple[str, list[dict[str, Any]]]]:
     local_limit = max(1, int(ACTIVE_CONFIG.get("delivery_local_chunk_size", 1)))
     default_limit = max(1, int(ACTIVE_CONFIG.get("delivery_default_chunk_size", 4)))
     max_chars = max(4000, int(ACTIVE_CONFIG.get("delivery_max_compact_chars", 14000)))
@@ -299,7 +371,9 @@ def _chunk_compact_candidates(prepared: list[tuple[str, dict[str, Any]]]) -> lis
         current_chars = 900
         for compact in items:
             item_chars = _compact_size(compact) + 2
-            if current and (len(current) >= limit or current_chars + item_chars > max_chars):
+            if current and (
+                len(current) >= limit or current_chars + item_chars > max_chars
+            ):
                 chunks.append((tier, current))
                 current = []
                 current_chars = 900
@@ -327,12 +401,18 @@ def write_delivery_parts(
     prepared: list[tuple[str, dict[str, Any]]] = []
     for candidate in candidates:
         job_id = str(candidate.get("linkedin_job_id") or "")
-        tier = str(candidate.get("delivery_tier") or ("local" if is_egypt_candidate(candidate) else "remote"))
-        prepared.append((tier, compact_candidate(
-            candidate,
-            source_by_job_id.get(job_id, fallback_source),
-            excerpt_chars,
-        )))
+        tier = str(
+            candidate.get("delivery_tier")
+            or ("local" if is_egypt_candidate(candidate) else "remote")
+        )
+        prepared.append((
+            tier,
+            compact_candidate(
+                candidate,
+                source_by_job_id.get(job_id, fallback_source),
+                excerpt_chars,
+            ),
+        ))
 
     chunks = _chunk_compact_candidates(prepared)
     parts: list[dict[str, Any]] = []
@@ -391,22 +471,30 @@ def apply_lane_quality(merged: dict[str, Any], config: dict[str, Any]) -> None:
     candidates = merged.get("review_candidates", [])
     for definition in merged.get("search_lanes", []):
         name = definition["name"]
-        lane_candidates = [item for item in candidates if item.get("discovery_lane") == name]
-        evidence_count = sum(bool(regional_evidence(item)["signals"]) for item in lane_candidates)
+        lane_candidates = [
+            item for item in candidates if item.get("discovery_lane") == name
+        ]
+        evidence_count = sum(
+            bool(regional_evidence(item)["signals"]) for item in lane_candidates
+        )
         ratio = round(evidence_count / len(lane_candidates), 3) if lane_candidates else None
         quality[name] = {
             "strategy": definition.get("strategy"),
             "new_candidates": len(lane_candidates),
-            "regional_evidence_candidates": evidence_count if name in REGIONAL_TERMS else None,
+            "regional_evidence_candidates": (
+                evidence_count if name in REGIONAL_TERMS else None
+            ),
             "regional_precision": ratio if name in REGIONAL_TERMS else None,
         }
 
     degraded = [
-        name for name, state in (merged.get("lane_health") or {}).items()
+        name
+        for name, state in (merged.get("lane_health") or {}).items()
         if str(state.get("status") or "").startswith("degraded")
     ]
     low_precision = [
-        name for name, state in quality.items()
+        name
+        for name, state in quality.items()
         if name in {"remote_mena", "remote_middle_east", "remote_emea"}
         and state["new_candidates"] >= 5
         and (state["regional_precision"] or 0) < 0.25
@@ -424,7 +512,10 @@ def apply_lane_quality(merged: dict[str, Any], config: dict[str, Any]) -> None:
     merged["priority_lane_names"] = config.get("priority_lane_names", [])
 
 
-def annotate_pending_entry(pending: dict[str, Any], merged: dict[str, Any]) -> None:
+def annotate_pending_entry(
+    pending: dict[str, Any],
+    merged: dict[str, Any],
+) -> None:
     for entry in pending.get("runs", []):
         if entry.get("run_id") != merged.get("run_id"):
             continue
@@ -437,6 +528,19 @@ def annotate_pending_entry(pending: dict[str, Any], merged: dict[str, Any]) -> N
 
 def run_pipeline(cli_path: Path) -> dict[str, Any]:
     base = read_json(CONFIG_PATH)
+
+    # Keep old pending policy IDs stable while making future non-Egypt packets
+    # denser. The byte ceiling still wins, so connector-safe packet size remains
+    # bounded even when eight compact candidates cannot fit together.
+    base["delivery_default_chunk_size"] = max(
+        8,
+        int(base.get("delivery_default_chunk_size", 4)),
+    )
+    base["delivery_excerpt_chars"] = min(
+        500,
+        int(base.get("delivery_excerpt_chars", 500)),
+    )
+
     install_patches(base)
     definitions = lane_definitions(base)
     orchestrator_started = radar.now_utc()
@@ -461,16 +565,29 @@ def run_pipeline(cli_path: Path) -> dict[str, Any]:
     merged["run_finished_at_utc"] = merged.get("generated_at_utc")
     merged["design"] = (
         "Egypt-first broad discovery -> regional-keyword MENA/EMEA remote lanes -> "
-        "focused worldwide remote -> exact detail fetch -> size-bounded integrity-checked GPT queue"
+        "focused worldwide remote -> exact detail fetch -> size-bounded "
+        "integrity-checked GPT queue"
     )
+    merged["effective_delivery_config"] = {
+        "local_candidates_per_part": int(base["delivery_local_chunk_size"]),
+        "maximum_nonlocal_candidates_per_part": int(
+            base["delivery_default_chunk_size"]
+        ),
+        "maximum_compact_chars_per_part": int(
+            base["delivery_max_compact_chars"]
+        ),
+        "description_excerpt_chars": int(base["delivery_excerpt_chars"]),
+    }
     apply_lane_quality(merged, base)
 
     pending = legacy.archive_run(
         merged,
         retention_hours=int(base.get("run_archive_retention_hours", 168)),
         chunk_size=int(base.get("run_archive_chunk_size", 25)),
-        excerpt_chars=int(base.get("delivery_excerpt_chars", 650)),
-        backlog_warning_candidates=int(base.get("delivery_backlog_warning_candidates", 500)),
+        excerpt_chars=int(base.get("delivery_excerpt_chars", 500)),
+        backlog_warning_candidates=int(
+            base.get("delivery_backlog_warning_candidates", 500)
+        ),
         delivery_config=base,
     )
     annotate_pending_entry(pending, merged)
@@ -479,7 +596,9 @@ def run_pipeline(cli_path: Path) -> dict[str, Any]:
         ROOT,
         legacy.PENDING_RUNS,
         legacy.REPORTED_RUNS,
-        backlog_warning_candidates=int(base.get("delivery_backlog_warning_candidates", 500)),
+        backlog_warning_candidates=int(
+            base.get("delivery_backlog_warning_candidates", 500)
+        ),
     )
 
     merged["delivery_queue"] = dict(pending["backlog"], **{
@@ -487,7 +606,9 @@ def run_pipeline(cli_path: Path) -> dict[str, Any]:
         "compact_parts": "output/delivery",
         "lossless_parts": "output/runs",
         "reported_state": "state/reported_runs.json",
-        "acknowledgement_granularity": "single-job Egypt parts; small manifest-checked parts elsewhere",
+        "acknowledgement_granularity": (
+            "single-job Egypt parts; small manifest-checked parts elsewhere"
+        ),
         "integrity": pending.get("integrity", {}),
     })
     audited_candidate_count = len(merged["review_candidates"])
@@ -497,7 +618,10 @@ def run_pipeline(cli_path: Path) -> dict[str, Any]:
         "audited_candidate_count": audited_candidate_count,
         "compact_delivery_index": "output/pending_runs.json",
         "lossless_records": "output/runs",
-        "note": "Egypt jobs are isolated one per delivery part; all parts carry exact Job-ID manifests and digests.",
+        "note": (
+            "Egypt jobs are isolated one per delivery part; all parts carry "
+            "exact Job-ID manifests and digests."
+        ),
     }
     merged["review_candidates"] = []
     merged["delivery_candidates"] = []
@@ -509,10 +633,14 @@ def run_pipeline(cli_path: Path) -> dict[str, Any]:
         "review_candidates": candidate_count,
         "pending_runs": len(pending["runs"]),
         "lane_cards": {
-            definition["name"]: payload.get("stats", {}).get("unique_live_cards", 0)
+            definition["name"]: payload.get("stats", {}).get(
+                "unique_live_cards",
+                0,
+            )
             for definition, payload in zip(definitions, payloads)
         },
         "lane_quality": merged.get("lane_quality", {}),
+        "effective_delivery_config": merged["effective_delivery_config"],
         "errors": len(merged.get("errors", [])),
     }
 
