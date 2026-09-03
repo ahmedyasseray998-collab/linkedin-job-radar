@@ -20,29 +20,22 @@ on:
       - 'test_radar.py'
       - 'test_pipeline_v13.py'
       - 'test_remote_region_eligibility.py'
+      - 'test_compact_review_packets.py'
       - '.github/workflows/radar.yml'
+  # Normal code changes are validated by pull requests. A push should launch a
+  # live scan only when the explicit trigger file changes.
   push:
     branches: [main]
     paths:
       - '.radar_trigger'
-      - 'radar_v5.py'
-      - 'radar_multilane.py'
-      - 'radar_pipeline_v13.py'
-      - 'queue_integrity.py'
-      - 'reconcile_queue.py'
-      - 'queries.json'
-      - 'queries_v13.json'
-      - 'patch_upstream.py'
-      - 'test_radar.py'
-      - 'test_pipeline_v13.py'
-      - 'test_remote_region_eligibility.py'
-      - '.github/workflows/radar.yml'
 
 permissions:
   contents: write
 
+# PR tests no longer wait behind a 15-20 minute live scan. All live producers
+# still share one serial group so two scans cannot mutate the queue together.
 concurrency:
-  group: linkedin-job-radar
+  group: linkedin-job-radar-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'live' }}
   cancel-in-progress: false
 
 jobs:
