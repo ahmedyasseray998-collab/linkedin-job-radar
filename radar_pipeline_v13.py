@@ -51,11 +51,24 @@ ELIGIBLE_REMOTE_PATTERNS = (
     ("remote EMEA", r"\bremote\b.{0,100}\bemea\b|\bemea\b.{0,100}\bremote\b"),
     ("remote MENA", r"\bremote\b.{0,100}\bmena\b|\bmena\b.{0,100}\bremote\b"),
     ("remote Middle East", r"\bremote\b.{0,100}\bmiddle east\b|\bmiddle east\b.{0,100}\bremote\b"),
-    ("remote Europe", r"\bremote\b.{0,100}\beurope(?:an)?\b|\beurope(?:an)?\b.{0,100}\bremote\b"),
     ("remote Egypt", r"\bremote\b.{0,100}\begypt\b|\begypt\b.{0,100}\bremote\b"),
-    ("based anywhere in region", r"\bbased anywhere in (?:the )?(?:emea|mena|middle east|europe|egypt)\b"),
-    ("open to regional candidates", r"\bopen to (?:candidates|applicants).{0,80}\b(?:emea|mena|middle east|europe|egypt)\b"),
-    ("can be based in region", r"\bcan be based.{0,80}\b(?:emea|mena|middle east|europe|egypt)\b"),
+    ("remote Africa", r"\bremote\b.{0,100}\bafrica\b|\bafrica\b.{0,100}\bremote\b"),
+    ("based anywhere in eligible region", r"\bbased anywhere in (?:the )?(?:emea|mena|middle east|egypt|africa)\b"),
+    ("open to eligible regional candidates", r"\bopen to (?:candidates|applicants).{0,80}\b(?:emea|mena|middle east|egypt|africa)\b"),
+    ("can be based in eligible region", r"\bcan be based.{0,80}\b(?:emea|mena|middle east|egypt|africa)\b"),
+)
+
+# These phrases are geographic requirements, but they are requirements Ahmed
+# satisfies from Egypt. They must not be mistaken for country blocking rules.
+ALLOWED_REGIONAL_REQUIREMENT_PATTERNS = (
+    (
+        "required base in eligible region",
+        r"\b(?:candidates?|applicants?)?(?:\s+must)?\s*(?:reside|live|be located|be based) in (?:the )?(?:emea|mena|middle east|egypt|africa)\b",
+    ),
+    (
+        "only eligible regional candidates",
+        r"\b(?:only open to|only accepting) (?:candidates|applicants).{0,60}\b(?:emea|mena|middle east|egypt|africa)\b",
+    ),
 )
 
 RESTRICTION_PATTERNS = (
@@ -170,9 +183,20 @@ def remote_eligibility_annotation(candidate: dict[str, Any]) -> dict[str, Any]:
     text = f"{location}. {description[:7000]}".casefold()
     head = f"{location}. {description[:2400]}".casefold()
 
+    allowed_requirements = _pattern_hits(text, ALLOWED_REGIONAL_REQUIREMENT_PATTERNS)
     restrictions = _pattern_hits(text, RESTRICTION_PATTERNS)
     eligible = _pattern_hits(text, ELIGIBLE_REMOTE_PATTERNS)
     non_remote = _pattern_hits(head, NON_REMOTE_PATTERNS)
+
+    if allowed_requirements:
+        generic_geography_labels = {
+            "must reside in",
+            "must be located in",
+            "candidates must be based in",
+            "only candidates in",
+        }
+        restrictions = [label for label in restrictions if label not in generic_geography_labels]
+        eligible = list(dict.fromkeys([*eligible, *allowed_requirements]))
 
     if restrictions:
         status = "explicit_location_or_work_authorization_restriction"
@@ -193,7 +217,7 @@ def remote_eligibility_annotation(candidate: dict[str, Any]) -> dict[str, Any]:
         "restriction_signals": restrictions,
         "non_remote_signals": non_remote,
         "confidence": confidence,
-        "note": "Generic company words such as 'worldwide' do not count without remote-work context.",
+        "note": "Generic company words such as 'worldwide' do not count. Europe-only remote wording is not treated as open to Egypt.",
     }
 
 
