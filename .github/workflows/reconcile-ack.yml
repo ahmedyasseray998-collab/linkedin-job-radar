@@ -43,7 +43,10 @@ jobs:
       - name: Validate acknowledgement reconciliation
         run: |
           set -euo pipefail
-          python3 -m unittest -v test_receipt_promotion_v15.py test_ack_reconcile_v15.py
+          python3 -m unittest -v \
+            test_receipt_promotion_v15.py \
+            test_ack_reconcile_v15.py \
+            test_ack_migration_guard_v15.py
 
       - name: Promote receipts and clean pending queue
         run: |
