@@ -31,9 +31,61 @@ def _queue_health(latest: dict) -> str:
     return "healthy"
 
 
+def _targeting_config(root: Path) -> dict:
+    config = read_json(root / "queries_v13.json")
+    config["config_version"] = targeting.POLICY_VERSION
+    config["delivery_default_chunk_size"] = max(
+        8,
+        int(config.get("delivery_default_chunk_size", 4)),
+    )
+    config["delivery_excerpt_chars"] = min(
+        500,
+        int(config.get("delivery_excerpt_chars", 500)),
+    )
+    return config
+
+
+def retarget_existing_queue_before_scan(root: Path = ROOT) -> dict:
+    """Retarget legacy lossless runs before v13 applies old acknowledgements.
+
+    The v13 search pipeline reconciles reported packets before v14 targeting. If
+    a legacy run was already acknowledged, that ordering can delete its lossless
+    archive before policy 15 has a chance to reconsider candidates that were
+    previously deferred. This explicit pre-pass stages the v15 survivors first;
+    their new content-addressed part IDs are not consumed by the old receipts.
+    """
+    pending_path = root / "output" / "pending_runs.json"
+    if not pending_path.is_file():
+        return {
+            "targeting_policy_version": targeting.POLICY_VERSION,
+            "runs_considered": 0,
+            "selected_candidates": 0,
+            "deferred_candidates": 0,
+            "pending_candidate_count": 0,
+        }
+
+    result = targeting.reprioritize_pending_queue(
+        _targeting_config(root),
+        pending_path=pending_path,
+        reported_path=root / "state" / "reported_runs.json",
+        summary_path=root / "output" / "deferred_summary.json",
+    )
+    totals = result.get("summary", {}).get("totals", {})
+    backlog = result.get("pending", {}).get("backlog", {})
+    return {
+        "targeting_policy_version": targeting.POLICY_VERSION,
+        "runs_considered": len(result.get("summary", {}).get("runs", [])),
+        **totals,
+        "pending_candidate_count": int(backlog.get("pending_candidate_count", 0)),
+        "pending_part_count": int(backlog.get("pending_part_count", 0)),
+        "integrity_status": (result.get("pending", {}).get("integrity") or {}).get("status"),
+    }
+
+
 def run_pipeline(cli_path: Path) -> dict:
     receipt_promotion = promote_manual_receipts(ROOT)
     lifecycle_before = targeting.prepare_seen_for_run(ROOT)
+    pre_scan_retarget = retarget_existing_queue_before_scan(ROOT)
     result = base_pipeline.run_pipeline(cli_path)
     lifecycle_after = targeting.annotate_seen_from_pending(ROOT)
 
@@ -56,6 +108,7 @@ def run_pipeline(cli_path: Path) -> dict:
         else "degraded"
     )
     latest["receipt_promotion"] = receipt_promotion
+    latest["pre_scan_retarget"] = pre_scan_retarget
     latest["seen_lifecycle"] = {
         "before_scan": lifecycle_before,
         "after_targeting": lifecycle_after,
@@ -63,9 +116,10 @@ def run_pipeline(cli_path: Path) -> dict:
     latest.setdefault("candidate_payload", {})["note"] = (
         "Egypt IT candidates are protected. Remote candidates require job-level "
         "Egypt/MENA/EMEA/Africa/global scope; on-site and hybrid roles are kept "
-        "separate as relocation leads. Deferred candidates receive versioned, "
-        "retryable seen-state decisions, and reviewed packet receipts are "
-        "promoted to durable per-job receipts before queue cleanup."
+        "separate as relocation leads. Legacy lossless candidates are retargeted "
+        "before old packet acknowledgements can remove their archive. Deferred "
+        "candidates receive versioned, retryable seen-state decisions, and "
+        "reviewed packet receipts are promoted to durable per-job receipts."
     )
     atomic_write_json(LATEST, latest)
 
@@ -73,6 +127,7 @@ def run_pipeline(cli_path: Path) -> dict:
         **result,
         "targeting_policy_version": targeting.POLICY_VERSION,
         "receipt_promotion": receipt_promotion,
+        "pre_scan_retarget": pre_scan_retarget,
         "seen_lifecycle_before_scan": lifecycle_before,
         "seen_lifecycle_after_targeting": lifecycle_after,
         "health_components": latest["health_components"],
