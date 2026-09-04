@@ -23,15 +23,29 @@ _LAST_SEEN_DECISION_AUDIT: dict[str, int] = {}
 def _v15_targeting_scope() -> Iterator[None]:
     """Install policy-15 hooks temporarily, then restore every legacy global.
 
-    v13 and v14 intentionally expose module-level extension points. Earlier v15
-    code replaced them at import time, which made unrelated legacy tests depend
-    on module import order. Scoping the replacements keeps production behavior
-    identical while making every operation deterministic and isolated.
+    v13 and v14 intentionally expose module-level extension points. Their packet
+    builder also patches radar_multilane and ACTIVE_CONFIG. Earlier v15 code left
+    those replacements behind, making unrelated tests and later operations
+    depend on import and execution order. This scope restores the full surface.
     """
     old_legacy_policy = targeting.legacy.POLICY_VERSION
     old_legacy_classifier = targeting.legacy.classify_candidate
     old_remote_annotation = targeting.pipeline_v13.remote_eligibility_annotation
     old_regional_evidence = targeting.pipeline_v13.regional_evidence
+    old_active_config = dict(targeting.pipeline_v13.ACTIVE_CONFIG)
+
+    multilane = targeting.pipeline_v13.legacy
+    patched_multilane_names = (
+        "is_egypt_candidate",
+        "remote_eligibility_annotation",
+        "delivery_bucket",
+        "compact_candidate",
+        "write_delivery_parts",
+    )
+    old_multilane_values = {
+        name: getattr(multilane, name)
+        for name in patched_multilane_names
+    }
 
     targeting.legacy.POLICY_VERSION = targeting.POLICY_VERSION
     targeting.legacy.classify_candidate = targeting.classify_candidate
@@ -44,6 +58,10 @@ def _v15_targeting_scope() -> Iterator[None]:
         targeting.legacy.classify_candidate = old_legacy_classifier
         targeting.pipeline_v13.remote_eligibility_annotation = old_remote_annotation
         targeting.pipeline_v13.regional_evidence = old_regional_evidence
+        targeting.pipeline_v13.ACTIVE_CONFIG.clear()
+        targeting.pipeline_v13.ACTIVE_CONFIG.update(old_active_config)
+        for name, value in old_multilane_values.items():
+            setattr(multilane, name, value)
 
 
 @contextmanager
@@ -51,6 +69,7 @@ def _v15_pipeline_scope() -> Iterator[None]:
     """Temporarily point the v14 orchestrator at policy 15."""
     old_policy = base_pipeline.POLICY_VERSION
     old_reprioritize = base_pipeline.reprioritize_pending_queue
+    old_config_path = base_pipeline.search_pipeline.CONFIG_PATH
     with _v15_targeting_scope():
         base_pipeline.POLICY_VERSION = targeting.POLICY_VERSION
         base_pipeline.reprioritize_pending_queue = reprioritize_with_seen_decisions
@@ -59,6 +78,7 @@ def _v15_pipeline_scope() -> Iterator[None]:
         finally:
             base_pipeline.POLICY_VERSION = old_policy
             base_pipeline.reprioritize_pending_queue = old_reprioritize
+            base_pipeline.search_pipeline.CONFIG_PATH = old_config_path
 
 
 def _decision_rank(kind: str) -> int:
