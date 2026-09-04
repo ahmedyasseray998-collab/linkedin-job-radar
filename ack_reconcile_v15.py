@@ -18,10 +18,49 @@ from queue_integrity import (
 from receipt_promotion_v15 import promote_manual_receipts
 
 ROOT = Path(__file__).resolve().parent
+POLICY_VERSION = 15
 
 
 def _iso_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def verify_legacy_retarget_complete(root: Path = ROOT) -> None:
+    """Protect legacy lossless archives until policy 15 has retargeted them.
+
+    Reviewer acknowledgements may arrive while an older packet is still indexed.
+    Cleaning that packet before the policy-15 pre-pass would also delete its
+    lossless archive and hide candidates that the new geography rules should
+    reconsider. A current producer converts such runs to targeting policy 15
+    first, after which normal acknowledgement cleanup is safe.
+    """
+    pending = read_json(root / "output" / "pending_runs.json", {"runs": []})
+    reported = read_json(
+        root / "state" / "reported_runs.json",
+        {"reported_runs": {}, "reported_parts": {}, "reported_jobs": {}},
+    )
+    reported_runs = set((reported.get("reported_runs") or {}).keys())
+    reported_parts = set((reported.get("reported_parts") or {}).keys())
+    blocked: list[str] = []
+
+    for entry in pending.get("runs") or []:
+        policy = int(entry.get("targeting_policy_version", 0) or 0)
+        if policy >= POLICY_VERSION:
+            continue
+        run_id = str(entry.get("run_id") or "").strip()
+        part_ids = {
+            str(part.get("part_id") or "").strip()
+            for part in entry.get("delivery_parts") or []
+            if str(part.get("part_id") or "").strip()
+        }
+        if (run_id and run_id in reported_runs) or bool(part_ids & reported_parts):
+            blocked.append(run_id or "<unknown-run>")
+
+    if blocked:
+        raise SystemExit(
+            "Refusing acknowledgement cleanup before policy-15 legacy retargeting: "
+            + ", ".join(sorted(set(blocked)))
+        )
 
 
 def _job_ids(root: Path, part: dict[str, Any]) -> list[str]:
@@ -115,6 +154,7 @@ def promote_reported_part_receipts(root: Path = ROOT) -> dict[str, Any]:
 
 
 def reconcile_acknowledgements(root: Path = ROOT) -> dict[str, Any]:
+    verify_legacy_retarget_complete(root)
     manual = promote_manual_receipts(root)
     promoted = promote_reported_part_receipts(root)
 
