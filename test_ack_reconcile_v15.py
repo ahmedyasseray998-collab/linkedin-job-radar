@@ -50,6 +50,7 @@ class AckReconcileV15Tests(unittest.TestCase):
                     "run_id": "run-1",
                     "generated_at_utc": "2026-09-04T09:00:00Z",
                     "candidate_count": 2,
+                    "targeting_policy_version": 15,
                     "parts": ["output/runs/run-1-audit-001.json"],
                     "delivery_parts": [{
                         "part_id": part_id,
@@ -143,6 +144,7 @@ class AckReconcileV15Tests(unittest.TestCase):
                     "run_id": "run-2",
                     "generated_at_utc": "2026-09-04T09:00:00Z",
                     "candidate_count": 2,
+                    "targeting_policy_version": 15,
                     "parts": ["output/runs/run-2-audit-001.json"],
                     "delivery_parts": parts,
                 }],
