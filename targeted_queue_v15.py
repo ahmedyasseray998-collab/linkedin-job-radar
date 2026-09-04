@@ -33,13 +33,12 @@ GENERIC_REMOTE_LOCATIONS = {
     "remote worldwide",
     "remote - worldwide",
     "remote, worldwide",
-    "emea",
     "remote emea",
     "remote - emea",
-    "mena",
     "remote mena",
-    "middle east",
-    "africa",
+    "remote - mena",
+    "remote middle east",
+    "remote africa",
 }
 
 MENA_PHYSICAL_LOCATION_MARKERS = tuple(
@@ -426,15 +425,33 @@ def prepare_seen_for_run(root: Path = ROOT) -> dict[str, Any]:
         {"schema_version": 3, "reported_runs": {}, "reported_parts": {}, "reported_jobs": {}},
     )
     reported_runs = reported.setdefault("reported_runs", {})
+    reported_parts = reported.setdefault("reported_parts", {})
+    reported_jobs = reported.setdefault("reported_jobs", {})
     retargeted_runs: list[str] = []
+    promoted_jobs: list[str] = []
     for entry in pending.get("runs") or []:
         run_id = str(entry.get("run_id") or "")
         old_policy = int(entry.get("targeting_policy_version", 0) or 0)
-        if run_id and old_policy < POLICY_VERSION and run_id in reported_runs and entry.get("parts"):
-            reported_runs.pop(run_id, None)
-            retargeted_runs.append(run_id)
+        if not (run_id and old_policy < POLICY_VERSION and run_id in reported_runs and entry.get("parts")):
+            continue
 
-    if retargeted_runs:
+        for part in entry.get("delivery_parts") or []:
+            part_id = str(part.get("part_id") or "")
+            if part_id not in reported_parts:
+                continue
+            reviewed_at = str(reported_parts.get(part_id) or reported_runs.get(run_id) or _iso_utc(now))
+            for raw_job_id in part.get("job_ids") or []:
+                job_id = str(raw_job_id or "").strip()
+                if not job_id:
+                    continue
+                if job_id not in reported_jobs:
+                    reported_jobs[job_id] = reviewed_at
+                    promoted_jobs.append(job_id)
+
+        reported_runs.pop(run_id, None)
+        retargeted_runs.append(run_id)
+
+    if retargeted_runs or promoted_jobs:
         reported["updated_at_utc"] = _iso_utc(now)
         atomic_write_json(reported_path, reported)
 
@@ -443,6 +460,8 @@ def prepare_seen_for_run(root: Path = ROOT) -> dict[str, Any]:
         "released_deferred_job_ids": released_jobs,
         "retargeted_legacy_run_count": len(retargeted_runs),
         "retargeted_legacy_run_ids": retargeted_runs,
+        "promoted_reported_job_count": len(promoted_jobs),
+        "promoted_reported_job_ids": promoted_jobs,
     }
 
 
