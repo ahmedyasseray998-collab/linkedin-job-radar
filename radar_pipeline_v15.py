@@ -4,21 +4,61 @@ from __future__ import annotations
 
 import argparse
 import json
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterator
 
+import radar_pipeline_v14 as base_pipeline
 import targeted_queue_v15 as targeting
+from queue_integrity import atomic_write_json, read_json
 from receipt_promotion_v15 import promote_manual_receipts
-
-# Install patches before importing v14 so its direct imports receive v15 policy.
-targeting.install_v15_patches()
-import radar_pipeline_v14 as base_pipeline  # noqa: E402
-from queue_integrity import atomic_write_json, read_json  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent
 LATEST = ROOT / "output" / "latest.json"
 _LAST_SEEN_DECISION_AUDIT: dict[str, int] = {}
+
+
+@contextmanager
+def _v15_targeting_scope() -> Iterator[None]:
+    """Install policy-15 hooks temporarily, then restore every legacy global.
+
+    v13 and v14 intentionally expose module-level extension points. Earlier v15
+    code replaced them at import time, which made unrelated legacy tests depend
+    on module import order. Scoping the replacements keeps production behavior
+    identical while making every operation deterministic and isolated.
+    """
+    old_legacy_policy = targeting.legacy.POLICY_VERSION
+    old_legacy_classifier = targeting.legacy.classify_candidate
+    old_remote_annotation = targeting.pipeline_v13.remote_eligibility_annotation
+    old_regional_evidence = targeting.pipeline_v13.regional_evidence
+
+    targeting.legacy.POLICY_VERSION = targeting.POLICY_VERSION
+    targeting.legacy.classify_candidate = targeting.classify_candidate
+    targeting.pipeline_v13.remote_eligibility_annotation = targeting.remote_eligibility_annotation
+    targeting.pipeline_v13.regional_evidence = targeting.regional_evidence
+    try:
+        yield
+    finally:
+        targeting.legacy.POLICY_VERSION = old_legacy_policy
+        targeting.legacy.classify_candidate = old_legacy_classifier
+        targeting.pipeline_v13.remote_eligibility_annotation = old_remote_annotation
+        targeting.pipeline_v13.regional_evidence = old_regional_evidence
+
+
+@contextmanager
+def _v15_pipeline_scope() -> Iterator[None]:
+    """Temporarily point the v14 orchestrator at policy 15."""
+    old_policy = base_pipeline.POLICY_VERSION
+    old_reprioritize = base_pipeline.reprioritize_pending_queue
+    with _v15_targeting_scope():
+        base_pipeline.POLICY_VERSION = targeting.POLICY_VERSION
+        base_pipeline.reprioritize_pending_queue = reprioritize_with_seen_decisions
+        try:
+            yield
+        finally:
+            base_pipeline.POLICY_VERSION = old_policy
+            base_pipeline.reprioritize_pending_queue = old_reprioritize
 
 
 def _decision_rank(kind: str) -> int:
@@ -156,20 +196,17 @@ def reprioritize_with_seen_decisions(
     summary_path = Path(summary_path)
     root = pending_path.parent.parent
     decisions = _capture_targeting_decisions(root, pending_path, reported_path)
-    result = targeting.reprioritize_pending_queue(
-        config,
-        pending_path=pending_path,
-        reported_path=reported_path,
-        summary_path=summary_path,
-    )
+    with _v15_targeting_scope():
+        result = targeting.legacy.reprioritize_pending_queue(
+            config,
+            pending_path=pending_path,
+            reported_path=reported_path,
+            summary_path=summary_path,
+        )
     audit = _apply_targeting_decisions(root, decisions, result.get("pending", {}))
     result["seen_decisions"] = audit
     _LAST_SEEN_DECISION_AUDIT = audit
     return result
-
-
-base_pipeline.POLICY_VERSION = targeting.POLICY_VERSION
-base_pipeline.reprioritize_pending_queue = reprioritize_with_seen_decisions
 
 
 def _queue_health(latest: dict) -> str:
@@ -235,11 +272,14 @@ def retarget_existing_queue_before_scan(root: Path = ROOT) -> dict:
 
 
 def run_pipeline(cli_path: Path) -> dict:
-    receipt_promotion = promote_manual_receipts(ROOT)
-    lifecycle_before = targeting.prepare_seen_for_run(ROOT)
-    pre_scan_retarget = retarget_existing_queue_before_scan(ROOT)
-    result = base_pipeline.run_pipeline(cli_path)
-    lifecycle_after = targeting.annotate_seen_from_pending(ROOT)
+    global _LAST_SEEN_DECISION_AUDIT
+    _LAST_SEEN_DECISION_AUDIT = {}
+    with _v15_pipeline_scope():
+        receipt_promotion = promote_manual_receipts(ROOT)
+        lifecycle_before = targeting.prepare_seen_for_run(ROOT)
+        pre_scan_retarget = retarget_existing_queue_before_scan(ROOT)
+        result = base_pipeline.run_pipeline(cli_path)
+        lifecycle_after = targeting.annotate_seen_from_pending(ROOT)
 
     latest = read_json(LATEST)
     discovery_health = str(result.get("health") or latest.get("health") or "unknown")
