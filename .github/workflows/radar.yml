@@ -1,6 +1,6 @@
 name: LinkedIn Job Radar
 
-# Egypt-first discovery with repaired regional remote lanes, a targeted review
+# Egypt-first discovery with precise remote eligibility, a targeted review
 # queue, integrity validation, and race-safe GPT acknowledgement reconciliation.
 on:
   schedule:
@@ -13,7 +13,9 @@ on:
       - 'radar_multilane.py'
       - 'radar_pipeline_v13.py'
       - 'radar_pipeline_v14.py'
+      - 'radar_pipeline_v15.py'
       - 'targeted_queue_v14.py'
+      - 'targeted_queue_v15.py'
       - 'queue_integrity.py'
       - 'reconcile_queue.py'
       - 'queries.json'
@@ -92,7 +94,7 @@ jobs:
         working-directory: radar
         run: |
           set -euo pipefail
-          python3 radar_pipeline_v14.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
+          python3 radar_pipeline_v15.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
 
       - name: Persist state and reconcile latest GPT acknowledgements
         if: github.event_name != 'pull_request'
