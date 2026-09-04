@@ -103,7 +103,7 @@ jobs:
           git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
 
           made_commit=0
-          git add state/seen.json state/lane_health.json output/latest.json output/pending_runs.json output/deferred_summary.json output/runs output/delivery
+          git add -A -- state/seen.json state/lane_health.json state/reported_runs.json state/manual_backlog_receipts.json output/latest.json output/pending_runs.json output/deferred_summary.json output/runs output/delivery
           if ! git diff --cached --quiet; then
             git commit -m "radar: update $(date -u +'%Y-%m-%dT%H:%MZ')"
             made_commit=1
@@ -115,7 +115,7 @@ jobs:
           for attempt in 1 2 3; do
             git pull --rebase origin main
             python3 reconcile_queue.py
-            git add -A output/pending_runs.json output/runs output/delivery
+            git add -A -- state/reported_runs.json state/manual_backlog_receipts.json output/pending_runs.json output/runs output/delivery
 
             if ! git diff --cached --quiet; then
               if [ "$made_commit" -eq 1 ]; then
