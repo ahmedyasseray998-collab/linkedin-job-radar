@@ -15,6 +15,51 @@ SOURCE_CONFIG = ROOT / "queries_v13.json"
 RUNTIME_DIR = ROOT / "output" / ".pipeline_v14"
 RUNTIME_CONFIG = RUNTIME_DIR / "queries.json"
 LATEST = ROOT / "output" / "latest.json"
+REPORTED_STATE = ROOT / "state" / "reported_runs.json"
+MANUAL_RECEIPTS = ROOT / "state" / "manual_backlog_receipts.json"
+
+
+def merge_manual_backlog_receipts() -> int:
+    """Merge reviewed content-addressed parts without replacing the main ledger.
+
+    The ChatGPT reviewer can write a small one-shot receipt file after validating
+    every candidate in a backlog. The next radar run folds those receipts into
+    state/reported_runs.json, preserving all existing acknowledgements, then
+    removes the one-shot file so the merge is idempotent and auditable.
+    """
+    if not MANUAL_RECEIPTS.is_file():
+        return 0
+
+    manual = read_json(MANUAL_RECEIPTS, {"reported_parts": {}})
+    receipts = manual.get("reported_parts") or {}
+    if not isinstance(receipts, dict) or not receipts:
+        return 0
+
+    reported = read_json(
+        REPORTED_STATE,
+        {
+            "schema_version": 3,
+            "reported_runs": {},
+            "reported_parts": {},
+            "reported_jobs": {},
+        },
+    )
+    reported.setdefault("reported_runs", {})
+    reported.setdefault("reported_jobs", {})
+    reported_parts = reported.setdefault("reported_parts", {})
+
+    for part_id, reviewed_at in receipts.items():
+        key = str(part_id or "").strip()
+        if not key:
+            continue
+        reported_parts[key] = str(reviewed_at or manual.get("reviewed_at_utc") or "")
+
+    reported["schema_version"] = max(3, int(reported.get("schema_version", 0) or 0))
+    if manual.get("reviewed_at_utc"):
+        reported["updated_at_utc"] = str(manual["reviewed_at_utc"])
+    atomic_write_json(REPORTED_STATE, reported)
+    MANUAL_RECEIPTS.unlink(missing_ok=True)
+    return len(receipts)
 
 
 def prepare_runtime_config() -> dict:
@@ -35,6 +80,7 @@ def prepare_runtime_config() -> dict:
 
 
 def run_pipeline(cli_path: Path) -> dict:
+    merged_manual_receipts = merge_manual_backlog_receipts()
     config = prepare_runtime_config()
     search_pipeline.CONFIG_PATH = RUNTIME_CONFIG
     search_result = search_pipeline.run_pipeline(cli_path)
@@ -87,6 +133,7 @@ def run_pipeline(cli_path: Path) -> dict:
         "targeting_current_run": current_audit,
         "targeting_backlog": targeted["summary"].get("totals", {}),
         "backlog": targeted["pending"].get("backlog", {}),
+        "merged_manual_receipts": merged_manual_receipts,
     }
 
 
