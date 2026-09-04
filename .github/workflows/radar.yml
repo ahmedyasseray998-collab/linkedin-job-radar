@@ -115,7 +115,7 @@ jobs:
           for attempt in 1 2 3; do
             git pull --rebase origin main
             python3 reconcile_queue.py
-            git add -A -- state/reported_runs.json state/manual_backlog_receipts.json output/pending_runs.json output/runs output/delivery
+            git add -A -- state/reported_runs.json output/pending_runs.json output/runs output/delivery
 
             if ! git diff --cached --quiet; then
               if [ "$made_commit" -eq 1 ]; then
