@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 import targeted_queue_v15 as targeting
+from receipt_promotion_v15 import promote_manual_receipts
 
 # Install patches before importing v14 so its direct imports receive v15 policy.
 targeting.install_v15_patches()
@@ -31,6 +32,7 @@ def _queue_health(latest: dict) -> str:
 
 
 def run_pipeline(cli_path: Path) -> dict:
+    receipt_promotion = promote_manual_receipts(ROOT)
     lifecycle_before = targeting.prepare_seen_for_run(ROOT)
     result = base_pipeline.run_pipeline(cli_path)
     lifecycle_after = targeting.annotate_seen_from_pending(ROOT)
@@ -53,6 +55,7 @@ def run_pipeline(cli_path: Path) -> dict:
         if discovery_health.startswith("healthy") and queue_health.startswith("healthy")
         else "degraded"
     )
+    latest["receipt_promotion"] = receipt_promotion
     latest["seen_lifecycle"] = {
         "before_scan": lifecycle_before,
         "after_targeting": lifecycle_after,
@@ -61,13 +64,15 @@ def run_pipeline(cli_path: Path) -> dict:
         "Egypt IT candidates are protected. Remote candidates require job-level "
         "Egypt/MENA/EMEA/Africa/global scope; on-site and hybrid roles are kept "
         "separate as relocation leads. Deferred candidates receive versioned, "
-        "retryable seen-state decisions."
+        "retryable seen-state decisions, and reviewed packet receipts are "
+        "promoted to durable per-job receipts before queue cleanup."
     )
     atomic_write_json(LATEST, latest)
 
     return {
         **result,
         "targeting_policy_version": targeting.POLICY_VERSION,
+        "receipt_promotion": receipt_promotion,
         "seen_lifecycle_before_scan": lifecycle_before,
         "seen_lifecycle_after_targeting": lifecycle_after,
         "health_components": latest["health_components"],
