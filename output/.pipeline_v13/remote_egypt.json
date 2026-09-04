@@ -1,11 +1,13 @@
 {
   "schema_version": 5,
   "config_version": 15,
-  "run_id": "20260904T144705Z",
-  "run_started_at_utc": "2026-09-04T14:47:05Z",
-  "generated_at_utc": "2026-09-04T14:47:30Z",
-  "health": "healthy",
-  "warnings": [],
+  "run_id": "20260904T154700Z",
+  "run_started_at_utc": "2026-09-04T15:47:00Z",
+  "generated_at_utc": "2026-09-04T15:47:32Z",
+  "health": "healthy_with_retries",
+  "warnings": [
+    "LinkedIn guest search needed recovery retries for 1 query bucket(s)"
+  ],
   "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
   "location": "Egypt",
   "window_minutes": 180,
@@ -20,19 +22,19 @@
   },
   "stats": {
     "query_count": 13,
-    "unique_live_cards": 22,
-    "already_seen": 21,
-    "detail_attempts": 1,
-    "details_fetched": 1,
+    "unique_live_cards": 23,
+    "already_seen": 19,
+    "detail_attempts": 4,
+    "details_fetched": 4,
     "detail_failures": 0,
     "detail_budget_skipped": 0,
-    "review_candidates": 1,
+    "review_candidates": 4,
     "closed_candidates_kept": 0,
     "freshness_conflicts_kept": 0,
-    "low_it_evidence_candidates_kept": 0,
+    "low_it_evidence_candidates_kept": 2,
     "title_noise_candidates_kept": 0,
     "search_errors": 0,
-    "query_retry_recoveries": 0,
+    "query_retry_recoveries": 1,
     "relevance_rejections": 0
   },
   "query_stats": [
@@ -52,10 +54,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        3
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 3,
+      "unique_cards": 2,
       "errors": 0
     },
     {
@@ -63,10 +65,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        8
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 8,
+      "unique_cards": 2,
       "errors": 0
     },
     {
@@ -74,9 +76,11 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        3
+        0
       ],
-      "retry_page_counts": {},
+      "retry_page_counts": {
+        "1": 3
+      },
       "unique_cards": 3,
       "errors": 0
     },
@@ -85,10 +89,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        5
+        4
       ],
       "retry_page_counts": {},
-      "unique_cards": 5,
+      "unique_cards": 4,
       "errors": 0
     },
     {
@@ -117,29 +121,16 @@
     {
       "query": "Technical Support Engineer",
       "pages_configured": 2,
-      "pages_requested": 2,
+      "pages_requested": 1,
       "page_counts": [
-        10,
-        0
+        7
       ],
       "retry_page_counts": {},
-      "unique_cards": 10,
+      "unique_cards": 7,
       "errors": 0
     },
     {
       "query": "IT Specialist",
-      "pages_configured": 2,
-      "pages_requested": 2,
-      "page_counts": [
-        10,
-        0
-      ],
-      "retry_page_counts": {},
-      "unique_cards": 10,
-      "errors": 0
-    },
-    {
-      "query": "Microsoft 365 Administrator",
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
@@ -150,14 +141,29 @@
       "errors": 0
     },
     {
+      "query": "Microsoft 365 Administrator",
+      "pages_configured": 2,
+      "pages_requested": 1,
+      "page_counts": [
+        0
+      ],
+      "retry_page_counts": {
+        "1": 0
+      },
+      "unique_cards": 0,
+      "errors": 0
+    },
+    {
       "query": "Azure Administrator",
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        2
+        0
       ],
-      "retry_page_counts": {},
-      "unique_cards": 2,
+      "retry_page_counts": {
+        "1": 0
+      },
+      "unique_cards": 0,
       "errors": 0
     },
     {
@@ -165,10 +171,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        10
+        0
       ],
       "retry_page_counts": {},
-      "unique_cards": 10,
+      "unique_cards": 0,
       "errors": 0
     },
     {
@@ -186,100 +192,296 @@
   "errors": [],
   "review_candidates": [
     {
-      "linkedin_job_id": "4453252873",
-      "title": "CRM Test Lead",
-      "company": "Accenture",
-      "location": "Cairo, Cairo, Egypt",
+      "linkedin_job_id": "4463378075",
+      "title": "Key account fresh graduate",
+      "company": "SoftTrend",
+      "location": "Qesm El Maadi, Cairo, Egypt",
       "linkedin_date": "2026-09-04",
-      "linkedin_posted_text": "37 minutes ago",
-      "estimated_age_minutes": 37,
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-09-04T14:47:05Z",
-      "url": "https://www.linkedin.com/jobs/view/4453252873",
+      "first_seen_utc": "2026-09-04T15:47:00Z",
+      "url": "https://www.linkedin.com/jobs/view/4463378075",
       "matched_queries": [
         {
-          "query": "VMware",
+          "query": "Fortinet",
+          "weight": 3.0
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Sales and Business Development",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 8.0,
+      "role_hits_title": [],
+      "role_hits_description": [
+        {
+          "label": "Network Security",
+          "weight": 8.0
+        }
+      ],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Sales Account Manager Job Description: • Secure and develop strategic partnerships with assigned clients, gaining a deep understanding of their business needs and IT landscape. • Collaborate with clients to identify and present customized solutions that address their pain points and strategic goals. • Manage the sales cycle effectively, from initial contact through proposal generation, negotiation, and successful deal closure. • Foster strong relationships with key decision • Makers within client organizations, proactively addressing their concerns and ensuring satisfaction. • Partner with internal teams, including technical specialists and account managers, to deliver seamless solutions and exceptional client service. • Prepare insightful reports on sales activities, client interactions, and market trends, contributing to data-driven decision making. • Stay up-to-date on industry trends and the latest IT solutions to provide clients with expert guidance. Job Requirements: • Bachelor's degree in a relevant field such as Business, Marketing, or Communications. • Fresh Grads - 2 years • Proven ability to manage multiple client accounts, deadlines, and tasks effectively, with a strong track record of building and nurturing client relationships. • Self-motivated and results-oriented, with a strong drive to succeed in a competitive sales environment. • Prior experience within the IT Industry • Fluent in both written and oral English. • Familiarity with CRM software • Residency in Cairo or Giza.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
+    },
+    {
+      "linkedin_job_id": "4463382646",
+      "title": "Quality Monitoring Analyst",
+      "company": "Xceed",
+      "location": "Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-09-04",
+      "linkedin_posted_text": "2 minutes ago",
+      "estimated_age_minutes": 2,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-04T15:47:00Z",
+      "url": "https://www.linkedin.com/jobs/view/4463382646",
+      "matched_queries": [
+        {
+          "query": "Fortinet",
+          "weight": 3.0
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Quality Assurance",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Backup/DR",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Company Description Xceed is a leading multilingual Business Process Outsourcing (BPO) provider in the EMEA region, operating more than 10,000 web-enabled multichannel stations. The company supports government and commercial clients in 10 different languages, offering services that include inbound and outbound contact center operations, back office support, infrastructure management, recruitment process outsourcing, helpdesk, and social media analysis. Xceed has delivery centers in Egypt, Morocco, Mauritius, the UAE, and a new site in Saudi Arabia, providing broad regional coverage and diverse career opportunities. The organization is recognized globally with multiple IAOP, ICXA, IBXA, Gulf Sustainability, and Global ESG awards, reflecting strong commitments to customer experience, impact sourcing, sustainability, diversity, equity, and inclusion. Xceed also adheres to international standards, holding several ISO and COPC certifications that demonstrate its focus on quality, business continuity, information security, and safe work environments. Role Description The Quality Monitoring Analyst is a full-time, on-site role based in Cairo. This role is responsible for monitoring and evaluating customer interactions across various channels to ensure adherence to quality standards, policies, and procedures. The analyst reviews calls, chats, emails, and other customer communications, identifies performance trends, and provides structured feedback and coaching inputs to support continuous improvement. Daily activities include preparing quality reports, documenting findings, collaborating with operations and training teams, and recommending corrective actions and best practices. The role also involves contributing to quality calibration sessions, supporting root cause analysis of service issues, and helping maintain compliance with Xceed’s quality and customer experience frameworks. Qualifications -Experience: Minimum 6 months as a Quality Analyst/Specialist . -Experience in the telecommunications industry (e.g., Vodafone, Orange, WE, Vodafone UK, AT&T). - Skills: Excellent English communication and strong analytical abilities.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
+    },
+    {
+      "linkedin_job_id": "4459769772",
+      "title": "Service Mechanic",
+      "company": "Otis Elevator Co.",
+      "location": "Nasr City, Cairo, Egypt",
+      "linkedin_date": "2026-09-04",
+      "linkedin_posted_text": "4 minutes ago",
+      "estimated_age_minutes": 4,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-04T15:47:00Z",
+      "url": "https://www.linkedin.com/jobs/view/4459769772",
+      "matched_queries": [
+        {
+          "query": "Technical Support Engineer",
           "weight": 3.0
         }
       ],
       "application_status": "unknown",
       "seniority": "Not Applicable",
       "employment_type": "Full-time",
-      "job_function": "Information Technology and Engineering",
+      "job_function": "Management and Manufacturing",
       "advisory_title_noise_signals": [],
-      "advisory_it_evidence": true,
-      "score": 12.5,
+      "advisory_it_evidence": false,
+      "score": 3.0,
       "role_hits_title": [],
-      "role_hits_description": [
-        {
-          "label": "IT Operations",
-          "weight": 7.0
-        }
-      ],
-      "skill_hits": [
-        {
-          "label": "Microsoft 365",
-          "weight": 2.5
-        },
-        {
-          "label": "Azure",
-          "weight": 2.0
-        }
-      ],
+      "role_hits_description": [],
+      "skill_hits": [],
       "negative_hits": [],
-      "description": "About Accenture Accenture is a leading solutions and global professional services company that helps the world’s leading enterprises reinvent by building their digital core and unleashing the power of AI to create value at speed across the enterprise, bringing together the talent of our approximately 779,000 people, our proprietary assets and platforms, and deep ecosystem relationships. Our strategy is to be the reinvention partner of choice for our clients and to be the most AI-enabled, client-focused, great place to work in the world. Through our Reinvention Services we bring together our capabilities across strategy, consulting, technology, operations, Song and Industry X with our deep industry expertise to create and deliver solutions and services for our clients. Our purpose is to deliver on the promise of technology and human ingenuity, and we measure our success by the 360° value we create for all our stakeholders. Visit us at accenture.com. Accenture | Let there be change Across industries and around the world, we’re creating better experiences for people using emerging technologies and human ingenuity. Together, we can reinvent anything Role Overview As a Dynamics 365 CRM Tester (Quality Engineer)-Associate Manager at Accenture, you will ensure the highest quality of Dynamics 365 Customer Engagement (CE) solutions through comprehensive testing, defect management, and continuous improvement of QA processes. You will validate functional and non-functional requirements, support automation initiatives, and collaborate closely with developers and functional consultants to deliver exceptional solutions aligned with Microsoft best practices. Key Responsibilities Testing Create, execute, and maintain test plans and test cases for Dynamics 365 CE applications, including Sales, Customer Service, and Marketing modules. Perform functional, regression, integration, and performance testing to ensure solution quality. Validate CRM customizations, such as Plugins, Workflows, PCF controls, and Power Platform components. Defect Management Identify, document, and track defects using tools like Azure DevOps or similar platforms. Collaborate with development teams to ensure timely resolution of defects and issues. Quality Assurance Ensure all deliverables meet quality standards through rigorous testing and validation processes. Participate in code reviews and provide feedback from a QA perspective to improve overall solution quality. Automation Implement and maintain automated test scripts using tools like Selenium, EasyRepro, or custom frameworks. Integrate automated testing into CI/CD pipelines using Azure DevOps to streamline delivery processes. Documentation Maintain comprehensive documentation of test plans, test cases, defect reports, and test results to ensure traceability and knowledge sharing. Experience: 5–8 years of experience in software testing, with at least 3+ years focused on Dynamics 365 CE. Technical Expertise: Strong understanding of testing methodologies and best practices. Hands-on experience with Dynamics 365 CE modules, including Sales, Customer Service, and Marketing. Proficiency in automated testing tools, such as LeapWork, Selenium, or EasyRepro. Experience using SQL for database validation and testing. Familiarity with Agile/Scrum methodologies and Azure DevOps Test Plans. Experience using M365 CoPilot for test case generation. Preferred Skills Experience in performance testing and API testing. Knowledge of Power Platform tools, including Power Apps and Power Automate. Exposure to Copilot and AI-driven CRM features. Certifications (Preferred) Microsoft Certified: Dynamics 365 Fundamentals Microsoft Certified: Dynamics 365 Sales Functional Consultant Associate ISTQB Certified Tester",
+      "description": "Date Posted: 2026-07-16 Country: Egypt Location: 11 M.Mandour, Nasr City, Cairo Job Description About the Role: We are seeking a skilled and experienced Service Technician to join our team in Cairo. As a Service Technician, you will be responsible for troubleshooting, repairing, and PPM on elevators and escalators. Responsibilities: Troubleshooting and diagnosing technical issues in elevators and escalators Performing repairs and maintenance on elevator and escalator systems Conducting PPM to ensure optimal performance and safety Ensuring compliance with safety regulations and company standards Maintaining accurate records of maintenance and repair activities Collaborating with other team members to provide excellent customer service. Qualifications: ITI / Diploma in Electrical or Mechanical / B. Tech. Experience: Minimum of 5+ years of experience in the elevator and escalator industry. Strong knowledge of elevator and escalator systems and components Proficiency in troubleshooting and repair techniques Understanding of safety regulations and industry best practices Excellent problem-solving and analytical skills Ability to work independently and as part of a team Strong communication and interpersonal skills If you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. Otis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio. You may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company. When you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge. We provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs. Today, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do. We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here. Become a part of the Otis team and help us #Buildwhatsnext! Otis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com. Privacy Policy and Terms: Click on this link to read the Policy and Terms",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
+    },
+    {
+      "linkedin_job_id": "4463386448",
+      "title": "Quality Specialist Monitoring(GSM account)English B2+Or C1.",
+      "company": "Xceed",
+      "location": "Qesm El Maadi, Cairo, Egypt",
+      "linkedin_date": "2026-09-04",
+      "linkedin_posted_text": "18 minutes ago",
+      "estimated_age_minutes": 18,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-04T15:47:00Z",
+      "url": "https://www.linkedin.com/jobs/view/4463386448",
+      "matched_queries": [
+        {
+          "query": "Fortinet",
+          "weight": 3.0
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Quality Assurance",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "We are looking for highly skilled professionals to join our expanding team. If you have a strong background in telecommunications and a passion for quality assurance. Role: Quality Specialist (GSM) Key Requirements & Qualifications: Industry Required Background: experience in the telecommunications sector (e.g., Vodafone, Orange, X-Etisalat Misr, X-WE, DU, AT&T, or Verizon). Experience: -Minimum of 6 months of hands-on experience as a Quality Specialist (or Acting Quality). -Minimum of 6 months of experience in Customer Service / Quality tasks within a telecom environment. -Core Competency: Mandatory GSM background within a telecom environment is a prerequisite. -Language Proficiency: Excellent command of the English language (B2+ to C1).",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
     }
   ],
   "new_matches": [
     {
-      "linkedin_job_id": "4453252873",
-      "title": "CRM Test Lead",
-      "company": "Accenture",
-      "location": "Cairo, Cairo, Egypt",
+      "linkedin_job_id": "4463378075",
+      "title": "Key account fresh graduate",
+      "company": "SoftTrend",
+      "location": "Qesm El Maadi, Cairo, Egypt",
       "linkedin_date": "2026-09-04",
-      "linkedin_posted_text": "37 minutes ago",
-      "estimated_age_minutes": 37,
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-09-04T14:47:05Z",
-      "url": "https://www.linkedin.com/jobs/view/4453252873",
+      "first_seen_utc": "2026-09-04T15:47:00Z",
+      "url": "https://www.linkedin.com/jobs/view/4463378075",
       "matched_queries": [
         {
-          "query": "VMware",
+          "query": "Fortinet",
+          "weight": 3.0
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Sales and Business Development",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 8.0,
+      "role_hits_title": [],
+      "role_hits_description": [
+        {
+          "label": "Network Security",
+          "weight": 8.0
+        }
+      ],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Sales Account Manager Job Description: • Secure and develop strategic partnerships with assigned clients, gaining a deep understanding of their business needs and IT landscape. • Collaborate with clients to identify and present customized solutions that address their pain points and strategic goals. • Manage the sales cycle effectively, from initial contact through proposal generation, negotiation, and successful deal closure. • Foster strong relationships with key decision • Makers within client organizations, proactively addressing their concerns and ensuring satisfaction. • Partner with internal teams, including technical specialists and account managers, to deliver seamless solutions and exceptional client service. • Prepare insightful reports on sales activities, client interactions, and market trends, contributing to data-driven decision making. • Stay up-to-date on industry trends and the latest IT solutions to provide clients with expert guidance. Job Requirements: • Bachelor's degree in a relevant field such as Business, Marketing, or Communications. • Fresh Grads - 2 years • Proven ability to manage multiple client accounts, deadlines, and tasks effectively, with a strong track record of building and nurturing client relationships. • Self-motivated and results-oriented, with a strong drive to succeed in a competitive sales environment. • Prior experience within the IT Industry • Fluent in both written and oral English. • Familiarity with CRM software • Residency in Cairo or Giza.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
+    },
+    {
+      "linkedin_job_id": "4463382646",
+      "title": "Quality Monitoring Analyst",
+      "company": "Xceed",
+      "location": "Cairo, Cairo, Egypt",
+      "linkedin_date": "2026-09-04",
+      "linkedin_posted_text": "2 minutes ago",
+      "estimated_age_minutes": 2,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-04T15:47:00Z",
+      "url": "https://www.linkedin.com/jobs/view/4463382646",
+      "matched_queries": [
+        {
+          "query": "Fortinet",
+          "weight": 3.0
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Quality Assurance",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Backup/DR",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Company Description Xceed is a leading multilingual Business Process Outsourcing (BPO) provider in the EMEA region, operating more than 10,000 web-enabled multichannel stations. The company supports government and commercial clients in 10 different languages, offering services that include inbound and outbound contact center operations, back office support, infrastructure management, recruitment process outsourcing, helpdesk, and social media analysis. Xceed has delivery centers in Egypt, Morocco, Mauritius, the UAE, and a new site in Saudi Arabia, providing broad regional coverage and diverse career opportunities. The organization is recognized globally with multiple IAOP, ICXA, IBXA, Gulf Sustainability, and Global ESG awards, reflecting strong commitments to customer experience, impact sourcing, sustainability, diversity, equity, and inclusion. Xceed also adheres to international standards, holding several ISO and COPC certifications that demonstrate its focus on quality, business continuity, information security, and safe work environments. Role Description The Quality Monitoring Analyst is a full-time, on-site role based in Cairo. This role is responsible for monitoring and evaluating customer interactions across various channels to ensure adherence to quality standards, policies, and procedures. The analyst reviews calls, chats, emails, and other customer communications, identifies performance trends, and provides structured feedback and coaching inputs to support continuous improvement. Daily activities include preparing quality reports, documenting findings, collaborating with operations and training teams, and recommending corrective actions and best practices. The role also involves contributing to quality calibration sessions, supporting root cause analysis of service issues, and helping maintain compliance with Xceed’s quality and customer experience frameworks. Qualifications -Experience: Minimum 6 months as a Quality Analyst/Specialist . -Experience in the telecommunications industry (e.g., Vodafone, Orange, WE, Vodafone UK, AT&T). - Skills: Excellent English communication and strong analytical abilities.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
+    },
+    {
+      "linkedin_job_id": "4459769772",
+      "title": "Service Mechanic",
+      "company": "Otis Elevator Co.",
+      "location": "Nasr City, Cairo, Egypt",
+      "linkedin_date": "2026-09-04",
+      "linkedin_posted_text": "4 minutes ago",
+      "estimated_age_minutes": 4,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-04T15:47:00Z",
+      "url": "https://www.linkedin.com/jobs/view/4459769772",
+      "matched_queries": [
+        {
+          "query": "Technical Support Engineer",
           "weight": 3.0
         }
       ],
       "application_status": "unknown",
       "seniority": "Not Applicable",
       "employment_type": "Full-time",
-      "job_function": "Information Technology and Engineering",
+      "job_function": "Management and Manufacturing",
       "advisory_title_noise_signals": [],
-      "advisory_it_evidence": true,
-      "score": 12.5,
+      "advisory_it_evidence": false,
+      "score": 3.0,
       "role_hits_title": [],
-      "role_hits_description": [
-        {
-          "label": "IT Operations",
-          "weight": 7.0
-        }
-      ],
-      "skill_hits": [
-        {
-          "label": "Microsoft 365",
-          "weight": 2.5
-        },
-        {
-          "label": "Azure",
-          "weight": 2.0
-        }
-      ],
+      "role_hits_description": [],
+      "skill_hits": [],
       "negative_hits": [],
-      "description": "About Accenture Accenture is a leading solutions and global professional services company that helps the world’s leading enterprises reinvent by building their digital core and unleashing the power of AI to create value at speed across the enterprise, bringing together the talent of our approximately 779,000 people, our proprietary assets and platforms, and deep ecosystem relationships. Our strategy is to be the reinvention partner of choice for our clients and to be the most AI-enabled, client-focused, great place to work in the world. Through our Reinvention Services we bring together our capabilities across strategy, consulting, technology, operations, Song and Industry X with our deep industry expertise to create and deliver solutions and services for our clients. Our purpose is to deliver on the promise of technology and human ingenuity, and we measure our success by the 360° value we create for all our stakeholders. Visit us at accenture.com. Accenture | Let there be change Across industries and around the world, we’re creating better experiences for people using emerging technologies and human ingenuity. Together, we can reinvent anything Role Overview As a Dynamics 365 CRM Tester (Quality Engineer)-Associate Manager at Accenture, you will ensure the highest quality of Dynamics 365 Customer Engagement (CE) solutions through comprehensive testing, defect management, and continuous improvement of QA processes. You will validate functional and non-functional requirements, support automation initiatives, and collaborate closely with developers and functional consultants to deliver exceptional solutions aligned with Microsoft best practices. Key Responsibilities Testing Create, execute, and maintain test plans and test cases for Dynamics 365 CE applications, including Sales, Customer Service, and Marketing modules. Perform functional, regression, integration, and performance testing to ensure solution quality. Validate CRM customizations, such as Plugins, Workflows, PCF controls, and Power Platform components. Defect Management Identify, document, and track defects using tools like Azure DevOps or similar platforms. Collaborate with development teams to ensure timely resolution of defects and issues. Quality Assurance Ensure all deliverables meet quality standards through rigorous testing and validation processes. Participate in code reviews and provide feedback from a QA perspective to improve overall solution quality. Automation Implement and maintain automated test scripts using tools like Selenium, EasyRepro, or custom frameworks. Integrate automated testing into CI/CD pipelines using Azure DevOps to streamline delivery processes. Documentation Maintain comprehensive documentation of test plans, test cases, defect reports, and test results to ensure traceability and knowledge sharing. Experience: 5–8 years of experience in software testing, with at least 3+ years focused on Dynamics 365 CE. Technical Expertise: Strong understanding of testing methodologies and best practices. Hands-on experience with Dynamics 365 CE modules, including Sales, Customer Service, and Marketing. Proficiency in automated testing tools, such as LeapWork, Selenium, or EasyRepro. Experience using SQL for database validation and testing. Familiarity with Agile/Scrum methodologies and Azure DevOps Test Plans. Experience using M365 CoPilot for test case generation. Preferred Skills Experience in performance testing and API testing. Knowledge of Power Platform tools, including Power Apps and Power Automate. Exposure to Copilot and AI-driven CRM features. Certifications (Preferred) Microsoft Certified: Dynamics 365 Fundamentals Microsoft Certified: Dynamics 365 Sales Functional Consultant Associate ISTQB Certified Tester",
+      "description": "Date Posted: 2026-07-16 Country: Egypt Location: 11 M.Mandour, Nasr City, Cairo Job Description About the Role: We are seeking a skilled and experienced Service Technician to join our team in Cairo. As a Service Technician, you will be responsible for troubleshooting, repairing, and PPM on elevators and escalators. Responsibilities: Troubleshooting and diagnosing technical issues in elevators and escalators Performing repairs and maintenance on elevator and escalator systems Conducting PPM to ensure optimal performance and safety Ensuring compliance with safety regulations and company standards Maintaining accurate records of maintenance and repair activities Collaborating with other team members to provide excellent customer service. Qualifications: ITI / Diploma in Electrical or Mechanical / B. Tech. Experience: Minimum of 5+ years of experience in the elevator and escalator industry. Strong knowledge of elevator and escalator systems and components Proficiency in troubleshooting and repair techniques Understanding of safety regulations and industry best practices Excellent problem-solving and analytical skills Ability to work independently and as part of a team Strong communication and interpersonal skills If you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. Otis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio. You may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company. When you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge. We provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs. Today, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do. We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here. Become a part of the Otis team and help us #Buildwhatsnext! Otis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com. Privacy Policy and Terms: Click on this link to read the Policy and Terms",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
+    },
+    {
+      "linkedin_job_id": "4463386448",
+      "title": "Quality Specialist Monitoring(GSM account)English B2+Or C1.",
+      "company": "Xceed",
+      "location": "Qesm El Maadi, Cairo, Egypt",
+      "linkedin_date": "2026-09-04",
+      "linkedin_posted_text": "18 minutes ago",
+      "estimated_age_minutes": 18,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-04T15:47:00Z",
+      "url": "https://www.linkedin.com/jobs/view/4463386448",
+      "matched_queries": [
+        {
+          "query": "Fortinet",
+          "weight": 3.0
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": "Quality Assurance",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": false,
+      "score": 3.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "We are looking for highly skilled professionals to join our expanding team. If you have a strong background in telecommunications and a passion for quality assurance. Role: Quality Specialist (GSM) Key Requirements & Qualifications: Industry Required Background: experience in the telecommunications sector (e.g., Vodafone, Orange, X-Etisalat Misr, X-WE, DU, AT&T, or Verizon). Experience: -Minimum of 6 months of hands-on experience as a Quality Specialist (or Acting Quality). -Minimum of 6 months of experience in Customer Service / Quality tasks within a telecom environment. -Core Competency: Mandatory GSM background within a telecom environment is a prerequisite. -Language Proficiency: Excellent command of the English language (B2+ to C1).",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
     }
