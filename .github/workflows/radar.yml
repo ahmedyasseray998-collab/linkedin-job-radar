@@ -34,11 +34,11 @@ on:
 permissions:
   contents: write
 
-# PR tests no longer wait behind a live scan. All live producers still share
-# one serial group so two scans cannot mutate the queue together.
+# PR tests are isolated from production. New PR revisions cancel their obsolete
+# predecessors, while live producers remain strictly serialized.
 concurrency:
   group: linkedin-job-radar-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'live' }}
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   scan:
