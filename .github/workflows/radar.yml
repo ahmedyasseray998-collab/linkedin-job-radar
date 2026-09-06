@@ -1,41 +1,25 @@
 name: LinkedIn Job Radar
 
-# Egypt-first discovery with precise remote eligibility, a targeted review
-# queue, integrity validation, and race-safe GPT acknowledgement reconciliation.
 on:
   schedule:
     - cron: '35 * * * *'
   workflow_dispatch:
+    inputs:
+      mode:
+        description: One-off scan scope; scheduled scans remain normal
+        type: choice
+        options: [normal, egypt_48h]
+        default: normal
   pull_request:
     branches: [main]
-    paths:
-      - 'radar_v5.py'
-      - 'radar_multilane.py'
-      - 'radar_pipeline_v13.py'
-      - 'radar_pipeline_v14.py'
-      - 'radar_pipeline_v15.py'
-      - 'targeted_queue_v14.py'
-      - 'targeted_queue_v15.py'
-      - 'receipt_promotion_v15.py'
-      - 'queue_integrity.py'
-      - 'reconcile_queue.py'
-      - 'queries.json'
-      - 'queries_v13.json'
-      - 'patch_upstream.py'
-      - 'test_*.py'
-      - '.github/workflows/radar.yml'
-  # Normal code changes are validated by pull requests. A push should launch a
-  # live scan only when the explicit trigger file changes.
+    paths: ['*.py', 'queries*.json', '.gitignore', '.github/workflows/*.yml']
   push:
     branches: [main]
-    paths:
-      - '.radar_trigger'
+    paths: ['.radar_trigger']
 
 permissions:
   contents: write
 
-# PR tests are isolated from production. New PR revisions cancel their obsolete
-# predecessors, while live producers remain strictly serialized.
 concurrency:
   group: linkedin-job-radar-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'live' }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -44,14 +28,12 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     timeout-minutes: 45
-
     steps:
       - name: Checkout radar
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           path: radar
           fetch-depth: 0
-
       - name: Refresh radar checkout to latest main
         if: github.event_name != 'pull_request'
         working-directory: radar
@@ -60,43 +42,59 @@ jobs:
           git fetch origin main
           git checkout main
           git reset --hard origin/main
-
       - name: Checkout pinned LinkedIn search implementation
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           repository: MadsLorentzen/ai-job-search
-          ref: 93fb0e6c474eac50f8ee9c239fdcf2c73c4be383 # v1.7.0
+          ref: 93fb0e6c474eac50f8ee9c239fdcf2c73c4be383
           path: upstream
-
       - name: Patch and verify pinned LinkedIn CLI
         working-directory: radar
-        run: |
-          set -euo pipefail
-          python3 patch_upstream.py ../upstream
-
+        run: python3 patch_upstream.py ../upstream
       - name: Setup Bun
-        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6
         with:
           bun-version: 1.4.0
-
       - name: Validate patched LinkedIn CLI
-        run: |
-          set -euo pipefail
-          bun run upstream/.agents/skills/linkedin-search/cli/src/cli.ts search --help >/dev/null
-
+        run: bun run upstream/.agents/skills/linkedin-search/cli/src/cli.ts search --help >/dev/null
       - name: Run radar unit tests
         working-directory: radar
-        run: |
-          set -euo pipefail
-          python3 -m unittest discover -v
-
+        run: python3 -m unittest discover -v
+      - name: Preserve pre-scan recovery snapshot
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: radar-before-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            radar/output/runs/
+            radar/output/pending_runs.json
+            radar/state/reported_runs.json
+          retention-days: 7
+          if-no-files-found: ignore
       - name: Run live LinkedIn scan and target GPT queue
         if: github.event_name != 'pull_request'
         working-directory: radar
+        env:
+          RADAR_MODE: ${{ github.event_name == 'push' && 'trigger' || inputs.mode || 'normal' }}
         run: |
           set -euo pipefail
-          python3 radar_pipeline_v15.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts
-
+          python3 radar_pipeline_v16.py --cli ../upstream/.agents/skills/linkedin-search/cli/src/cli.ts --mode "$RADAR_MODE"
+      - name: Preserve scan evidence as short-retention artifacts
+        if: always() && github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: radar-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            radar/output/runs/
+            radar/output/.pipeline_v13/
+            radar/output/.pipeline_v14/
+            radar/output/latest.json
+            radar/output/egypt_catchup.json
+          include-hidden-files: true
+          retention-days: 7
+          if-no-files-found: ignore
       - name: Persist state and reconcile latest GPT acknowledgements
         if: github.event_name != 'pull_request'
         working-directory: radar
@@ -104,41 +102,34 @@ jobs:
           set -euo pipefail
           git config user.name "linkedin-job-radar[bot]"
           git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
-
-          made_commit=0
+          git rm -r --cached --ignore-unmatch output/.pipeline_v13 output/.pipeline_v14
+          python3 radar_maintenance_v16.py
           git add -A -- state output
+          made_commit=0
           if ! git diff --cached --quiet; then
             git commit -m "radar: update $(date -u +'%Y-%m-%dT%H:%MZ')"
             made_commit=1
           fi
-
-          # An acknowledgement may land while the long scan is running. Rebase,
-          # rebuild the queue from the newest receipt ledger, amend, and retry if
-          # another acknowledgement wins the race before push.
           for attempt in 1 2 3; do
             git pull --rebase origin main
-            python3 reconcile_queue.py
-            git add -A -- state/reported_runs.json output/pending_runs.json output/runs output/delivery
-
+            python3 radar_maintenance_v16.py --ack
+            git add -A -- state output
             if ! git diff --cached --quiet; then
               if [ "$made_commit" -eq 1 ]; then
                 git commit --amend --no-edit
               else
-                git commit -m "radar: reconcile acknowledgements $(date -u +'%Y-%m-%dT%H:%MZ')"
+                git commit -m "radar: reconcile acknowledgements"
                 made_commit=1
               fi
             fi
-
             if [ "$made_commit" -eq 0 ]; then
-              echo "No state changes to commit."
               exit 0
             fi
-
             if git push origin HEAD:main; then
+              echo "Published radar state successfully to main."
               exit 0
             fi
-            echo "Push raced with another main update; reconciling again (attempt $attempt)."
+            echo "Push raced with another update; retrying $attempt."
           done
-
-          echo "Failed to publish a reconciled radar state after 3 attempts." >&2
+          echo "Failed to publish reconciled radar state." >&2
           exit 1
