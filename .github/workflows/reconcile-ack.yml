@@ -1,76 +1,62 @@
 name: Reconcile Radar Acknowledgements
-
 on:
   push:
     branches: [main]
-    paths:
-      - 'state/reported_runs.json'
-      - 'state/manual_backlog_receipts.json'
+    paths: ['state/reported_runs.json', 'state/manual_backlog_receipts.json']
   workflow_dispatch:
-
 permissions:
   contents: write
-
-# Serialize queue cleanup with live producers. If an acknowledgement lands while
-# a long scan runs, the producer's own final reconciliation wins first and this
-# lightweight job then becomes an idempotent verification pass.
 concurrency:
   group: linkedin-job-radar-live
   cancel-in-progress: false
-
 jobs:
   reconcile:
-    # Commits produced by this workflow or the live producer must not create a
-    # self-triggering loop. Human/ChatGPT-authored acknowledgement commits run.
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 10
-
     steps:
       - name: Checkout main
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           ref: main
           fetch-depth: 0
-
       - name: Refresh to latest main before any mutation
         run: |
           set -euo pipefail
           git fetch origin main
           git checkout main
           git reset --hard origin/main
-
       - name: Validate acknowledgement reconciliation
-        run: |
-          set -euo pipefail
-          python3 -m unittest -v \
-            test_receipt_promotion_v15.py \
-            test_ack_reconcile_v15.py \
-            test_ack_migration_guard_v15.py
-
-      - name: Promote receipts and clean pending queue
-        run: |
-          set -euo pipefail
-          python3 ack_reconcile_v15.py
-
+        run: python3 -m unittest discover -v
+      - name: Preserve pre-cleanup recovery snapshot
+        continue-on-error: true
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: radar-ack-before-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            output/runs/
+            output/pending_runs.json
+            state/reported_runs.json
+          retention-days: 7
+          if-no-files-found: ignore
+      - name: Promote receipts, clean pending queue and refresh status
+        run: python3 radar_maintenance_v16.py --ack
       - name: Publish reconciled queue
         run: |
           set -euo pipefail
           git config user.name "linkedin-job-radar[bot]"
           git config user.email "linkedin-job-radar[bot]@users.noreply.github.com"
-
+          git rm -r --cached --ignore-unmatch output/.pipeline_v13 output/.pipeline_v14
           made_commit=0
           git add -A -- state output
           if ! git diff --cached --quiet; then
             git commit -m "radar: reconcile reviewer acknowledgements"
             made_commit=1
           fi
-
           for attempt in 1 2 3; do
             git pull --rebase origin main
-            python3 ack_reconcile_v15.py
+            python3 radar_maintenance_v16.py --ack
             git add -A -- state output
-
             if ! git diff --cached --quiet; then
               if [ "$made_commit" -eq 1 ]; then
                 git commit --amend --no-edit
@@ -79,17 +65,13 @@ jobs:
                 made_commit=1
               fi
             fi
-
             if [ "$made_commit" -eq 0 ]; then
-              echo "Acknowledgement state is already fully reconciled."
               exit 0
             fi
-
             if git push origin HEAD:main; then
               exit 0
             fi
-            echo "Acknowledgement push raced with another update; retrying ($attempt)."
+            echo "Acknowledgement push raced; retrying $attempt."
           done
-
           echo "Failed to publish reconciled acknowledgement state." >&2
           exit 1
