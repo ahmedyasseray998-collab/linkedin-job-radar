@@ -1,11 +1,13 @@
 {
   "schema_version": 5,
   "config_version": 15,
-  "run_id": "20260906T084637Z",
-  "run_started_at_utc": "2026-09-06T08:46:37Z",
-  "generated_at_utc": "2026-09-06T08:47:03Z",
-  "health": "healthy",
-  "warnings": [],
+  "run_id": "20260906T094617Z",
+  "run_started_at_utc": "2026-09-06T09:46:17Z",
+  "generated_at_utc": "2026-09-06T09:46:44Z",
+  "health": "healthy_with_retries",
+  "warnings": [
+    "LinkedIn guest search needed recovery retries for 1 query bucket(s)"
+  ],
   "source": "LinkedIn jobs-guest via pinned MadsLorentzen/ai-job-search linkedin-search CLI",
   "location": "Egypt",
   "window_minutes": 180,
@@ -20,19 +22,19 @@
   },
   "stats": {
     "query_count": 13,
-    "unique_live_cards": 25,
-    "already_seen": 22,
-    "detail_attempts": 3,
-    "details_fetched": 3,
+    "unique_live_cards": 32,
+    "already_seen": 31,
+    "detail_attempts": 1,
+    "details_fetched": 1,
     "detail_failures": 0,
     "detail_budget_skipped": 0,
-    "review_candidates": 3,
+    "review_candidates": 1,
     "closed_candidates_kept": 0,
     "freshness_conflicts_kept": 0,
-    "low_it_evidence_candidates_kept": 3,
-    "title_noise_candidates_kept": 2,
+    "low_it_evidence_candidates_kept": 1,
+    "title_noise_candidates_kept": 0,
     "search_errors": 0,
-    "query_retry_recoveries": 0,
+    "query_retry_recoveries": 1,
     "relevance_rejections": 0
   },
   "query_stats": [
@@ -50,12 +52,13 @@
     {
       "query": "Systems Engineer",
       "pages_configured": 2,
-      "pages_requested": 1,
+      "pages_requested": 2,
       "page_counts": [
-        1
+        10,
+        6
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 16,
       "errors": 0
     },
     {
@@ -63,10 +66,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        8
+        7
       ],
       "retry_page_counts": {},
-      "unique_cards": 8,
+      "unique_cards": 7,
       "errors": 0
     },
     {
@@ -74,10 +77,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        1
+        3
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 3,
       "errors": 0
     },
     {
@@ -85,36 +88,14 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        2
+        3
       ],
       "retry_page_counts": {},
-      "unique_cards": 2,
+      "unique_cards": 3,
       "errors": 0
     },
     {
       "query": "IT Operations",
-      "pages_configured": 2,
-      "pages_requested": 1,
-      "page_counts": [
-        1
-      ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
-      "errors": 0
-    },
-    {
-      "query": "IT Support Engineer",
-      "pages_configured": 2,
-      "pages_requested": 1,
-      "page_counts": [
-        1
-      ],
-      "retry_page_counts": {},
-      "unique_cards": 1,
-      "errors": 0
-    },
-    {
-      "query": "Technical Support Engineer",
       "pages_configured": 2,
       "pages_requested": 2,
       "page_counts": [
@@ -126,7 +107,18 @@
       "errors": 0
     },
     {
-      "query": "IT Specialist",
+      "query": "IT Support Engineer",
+      "pages_configured": 2,
+      "pages_requested": 1,
+      "page_counts": [
+        8
+      ],
+      "retry_page_counts": {},
+      "unique_cards": 8,
+      "errors": 0
+    },
+    {
+      "query": "Technical Support Engineer",
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
@@ -137,13 +129,26 @@
       "errors": 0
     },
     {
+      "query": "IT Specialist",
+      "pages_configured": 2,
+      "pages_requested": 1,
+      "page_counts": [
+        1
+      ],
+      "retry_page_counts": {},
+      "unique_cards": 1,
+      "errors": 0
+    },
+    {
       "query": "Microsoft 365 Administrator",
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        2
+        0
       ],
-      "retry_page_counts": {},
+      "retry_page_counts": {
+        "1": 2
+      },
       "unique_cards": 2,
       "errors": 0
     },
@@ -186,216 +191,72 @@
   "errors": [],
   "review_candidates": [
     {
-      "linkedin_job_id": "4464000841",
-      "title": "Quality Monitoring Specialist (Call Center GSM Account)English B2 Or C1.",
-      "company": "Xceed",
-      "location": "Qesm El Maadi, Cairo, Egypt",
-      "linkedin_date": "2026-09-06",
-      "linkedin_posted_text": "44 minutes ago",
-      "estimated_age_minutes": 44,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-09-06T08:46:37Z",
-      "url": "https://www.linkedin.com/jobs/view/4464000841",
-      "matched_queries": [
-        {
-          "query": "Fortinet",
-          "weight": 3.0
-        }
-      ],
-      "application_status": "unknown",
-      "seniority": "Entry level",
-      "employment_type": "Full-time",
-      "job_function": "Quality Assurance",
-      "advisory_title_noise_signals": [
-        "call center"
-      ],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "We are looking for highly skilled professionals to join our expanding team. If you have a strong background in telecommunications and a passion for quality assurance. Role: Quality Specialist (GSM) Key Requirements & Qualifications: Industry Required Background: experience in the telecommunications sector (e.g., Vodafone, Orange, X- Etisalat Misr, X-WE, DU, AT&T, or Verizon). Experience: -Minimum of 6 months of hands-on experience as a Quality Specialist (or Acting Quality). -Minimum of 6 months of experience in Customer Service / Quality tasks within a telecom environment. -Core Competency: Mandatory GSM background within a telecom environment is a prerequisite. -Language Proficiency: Excellent command of the English language (B2+ to C1).",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
-    },
-    {
-      "linkedin_job_id": "4464011803",
-      "title": "Head of Digital Marketing",
-      "company": "IT Planet",
+      "linkedin_job_id": "4461810837",
+      "title": "senior design engineer ( Formwork & Scaffolding )",
+      "company": "Fast Track Engineering Solutions",
       "location": "Cairo, Egypt",
       "linkedin_date": "2026-09-06",
-      "linkedin_posted_text": "7 minutes ago",
-      "estimated_age_minutes": 7,
+      "linkedin_posted_text": "48 minutes ago",
+      "estimated_age_minutes": 48,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-09-06T08:46:37Z",
-      "url": "https://www.linkedin.com/jobs/view/4464011803",
+      "first_seen_utc": "2026-09-06T09:46:17Z",
+      "url": "https://www.linkedin.com/jobs/view/4461810837",
       "matched_queries": [
         {
-          "query": "Fortinet",
-          "weight": 3.0
+          "query": "Infrastructure Engineer",
+          "weight": 5.0
         }
       ],
       "application_status": "unknown",
-      "seniority": "Director",
+      "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Marketing and Sales",
-      "advisory_title_noise_signals": [
-        "marketing"
-      ],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "Company Description IT Planet, founded in 2014, is a fast-growing technology company specializing in innovative, customized IT solutions for businesses across multiple sectors. With over a decade of experience, the company has built a strong reputation as a reliable partner for software development, digital transformation, cloud solutions, and IT support. IT Planet focuses on forming long-term client relationships by deeply understanding business needs and delivering solutions that drive measurable results. As the company expands, it remains committed to empowering organizations through cutting-edge technology, strategic thinking, and high-quality service. Role Description The Head of Digital Marketing is a full-time, on-site role based in Cairo, Egypt, responsible for leading IT Planet’s digital marketing strategy and execution. This role oversees planning and implementing multi-channel digital campaigns, including website, search, social media, email, and paid media, to strengthen brand presence and generate qualified leads. The Head of Digital Marketing will manage the digital marketing team, collaborate with sales and product teams, and ensure that campaigns are aligned with business goals and growth targets. Daily responsibilities include monitoring performance across platforms, optimizing campaigns using web analytics, managing budgets, and reporting on key metrics and ROI to senior leadership. The role also involves identifying new digital opportunities, testing innovative approaches, and ensuring a consistent, data-driven marketing strategy in line with IT Planet’s overall vision. Qualifications Strong foundation in Marketing and Digital Strategy, with experience building and executing integrated digital marketing plans. Proficiency in Social Media Marketing, including content planning, community management, and campaign optimization across major platforms. Demonstrated ability in Lead Generation, especially in B2B environments, using digital campaigns and marketing automation tools. Hands-on experience with Web Analytics tools (e.g., Google Analytics, data dashboards) and a data-driven approach to decision-making. Proven experience in a senior digital marketing leadership role, preferably within IT, SaaS, or technology services. Excellent communication, presentation, and stakeholder management skills, with the ability to collaborate across functions. Strong team leadership and people management skills, including coaching and developing digital marketing professionals. Bachelor’s degree in Marketing, Business, Communications, or a related field; advanced degree or relevant certifications (e.g., digital marketing, analytics) are a plus. Ability to work on-site in Cairo, Egypt, and operate effectively in a fast-paced, growth-oriented environment.",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
-    },
-    {
-      "linkedin_job_id": "4464001839",
-      "title": "C1 English Business Developers",
-      "company": "FlairsTech",
-      "location": "Qesm El Maadi, Cairo, Egypt",
-      "linkedin_date": "2026-09-06",
-      "linkedin_posted_text": "18 minutes ago",
-      "estimated_age_minutes": 18,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-09-06T08:46:37Z",
-      "url": "https://www.linkedin.com/jobs/view/4464001839",
-      "matched_queries": [
-        {
-          "query": "Fortinet",
-          "weight": 3.0
-        }
-      ],
-      "application_status": "unknown",
-      "seniority": "Entry level",
-      "employment_type": "Full-time",
-      "job_function": "Education and Training",
+      "job_function": "Engineering and Information Technology",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
-      "score": 3.0,
+      "score": 5.0,
       "role_hits_title": [],
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Company Description FlairsTech is an international, technology-driven Managed Services Provider built on innovation, talent, and excellence. With over 1,000 team members across five offices, the company supports more than 100 global partners with software development and analytics, digital solutions, business operations, and customer experience services. FlairsTech works closely with clients in North America, Europe, the Middle East, and Africa, acting as an extension of their internal teams to improve processes and productivity. The organization emphasizes strong partnerships, high performance, and continuous improvement. FlairsTech’s people-focused culture is a key driver of its success and growth. Role Description The C1 English Business Developer is a full-time, hybrid role based in Qesm El Maadi, with the flexibility to work from home on agreed schedules. In this role, the team member will leverage advanced English proficiency to identify and pursue new business opportunities, nurture leads, and support client communications across international markets. Daily tasks include conducting outreach to prospective partners, preparing and delivering business presentations, drafting proposals and business emails, and maintaining accurate records in CRM and reporting tools. The role also involves collaborating with internal teams to understand service offerings, aligning client needs with FlairsTech solutions, and contributing to training or knowledge-sharing sessions to strengthen business development capabilities. The C1 English Business Developer is expected to maintain professional, culturally aware communication and represent FlairsTech’s values in all interactions. Qualifications C1-level English proficiency with strong Communication and Customer Service skills for client-facing interactions and relationship building. Experience in Cold Calling and Lead Generation Background or familiarity with business development, sales, or account management in a technology or services environment. Strong analytical, negotiation, and problem-solving skills, with the ability to understand client needs and propose suitable solutions. Comfort with hybrid work arrangements and the ability to collaborate effectively across multicultural, distributed teams. Proficiency with common business tools (e.g., CRM systems, productivity software, online communication platforms). Relevant university degree in Business, Languages, Communications, or a related field is preferred.",
+      "description": "WE'RE HIRING :-Senior Design EngineerFormwork & Scaffolding Design | 5+ Years Experience RESPONSIBILITIES • Design & analysis of formwork and scaffolding systems • Prepare AutoCAD drawings and structural calculation sheets .• Use SAP2000 / RFEM or equivalent software for analysis • Coordinate with site teams on safety, stability & compliance.REQUIREMENTS • B.Sc. in Civil or Structural Engineering • 5+ years' experience in formwork & scaffolding design• Proficient in AutoCAD, analysis software & MS Office .• Strong teamwork, problem-solving & communication skills. please send your resume to info@ft-eg.com",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
     }
   ],
   "new_matches": [
     {
-      "linkedin_job_id": "4464000841",
-      "title": "Quality Monitoring Specialist (Call Center GSM Account)English B2 Or C1.",
-      "company": "Xceed",
-      "location": "Qesm El Maadi, Cairo, Egypt",
-      "linkedin_date": "2026-09-06",
-      "linkedin_posted_text": "44 minutes ago",
-      "estimated_age_minutes": 44,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-09-06T08:46:37Z",
-      "url": "https://www.linkedin.com/jobs/view/4464000841",
-      "matched_queries": [
-        {
-          "query": "Fortinet",
-          "weight": 3.0
-        }
-      ],
-      "application_status": "unknown",
-      "seniority": "Entry level",
-      "employment_type": "Full-time",
-      "job_function": "Quality Assurance",
-      "advisory_title_noise_signals": [
-        "call center"
-      ],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "We are looking for highly skilled professionals to join our expanding team. If you have a strong background in telecommunications and a passion for quality assurance. Role: Quality Specialist (GSM) Key Requirements & Qualifications: Industry Required Background: experience in the telecommunications sector (e.g., Vodafone, Orange, X- Etisalat Misr, X-WE, DU, AT&T, or Verizon). Experience: -Minimum of 6 months of hands-on experience as a Quality Specialist (or Acting Quality). -Minimum of 6 months of experience in Customer Service / Quality tasks within a telecom environment. -Core Competency: Mandatory GSM background within a telecom environment is a prerequisite. -Language Proficiency: Excellent command of the English language (B2+ to C1).",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
-    },
-    {
-      "linkedin_job_id": "4464011803",
-      "title": "Head of Digital Marketing",
-      "company": "IT Planet",
+      "linkedin_job_id": "4461810837",
+      "title": "senior design engineer ( Formwork & Scaffolding )",
+      "company": "Fast Track Engineering Solutions",
       "location": "Cairo, Egypt",
       "linkedin_date": "2026-09-06",
-      "linkedin_posted_text": "7 minutes ago",
-      "estimated_age_minutes": 7,
+      "linkedin_posted_text": "48 minutes ago",
+      "estimated_age_minutes": 48,
       "freshness_within_requested_window": true,
       "freshness_verification": "linkedin_f_TPR_plus_relative_text",
       "freshness_conflict": false,
-      "first_seen_utc": "2026-09-06T08:46:37Z",
-      "url": "https://www.linkedin.com/jobs/view/4464011803",
+      "first_seen_utc": "2026-09-06T09:46:17Z",
+      "url": "https://www.linkedin.com/jobs/view/4461810837",
       "matched_queries": [
         {
-          "query": "Fortinet",
-          "weight": 3.0
+          "query": "Infrastructure Engineer",
+          "weight": 5.0
         }
       ],
       "application_status": "unknown",
-      "seniority": "Director",
+      "seniority": "Mid-Senior level",
       "employment_type": "Full-time",
-      "job_function": "Marketing and Sales",
-      "advisory_title_noise_signals": [
-        "marketing"
-      ],
-      "advisory_it_evidence": false,
-      "score": 3.0,
-      "role_hits_title": [],
-      "role_hits_description": [],
-      "skill_hits": [],
-      "negative_hits": [],
-      "description": "Company Description IT Planet, founded in 2014, is a fast-growing technology company specializing in innovative, customized IT solutions for businesses across multiple sectors. With over a decade of experience, the company has built a strong reputation as a reliable partner for software development, digital transformation, cloud solutions, and IT support. IT Planet focuses on forming long-term client relationships by deeply understanding business needs and delivering solutions that drive measurable results. As the company expands, it remains committed to empowering organizations through cutting-edge technology, strategic thinking, and high-quality service. Role Description The Head of Digital Marketing is a full-time, on-site role based in Cairo, Egypt, responsible for leading IT Planet’s digital marketing strategy and execution. This role oversees planning and implementing multi-channel digital campaigns, including website, search, social media, email, and paid media, to strengthen brand presence and generate qualified leads. The Head of Digital Marketing will manage the digital marketing team, collaborate with sales and product teams, and ensure that campaigns are aligned with business goals and growth targets. Daily responsibilities include monitoring performance across platforms, optimizing campaigns using web analytics, managing budgets, and reporting on key metrics and ROI to senior leadership. The role also involves identifying new digital opportunities, testing innovative approaches, and ensuring a consistent, data-driven marketing strategy in line with IT Planet’s overall vision. Qualifications Strong foundation in Marketing and Digital Strategy, with experience building and executing integrated digital marketing plans. Proficiency in Social Media Marketing, including content planning, community management, and campaign optimization across major platforms. Demonstrated ability in Lead Generation, especially in B2B environments, using digital campaigns and marketing automation tools. Hands-on experience with Web Analytics tools (e.g., Google Analytics, data dashboards) and a data-driven approach to decision-making. Proven experience in a senior digital marketing leadership role, preferably within IT, SaaS, or technology services. Excellent communication, presentation, and stakeholder management skills, with the ability to collaborate across functions. Strong team leadership and people management skills, including coaching and developing digital marketing professionals. Bachelor’s degree in Marketing, Business, Communications, or a related field; advanced degree or relevant certifications (e.g., digital marketing, analytics) are a plus. Ability to work on-site in Cairo, Egypt, and operate effectively in a fast-paced, growth-oriented environment.",
-      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
-      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
-    },
-    {
-      "linkedin_job_id": "4464001839",
-      "title": "C1 English Business Developers",
-      "company": "FlairsTech",
-      "location": "Qesm El Maadi, Cairo, Egypt",
-      "linkedin_date": "2026-09-06",
-      "linkedin_posted_text": "18 minutes ago",
-      "estimated_age_minutes": 18,
-      "freshness_within_requested_window": true,
-      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
-      "freshness_conflict": false,
-      "first_seen_utc": "2026-09-06T08:46:37Z",
-      "url": "https://www.linkedin.com/jobs/view/4464001839",
-      "matched_queries": [
-        {
-          "query": "Fortinet",
-          "weight": 3.0
-        }
-      ],
-      "application_status": "unknown",
-      "seniority": "Entry level",
-      "employment_type": "Full-time",
-      "job_function": "Education and Training",
+      "job_function": "Engineering and Information Technology",
       "advisory_title_noise_signals": [],
       "advisory_it_evidence": false,
-      "score": 3.0,
+      "score": 5.0,
       "role_hits_title": [],
       "role_hits_description": [],
       "skill_hits": [],
       "negative_hits": [],
-      "description": "Company Description FlairsTech is an international, technology-driven Managed Services Provider built on innovation, talent, and excellence. With over 1,000 team members across five offices, the company supports more than 100 global partners with software development and analytics, digital solutions, business operations, and customer experience services. FlairsTech works closely with clients in North America, Europe, the Middle East, and Africa, acting as an extension of their internal teams to improve processes and productivity. The organization emphasizes strong partnerships, high performance, and continuous improvement. FlairsTech’s people-focused culture is a key driver of its success and growth. Role Description The C1 English Business Developer is a full-time, hybrid role based in Qesm El Maadi, with the flexibility to work from home on agreed schedules. In this role, the team member will leverage advanced English proficiency to identify and pursue new business opportunities, nurture leads, and support client communications across international markets. Daily tasks include conducting outreach to prospective partners, preparing and delivering business presentations, drafting proposals and business emails, and maintaining accurate records in CRM and reporting tools. The role also involves collaborating with internal teams to understand service offerings, aligning client needs with FlairsTech solutions, and contributing to training or knowledge-sharing sessions to strengthen business development capabilities. The C1 English Business Developer is expected to maintain professional, culturally aware communication and represent FlairsTech’s values in all interactions. Qualifications C1-level English proficiency with strong Communication and Customer Service skills for client-facing interactions and relationship building. Experience in Cold Calling and Lead Generation Background or familiarity with business development, sales, or account management in a technology or services environment. Strong analytical, negotiation, and problem-solving skills, with the ability to understand client needs and propose suitable solutions. Comfort with hybrid work arrangements and the ability to collaborate effectively across multicultural, distributed teams. Proficiency with common business tools (e.g., CRM systems, productivity software, online communication platforms). Relevant university degree in Business, Languages, Communications, or a related field is preferred.",
+      "description": "WE'RE HIRING :-Senior Design EngineerFormwork & Scaffolding Design | 5+ Years Experience RESPONSIBILITIES • Design & analysis of formwork and scaffolding systems • Prepare AutoCAD drawings and structural calculation sheets .• Use SAP2000 / RFEM or equivalent software for analysis • Coordinate with site teams on safety, stability & compliance.REQUIREMENTS • B.Sc. in Civil or Structural Engineering • 5+ years' experience in formwork & scaffolding design• Proficient in AutoCAD, analysis software & MS Office .• Strong teamwork, problem-solving & communication skills. please send your resume to info@ft-eg.com",
       "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
       "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only"
     }
