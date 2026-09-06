@@ -1,0 +1,43 @@
+name: Radar Reviewer Watchdog
+
+on:
+  workflow_run:
+    workflows: ['LinkedIn Job Radar', 'Reconcile Radar Acknowledgements']
+    types: [completed]
+    branches: [main]
+  schedule:
+    - cron: '25 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'reviewer_watchdog.py'
+      - 'test_reviewer_watchdog.py'
+      - '.github/workflows/reviewer-watchdog.yml'
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: linkedin-radar-reviewer-watchdog
+  cancel-in-progress: false
+
+jobs:
+  inspect-receipts:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.head_repository.full_name == github.repository && github.event.workflow_run.event != 'pull_request')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read trusted current main
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Test stalled-review detection
+        run: python3 -m unittest -v test_reviewer_watchdog.py
+      - name: Check review receipts and maintain a single warning issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 reviewer_watchdog.py
