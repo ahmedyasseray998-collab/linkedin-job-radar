@@ -1,4 +1,4 @@
-"""Policy 16. Egypt decisions delegate unchanged; international evidence is scoped.
+"""Policy 17. Egypt admission is unchanged; remote hiring evidence is explicit.
 
 No regex or advisory score is a final GPT fit score. Unclear strong remote roles
 are delivered for eligibility review rather than falsely labelled eligible.
@@ -12,7 +12,7 @@ import radar_pipeline_v13 as search
 import targeted_queue_v14 as legacy
 import targeted_queue_v15 as prior
 
-POLICY_VERSION = 16
+POLICY_VERSION = 17
 _OLD_CLASSIFY = prior.classify_candidate
 _OLD_MODEL = prior.work_model
 _OLD_SCOPE = prior.remote_scope
@@ -42,7 +42,38 @@ POSITIVE_MOBILITY = (
 COUNTRY_REMOTE = re.compile(
     r'\b(?:remote\s+(?:only\s+)?(?:within|in|from|across)|work from anywhere\s+(?:in|within|across)|(?:must|need to)\s+(?:be based|reside|live)\s+in)\s+(?:the\s+)?([^.;\n]{2,100})', re.I)
 COUNTRIES = re.compile(r'\b(?:republic of ireland|ireland|united kingdom|uk|united states|usa|u\.s\.|canada|india|georgia|australia|south africa|germany|france|spain|portugal|poland|switzerland|europe|eu|eea)\b', re.I)
-ELIGIBLE = re.compile(r'\b(?:egypt|emea|mena|middle east|worldwide|any country|anywhere in the world)\b', re.I)
+REGION = r'(?:egypt|emea|mena|middle east|(?<!south )africa|worldwide|globally|any country|anywhere in the world)'
+ELIGIBLE = re.compile(r'\b' + REGION + r'\b', re.I)
+
+
+def hiring_scope(candidate):
+    """Require hiring wording within a field/sentence, not nearby company words.
+
+    In particular, a title containing Remote plus location South Africa is not
+    Africa-wide hiring. Return the actual evidence rather than a regex label.
+    """
+    title = re.sub(r'\s+', ' ', str(candidate.get('title') or '')).strip()
+    description = str(candidate.get('description') or '')
+    segments = [title, *re.split(r'(?<=[.!?])\s+|\n+', description)]
+    patterns = (
+        r'\bremote\s*(?:[-,:|(]\s*)?(?:(?:within|in|across|from|throughout|anywhere in)\s+(?:the\s+)?)?(?P<region>' + REGION + r')\b',
+        r'\b(?P<region>' + REGION + r')\s*[-,:|]?\s+(?:fully\s+)?remote\s+(?:role|position|job|opportunity)\b',
+        r'\bwork from anywhere\s+(?:in|within|across)\s+(?:the\s+)?(?P<region>' + REGION + r')\b',
+        r'\b(?:candidates|applicants)\b[^.;\n]{0,45}\b(?:based|located|residing|living|reside|live)\s+in\s+(?:the\s+)?(?P<region>' + REGION + r')\b',
+        r'\b(?:open|available) to (?:candidates|applicants)\s+(?:(?:based|located)\s+)?(?:in\s+|from\s+)?(?P<region>' + REGION + r')\b',
+        r'\b(?:hire|hiring)\s+(?:from|across)\s+(?:the\s+)?(?P<region>' + REGION + r')\b',
+    )
+    for segment in segments:
+        segment = re.sub(r'\s+', ' ', segment).strip()
+        for pattern in patterns:
+            match = re.search(pattern, segment, re.I)
+            if not match:
+                continue
+            region = match.group('region').lower()
+            scope = ('global' if region in {'worldwide', 'globally', 'any country', 'anywhere in the world'}
+                     else 'mena' if region == 'middle east' else region)
+            return scope, [match.group(0)]
+    return None, []
 
 
 def text(candidate: dict[str, Any]) -> str:
@@ -83,7 +114,7 @@ def work_model(candidate: dict[str, Any]):
 
 
 def remote_scope(candidate: dict[str, Any]):
-    value = text(candidate)
+    value = re.sub(r'[ \t]+', ' ', text(candidate))
     for match in COUNTRY_REMOTE.finditer(value):
         qualifier = match.group(1)
         if COUNTRIES.search(qualifier) and not ELIGIBLE.search(qualifier):
@@ -96,7 +127,7 @@ def remote_scope(candidate: dict[str, Any]):
         for key, scope in [('emea', 'emea'), ('mena', 'mena'), ('middle east', 'mena'), ('worldwide', 'global'), ('global', 'global'), ('africa', 'africa'), ('egypt', 'egypt')]:
             if location in {key, 'remote - ' + key, 'remote ' + key, key + ' (remote)'}:
                 return scope, ['explicit remote hiring location: ' + location]
-    return _OLD_SCOPE(candidate)
+    return hiring_scope(candidate)
 
 
 def annotation(candidate: dict[str, Any]) -> dict[str, Any]:
@@ -170,7 +201,14 @@ def compact(candidate, source_part, excerpt_chars=500):
     sentences = re.split(r'(?<=[.!?])\s+|\n+', value)
     eligibility = [s.strip() for s in sentences if re.search(r'visa|sponsor|relocat|national|citizen|clearance|remote (?:within|in|across)|right to work|must be based|on[- ]?site|hybrid', s, re.I)]
     duties = [s.strip() for s in sentences if re.search(r'administ|responsib|maintain|troubleshoot|requirements|qualifications|years.{0,20}experience', s, re.I)]
-    result['eligibility_evidence'] = [s[:300] for s in eligibility[:4]]
+    result['eligibility_evidence'] = list(dict.fromkeys([
+        *a.get('eligible_signals', []), *a.get('restriction_signals', []),
+        *[s[:300] for s in eligibility[:4]],
+    ]))[:6]
+    qualifications = [s.strip() for s in sentences if re.search(
+        r'requirements|qualifications|years.{0,30}experience|production.level|hands.on|expertise|proficien|preferred certif', s, re.I)]
+    result['requirements_excerpt'] = ' '.join(dict.fromkeys(qualifications))[:900]
+    result['skill_hits_are_keyword_mentions_only'] = True
     result['description_excerpt'] = ' '.join(dict.fromkeys(duties or sentences))[:max(500, int(excerpt_chars))]
     result['description_sha256'] = hashlib.sha256(value.encode()).hexdigest()
     fingerprint = '\n'.join(re.sub(r'\s+', ' ', str(candidate.get(k) or '')).strip().lower() for k in ('company', 'title', 'description'))

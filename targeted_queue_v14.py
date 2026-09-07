@@ -322,7 +322,7 @@ def _stage_delivery_parts(
             target = delivery_dir / source.name
             source.replace(target)
             part = dict(part)
-            part["path"] = str(Path("output") / "delivery" / target.name)
+            part["path"] = (Path("output") / "delivery" / target.name).as_posix()
             result.append(part)
         return result
 
