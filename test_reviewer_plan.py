@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from queue_integrity import atomic_write_json, job_ids_digest, refresh_part_payload
-from reviewer_plan import build_plan, digest
+from reviewer_plan import build_plan, digest, publish_plan, publish_reading_pages
 
 NOW = datetime(2026, 9, 7, 19, tzinfo=timezone.utc)
 
@@ -115,6 +115,66 @@ class ReviewPlanTests(unittest.TestCase):
         plan = self.plan()
         self.assertEqual(plan['source_queue_sha256'], digest(self.pending))
         self.assertEqual(plan['source_ledger_sha256'], digest(self.ledger))
+
+    def read_text_selection(self, first_page):
+        paths, ids, part_ids = [], [], []
+        path = first_page
+        while path != 'END':
+            self.assertNotIn(path, paths)
+            paths.append(path)
+            content = (self.root / path).read_text(encoding='utf-8')
+            self.assertLess(len(content.encode('utf-8')), 8000)
+            self.assertTrue(content.endswith('END OF PAGE\n'))
+            lines = content.splitlines()
+            ids.extend(job_id for line in lines if line.startswith('Review Job IDs: ')
+                       for job_id in line.removeprefix('Review Job IDs: ').split(', '))
+            part_ids.extend(line.removeprefix('Part: ') for line in lines if line.startswith('Part: '))
+            path = next(line.removeprefix('Next page: ') for line in lines if line.startswith('Next page: '))
+        return paths, ids, part_ids
+
+    def test_plain_text_only_reader_reaches_all_egypt_without_ledger_or_code(self):
+        for n in range(65):
+            self.add_part([str(n)], padding=1800)
+        self.add_part(['international'], lane='remote')
+        plan = self.plan()
+        publish_reading_pages(self.root, plan)
+        start = (self.root / 'output/reviewer/START.txt').read_text(encoding='utf-8')
+        self.assertLess(len(start), 2000)
+        first = next(line.removeprefix('First Egypt page: ') for line in start.splitlines() if line.startswith('First Egypt page: '))
+        paths, ids, parts = self.read_text_selection(first)
+        self.assertGreater(len(paths), 1)
+        self.assertEqual(set(ids), {str(n) for n in range(65)})
+        self.assertEqual(len(parts), 65)
+        self.assertNotIn('international', ids)
+
+    def test_empty_plain_text_queue_has_no_pages_to_fetch(self):
+        publish_reading_pages(self.root, self.plan())
+        start = (self.root / 'output/reviewer/START.txt').read_text(encoding='utf-8')
+        self.assertIn('First Egypt page: NONE', start)
+        self.assertIn('First international page: NONE', start)
+
+    def test_refresh_reading_chain_does_not_reach_previously_acknowledged_pages(self):
+        for n in range(25):
+            self.add_part([str(n)])
+        publish_plan(self.root, self.pending, self.ledger)
+        for n in range(24):
+            self.ledger['reported_jobs'][str(n)] = 'reviewed'
+        publish_plan(self.root, self.pending, self.ledger)
+        paths, ids, _ = self.read_text_selection('output/reviewer/egypt-001.txt')
+        self.assertEqual(ids, ['24'])
+        self.assertEqual(len(paths), 1)
+
+    def test_cairo_run_times_are_precomputed_for_reader(self):
+        self.add_part(['1'])
+        plan = self.plan()
+        plan['egypt']['parts'][0]['run_finished_at_utc'] = '2026-01-10T12:00:00Z'
+        publish_reading_pages(self.root, plan)
+        content = (self.root / 'output/reviewer/egypt-001.txt').read_text(encoding='utf-8')
+        self.assertIn('2026-01-10 14:00:00', content)
+        plan['egypt']['parts'][0]['run_finished_at_utc'] = '2026-07-10T12:00:00Z'
+        publish_reading_pages(self.root, plan)
+        content = (self.root / 'output/reviewer/egypt-001.txt').read_text(encoding='utf-8')
+        self.assertIn('2026-07-10 15:00:00', content)
 
 
 if __name__ == '__main__':

@@ -9,13 +9,15 @@ from reviewer_plan import publish_plan
 
 ROOT = Path(__file__).resolve().parent
 REVIEW_CONTRACT = {
-    'version': 17,
+    'version': 18,
     'review_plan': 'output/reviewer_plan.json',
+    'reader_entrypoint': 'output/reviewer/START.txt',
     'egypt_limits': {'candidates': None, 'compact_characters': None, 'deep_checks': None, 'reported_matches': None},
-    'preflight': ['Read output/pending_runs.json and current state/reported_runs.json before opening packets.',
-                  'Skip acknowledged part IDs and Job IDs. Verify every manifest and read every remaining candidate.',
+    'preflight': ['Read output/reviewer/START.txt with the GitHub connector, then follow its small text pages.',
+                  'The producer computes the unacknowledged selection. No large ledger download, parser or checksum calculation is required.',
+                  'Read every listed remaining Job ID; acknowledge only fully reviewed parts.',
                   'Review ALL unacknowledged Egypt jobs in the pinned snapshot, with no candidate, character, deep-check or output limit.',
-                  'Follow output/reviewer_plan.json: Egypt first, fresh relevant evidence first, then the selected international parts.',
+                  'Follow every Egypt reading page first, then every selected international part.',
                   'Do not stop early without a concrete tool/runtime/integrity blocker. Compute unique review counts from decisions.',
                   'Score actual duties and requirements. Keyword hits and preferred certifications are not candidate experience.',
                   'Do not use advisory scores as final fit scores. Require job-level hiring evidence for Egypt eligibility.',

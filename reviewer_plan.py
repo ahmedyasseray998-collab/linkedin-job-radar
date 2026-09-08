@@ -11,6 +11,7 @@ import json
 import re
 from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from queue_integrity import atomic_write_json, parse_utc, read_json, validate_part_payload
 from radar_pipeline_v13 import is_egypt_candidate
@@ -140,7 +141,7 @@ def build_plan(root: Path, pending=None, ledger=None, now=None):
         return [{k: v for k, v in p.items() if not k.startswith('_')} for p in parts]
 
     return {
-        'schema_version': 1, 'reviewer_contract_version': 17,
+        'schema_version': 1, 'reviewer_contract_version': 18,
         'generated_at_utc': now.isoformat().replace('+00:00', 'Z'),
         'source_queue_sha256': digest(pending), 'source_ledger_sha256': digest(ledger),
         'source_index': 'output/pending_runs.json', 'source_ledger': 'state/reported_runs.json',
@@ -164,9 +165,83 @@ def build_plan(root: Path, pending=None, ledger=None, now=None):
     }
 
 
+def publish_reading_pages(root: Path, plan):
+    """Expose the computed selection as small connector-readable text pages.
+
+    The reviewer needs no Python runtime, full ledger download, or digest
+    calculation. This view contains the same selection as the generated plan.
+    Page boundaries control response size only, never Egypt coverage.
+    """
+    folder = root / 'output/reviewer'
+    folder.mkdir(parents=True, exist_ok=True)
+    pages_by_lane = {}
+    for lane in ('egypt', 'international'):
+        blocks = []
+        for part in plan[lane]['parts']:
+            stamp = parse_utc(part['run_finished_at_utc'])
+            cairo = stamp.astimezone(ZoneInfo('Africa/Cairo')).strftime('%Y-%m-%d %H:%M:%S %Z (%z)') if stamp else 'unavailable'
+            blocks.append('\n'.join([
+                'Part: ' + part['part_id'],
+                'Read: ' + part['path'],
+                'Review Job IDs: ' + ', '.join(part['unacknowledged_job_ids']),
+                'Egypt Job IDs: ' + (', '.join(part['egypt_job_ids']) or 'none'),
+                'Source run: ' + part['run_id'],
+                'Run time UTC: ' + str(part['run_finished_at_utc']) + ' (' + part['run_time_basis'] + ')',
+                'Run time Cairo: ' + cairo,
+            ]))
+        chunks, chunk, size = [], [], 0
+        for block in blocks:
+            block_size = len(block.encode('utf-8')) + 2
+            if chunk and (len(chunk) >= 12 or size + block_size > 7000):
+                chunks.append(chunk)
+                chunk, size = [], 0
+            chunk.append(block)
+            size += block_size
+        if chunk:
+            chunks.append(chunk)
+        paths = [f'output/reviewer/{lane}-{i + 1:03d}.txt' for i in range(len(chunks))]
+        for i, chunk in enumerate(chunks):
+            text = '\n'.join([
+                f'{lane.upper()} - page {i + 1} of {len(chunks)}',
+                'Generated UTC: ' + plan['generated_at_utc'],
+                'Next page: ' + (paths[i + 1] if i + 1 < len(paths) else 'END'),
+                'Read every listed part. A page is not a review limit.', '',
+                '\n\n'.join(chunk), '', 'END OF PAGE', '',
+            ])
+            (root / paths[i]).write_text(text, encoding='utf-8')
+        pages_by_lane[lane] = paths
+    index = '\n'.join([
+        'LINKEDIN RADAR REVIEW - version 18',
+        'Generated UTC: ' + plan['generated_at_utc'],
+        'Use GitHub connector reads. No downloads, code execution or checksum calculation required.',
+        'This is the producer-computed selection of unacknowledged work.',
+        'Read the pages and job packets from this same commit when a commit ref is available.',
+        'Do not load pending_runs.json or reported_runs.json to start a review.', '',
+        'Pending unique jobs: ' + str(plan['counts']['unique_pending_jobs']),
+        'Egypt unique jobs required: ' + str(plan['egypt']['required_unique_job_count']),
+        'Egypt parts required: ' + str(plan['egypt']['required_part_count']),
+        'Egypt review limits: NONE. Follow every Egypt page before international work.',
+        'First Egypt page: ' + (pages_by_lane['egypt'][0] if pages_by_lane['egypt'] else 'NONE'),
+        'Egypt page count: ' + str(len(pages_by_lane['egypt'])), '',
+        'International unique jobs selected: ' + str(plan['international']['selected_unique_job_count']),
+        'International parts selected: ' + str(plan['international']['selected_part_count']),
+        'International selection already fits its separate budget; review every selected part.',
+        'First international page: ' + (pages_by_lane['international'][0] if pages_by_lane['international'] else 'NONE'),
+        'International page count: ' + str(len(pages_by_lane['international'])),
+        'International selection reason: ' + plan['international']['selection_stop_reason'], '',
+        'Completed-part receipt: state/manual_backlog_receipts.json',
+        'Only record completed parts; the existing workflow updates the ledger and remaining queue.',
+        'END OF REVIEW INDEX', '',
+    ])
+    (folder / 'START.txt').write_text(index, encoding='utf-8')
+    return pages_by_lane
+
+
 def publish_plan(root: Path, pending=None, ledger=None):
     plan = build_plan(root, pending, ledger)
+    plan['reader_entrypoint'] = 'output/reviewer/START.txt'
     atomic_write_json(root / 'output/reviewer_plan.json', plan)
+    publish_reading_pages(root, plan)
     return plan
 
 
