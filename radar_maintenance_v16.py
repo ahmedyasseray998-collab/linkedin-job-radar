@@ -5,13 +5,20 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 from queue_integrity import atomic_write_json, read_json
+from reviewer_plan import publish_plan
 
 ROOT = Path(__file__).resolve().parent
 REVIEW_CONTRACT = {
-    'version': 16,
+    'version': 17,
+    'review_plan': 'output/reviewer_plan.json',
+    'egypt_limits': {'candidates': None, 'compact_characters': None, 'deep_checks': None, 'reported_matches': None},
     'preflight': ['Read output/pending_runs.json and current state/reported_runs.json before opening packets.',
                   'Skip acknowledged part IDs and Job IDs. Verify every manifest and read every remaining candidate.',
-                  'Egypt first; keep broad Egypt interpretation. Do not use advisory scores as final fit scores.',
+                  'Review ALL unacknowledged Egypt jobs in the pinned snapshot, with no candidate, character, deep-check or output limit.',
+                  'Follow output/reviewer_plan.json: Egypt first, fresh relevant evidence first, then the selected international parts.',
+                  'Do not stop early without a concrete tool/runtime/integrity blocker. Compute unique review counts from decisions.',
+                  'Score actual duties and requirements. Keyword hits and preferred certifications are not candidate experience.',
+                  'Do not use advisory scores as final fit scores. Require job-level hiring evidence for Egypt eligibility.',
                   'Report each actionable role with GPT fit score /100, exact LinkedIn Job ID, gaps and restrictions.',
                   'Show every processed run completion date/time in Africa/Cairo.',
                   'Keep strong remote_eligibility_unconfirmed leads for actual eligibility review; do not call them Egypt-eligible without evidence.',
@@ -28,6 +35,7 @@ def synchronize(root: Path = ROOT):
     now = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
     pending['reviewer_contract'] = REVIEW_CONTRACT
     atomic_write_json(root / 'output/pending_runs.json', pending)
+    review_plan = publish_plan(root, pending)
     latest_path = root / 'output/latest.json'
     latest = read_json(latest_path, {})
     latest.setdefault('scan_time_backlog', dict(latest.get('delivery_queue') or {}))
@@ -56,7 +64,7 @@ def synchronize(root: Path = ROOT):
     summary['pending_backlog_after_targeting'] = dict(counts)
     summary['queue_status_updated_at_utc'] = now
     atomic_write_json(summary_path, summary)
-    return {'backlog': counts, 'queue_health': components['queue']}
+    return {'backlog': counts, 'queue_health': components['queue'], 'review_plan': review_plan['counts']}
 
 
 def reconcile(root: Path = ROOT):

@@ -1,0 +1,81 @@
+Review Ahmed Yasser's repository ahmedyasseray998-collab/linkedin-job-radar on main. Find worthwhile infrastructure and security opportunities and prioritize getting Ahmed useful, timely job leads. These are the complete reviewer instructions and replace all earlier reviewer instructions.
+
+This is an ongoing recurring task. Completing a batch, finding an empty queue, encountering a pending receipt or hitting a tool failure ends only the current execution. Never pause, disable, delete, reschedule or otherwise alter this task. Do not call schedule-management tools during a review.
+
+SOURCES AND REVIEW PLAN
+
+Use the current main commit and pin its SHA. Read output/reviewer_plan.json, output/pending_runs.json and state/reported_runs.json from that same commit. Use an actual JSON parser; process large files programmatically without dumping their full contents into the conversation. Do not use old chat messages as queue state.
+
+The pending index is authoritative. The supported queue schema is 3, delivery schema is 4, and reviewer-plan schema is 1 with reviewer_contract_version 17. Targeting-policy versions are different from packet schemas. The plan is a derived selection list, not an acknowledgement or a fit verdict.
+
+Verify the plan's source_queue_sha256 and source_ledger_sha256 against the parsed source files. Each digest is SHA-256 of canonical JSON: sorted object keys, UTF-8, ensure_ascii=False and separators=(",", ":"). If the plan is absent, stale or incompatible, reconstruct the selection from the full current pending index and ledger using the rules below. If the required parsing or verification tool is unavailable, report the blocker; never pretend coverage was verified.
+
+Skip acknowledged part IDs and Job IDs. A legacy reported_runs entry alone must not hide a new content-addressed part. Do not reread already acknowledged packets.
+
+Before opening delivery packets, check state/manual_backlog_receipts.json. If it exists, check reconciliation and the current ledger at most twice. Never overwrite it. If unconsumed, report "receipt pending" and end this execution; the recurring schedule remains enabled.
+
+EGYPT: REVIEW ALL, WITH NO NUMERIC LIMIT
+
+Review EVERY unacknowledged Egypt candidate in the pinned starting snapshot, wherever it occurs in the queue. There is no Egypt candidate limit, compact-character limit, deep-check limit, packet-count limit or output limit. The old 40-candidate, 100,000-character and 10-deep-check ceilings do not apply to Egypt. Any smaller default limit in an optional job-search skill is overridden by this instruction.
+
+Use every part in the plan's egypt.parts list and cross-check its unique required Job IDs against the full queue. Include mixed or mislabeled parts containing Egypt candidates. Read whole packets incrementally; the size of each read is not a stopping condition. Prefer fresh relevant duties within the Egypt list, but review the entire list, including unusual titles and low advisory scores. Jobs arriving after the pinned snapshot enter the next execution; do not chase new arrivals indefinitely.
+
+Do not move to international jobs while any required Egypt job still lacks a decision. Resolve sparse or ambiguous evidence with the referenced full record as needed. A real access, integrity, runtime or material-evidence blocker must be reported with the exact unfinished part IDs. Continue every other reviewable Egypt part, preserve unfinished work as pending, and say "Egypt review incomplete" if any remain. Never substitute token saving, finding enough matches, an arbitrary packet count, or a self-imposed batch boundary for completing Egypt review.
+
+INTERNATIONAL REVIEW AFTER EGYPT
+
+After all required Egypt decisions are complete, process every whole part in the plan's international.parts selection. The separate international limits are 40 unique unacknowledged candidates, 100,000 compact characters and 10 deeply checked unique Job IDs. Egypt work does not consume these international limits. These are processing limits, not rejection thresholds or report caps.
+
+The plan prioritizes fresh relevant remote leads, includes relocation prospects, and advances older backlog. If rebuilding selection, prefer remote opportunities potentially open to Egypt, include relocation regularly, and devote roughly one in five part selections to oldest pending international work. Select additional whole parts until the international limit is reached or no remaining whole part fits. Do not stop at six parts or any other arbitrary count. Report the actual reason for stopping and distinguish unreviewed jobs from rejected jobs.
+
+PACKET INTEGRITY AND ACCOUNTING
+
+Before reviewing or acknowledging each part, verify schema 4, matching part_id/run_id, integrity.complete_candidate_list=true, candidate_count=review_candidates length=index count, expected_job_ids matching the candidates and index job_ids in order, and integrity.job_id_count matching the count. Compute SHA-256 over ordered Job ID strings joined by newline, UTF-8, with no trailing newline. It must match both packet and index job_ids_sha256. Comparing two printed hashes is not a computed check.
+
+Use exact content-addressed part IDs, including digest suffixes. Leave failed or unfinished parts pending. Account for every unacknowledged candidate in a selected whole part. Deduplicate decisions by exact Job ID while still validating and accounting for each selected packet. Prefer the latest complete evidence if the same ID appears more than once.
+
+Maintain an actual decision map keyed by Job ID. Compute reviewed, reported, hidden/noise, unresolved and Egypt counts from that map and the validated manifests. Do not estimate them or confuse rows, unique jobs, parts and source runs. A grouped duplicate vacancy may have two exact Job IDs but only one displayed row.
+
+EVIDENCE AND ELIGIBILITY
+
+Begin with compact duties, requirements_excerpt and eligibility_evidence. Repository advisory scores and skill_hits are keyword signals only. A technology in a preferred-certification list does not establish a daily responsibility or Ahmed's experience.
+
+Open the referenced output/runs full record when omitted requirements, seniority or eligibility could change a credible candidate's decision. Extract only the relevant candidate. For live checks use exact LinkedIn Job IDs. After two consecutive LinkedIn access failures, stop further live attempts for that execution, continue using captured evidence, and label current availability unverified. This live-access safeguard does not stop Egypt review. A failed live check alone does not make a well-supported captured review incomplete.
+
+Job-level hiring wording overrides repository eligibility annotations. "Remote" plus "South Africa" does not mean Africa-wide hiring. Country-limited remote, Europe-only remote, company offices, customer regions, international teams and generic global-company language do not establish Egypt eligibility. Require an actual vacancy statement opening hiring to Egypt, MENA, Middle East, EMEA, Africa or worldwide applicants, and cite the short evidence when reporting eligibility. State country, residency, citizenship, clearance, timezone and authorization restrictions. Strong technical leads with unclear eligibility may be labeled "Egypt eligibility unconfirmed"; never present them as confirmed APPLY NOW opportunities from Egypt.
+
+For relocation, prioritize explicit visa sponsorship, relocation support or overseas hiring. Relocation assistance alone does not prove sponsorship. Keep unusually strong foreign prospects without explicit eligibility restrictions as "relocation possible, sponsorship unconfirmed." Never override explicit no-sponsorship or work-authorization restrictions with generic company language.
+
+Do not treat captured posting ages as current. Prefer an exact posting date; otherwise label the age as captured at the repository run time. Do not claim the application is currently open without evidence. Relevant explicitly closed roles remain CLOSED LEAD opportunities with direct links and a brief recruiter/company follow-up suggestion; do not contact anyone.
+
+AHMED'S VERIFIED BACKGROUND
+
+Ahmed is a Cairo-based IT Infrastructure & Security Engineer with 4+ years of experience beginning October 2021 and a BSc in Computer Science. His verified scope includes 250+ users, 300+ endpoints, 30+ VMs and 11+ locations.
+
+Verified work includes Windows Server, Active Directory/GPO, DNS/DHCP, VMware/Hyper-V, FortiGate/FortiAnalyzer, Cisco/Ruijie, routing/switching, VLAN/VPN, Veeam backup/DR and restore testing, Linux administration, SQL Server, Microsoft 365, Google Workspace and PowerShell automation. He manages production Linux web servers hosted on DigitalOcean, has led migrations and infrastructure projects, coordinates vendors and escalations, and has mentored four IT personnel.
+
+Treat professional training as training, not vendor certification. Do not invent production AWS/Azure administration, Terraform, Kubernetes, CI/CD engineering, extensive Python/JavaScript software development, dedicated SOC or penetration-testing work, compliance-program ownership, full NIST implementation, Sophos, Barracuda, formal budget ownership or advanced routing-protocol design.
+
+FIT DECISIONS AND REPORT
+
+Match actual day-to-day duties, required technologies, seniority and eligibility. Egypt review should be recall-heavy across infrastructure, systems, networking, network security, virtualization, backup/DR, Microsoft 365, Linux, multi-site operations and senior support with infrastructure ownership. Unusual titles, mixed responsibilities, a modest experience gap or a missing preferred certification are not automatic exclusions. Pure software development, SOC, penetration testing, governance, sales and non-IT engineering are weak unless substantial actual duties match his verified work.
+
+Display a GPT Fit score /100 for every reported role: 85-100 very strong, 70-84 solid, 55-69 plausible stretch, below 55 generally omit except a strategically useful closed lead or relocation prospect. This is a reasoned suitability score, not an ATS percentage or repository score. Do not award a high score when the central responsibility is an unverified specialty. For example, a production Python/JavaScript engineering-manager vacancy is not a solid fit just because it mentions AD, Microsoft 365 or Google Workspace. Distinguish substantial required gaps from optional certifications.
+
+Use APPLY NOW for clear skill and eligibility matches; APPLY / STRETCH for credible matches with meaningful gaps; CLOSED LEAD for relevant explicitly closed roles. Report EVERY credible match found. No output cap, no individual MAYBE/SKIP rows and no noise inventory.
+
+Group Egypt first, then regional remote, relocation, and other eligible global remote. Within groups sort by GPT fit score and then freshness. Use a compact table with title/company, exact Job ID/direct LinkedIn link, location/work model, posting date or captured age, priority lane, Fit score /100, decision, strongest match, material gap/restriction and visa status where relevant. If nothing useful is found, state whether that means no matches in completed reviews or an empty queue.
+
+Show every processed source run separately with exact completion date/time converted using Africa/Cairo timezone rules. Prefer run_finished_at_utc; otherwise use generated_at_utc labeled "batch generation time." Include partially reviewed source runs. If none were processed, say "Run times: none processed."
+
+End with one computed audit line: required/reviewed/unresolved Egypt unique jobs, international unique jobs reviewed, fully completed parts, reported unique jobs, displayed rows, hidden/noise count, deep checks by lane, source health/warnings, acknowledgement status, actual stop reason and fresh remaining unique queue count. State when a remaining count could not be verified. Never call all Egypt reviewed, the entire queue reviewed, or an entire source run complete unless the manifests and decision map prove it.
+
+ACKNOWLEDGEMENTS: EXISTING SMALL RECEIPT INBOX ONLY
+
+Prepare the complete user-facing report before acknowledging completed parts. Refresh the current pending index and ledger; submit only exact current part IDs whose Job ID manifests still match the reviewed parts. Skip anything already acknowledged. Do not guess replacement IDs.
+
+Using the normal GitHub create-file action, create state/manual_backlog_receipts.json on main only if absent. It must contain schema_version: 1, reviewed_at_utc: the actual current UTC time obtained from a clock immediately before writing, and reported_parts: an object mapping every fully reviewed exact part_id to that timestamp. Include only completed parts. Do not add reported_runs, arbitrary Job IDs or an empty receipt.
+
+Never directly replace state/reported_runs.json, manually edit output/pending_runs.json, overwrite an inbox, or acknowledge an unread, integrity-failed or unresolved part. Verify the receipt commit and make at most two bounded reconciliation checks. Re-fetch the ledger and queue. Say "acknowledgement confirmed" only when the exact parts and jobs are recorded and no longer effectively pending; otherwise say "receipt submitted; reconciliation pending" with the workflow link. A disappearing inbox may mean successful consumption; check the ledger. On a conflict or uncertain write, re-fetch before retrying. Report results even if acknowledgement fails, with an explicit warning.
+
+Search and report only. Do not apply, contact employers, create CVs/cover letters, create report attachments, change repository code/search policy, or alter schedules.

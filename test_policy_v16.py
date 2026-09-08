@@ -35,6 +35,44 @@ class Policy16Tests(unittest.TestCase):
         with policy.installed():
             self.assertEqual(policy.classify(candidate('Fully remote EMEA role, open to applicants based in Egypt.'))[0], 'remote')
 
+    def test_scaled_south_africa_title_and_location_are_not_africa_wide(self):
+        with policy.installed():
+            c = candidate('Connecting USA-based MSPs with top South African IT talent.',
+                          'South Africa', 'Remote Microsoft 365 Technical Support Engineer')
+            annotation = policy.annotation(c)
+            self.assertIsNone(annotation['scope'])
+            self.assertEqual(annotation['status'], 'requires_full_review')
+            self.assertEqual(policy.classify(c)[0], 'remote')
+
+    def test_company_geography_and_remote_work_do_not_prove_hiring_scope(self):
+        for wording in ['We are a global company. This role is fully remote.',
+                        'Our customers are across EMEA. This role is remote.',
+                        'Our international team serves Africa and supports remote customers.']:
+            with self.subTest(wording=wording), policy.installed():
+                self.assertIsNone(policy.annotation(candidate(wording))['scope'])
+
+    def test_actual_africa_wide_hiring_remains_eligible(self):
+        for wording in ['Work from anywhere in Africa.', 'This role is remote across Africa.',
+                        'Candidates must be based in Africa and work remotely.']:
+            with self.subTest(wording=wording), policy.installed():
+                c = candidate('This role is fully remote. ' + wording, 'South Africa')
+                self.assertEqual(policy.annotation(c)['scope'], 'africa')
+                self.assertEqual(policy.classify(c)[0], 'remote')
+
+    def test_eligibility_evidence_is_actual_hiring_text(self):
+        with policy.installed():
+            c = candidate('This role is remote within EMEA.')
+            result = policy.compact(c, 'output/runs/example.json')
+            self.assertIn('remote within EMEA', result['eligibility_evidence'])
+
+    def test_requirements_preserve_production_development_gap_and_certification_context(self):
+        with policy.installed():
+            c = candidate('Maintain IT systems. Qualifications: Extensive production-level Python development experience. Preferred Certifications: Fortinet and Cisco.')
+            result = policy.compact(c, 'output/runs/example.json')
+            self.assertIn('production-level Python', result['requirements_excerpt'])
+            self.assertIn('Preferred Certifications', result['requirements_excerpt'])
+            self.assertTrue(result['skill_hits_are_keyword_mentions_only'])
+
     def test_explicit_remote_location_is_valid_evidence(self):
         with policy.installed():
             c = candidate('Maintain Windows servers.', 'EMEA', 'System Administrator (Remote)')
@@ -105,7 +143,7 @@ class Policy16Tests(unittest.TestCase):
     def test_scopes_restore_legacy_globals(self):
         before = (old.POLICY_VERSION, old.classify_candidate, search.compact_candidate, search.lane_definitions, orchestrator.prepare_runtime_config)
         with run_scope('egypt_48h'):
-            self.assertEqual(old.POLICY_VERSION, 16)
+            self.assertEqual(old.POLICY_VERSION, 17)
             self.assertEqual([d['name'] for d in search.lane_definitions({'location': 'Egypt'})], ['egypt', 'remote_egypt'])
         self.assertEqual(before, (old.POLICY_VERSION, old.classify_candidate, search.compact_candidate, search.lane_definitions, orchestrator.prepare_runtime_config))
         self.assertIn('remote_mena', [d['name'] for d in search.lane_definitions({'location': 'Egypt'})])
