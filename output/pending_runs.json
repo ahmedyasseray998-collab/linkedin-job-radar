@@ -1,214 +1,8 @@
 {
   "schema_version": 3,
-  "updated_at_utc": "2026-09-13T19:49:44Z",
+  "updated_at_utc": "2026-09-13T20:18:24Z",
   "retention_hours": 168,
   "runs": [
-    {
-      "run_id": "20260905T024437Z",
-      "generated_at_utc": "2026-09-05T02:57:10Z",
-      "health": "healthy_with_retries",
-      "warnings": [
-        "LinkedIn guest search needed recovery retries for 2 query bucket(s)",
-        "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
-      ],
-      "candidate_count": 6,
-      "audited_candidate_count": 337,
-      "mechanically_filtered_candidate_count": 208,
-      "delivery_audit": {
-        "input_candidates": 337,
-        "delivery_candidates": 129,
-        "mechanically_filtered": 208,
-        "filtered_reasons": {
-          "no_it_evidence": 208
-        },
-        "annotation_counts": {
-          "closed_explicit": 0,
-          "explicit_eligibility_restriction": 5
-        },
-        "eligible_before_caps": {
-          "local": 0,
-          "remote": 110,
-          "relocation": 19
-        },
-        "capped_reasons": {},
-        "caps": {
-          "enabled": false,
-          "maximum": null
-        }
-      },
-      "delivery_policy_version": 17,
-      "parts": [
-        "output/runs/20260905T024437Z-audit-001.json",
-        "output/runs/20260905T024437Z-audit-002.json",
-        "output/runs/20260905T024437Z-audit-003.json",
-        "output/runs/20260905T024437Z-audit-004.json",
-        "output/runs/20260905T024437Z-audit-005.json",
-        "output/runs/20260905T024437Z-audit-006.json",
-        "output/runs/20260905T024437Z-audit-007.json",
-        "output/runs/20260905T024437Z-audit-008.json",
-        "output/runs/20260905T024437Z-audit-009.json",
-        "output/runs/20260905T024437Z-audit-010.json",
-        "output/runs/20260905T024437Z-audit-011.json",
-        "output/runs/20260905T024437Z-audit-012.json",
-        "output/runs/20260905T024437Z-audit-013.json",
-        "output/runs/20260905T024437Z-audit-014.json"
-      ],
-      "delivery_parts": [
-        {
-          "part_id": "20260905T024437Z-part-001-b1b11762f5bd",
-          "path": "output/delivery/20260905T024437Z-part-001-b1b11762f5bd.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 4,
-          "job_ids": [
-            "4463701083",
-            "4463688787",
-            "4445308656",
-            "4462361231"
-          ],
-          "job_ids_sha256": "b1b11762f5bda4c7944e5b15934df1ade6caa7301af5ea04ac2a2caec3dbfa2b",
-          "compact_chars": 12655
-        },
-        {
-          "part_id": "20260905T024437Z-part-002-d38dc4886cf8",
-          "path": "output/delivery/20260905T024437Z-part-002-d38dc4886cf8.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 2,
-          "job_ids": [
-            "4461426112",
-            "4463697411"
-          ],
-          "job_ids_sha256": "d38dc4886cf80a94a7068057f1ead220a3aa7b50c59a52dd7b2068da1e73b99f",
-          "compact_chars": 7069
-        }
-      ],
-      "run_started_at_utc": "2026-09-05T02:44:37Z",
-      "run_finished_at_utc": "2026-09-05T02:57:10Z",
-      "lane_health": {
-        "egypt": {
-          "location": "Egypt",
-          "remote_filter": null,
-          "last_checked_at_utc": "2026-09-05T02:57:10Z",
-          "last_card_count": 18,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T02:57:10Z",
-          "status": "healthy"
-        },
-        "remote_egypt": {
-          "location": "Egypt",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-05T02:57:10Z",
-          "last_card_count": 0,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 1,
-          "last_nonempty_at_utc": "2026-09-05T01:53:53Z",
-          "status": "empty_observed"
-        },
-        "remote_mena": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-05T02:57:10Z",
-          "last_card_count": 170,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T02:57:10Z",
-          "status": "healthy"
-        },
-        "remote_middle_east": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-05T02:57:10Z",
-          "last_card_count": 175,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T02:57:10Z",
-          "status": "healthy"
-        },
-        "remote_emea": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-05T02:57:10Z",
-          "last_card_count": 171,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T02:57:10Z",
-          "status": "healthy"
-        },
-        "remote_worldwide": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-05T02:57:10Z",
-          "last_card_count": 186,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T02:57:10Z",
-          "status": "healthy"
-        }
-      },
-      "lane_quality": {
-        "egypt": {
-          "strategy": "broad_local",
-          "new_candidates": 1,
-          "regional_evidence_candidates": null,
-          "regional_precision": null
-        },
-        "remote_egypt": {
-          "strategy": "focused_remote_location",
-          "new_candidates": 0,
-          "regional_evidence_candidates": 0,
-          "regional_precision": null
-        },
-        "remote_mena": {
-          "strategy": "regional_keyword_remote",
-          "new_candidates": 112,
-          "regional_evidence_candidates": 5,
-          "regional_precision": 0.045
-        },
-        "remote_middle_east": {
-          "strategy": "regional_keyword_remote",
-          "new_candidates": 81,
-          "regional_evidence_candidates": 0,
-          "regional_precision": 0.0
-        },
-        "remote_emea": {
-          "strategy": "regional_keyword_remote",
-          "new_candidates": 78,
-          "regional_evidence_candidates": 3,
-          "regional_precision": 0.038
-        },
-        "remote_worldwide": {
-          "strategy": "focused_global_remote",
-          "new_candidates": 65,
-          "regional_evidence_candidates": null,
-          "regional_precision": null
-        }
-      },
-      "search_strategy_version": 13,
-      "integrity": {
-        "status": "validated",
-        "delivery_part_count": 2,
-        "candidate_count": 6
-      },
-      "targeting_policy_version": 17,
-      "targeting_audit": {
-        "input_lossless_candidates": 337,
-        "acknowledged_candidates_excluded": 0,
-        "selected_candidates": 6,
-        "deferred_candidates": 331,
-        "deferred_reasons": {
-          "country_specific_or_ambiguous_global_remote_eligibility": 7,
-          "explicit_location_work_authorization_or_clearance_block": 2,
-          "explicit_no_relocation_or_sponsorship": 4,
-          "international_role_not_infrastructure_owned": 6,
-          "no_it_evidence": 208,
-          "nonremote_without_credible_relocation_path": 66,
-          "weak_core_infrastructure_evidence": 38
-        },
-        "protected_egypt_candidates": 0,
-        "remote_candidates": 0,
-        "relocation_candidates": 6
-      }
-    },
     {
       "run_id": "20260905T034423Z",
       "generated_at_utc": "2026-09-05T03:52:49Z",
@@ -584,188 +378,6 @@
       }
     },
     {
-      "run_id": "20260905T054303Z",
-      "generated_at_utc": "2026-09-05T05:50:52Z",
-      "health": "healthy_with_retries",
-      "warnings": [
-        "LinkedIn guest search needed recovery retries for 1 query bucket(s)",
-        "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
-      ],
-      "candidate_count": 1,
-      "audited_candidate_count": 153,
-      "mechanically_filtered_candidate_count": 106,
-      "delivery_audit": {
-        "input_candidates": 153,
-        "delivery_candidates": 47,
-        "mechanically_filtered": 106,
-        "filtered_reasons": {
-          "no_it_evidence": 106
-        },
-        "annotation_counts": {
-          "closed_explicit": 0,
-          "explicit_eligibility_restriction": 3
-        },
-        "eligible_before_caps": {
-          "local": 1,
-          "remote": 39,
-          "relocation": 7
-        },
-        "capped_reasons": {},
-        "caps": {
-          "enabled": false,
-          "maximum": null
-        }
-      },
-      "delivery_policy_version": 17,
-      "parts": [
-        "output/runs/20260905T054303Z-audit-001.json",
-        "output/runs/20260905T054303Z-audit-002.json",
-        "output/runs/20260905T054303Z-audit-003.json",
-        "output/runs/20260905T054303Z-audit-004.json",
-        "output/runs/20260905T054303Z-audit-005.json",
-        "output/runs/20260905T054303Z-audit-006.json",
-        "output/runs/20260905T054303Z-audit-007.json"
-      ],
-      "delivery_parts": [
-        {
-          "part_id": "20260905T054303Z-part-001-f58d4e6960ce",
-          "path": "output/delivery/20260905T054303Z-part-001-f58d4e6960ce.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 1,
-          "job_ids": [
-            "4463709561"
-          ],
-          "job_ids_sha256": "f58d4e6960ce78fa1f05578ef58fdd9dc6f05ca5e602a3e4ada4cb09b2eda96c",
-          "compact_chars": 4025
-        }
-      ],
-      "run_started_at_utc": "2026-09-05T05:43:03Z",
-      "run_finished_at_utc": "2026-09-05T05:50:52Z",
-      "lane_health": {
-        "egypt": {
-          "location": "Egypt",
-          "remote_filter": null,
-          "last_checked_at_utc": "2026-09-05T05:50:52Z",
-          "last_card_count": 5,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T05:50:52Z",
-          "status": "healthy"
-        },
-        "remote_egypt": {
-          "location": "Egypt",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-05T05:50:52Z",
-          "last_card_count": 3,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T05:50:52Z",
-          "status": "healthy"
-        },
-        "remote_mena": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-05T05:50:52Z",
-          "last_card_count": 149,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T05:50:52Z",
-          "status": "healthy"
-        },
-        "remote_middle_east": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-05T05:50:52Z",
-          "last_card_count": 176,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T05:50:52Z",
-          "status": "healthy"
-        },
-        "remote_emea": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-05T05:50:52Z",
-          "last_card_count": 174,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T05:50:52Z",
-          "status": "healthy"
-        },
-        "remote_worldwide": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-05T05:50:52Z",
-          "last_card_count": 171,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-05T05:50:52Z",
-          "status": "healthy"
-        }
-      },
-      "lane_quality": {
-        "egypt": {
-          "strategy": "broad_local",
-          "new_candidates": 2,
-          "regional_evidence_candidates": null,
-          "regional_precision": null
-        },
-        "remote_egypt": {
-          "strategy": "focused_remote_location",
-          "new_candidates": 0,
-          "regional_evidence_candidates": 0,
-          "regional_precision": null
-        },
-        "remote_mena": {
-          "strategy": "regional_keyword_remote",
-          "new_candidates": 35,
-          "regional_evidence_candidates": 2,
-          "regional_precision": 0.057
-        },
-        "remote_middle_east": {
-          "strategy": "regional_keyword_remote",
-          "new_candidates": 59,
-          "regional_evidence_candidates": 0,
-          "regional_precision": 0.0
-        },
-        "remote_emea": {
-          "strategy": "regional_keyword_remote",
-          "new_candidates": 33,
-          "regional_evidence_candidates": 1,
-          "regional_precision": 0.03
-        },
-        "remote_worldwide": {
-          "strategy": "focused_global_remote",
-          "new_candidates": 24,
-          "regional_evidence_candidates": null,
-          "regional_precision": null
-        }
-      },
-      "search_strategy_version": 13,
-      "integrity": {
-        "status": "validated",
-        "delivery_part_count": 1,
-        "candidate_count": 1
-      },
-      "targeting_policy_version": 17,
-      "targeting_audit": {
-        "input_lossless_candidates": 153,
-        "acknowledged_candidates_excluded": 1,
-        "selected_candidates": 1,
-        "deferred_candidates": 151,
-        "deferred_reasons": {
-          "explicit_location_work_authorization_or_clearance_block": 3,
-          "international_role_not_infrastructure_owned": 3,
-          "no_it_evidence": 106,
-          "nonremote_without_credible_relocation_path": 25,
-          "weak_core_infrastructure_evidence": 14
-        },
-        "protected_egypt_candidates": 0,
-        "remote_candidates": 0,
-        "relocation_candidates": 1
-      }
-    },
-    {
       "run_id": "20260905T064607Z",
       "generated_at_utc": "2026-09-05T06:56:15Z",
       "health": "degraded",
@@ -775,7 +387,7 @@
         "2 exact-detail request(s) failed and remain unseen so they can retry next run",
         "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
       ],
-      "candidate_count": 6,
+      "candidate_count": 5,
       "audited_candidate_count": 294,
       "mechanically_filtered_candidate_count": 165,
       "delivery_audit": {
@@ -817,18 +429,17 @@
       ],
       "delivery_parts": [
         {
-          "part_id": "20260905T064607Z-part-002-b23cf5eb69c6",
-          "path": "output/delivery/20260905T064607Z-part-002-b23cf5eb69c6.json",
+          "part_id": "20260905T064607Z-part-002-6117d09e8272",
+          "path": "output/delivery/20260905T064607Z-part-002-6117d09e8272.json",
           "delivery_tier": "relocation",
-          "candidate_count": 4,
+          "candidate_count": 3,
           "job_ids": [
             "4463709684",
-            "4463709561",
             "4463714578",
             "4461458142"
           ],
-          "job_ids_sha256": "b23cf5eb69c6814a4ccb897e7ecf438839fc15c90fab6500562dd861306df356",
-          "compact_chars": 12744
+          "job_ids_sha256": "6117d09e827205f6416edb9cb0434f30656d0bb43cea56438af83767b51b446c",
+          "compact_chars": 9243
         },
         {
           "part_id": "20260905T064607Z-part-003-3a28f6f74312",
@@ -949,7 +560,7 @@
       "integrity": {
         "status": "validated",
         "delivery_part_count": 2,
-        "candidate_count": 6
+        "candidate_count": 5
       },
       "targeting_policy_version": 17,
       "targeting_audit": {
@@ -16216,7 +15827,7 @@
       "warnings": [
         "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
       ],
-      "candidate_count": 33,
+      "candidate_count": 30,
       "audited_candidate_count": 458,
       "mechanically_filtered_candidate_count": 195,
       "delivery_audit": {
@@ -16291,19 +15902,6 @@
           ],
           "job_ids_sha256": "99bc9a49a239056dc3155aa24b6d472dac672642bc00e8ca422beafba14cebf6",
           "compact_chars": 12647
-        },
-        {
-          "part_id": "20260908T104710Z-part-017-4858145c205c",
-          "path": "output/delivery/20260908T104710Z-part-017-4858145c205c.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 3,
-          "job_ids": [
-            "4464485245",
-            "4464479344",
-            "4454269975"
-          ],
-          "job_ids_sha256": "4858145c205c83a517c266221d4ed51dde7a8d4deeef2379bbec245b97b36d6b",
-          "compact_chars": 11164
         },
         {
           "part_id": "20260908T104710Z-part-018-ad95468ce918",
@@ -16493,8 +16091,8 @@
       "search_strategy_version": 13,
       "integrity": {
         "status": "validated",
-        "delivery_part_count": 9,
-        "candidate_count": 33
+        "delivery_part_count": 8,
+        "candidate_count": 30
       },
       "targeting_policy_version": 17,
       "targeting_audit": {
@@ -16524,7 +16122,7 @@
         "LinkedIn guest search needed recovery retries for 1 query bucket(s)",
         "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
       ],
-      "candidate_count": 8,
+      "candidate_count": 6,
       "audited_candidate_count": 625,
       "mechanically_filtered_candidate_count": 308,
       "delivery_audit": {
@@ -16578,18 +16176,6 @@
         "output/runs/20260908T111159Z-audit-025.json"
       ],
       "delivery_parts": [
-        {
-          "part_id": "20260908T111159Z-part-006-e797e3fec6d5",
-          "path": "output/delivery/20260908T111159Z-part-006-e797e3fec6d5.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 2,
-          "job_ids": [
-            "4463249406",
-            "4464468668"
-          ],
-          "job_ids_sha256": "e797e3fec6d5c64216e3e04aeb227d66ef66c08eaf8a4eac2645378904f82b8e",
-          "compact_chars": 6600
-        },
         {
           "part_id": "20260908T111159Z-part-007-8ba738893134",
           "path": "output/delivery/20260908T111159Z-part-007-8ba738893134.json",
@@ -16732,8 +16318,8 @@
       "search_strategy_version": 13,
       "integrity": {
         "status": "validated",
-        "delivery_part_count": 4,
-        "candidate_count": 8
+        "delivery_part_count": 3,
+        "candidate_count": 6
       },
       "targeting_policy_version": 17,
       "targeting_audit": {
@@ -16763,7 +16349,7 @@
         "LinkedIn guest search needed recovery retries for 1 query bucket(s)",
         "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
       ],
-      "candidate_count": 3,
+      "candidate_count": 1,
       "audited_candidate_count": 230,
       "mechanically_filtered_candidate_count": 112,
       "delivery_audit": {
@@ -16802,18 +16388,6 @@
         "output/runs/20260908T113103Z-audit-010.json"
       ],
       "delivery_parts": [
-        {
-          "part_id": "20260908T113103Z-part-002-902dd236e2c2",
-          "path": "output/delivery/20260908T113103Z-part-002-902dd236e2c2.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 2,
-          "job_ids": [
-            "4462503045",
-            "4450291992"
-          ],
-          "job_ids_sha256": "902dd236e2c257040ebd99100b8aaf00d4e8a0c7a8403a73979b504cfb2cc7ed",
-          "compact_chars": 7011
-        },
         {
           "part_id": "20260908T113103Z-part-003-0dfb3fbddafe",
           "path": "output/delivery/20260908T113103Z-part-003-0dfb3fbddafe.json",
@@ -16931,8 +16505,8 @@
       "search_strategy_version": 13,
       "integrity": {
         "status": "validated",
-        "delivery_part_count": 2,
-        "candidate_count": 3
+        "delivery_part_count": 1,
+        "candidate_count": 1
       },
       "targeting_policy_version": 17,
       "targeting_audit": {
@@ -17139,7 +16713,7 @@
         "LinkedIn guest search needed recovery retries for 1 query bucket(s)",
         "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
       ],
-      "candidate_count": 30,
+      "candidate_count": 26,
       "audited_candidate_count": 421,
       "mechanically_filtered_candidate_count": 160,
       "delivery_audit": {
@@ -17271,18 +16845,6 @@
           "compact_chars": 6559
         },
         {
-          "part_id": "20260908T125208Z-part-016-df6c12d96c29",
-          "path": "output/delivery/20260908T125208Z-part-016-df6c12d96c29.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 2,
-          "job_ids": [
-            "4426620160",
-            "4463286555"
-          ],
-          "job_ids_sha256": "df6c12d96c299d2c24b4ab1f5d90bf757c954c5144ef42b47b0208c200165884",
-          "compact_chars": 5457
-        },
-        {
           "part_id": "20260908T125208Z-part-018-bcd8f65e8044",
           "path": "output/delivery/20260908T125208Z-part-018-bcd8f65e8044.json",
           "delivery_tier": "relocation",
@@ -17294,18 +16856,6 @@
           ],
           "job_ids_sha256": "bcd8f65e80444d2036bb70d235c046a0cb78a5795a292ea34514d6aceee7068b",
           "compact_chars": 7353
-        },
-        {
-          "part_id": "20260908T125208Z-part-019-5009394c1613",
-          "path": "output/delivery/20260908T125208Z-part-019-5009394c1613.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 2,
-          "job_ids": [
-            "4463298644",
-            "4464469780"
-          ],
-          "job_ids_sha256": "5009394c1613a15e661d1ea1bb0819cbd1753bb0b13c5c8a3338afdcc313d681",
-          "compact_chars": 6897
         },
         {
           "part_id": "20260908T125208Z-part-020-747212323487",
@@ -17461,8 +17011,8 @@
       "search_strategy_version": 13,
       "integrity": {
         "status": "validated",
-        "delivery_part_count": 14,
-        "candidate_count": 30
+        "delivery_part_count": 12,
+        "candidate_count": 26
       },
       "targeting_policy_version": 17,
       "targeting_audit": {
@@ -26674,7 +26224,7 @@
         "LinkedIn guest search needed recovery retries for 1 query bucket(s)",
         "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
       ],
-      "candidate_count": 12,
+      "candidate_count": 8,
       "audited_candidate_count": 166,
       "mechanically_filtered_candidate_count": 85,
       "delivery_audit": {
@@ -26710,18 +26260,6 @@
         "output/runs/20260910T014723Z-audit-007.json"
       ],
       "delivery_parts": [
-        {
-          "part_id": "20260910T014723Z-part-006-7eb8085e92d0",
-          "path": "output/delivery/20260910T014723Z-part-006-7eb8085e92d0.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 2,
-          "job_ids": [
-            "4465352979",
-            "4465380224"
-          ],
-          "job_ids_sha256": "7eb8085e92d03a778a047622ecd31b2164e777c992aabcf8be148871cf635f92",
-          "compact_chars": 7620
-        },
         {
           "part_id": "20260910T014723Z-part-007-2cfd115842dd",
           "path": "output/delivery/20260910T014723Z-part-007-2cfd115842dd.json",
@@ -26769,18 +26307,6 @@
           ],
           "job_ids_sha256": "7d8a88ae25c54650b9143b34707b6ea356140e3aabf35b49875639a4d358c771",
           "compact_chars": 6242
-        },
-        {
-          "part_id": "20260910T014723Z-part-011-33a817af2956",
-          "path": "output/delivery/20260910T014723Z-part-011-33a817af2956.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 2,
-          "job_ids": [
-            "4464160168",
-            "4465366353"
-          ],
-          "job_ids_sha256": "33a817af29561286ed06ab1307f8bc91e955122fdbab8a0c59b538427a3f001f",
-          "compact_chars": 6860
         }
       ],
       "run_started_at_utc": "2026-09-10T01:47:23Z",
@@ -26888,8 +26414,8 @@
       "search_strategy_version": 13,
       "integrity": {
         "status": "validated",
-        "delivery_part_count": 6,
-        "candidate_count": 12
+        "delivery_part_count": 4,
+        "candidate_count": 8
       },
       "targeting_policy_version": 17,
       "targeting_audit": {
@@ -27148,7 +26674,7 @@
         "LinkedIn guest search needed recovery retries for 5 query bucket(s)",
         "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
       ],
-      "candidate_count": 7,
+      "candidate_count": 4,
       "audited_candidate_count": 214,
       "mechanically_filtered_candidate_count": 136,
       "delivery_audit": {
@@ -27197,19 +26723,6 @@
           ],
           "job_ids_sha256": "79eec8fa7c15f52a9240876159a434b6aa5bf07bec3cd2dac049c1e43d382cc7",
           "compact_chars": 7136
-        },
-        {
-          "part_id": "20260910T034732Z-part-002-c3b236f2ab03",
-          "path": "output/delivery/20260910T034732Z-part-002-c3b236f2ab03.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 3,
-          "job_ids": [
-            "4465398966",
-            "4464178019",
-            "4463418073"
-          ],
-          "job_ids_sha256": "c3b236f2ab036ec50e3dc0db50e0bacaf1b0c12cf9e1bab3a305cd0585fc48ea",
-          "compact_chars": 7889
         },
         {
           "part_id": "20260910T034732Z-part-003-ca200ae10439",
@@ -27329,8 +26842,8 @@
       "search_strategy_version": 13,
       "integrity": {
         "status": "validated",
-        "delivery_part_count": 3,
-        "candidate_count": 7
+        "delivery_part_count": 2,
+        "candidate_count": 4
       },
       "targeting_policy_version": 17,
       "targeting_audit": {
@@ -27359,7 +26872,7 @@
         "LinkedIn guest search needed recovery retries for 8 query bucket(s)",
         "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
       ],
-      "candidate_count": 13,
+      "candidate_count": 11,
       "audited_candidate_count": 299,
       "mechanically_filtered_candidate_count": 166,
       "delivery_audit": {
@@ -27435,18 +26948,6 @@
           ],
           "job_ids_sha256": "f880ce8374670a5169a1c69de7eb6041dca93b71e62def5316722922806a4e54",
           "compact_chars": 6066
-        },
-        {
-          "part_id": "20260910T044717Z-part-006-1d7bb2c304b4",
-          "path": "output/delivery/20260910T044717Z-part-006-1d7bb2c304b4.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 2,
-          "job_ids": [
-            "4464163872",
-            "4465611287"
-          ],
-          "job_ids_sha256": "1d7bb2c304b448c9448a3b9fa2cb86f08b4d59be1582c11f1534417c48eedfef",
-          "compact_chars": 6415
         },
         {
           "part_id": "20260910T044717Z-part-007-f83ffdd6f025",
@@ -27579,8 +27080,8 @@
       "search_strategy_version": 13,
       "integrity": {
         "status": "validated",
-        "delivery_part_count": 6,
-        "candidate_count": 13
+        "delivery_part_count": 5,
+        "candidate_count": 11
       },
       "targeting_policy_version": 17,
       "targeting_audit": {
@@ -40415,215 +39916,18 @@
         "remote_candidates": 2,
         "relocation_candidates": 1
       }
-    },
-    {
-      "run_id": "20260913T194318Z",
-      "generated_at_utc": "2026-09-13T19:47:21Z",
-      "health": "healthy_with_lane_warnings",
-      "warnings": [
-        "Low regional precision lane(s): remote_mena"
-      ],
-      "candidate_count": 4,
-      "audited_candidate_count": 22,
-      "mechanically_filtered_candidate_count": 14,
-      "delivery_audit": {
-        "input_candidates": 22,
-        "delivery_candidates": 8,
-        "mechanically_filtered": 14,
-        "filtered_reasons": {
-          "no_it_evidence": 14
-        },
-        "annotation_counts": {
-          "closed_explicit": 0,
-          "explicit_eligibility_restriction": 1
-        },
-        "eligible_before_caps": {
-          "local": 2,
-          "remote": 6,
-          "relocation": 0
-        },
-        "capped_reasons": {},
-        "caps": {
-          "enabled": false,
-          "maximum": null
-        }
-      },
-      "delivery_policy_version": 17,
-      "parts": [
-        "output/runs/20260913T194318Z-audit-001.json"
-      ],
-      "delivery_parts": [
-        {
-          "part_id": "20260913T194318Z-part-001-bb2f7aa13d35",
-          "path": "output/delivery/20260913T194318Z-part-001-bb2f7aa13d35.json",
-          "delivery_tier": "local",
-          "candidate_count": 1,
-          "job_ids": [
-            "4465499103"
-          ],
-          "job_ids_sha256": "bb2f7aa13d35b7a560c4fc1a10b5790f5864951429c8d9f73979bd30c7d17833",
-          "compact_chars": 3458
-        },
-        {
-          "part_id": "20260913T194318Z-part-002-94e5fe12deda",
-          "path": "output/delivery/20260913T194318Z-part-002-94e5fe12deda.json",
-          "delivery_tier": "local",
-          "candidate_count": 1,
-          "job_ids": [
-            "4465479287"
-          ],
-          "job_ids_sha256": "94e5fe12dedaa6b0ad0db09747a289d5e860b16b5dd09cd7b767b8a2fce99ad9",
-          "compact_chars": 2910
-        },
-        {
-          "part_id": "20260913T194318Z-part-003-c0aa817958e4",
-          "path": "output/delivery/20260913T194318Z-part-003-c0aa817958e4.json",
-          "delivery_tier": "relocation",
-          "candidate_count": 2,
-          "job_ids": [
-            "4464752498",
-            "4464758500"
-          ],
-          "job_ids_sha256": "c0aa817958e4c870dcbe8eba7c43238d55485f39a9a895369cf61ca4e4067011",
-          "compact_chars": 8061
-        }
-      ],
-      "run_started_at_utc": "2026-09-13T19:43:18Z",
-      "run_finished_at_utc": "2026-09-13T19:47:21Z",
-      "lane_health": {
-        "egypt": {
-          "location": "Egypt",
-          "remote_filter": null,
-          "last_checked_at_utc": "2026-09-13T19:47:21Z",
-          "last_card_count": 34,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-13T19:47:21Z",
-          "status": "healthy"
-        },
-        "remote_egypt": {
-          "location": "Egypt",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-13T19:47:21Z",
-          "last_card_count": 14,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-13T19:47:21Z",
-          "status": "healthy"
-        },
-        "remote_mena": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-13T19:47:21Z",
-          "last_card_count": 158,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-13T19:47:21Z",
-          "status": "healthy"
-        },
-        "remote_middle_east": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-13T19:47:21Z",
-          "last_card_count": 165,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-13T19:47:21Z",
-          "status": "healthy"
-        },
-        "remote_emea": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-13T19:47:21Z",
-          "last_card_count": 161,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-13T19:47:21Z",
-          "status": "healthy"
-        },
-        "remote_worldwide": {
-          "location": "Worldwide",
-          "remote_filter": "remote",
-          "last_checked_at_utc": "2026-09-13T19:47:21Z",
-          "last_card_count": 153,
-          "last_search_errors": 0,
-          "consecutive_empty_runs": 0,
-          "last_nonempty_at_utc": "2026-09-13T19:47:21Z",
-          "status": "healthy"
-        }
-      },
-      "lane_quality": {
-        "egypt": {
-          "strategy": "broad_local",
-          "new_candidates": 3,
-          "regional_evidence_candidates": null,
-          "regional_precision": null
-        },
-        "remote_egypt": {
-          "strategy": "focused_remote_location",
-          "new_candidates": 0,
-          "regional_evidence_candidates": 0,
-          "regional_precision": null
-        },
-        "remote_mena": {
-          "strategy": "regional_keyword_remote",
-          "new_candidates": 11,
-          "regional_evidence_candidates": 0,
-          "regional_precision": 0.0
-        },
-        "remote_middle_east": {
-          "strategy": "regional_keyword_remote",
-          "new_candidates": 2,
-          "regional_evidence_candidates": 0,
-          "regional_precision": 0.0
-        },
-        "remote_emea": {
-          "strategy": "regional_keyword_remote",
-          "new_candidates": 2,
-          "regional_evidence_candidates": 1,
-          "regional_precision": 0.5
-        },
-        "remote_worldwide": {
-          "strategy": "focused_global_remote",
-          "new_candidates": 4,
-          "regional_evidence_candidates": null,
-          "regional_precision": null
-        }
-      },
-      "search_strategy_version": 13,
-      "integrity": {
-        "status": "validated",
-        "delivery_part_count": 3,
-        "candidate_count": 4
-      },
-      "targeting_policy_version": 17,
-      "targeting_audit": {
-        "input_lossless_candidates": 22,
-        "acknowledged_candidates_excluded": 0,
-        "selected_candidates": 4,
-        "deferred_candidates": 18,
-        "deferred_reasons": {
-          "explicit_location_work_authorization_or_clearance_block": 1,
-          "no_it_evidence": 14,
-          "nonremote_without_credible_relocation_path": 2,
-          "weak_core_infrastructure_evidence": 1
-        },
-        "protected_egypt_candidates": 2,
-        "remote_candidates": 0,
-        "relocation_candidates": 2
-      }
     }
   ],
   "backlog": {
-    "pending_run_count": 180,
-    "pending_part_count": 716,
-    "pending_candidate_count": 1721,
-    "oldest_candidate_age_minutes": 12532,
+    "pending_run_count": 177,
+    "pending_part_count": 701,
+    "pending_candidate_count": 1689,
+    "oldest_candidate_age_minutes": 12505,
     "warning": true
   },
   "integrity": {
     "status": "validated",
-    "validated_parts": 716,
+    "validated_parts": 701,
     "removed_acknowledged_parts": 0,
     "removed_acknowledged_jobs": 0,
     "acknowledgement_granularity": "part_with_candidate_receipt_support"
