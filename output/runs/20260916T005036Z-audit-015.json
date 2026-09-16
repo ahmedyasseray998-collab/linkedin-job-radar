@@ -1,0 +1,318 @@
+{
+  "schema_version": 2,
+  "run_id": "20260916T005036Z",
+  "generated_at_utc": "2026-09-16T01:02:35Z",
+  "health": "healthy_with_lane_warnings",
+  "warnings": [
+    "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
+  ],
+  "part": 15,
+  "part_count": 15,
+  "review_candidates": [
+    {
+      "linkedin_job_id": "4446247249",
+      "title": "Senior Software Engineer (Marketing Experience)",
+      "company": "CMG Financial",
+      "location": "United States",
+      "linkedin_date": "2026-09-16",
+      "linkedin_posted_text": "19 minutes ago",
+      "estimated_age_minutes": 19,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-16T00:54:59Z",
+      "url": "https://www.linkedin.com/jobs/view/4446247249",
+      "matched_queries": [
+        {
+          "query": "Middle East systems",
+          "weight": 4.0,
+          "lane": "remote_middle_east",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [
+        "marketing"
+      ],
+      "advisory_it_evidence": true,
+      "score": -1.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Routing/Switching",
+          "weight": 3.0
+        },
+        {
+          "label": "Azure",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [
+        {
+          "label": "Software Development",
+          "weight": -10.0
+        }
+      ],
+      "description": "Description The Team We build and run the software behind CMG's marketing platform: consumer websites, loan-officer microsites, rate-lock marketing products, lead intake and routing, review and testimonial syndication, email signatures, and the background services that move loan data between our loan origination system, Salesforce, and roughly fifteen marketing SaaS vendors. The estate is seven .NET monorepos that span generations: the newest platforms are latest .NET APIs with React frontends and containerized deploys, the oldest are .NET Framework apps we are actively consolidating and retiring, and there's a lot of SQL Server underneath all of it. The modernization is in motion, not aspirational. In the past year we consolidated everything into GitHub monorepos with GitHub Actions CI/CD, stood up a modern .NET background-job platform that legacy services are migrating onto, shipped the first phases of a program that moves applications off a shared database and onto internal APIs, and rebuilt our largest legacy product on a current stack. This role exists to keep that moving. The Job This is a hands-on senior role with three centers of gravity. Ship fast against structured requirements . Product hands us structured GitHub issues with checkable acceptance criteria. The main number we watch is how quickly an accepted requirement becomes a production deployment. On this team most PRs merge the same day they open, and a bug fix routinely ships with its tests, evidence, and release notes in one pass. We are hiring for that pace, sustained, without skipping the quality gates that make it safe. Own your systems end to end . The things you build are yours from requirements review through production. Most of the work is delivery: new capabilities on the loan-officer platforms, vendor API integrations, internal APIs that replace legacy coupling, hardening background jobs that move real loan data. And when something you own misbehaves in production, you're the one who can trace it across application code, SQL Server, vendor APIs, and Azure infrastructure and fix it at the right layer, because you understand the whole path. There's no separate ops team to hand off to; that's why our deploys are gated, evidence-backed, and reversible, and it's also why engineers here get to make real architectural decisions about the systems they run. Modernize as you go. This is not a cleanup job, and it's not a greenfield job either; the two run side by side. The target architecture already exists in our newest platforms, the remaining tech debt has been audited and ranked into concrete backlogs (you will never be guessing where to dig), and modernization work is first-class roadmap work here, not something you sneak in between features. You'll pull the older half of the portfolio toward the standard the newer half already meets: extract services out of oversized controllers, bring schema under source control, replace database-level coupling between applications with internal APIs, retire end-of-life frameworks, and add test suites where they're missing. Every one of those changes makes the codebase faster and safer for both people and coding agents to work in, which feeds directly back into the delivery speed we care about. How we work We recently moved development onto Claude Code and an in-house SDLC built on GitHub issues. Our EVP of Technology, Kitt Holland, published the full system at tech.cmgfi.com/agentic- sdlc . Every change ties to an accepted issue that carries a type and checkable acceptance criteria, and engineers send vague tickets back to product before writing code. Completion runs a validation gate, and the PR carries the evidence. Agents write a large share of the code, so your value is judgment at the gates: is the plan right, is the generated test real or tautological, does the evidence actually prove the acceptance criterion, is this safe to ship. We expect fluency with agentic development on day one. You don't need to have used our specific tooling. You do need to know how to get reliable output from a coding agent and how to catch it being confidently wrong. If you used an AI tool to prepare your application, say so in the application; we would rather see how you drive one than have you pretend you didn't. What you'll need Deep C#/.NET experience across generations: productive in latest .NET (where new work happens) and unafraid of the .NET Framework apps, Azure Functions, and Hangfire jobs we're still migrating — reading unfamiliar legacy code and improving it as you pass through is a core skill here. Strong SQL Server skills: T-SQL (procedures, views, triggers, window functions), query and index tuning, and disciplined production data changes. Our data access spans EF Core, EF6, Dapper, and raw ADO.NET; you should be able to read and safely change all of them. Reproduction-first debugging. You reproduce before you fix, you can tell a code defect from a config, data, or infrastructure problem, and you can show your work. Integration engineering: REST APIs and webhooks, OAuth/JWT, retries and idempotency, file feeds, and the patience to work with imperfect vendor APIs. Our current set includes Salesforce, BytePro , DocuSign , Stripe, Cloudinary , Uberall , and Testimonial Tree, among others. Testing habits that survive legacy code: xUnit / NUnit with mocking, regression tests that fail on the old behavior, and the will to bootstrap the first test project in a solution that has none. CI/CD and Azure operations: GitHub Actions, Docker to App Service, Azure Functions, Application Insights, deploy sequencing (database before code), feature flags, and release promotion from a dev branch through to main. Refactoring judgment: blast-radius analysis before touching shared objects, incremental strangler-style migrations, and parity testing with a rollback path for anything risky. Clear technical writing. Requirements clarification, PR narratives, runbooks, and rules files are daily output here, and they are how both the team and the agents stay effective. Proactivity. The best people in this role file their own tickets: they notice the missing index, the silent failure path, the credential sitting in source, and turn it into scoped, prioritized work without being asked. Nice to have Mortgage or fintech domain experience (rate locks, LOS data, NMLS compliance) Frontend range: React/TypeScript on the new stack; jQuery, Knockout, and webpack on the old one Terraform, Okta, or headless CMS (Kentico Kontent ) experience How you'll be measured Two things above the rest: cycle time from product-accepted requirement to production deployment, and the trend line on the codebases you own — fewer EOL frameworks, more tests running in CI, fewer places where an agent or a new engineer gets trapped. SUPERVISORY RESPONSIBILITIES: Direct Reports: N/A PHYSICAL And ENVIRONMENTAL CONDITIONS This role operates in an ADA compliant office environment, utilizing typical office equipment and tasks including computer work. The position may involve partial stationary positions and moving throughout the day. Flexibility to work overtime to meet project deadlines is required. Compensation Base Compensation Information – This role is a remote position that is currently allocated for candidates within geographic regions that do not currently require base wage disclosure. The compensation range for this position will be provided upon request. (Due to their geographic location, residents of the states of CA & CO, and for NY, etc. are excluded from this role at this time .) CMG Financial is an equal opportunity employer and does not unlawfully discriminate in employment decisions. CMG will consider all qualified applicants without regard to race, religion, national origin, sex, age, veteran status, disability, familial status, marital status, actual or perceived sexual orientation, or actual or perceived gender identity. Applicants requiring reasonable accommodation to the application and/or interview process should notify a representative of CMG Financial or reach out to [email protected] . CMG MORTGAGE, INC. NMLS #1820 If you are a recruiter or placement agency, please do not submit resumes to any person or email address at CMG Financial prior to having a signed agreement . CMG Financial is not liable for and will not pay placement fees for candidates submitted by any agency other than its approved recruitment partners. Furthermore, any resumes sent to us without an agreement in place will be considered your company’s gift to CMG Financial and may be forwarded to our recruiters for their attention.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_middle_east",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4465944161",
+      "title": "Senior Software Engineer, Core Infrastructure",
+      "company": "Oracle",
+      "location": "Nashville, TN",
+      "linkedin_date": "2026-09-15",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-16T00:59:21Z",
+      "url": "https://www.linkedin.com/jobs/view/4465944161",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "remote_worldwide",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": -2.0,
+      "role_hits_title": [],
+      "role_hits_description": [
+        {
+          "label": "Cloud Infrastructure",
+          "weight": 3.0
+        }
+      ],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Software Development",
+          "weight": -10.0
+        }
+      ],
+      "description": "Job Description Designs, implements, and optimizes components in distributed systems with an emphasis on scalability, resiliency, and operability. Delivers features and load/performance tests; leverages data plane platforms and distributed state tools for high-volume retrieval, storage, and processing; and reviews peers’ implementations for scalability compliance. Builds fault-tolerant paths (redundancy, replication, automatic failover), applies recovery‑oriented principles, and implements retries, circuit breakers, and timeouts. Proactively detects and mitigates issues via tests, alarms, dashboards, and telemetry; authors runbooks and participates in incident response and RCAs. Implements standard replication and synchronization, develops automation/IaC for troubleshooting and maintenance, and applies advanced security controls (encryption, access, remediation) while ensuring change, compliance, and documentation standards are met. Responsibilities System Design & Architecture - System Scalability: Implements and contributes to the development for components of distributed systems that support horizontal and vertical scaling including leveraging distributed state management tools. Optimizes code and/or systems for large-scale data processing in large-scale systems. Implements scalability requirements for assigned components and reviews implementation of team members. Leverages components of data plane platforms to handle large-scale data retrieval, storage, and processing. Implements performance and load testing. System Reliability Design: Collaborates with team to build fault-tolerant components capable of withstanding in-service updates by implementing redundancy, replication, and automatic failover mechanisms. Applies recovery-oriented computing principles to design components that effectively handle service disruptions. Implements retry mechanisms, circuit breakers, and timeouts to help handle network unreliability. System Reliability Performance: Implements tests and alarm configurations to proactively detect and address issues/failures. Supports efforts to recover from failures by drafting and executing runbooks and operational procedures. Builds and customizes dashboards, telemetry systems, and alerting mechanisms to monitor component health. Correctness / Availability: Designs and implements functional requirements and testing for assigned features within an existing system. Implements tests scenarios (e.g., fault-injection, brown-out) to evaluate system correctness. Implements standard data replication and synchronization techniques to maintain data integrity and availability. Operational Troubleshooting & Incident Management: Diagnoses, debugs, and resolves issues in system components to support ongoing operation. Implements basic strategies to prevent interruptions, ensuring no maintenance windows are required for customers and users when resolving issues. Designs and implements automation scripts and tooling used to troubleshoot operational issues. Participates in operational support rotations, assisting in incident responses and root cause investigations. Compliance & Security: Applies advanced security measures to protect data and applications in multi-tenant environments, including encryption and access controls. Implements remediation plans to continuously improve security. Collaborates with the team to ensure cloud infrastructure complies with relevant industry standards and regulations and that documentation is up to date Automation & Change Management: Maintains automation scripts and tools (e.g., Infrastructure as Code (IaC)) for managing cloud infrastructure. Adheres to change management plans for patching, updating, and rolling back applications. Qualifications Disclaimer: Certain U.S. based or U.S. customer or client-facing roles may be required to comply with applicable requirements, such as immunization/occupational health mandates, and/or drug testing requirements. Range and benefit information provided in this posting are specific to the stated locations only US: Hiring Range in USD from: $79,200 - $209,500 per year. May be eligible for bonus and equity. Oracle maintains broad salary ranges for its roles in order to account for variations in knowledge, skills, experience, market conditions and locations, as well as reflect Oracle's differing products, industries and lines of business. Candidates are typically placed into the range based on the preceding factors as well as internal peer equity. Oracle US offers a comprehensive benefits package which includes the following: Medical, dental, and vision insurance, including expert medical opinion Short term disability and long term disability Life insurance and AD&D Supplemental life insurance (Employee/Spouse/Child) Health care and dependent care Flexible Spending Accounts Pre-tax commuter and parking benefits 401(k) Savings and Investment Plan with company match Paid time off: Flexible Vacation is provided to all eligible employees assigned to a salaried (non-overtime eligible) position. Accrued Vacation is provided to all other employees eligible for vacation benefits. For employees working at least 35 hours per week, the vacation accrual rate is 13 days annually for the first three years of employment and 18 days annually for subsequent years of employment. Vacation accrual is prorated for employees working between 20 and 34 hours per week. Employees working fewer than 20 hours per week are not eligible for vacation. 11 paid holidays Paid sick leave: 72 hours of paid sick leave upon date of hire. Refreshes each calendar year. Unused balance will carry over each year up to a maximum cap of 112 hours. Paid parental leave Adoption assistance Employee Stock Purchase Plan Financial planning and group legal Voluntary benefits including auto, homeowner and pet insurance The role will generally accept applications for at least three calendar days from the posting date or as long as the job remains posted. As part of Oracle's onboarding process and consistent with applicable law, US-based employees are required to complete identity verification, which involves the collection and processing of their biometric information. Accommodations to this requirement may be granted following an individualized assessment. About Us Only Oracle brings together the data, infrastructure, applications, and expertise to power everything from industry innovations to life-saving care. And with AI embedded across our products and services, we help customers turn that promise into a better future for all. Discover your potential at a company leading the way in AI and cloud solutions that impact billions of lives. True innovation starts when everyone is empowered to contribute. That’s why we’re committed to growing a workforce that promotes opportunities for all with competitive benefits that support our people with flexible medical, life insurance, and retirement options. We also encourage employees to give back to their communities through our volunteer programs. We’re committed to including people with disabilities at all stages of the employment process. If you require accessibility assistance or accommodation for a disability at any point, let us know by emailing accommodation-request_mb@oracle.com or by calling 1-888-404-2494 in the United States. Oracle is an Equal Employment Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, national origin, sexual orientation, gender identity, disability and protected veterans’ status, or any other characteristic protected by law. Oracle will consider for employment qualified applicants with arrest and conviction records pursuant to applicable law.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_worldwide",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4467935446",
+      "title": "Software Engineer, Infastructure",
+      "company": "Outtake",
+      "location": "New York, NY",
+      "linkedin_date": "2026-09-16",
+      "linkedin_posted_text": "10 minutes ago",
+      "estimated_age_minutes": 10,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-16T00:59:21Z",
+      "url": "https://www.linkedin.com/jobs/view/4467935446",
+      "matched_queries": [
+        {
+          "query": "Backup Engineer",
+          "weight": 4.0,
+          "lane": "remote_worldwide",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": -3.0,
+      "role_hits_title": [],
+      "role_hits_description": [
+        {
+          "label": "Cloud Infrastructure",
+          "weight": 3.0
+        }
+      ],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Software Development",
+          "weight": -10.0
+        }
+      ],
+      "description": "About Outtake Outtake exists to empower and facilitate trust for a digital-first world. Today, impersonation, fraud, AI-driven scams, and identity abuse spread faster than any security team can respond to. So we built something different: an agentic AI platform that proactively detects, monitors, and takes down impersonators, automating protection in hours, not weeks. Built by ex-Palantir, ex-CTO/founders, and ex-Notion engineers, Outtake is designed for clarity, autonomy, and velocity. Our goal is ambitious: become the trust layer of the modern internet. And we intend to do it with a lean, dense, exceptionally talented team. Outtake is backed by top-tier investors and operators who believe in our mission and our model. With strong financial footing and a long runway, we prioritize creating an environment where people can do the best work of their careers. The Role This is a staff-level infrastructure generalist role. You will set the technical direction of Outtake’s infrastructure and build the systems that support our next orders of magnitude of growth. The role begins as an individual contributor position; experience growing and leading infrastructure teams will be valuable as the function scales. Outtake needs to search, process, and investigate billions of pieces of content quickly. You will own the foundations that determine how this data is stored, indexed, retrieved, and moved; how asynchronous work is scheduled and executed; and how our systems use cloud compute, storage, and networking. This is a software engineering role. You will design and build production infrastructure systems, expose them through clear internal interfaces and abstractions, and lead the migrations required to adopt them. What You’ll Do Set the technical direction for Outtake’s infrastructure across databases, search and retrieval, data processing, asynchronous execution, and cloud architecture Redesign our search and retrieval systems to support fast investigation across billions of pieces of content Evolve our relational database architecture through sharding, partitioning, indexing, caching, and new data-access patterns Own the application and infrastructure changes required to migrate live systems safely, including changes to service topology and deployment strategy Design and build scalable asynchronous systems for scheduling, queues, workflows, retries, backpressure, rate limiting, and failure recovery Build data infrastructure for high-volume ingestion, streaming, batch processing, enrichment, and reprocessing Develop shared infrastructure services, APIs, libraries, and primitives that product engineers can use without needing to understand the underlying implementation Own the cloud foundations required by these systems, including compute, storage, networking, isolation, resource management, and deployment architecture Evaluate build-versus-buy decisions and make tradeoffs across latency, throughput, consistency, durability, cost, and complexity Work across engineering teams to identify repeated infrastructure problems and turn them into reusable systems Operate the systems you build, use production evidence to improve their architecture, and automate recurring operational work Write technical proposals, establish architectural standards, and guide other engineers through complex systems decisions As the infrastructure foundation matures, we expect to grow this into a broader infrastructure team with dedicated ownership across data systems, cloud infrastructure, and developer platforms What We’re Looking For Experience operating at staff scope: identifying important technical problems, setting direction across team boundaries, and leading complex projects from design through adoption A track record of designing and building distributed infrastructure systems used by other engineers or products Experience scaling production systems through significant increases in data volume, traffic, or workload complexity Deep knowledge of relational database architecture, including data modeling, access patterns, indexing, partitioning, sharding, caching, and migration Experience building or evolving high-throughput asynchronous systems, with a strong understanding of scheduling, ordering, retries, idempotency, backpressure, and partial failure Experience with large-scale search and retrieval systems, including the tradeoffs among lexical search, vector retrieval, indexing speed, freshness, relevance, and cost Experience building ingestion, streaming, or batch-processing systems for large data volumes Work across the underlying cloud infrastructure when changes to compute, storage, networking, or deployment architecture are required to scale our data systems Life at Outtake Office: For those in NY, we are an in-person team (5 days a week, with flexibility as needed) working out of a stunning waterfront office in Brooklyn. Collaboration, speed, and clarity matter. Health: 100% company-paid medical, dental, and vision for employees. Time Away: Flexible PTO. We trust adults to manage energy, not clock time. Culture & Team: Annual company retreats and regular in-person events. Outtake is an equal opportunity employer. We are committed to building a diverse, inclusive team.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_worldwide",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4466573981",
+      "title": "Principal Radar Software Engineer/Analyst",
+      "company": "Modern Technology Solutions, Inc. (MTSI)",
+      "location": "Huntsville, AL",
+      "linkedin_date": "2026-09-15",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-16T00:52:19Z",
+      "url": "https://www.linkedin.com/jobs/view/4466573981",
+      "matched_queries": [
+        {
+          "query": "MENA systems",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": -3.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Linux",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [
+        {
+          "label": "Software Development",
+          "weight": -10.0
+        }
+      ],
+      "description": "MTSI is seeking a Principal Radar Software Engineer/Analyst to support the Missile Defense Agency in Huntsville, Alabama. This role will focus on the design, development, integration, and sustainment of advanced radar software capabilities supporting missile defense and sensor mission requirements. The selected candidate will apply deep technical expertise in software engineering, radar systems, and mission-focused development to deliver high-quality software solutions for complex sensor applications. The role requires close coordination with systems engineering, integration and test, modeling and simulation, and the government/prime contractor stakeholders to ensure delivered software is reliable, maintainable, and aligned to program objectives. Key Responsibilities Provide oversight to the design, development, test, integration, and sustainment of radar software applications supporting sensor mission objectives. Contribute to software architecture, implementation, and performance optimization for radar and sensor processing systems. Support software development and enhancements for radar data processing, track management, system interfaces, and mission applications. Support software integration activities across system, subsystem, and lab environments. Collaborate with systems engineers and other technical teams to translate requirements into software designs and implementable solutions. Participate in code reviews, technical reviews, and software quality improvement activities. Troubleshoot software defects, analyze root causes, and implement corrective actions in support of program execution. Support verification and validation activities, including unit testing, integration testing, and regression testing. Prepare technical documentation, software design artifacts, and status inputs for internal and external stakeholders. Support Agile or iterative development activities, including sprint planning, technical tasking, and risk identification, as applicable. Required Qualifications Master’s degree with 12 years of related experience or Bachelor’s degree with 20 years of related experience US citizenship and an active Secret security clearance Significant professional experience in software engineering of radar, sensor, defense, or other complex mission systems. Experience with software design, development, debugging, integration, and test in a structured engineering environment. Familiarity with software configuration management, version control, and modern development practices. Understanding of systems integration and software support within complex hardware/software environments. Strong problem-solving skills and ability to work effectively on multidisciplinary engineering teams. Strong written and verbal communication skills. Ability to work on-site in Huntsville, AL. Preferred Qualifications Bachelor’s or Master’s degree in Computer Science or Software Engineering Familiarity with radar systems: sensor processing, track processing, or command-and-control interfaces. Experience with real-time, embedded, or high-performance software environments. Experience with Linux-based development environments and automated build/test pipelines. Experience supporting software in integration labs, system test events, or fielding/sustainment environments. Familiarity with Agile software development frameworks and DevSecOps practices.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4467923245",
+      "title": "Full Stack Engineering - Americas Finance",
+      "company": "HSBC",
+      "location": "Toronto, Ontario, Canada",
+      "linkedin_date": "2026-09-16",
+      "linkedin_posted_text": "33 minutes ago",
+      "estimated_age_minutes": 33,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-16T00:52:19Z",
+      "url": "https://www.linkedin.com/jobs/view/4467923245",
+      "matched_queries": [
+        {
+          "query": "MENA IT support",
+          "weight": 3.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Finance and Sales",
+      "advisory_title_noise_signals": [
+        "full stack"
+      ],
+      "advisory_it_evidence": true,
+      "score": -5.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Backup/DR",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [
+        {
+          "label": "Software Development",
+          "weight": -10.0
+        }
+      ],
+      "description": "In Canada, HSBC Global Services (Canada) Limited (HGCA) is a wholly owned subsidiary of HSBC Global Services Limited. Operating in Toronto, HGCA is part of a global service company, delivering services to support the operating entities of HSBC Group. We have different capabilities that provide tools and processes to facilitate the functions, business, and entities with their service management responsibilities. Ready to ensure global Finance reporting platforms remain stable, 24/7? Why HSBC HSBC is one of the largest banking and financial services organizations in the world. Guided by our purpose of opening up a world of opportunity, our ambition is to become the world’s most trusted bank globally, putting customers at the heart of everything we do. The Opportunity HSBC is seeking a Finance Information Technology (IT) Support Service Specialist to support global users through a follow-the-sun operating model. The role sits within a single global support team with locations in Canada, Poland, Guangzhou, the United Kingdom (UK), the United States (US) and India. You will monitor critical finance applications, manage incidents and service requests, and restore service promptly in a highly controlled environment. You will coordinate across global technology teams to meet service level agreements (SLAs), maintain clear stakeholder communications, and reduce repeat incidents through effective problem and knowledge management. Success is measured through stable service performance, high-quality incident records, timely communications and measurable improvement in recurring issues and operational processes. What You'll Be Doing Monitor finance applications using agreed tools and respond to technical alerts within required timeframes Oversee service level agreement (SLA)-based file deliveries and take prescribed actions when delays or issues occur Manage incidents and service requests escalated to on-call support teams and ensure procedures, tracking and root cause details are completed before closure Participate in major incident reviews and service improvement programs and translate outcomes into operational improvements Identify incident root cause, assess whether problem management is required and update incident and problem tickets accordingly Categorize and prioritize incidents and requests using standard processes with rapid escalation for critical business impact Communicate status through incident notification system (INS) updates and flash reports and keep stakeholders informed through recovery and verification Maintain the knowledge base, produce management information (MI) reporting as required and coordinate disaster recovery (DR) tests and service metrics monitoring What We're Looking For Bring substantial hands-on experience supporting Structured Query Language (SQL) Server and Oracle in production environments Work effectively in shift-based operations and on-call support models Communicate fluently in English, written and spoken, with experience partnering directly with business teams Apply established incident and problem management capability, including root cause investigation and disciplined ticket updates Use Procedural Language/Structured Query Language (PL/SQL) and Oracle development techniques, preferably within a financial domain Operate confidently on UNIX, including script generation to support recovery and operational tasks Use version control tools and work routinely with Jira, Confluence and Jenkins Apply experience in banking reporting environments and handling large datasets Strengthening Finance Service Reliability This role is central to keeping Finance technology services stable for users around the world. You will improve day-to-day service performance through structured monitoring, clear incident ownership, and coordinated recovery across global teams. If you want to build operational strength across critical reporting platforms and contribute to measurable service improvements, we welcome your application to HSBC. In compliance with applicable laws, HSBC is committed to employing only those who are authorized to work in Canada. Applicants must be legally authorized to work in Canada as HSBC will not engage in immigration sponsorship for this position. As an HSBC employee, you will have access to tailored professional development opportunities to ensure you have the right skills for today and tomorrow. At HSBC, our overall goal is to provide a competitive Total Reward Package, with an appropriate mix of fixed pay, and variable pay, as part of an employee’s overall total compensation and benefits. Variable pay generally takes the form of discretionary, annual awards (sometimes referred to as a “bonus”). Additionally, HSBC offers a wide range of competitive and flexible benefits designed to help you improve your health and well-being, finances, and lifestyle. All qualified applicants will receive consideration for employment without regard to age, ancestry, color, race, national origin, ethnicity, disability or medical condition, genetic information, military or veteran service, religion, creed, sex, gender, pregnancy, childbirth, caregiver status, marital status, citizenship or immigration status, sexual orientation, gender identity or expression or any other trait protected by applicable law. The final fixed pay offer will depend on the candidate and a number of variables, including but not limited to, role responsibilities, skill set, depth of experience and education, licensing/certification requirements, internal relativity, and specific work location. At HSBC, our overall goal is to provide a competitive Total Reward Package, with an appropriate mix of fixed pay, and variable pay, as part of an employee’s overall total compensation and benefits. Variable pay generally takes the form of discretionary, annual awards (sometimes referred to as a “bonus”). Additionally, HSBC offers a wide range of competitive and flexible benefits designed to help you improve your health and well-being, finances, and lifestyle.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4466810474",
+      "title": "Full Stack Developer | Databricks",
+      "company": "Grupo TECDATA Engineering",
+      "location": "Madrid, Community of Madrid, Spain",
+      "linkedin_date": "2026-09-16",
+      "linkedin_posted_text": "24 minutes ago",
+      "estimated_age_minutes": 24,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-09-16T00:57:15Z",
+      "url": "https://www.linkedin.com/jobs/view/4466810474",
+      "matched_queries": [
+        {
+          "query": "Europe remote systems",
+          "weight": 4.0,
+          "lane": "remote_emea",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": "Engineering and Information Technology",
+      "advisory_title_noise_signals": [
+        "full stack"
+      ],
+      "advisory_it_evidence": false,
+      "score": -6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [],
+      "negative_hits": [
+        {
+          "label": "Software Development",
+          "weight": -10.0
+        }
+      ],
+      "description": "Madrid / Teletrabajo 100% SBA 32 K Buscan un/a Desarrollador/a especializado/a en Python y Databricks, con mínimo 3 años de experiencia desarrollando soluciones de procesamiento y análisis de datos. Imprescindible Python Databricks PL/SQL Oracle Control-M Mínimo 3 años de experiencia Valorable Experiencia diseñando soluciones escalables. Experiencia en entornos Cloud. Capacidad para trabajar con equipos de negocio y tecnología. Capacidad para transformar datos en información de valor.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_emea",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    }
+  ]
+}
