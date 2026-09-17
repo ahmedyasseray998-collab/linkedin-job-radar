@@ -1,72 +1,72 @@
 {
   "schema_version": 9,
   "config_version": 17,
-  "run_id": "20260917T224356Z",
-  "run_started_at_utc": "2026-09-17T22:43:56Z",
-  "generated_at_utc": "2026-09-17T22:56:16Z",
+  "run_id": "20260917T234316Z",
+  "run_started_at_utc": "2026-09-17T23:43:16Z",
+  "generated_at_utc": "2026-09-17T23:47:35Z",
   "health": "healthy_with_lane_warnings",
   "warnings": [
-    "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
+    "Low regional precision lane(s): remote_middle_east"
   ],
   "lane_health": {
     "egypt": {
       "location": "Egypt",
       "remote_filter": null,
-      "last_checked_at_utc": "2026-09-17T22:56:16Z",
+      "last_checked_at_utc": "2026-09-17T23:47:35Z",
       "last_card_count": 15,
       "last_search_errors": 0,
       "consecutive_empty_runs": 0,
-      "last_nonempty_at_utc": "2026-09-17T22:56:16Z",
+      "last_nonempty_at_utc": "2026-09-17T23:47:35Z",
       "status": "healthy"
     },
     "remote_egypt": {
       "location": "Egypt",
       "remote_filter": "remote",
-      "last_checked_at_utc": "2026-09-17T22:56:16Z",
-      "last_card_count": 8,
+      "last_checked_at_utc": "2026-09-17T23:47:35Z",
+      "last_card_count": 9,
       "last_search_errors": 0,
       "consecutive_empty_runs": 0,
-      "last_nonempty_at_utc": "2026-09-17T22:56:16Z",
+      "last_nonempty_at_utc": "2026-09-17T23:47:35Z",
       "status": "healthy"
     },
     "remote_mena": {
       "location": "Worldwide",
       "remote_filter": "remote",
-      "last_checked_at_utc": "2026-09-17T22:56:16Z",
-      "last_card_count": 164,
+      "last_checked_at_utc": "2026-09-17T23:47:35Z",
+      "last_card_count": 162,
       "last_search_errors": 0,
       "consecutive_empty_runs": 0,
-      "last_nonempty_at_utc": "2026-09-17T22:56:16Z",
+      "last_nonempty_at_utc": "2026-09-17T23:47:35Z",
       "status": "healthy"
     },
     "remote_middle_east": {
       "location": "Worldwide",
       "remote_filter": "remote",
-      "last_checked_at_utc": "2026-09-17T22:56:16Z",
-      "last_card_count": 170,
+      "last_checked_at_utc": "2026-09-17T23:47:35Z",
+      "last_card_count": 167,
       "last_search_errors": 0,
       "consecutive_empty_runs": 0,
-      "last_nonempty_at_utc": "2026-09-17T22:56:16Z",
+      "last_nonempty_at_utc": "2026-09-17T23:47:35Z",
       "status": "healthy"
     },
     "remote_emea": {
       "location": "Worldwide",
       "remote_filter": "remote",
-      "last_checked_at_utc": "2026-09-17T22:56:16Z",
+      "last_checked_at_utc": "2026-09-17T23:47:35Z",
       "last_card_count": 180,
       "last_search_errors": 0,
       "consecutive_empty_runs": 0,
-      "last_nonempty_at_utc": "2026-09-17T22:56:16Z",
+      "last_nonempty_at_utc": "2026-09-17T23:47:35Z",
       "status": "healthy"
     },
     "remote_worldwide": {
       "location": "Worldwide",
       "remote_filter": "remote",
-      "last_checked_at_utc": "2026-09-17T22:56:16Z",
-      "last_card_count": 198,
+      "last_checked_at_utc": "2026-09-17T23:47:35Z",
+      "last_card_count": 203,
       "last_search_errors": 0,
       "consecutive_empty_runs": 0,
-      "last_nonempty_at_utc": "2026-09-17T22:56:16Z",
+      "last_nonempty_at_utc": "2026-09-17T23:47:35Z",
       "status": "healthy"
     }
   },
@@ -118,7 +118,7 @@
   "window_minutes": 180,
   "design": "Egypt-first broad discovery -> regional-keyword MENA/EMEA remote lanes -> focused worldwide remote -> exact detail fetch -> size-bounded integrity-checked GPT queue",
   "policy": {
-    "relevance_rejections": 161,
+    "relevance_rejections": 11,
     "closed_application_rejections": 0,
     "freshness_conflict_rejections": 0,
     "weak_keyword_rejections": 0,
@@ -126,20 +126,20 @@
     "principle": "Code removes only evidence-free search noise; closed, restricted, local, remote, and relocation IT candidates all reach ChatGPT with annotations"
   },
   "delivery_audit": {
-    "input_candidates": 373,
-    "delivery_candidates": 212,
-    "mechanically_filtered": 161,
+    "input_candidates": 19,
+    "delivery_candidates": 8,
+    "mechanically_filtered": 11,
     "filtered_reasons": {
-      "no_it_evidence": 161
+      "no_it_evidence": 11
     },
     "annotation_counts": {
-      "closed_explicit": 1,
-      "explicit_eligibility_restriction": 25
+      "closed_explicit": 0,
+      "explicit_eligibility_restriction": 0
     },
     "eligible_before_caps": {
-      "local": 1,
-      "remote": 196,
-      "relocation": 15
+      "local": 0,
+      "remote": 7,
+      "relocation": 1
     },
     "capped_reasons": {},
     "caps": {
@@ -148,46 +148,97 @@
     }
   },
   "stats": {
-    "unique_live_cards": 735,
-    "already_seen": 362,
-    "detail_attempts": 373,
-    "details_fetched": 373,
+    "unique_live_cards": 736,
+    "already_seen": 717,
+    "detail_attempts": 19,
+    "details_fetched": 19,
     "detail_failures": 0,
     "detail_budget_skipped": 0,
-    "closed_candidates_kept": 1,
+    "closed_candidates_kept": 0,
     "freshness_conflicts_kept": 0,
-    "low_it_evidence_candidates_kept": 161,
-    "title_noise_candidates_kept": 23,
+    "low_it_evidence_candidates_kept": 11,
+    "title_noise_candidates_kept": 2,
     "search_errors": 0,
     "query_retry_recoveries": 0,
     "query_count": 37,
     "search_bucket_count": 94,
-    "review_candidates": 373,
-    "delivery_candidates": 212,
-    "mechanically_filtered_candidates": 161,
+    "review_candidates": 19,
+    "delivery_candidates": 8,
+    "mechanically_filtered_candidates": 11,
     "relevance_rejections": 0,
     "lane_stats": {
       "egypt": {
         "query_count": 37,
         "unique_live_cards": 15,
-        "already_seen": 10,
-        "detail_attempts": 5,
-        "details_fetched": 5,
+        "already_seen": 13,
+        "detail_attempts": 2,
+        "details_fetched": 2,
         "detail_failures": 0,
         "detail_budget_skipped": 0,
-        "review_candidates": 5,
+        "review_candidates": 2,
         "closed_candidates_kept": 0,
         "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 4,
-        "title_noise_candidates_kept": 3,
+        "low_it_evidence_candidates_kept": 2,
+        "title_noise_candidates_kept": 0,
         "search_errors": 0,
         "query_retry_recoveries": 0,
         "relevance_rejections": 0
       },
       "remote_egypt": {
         "query_count": 13,
-        "unique_live_cards": 8,
+        "unique_live_cards": 9,
         "already_seen": 8,
+        "detail_attempts": 1,
+        "details_fetched": 1,
+        "detail_failures": 0,
+        "detail_budget_skipped": 0,
+        "review_candidates": 1,
+        "closed_candidates_kept": 0,
+        "freshness_conflicts_kept": 0,
+        "low_it_evidence_candidates_kept": 1,
+        "title_noise_candidates_kept": 0,
+        "search_errors": 0,
+        "query_retry_recoveries": 0,
+        "relevance_rejections": 0
+      },
+      "remote_mena": {
+        "query_count": 9,
+        "unique_live_cards": 162,
+        "already_seen": 159,
+        "detail_attempts": 3,
+        "details_fetched": 3,
+        "detail_failures": 0,
+        "detail_budget_skipped": 0,
+        "review_candidates": 3,
+        "closed_candidates_kept": 0,
+        "freshness_conflicts_kept": 0,
+        "low_it_evidence_candidates_kept": 3,
+        "title_noise_candidates_kept": 1,
+        "search_errors": 0,
+        "query_retry_recoveries": 0,
+        "relevance_rejections": 0
+      },
+      "remote_middle_east": {
+        "query_count": 9,
+        "unique_live_cards": 167,
+        "already_seen": 161,
+        "detail_attempts": 6,
+        "details_fetched": 6,
+        "detail_failures": 0,
+        "detail_budget_skipped": 0,
+        "review_candidates": 6,
+        "closed_candidates_kept": 0,
+        "freshness_conflicts_kept": 0,
+        "low_it_evidence_candidates_kept": 5,
+        "title_noise_candidates_kept": 1,
+        "search_errors": 0,
+        "query_retry_recoveries": 0,
+        "relevance_rejections": 0
+      },
+      "remote_emea": {
+        "query_count": 9,
+        "unique_live_cards": 180,
+        "already_seen": 180,
         "detail_attempts": 0,
         "details_fetched": 0,
         "detail_failures": 0,
@@ -201,69 +252,18 @@
         "query_retry_recoveries": 0,
         "relevance_rejections": 0
       },
-      "remote_mena": {
-        "query_count": 9,
-        "unique_live_cards": 164,
-        "already_seen": 58,
-        "detail_attempts": 106,
-        "details_fetched": 106,
-        "detail_failures": 0,
-        "detail_budget_skipped": 0,
-        "review_candidates": 106,
-        "closed_candidates_kept": 1,
-        "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 67,
-        "title_noise_candidates_kept": 7,
-        "search_errors": 0,
-        "query_retry_recoveries": 0,
-        "relevance_rejections": 0
-      },
-      "remote_middle_east": {
-        "query_count": 9,
-        "unique_live_cards": 170,
-        "already_seen": 92,
-        "detail_attempts": 78,
-        "details_fetched": 78,
-        "detail_failures": 0,
-        "detail_budget_skipped": 0,
-        "review_candidates": 78,
-        "closed_candidates_kept": 0,
-        "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 51,
-        "title_noise_candidates_kept": 9,
-        "search_errors": 0,
-        "query_retry_recoveries": 0,
-        "relevance_rejections": 0
-      },
-      "remote_emea": {
-        "query_count": 9,
-        "unique_live_cards": 180,
-        "already_seen": 104,
-        "detail_attempts": 76,
-        "details_fetched": 76,
-        "detail_failures": 0,
-        "detail_budget_skipped": 0,
-        "review_candidates": 76,
-        "closed_candidates_kept": 0,
-        "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 35,
-        "title_noise_candidates_kept": 4,
-        "search_errors": 0,
-        "query_retry_recoveries": 0,
-        "relevance_rejections": 0
-      },
       "remote_worldwide": {
         "query_count": 17,
-        "unique_live_cards": 198,
-        "already_seen": 90,
-        "detail_attempts": 108,
-        "details_fetched": 108,
+        "unique_live_cards": 203,
+        "already_seen": 196,
+        "detail_attempts": 7,
+        "details_fetched": 7,
         "detail_failures": 0,
         "detail_budget_skipped": 0,
-        "review_candidates": 108,
+        "review_candidates": 7,
         "closed_candidates_kept": 0,
         "freshness_conflicts_kept": 0,
-        "low_it_evidence_candidates_kept": 4,
+        "low_it_evidence_candidates_kept": 0,
         "title_noise_candidates_kept": 0,
         "search_errors": 0,
         "query_retry_recoveries": 0,
@@ -551,10 +551,10 @@
       "pages_configured": 4,
       "pages_requested": 1,
       "page_counts": [
-        6
+        5
       ],
       "retry_page_counts": {},
-      "unique_cards": 6,
+      "unique_cards": 5,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -579,10 +579,10 @@
       "pages_configured": 3,
       "pages_requested": 1,
       "page_counts": [
-        6
+        5
       ],
       "retry_page_counts": {},
-      "unique_cards": 6,
+      "unique_cards": 5,
       "errors": 0,
       "lane": "egypt",
       "search_location": "Egypt",
@@ -839,10 +839,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        2
+        3
       ],
       "retry_page_counts": {},
-      "unique_cards": 2,
+      "unique_cards": 3,
       "errors": 0,
       "lane": "remote_egypt",
       "search_location": "Egypt",
@@ -913,10 +913,10 @@
       "pages_configured": 2,
       "pages_requested": 1,
       "page_counts": [
-        1
+        2
       ],
       "retry_page_counts": {},
-      "unique_cards": 1,
+      "unique_cards": 2,
       "errors": 0,
       "lane": "remote_egypt",
       "search_location": "Egypt",
@@ -971,10 +971,10 @@
       "pages_configured": 1,
       "pages_requested": 1,
       "page_counts": [
-        2
+        1
       ],
       "retry_page_counts": {},
-      "unique_cards": 2,
+      "unique_cards": 1,
       "errors": 0,
       "lane": "remote_egypt",
       "search_location": "Egypt",
@@ -1020,7 +1020,7 @@
         10
       ],
       "retry_page_counts": {},
-      "unique_cards": 20,
+      "unique_cards": 19,
       "errors": 0,
       "lane": "remote_mena",
       "search_location": "Worldwide",
@@ -1142,7 +1142,7 @@
         10
       ],
       "retry_page_counts": {},
-      "unique_cards": 40,
+      "unique_cards": 37,
       "errors": 0,
       "lane": "remote_middle_east",
       "search_location": "Worldwide",
@@ -1414,7 +1414,7 @@
         10
       ],
       "retry_page_counts": {},
-      "unique_cards": 20,
+      "unique_cards": 19,
       "errors": 0,
       "lane": "remote_worldwide",
       "search_location": "Worldwide",
@@ -1474,7 +1474,7 @@
         10
       ],
       "retry_page_counts": {},
-      "unique_cards": 20,
+      "unique_cards": 18,
       "errors": 0,
       "lane": "remote_worldwide",
       "search_location": "Worldwide",
@@ -1666,7 +1666,7 @@
   "delivery_candidates": [],
   "new_matches": [],
   "search_strategy_version": 17,
-  "run_finished_at_utc": "2026-09-17T22:56:16Z",
+  "run_finished_at_utc": "2026-09-17T23:47:35Z",
   "effective_delivery_config": {
     "local_candidates_per_part": 1,
     "maximum_nonlocal_candidates_per_part": 8,
@@ -1676,37 +1676,37 @@
   "lane_quality": {
     "egypt": {
       "strategy": "broad_local",
-      "new_candidates": 5,
+      "new_candidates": 2,
       "regional_evidence_candidates": null,
       "regional_precision": null
     },
     "remote_egypt": {
       "strategy": "focused_remote_location",
-      "new_candidates": 0,
+      "new_candidates": 1,
       "regional_evidence_candidates": 0,
-      "regional_precision": null
+      "regional_precision": 0.0
     },
     "remote_mena": {
       "strategy": "regional_keyword_remote",
-      "new_candidates": 106,
+      "new_candidates": 3,
       "regional_evidence_candidates": 0,
       "regional_precision": 0.0
     },
     "remote_middle_east": {
       "strategy": "regional_keyword_remote",
-      "new_candidates": 78,
+      "new_candidates": 6,
       "regional_evidence_candidates": 0,
       "regional_precision": 0.0
     },
     "remote_emea": {
       "strategy": "regional_keyword_remote",
-      "new_candidates": 76,
+      "new_candidates": 0,
       "regional_evidence_candidates": 0,
-      "regional_precision": 0.0
+      "regional_precision": null
     },
     "remote_worldwide": {
       "strategy": "focused_global_remote",
-      "new_candidates": 108,
+      "new_candidates": 7,
       "regional_evidence_candidates": null,
       "regional_precision": null
     }
@@ -1719,10 +1719,10 @@
     "remote_emea"
   ],
   "delivery_queue": {
-    "pending_run_count": 215,
-    "pending_part_count": 923,
-    "pending_candidate_count": 2052,
-    "oldest_candidate_age_minutes": 16405,
+    "pending_run_count": 216,
+    "pending_part_count": 924,
+    "pending_candidate_count": 2054,
+    "oldest_candidate_age_minutes": 16439,
     "warning": true,
     "index": "output/pending_runs.json",
     "compact_parts": "output/delivery",
@@ -1732,16 +1732,16 @@
     "acknowledgement_granularity": "single-job Egypt parts; compact content-addressed parts elsewhere",
     "integrity": {
       "status": "validated",
-      "validated_parts": 923,
+      "validated_parts": 924,
       "removed_acknowledged_parts": 0,
       "removed_acknowledged_jobs": 0,
       "acknowledgement_granularity": "part_with_candidate_receipt_support"
     },
-    "as_of_utc": "2026-09-17T23:16:47.531243Z"
+    "as_of_utc": "2026-09-17T23:51:18.387978Z"
   },
   "candidate_payload": {
-    "candidate_count": 25,
-    "audited_candidate_count": 373,
+    "candidate_count": 2,
+    "audited_candidate_count": 19,
     "compact_delivery_index": "output/pending_runs.json",
     "lossless_records": "output/runs",
     "note": "Egypt IT candidates are protected. Remote candidates require job-level Egypt/MENA/EMEA/Africa/global scope; on-site and hybrid roles are kept separate as relocation leads. Legacy lossless candidates are retargeted before old packet acknowledgements can remove their archive. Deferred decisions are persisted even when a run has zero active candidates, and reviewed packet receipts are promoted to durable per-job receipts."
@@ -1752,32 +1752,28 @@
     "principle": "Protect every Egypt IT candidate; require job-level regional or eligibility evidence internationally; preserve deferral counts."
   },
   "targeting_audit": {
-    "run_id": "20260917T224356Z",
-    "input_lossless_candidates": 373,
+    "run_id": "20260917T234316Z",
+    "input_lossless_candidates": 19,
     "acknowledged_candidates_excluded": 0,
-    "selected_candidates": 25,
-    "deferred_candidates": 348,
+    "selected_candidates": 2,
+    "deferred_candidates": 17,
     "deferred_reasons": {
-      "country_specific_or_ambiguous_global_remote_eligibility": 9,
-      "explicit_location_work_authorization_or_clearance_block": 19,
-      "explicit_no_relocation_or_sponsorship": 4,
-      "international_role_not_infrastructure_owned": 2,
-      "no_it_evidence": 161,
-      "nonremote_without_credible_relocation_path": 112,
-      "weak_core_infrastructure_evidence": 41
+      "no_it_evidence": 11,
+      "nonremote_without_credible_relocation_path": 2,
+      "weak_core_infrastructure_evidence": 4
     },
-    "protected_egypt_candidates": 1,
-    "remote_candidates": 1,
-    "relocation_candidates": 23
+    "protected_egypt_candidates": 0,
+    "remote_candidates": 0,
+    "relocation_candidates": 2
   },
   "targeting_backlog_totals": {
-    "input_lossless_candidates": 58877,
+    "input_lossless_candidates": 58896,
     "acknowledged_candidates_excluded": 78,
-    "selected_candidates": 3989,
-    "deferred_candidates": 54810,
+    "selected_candidates": 3991,
+    "deferred_candidates": 54827,
     "protected_egypt_candidates": 626,
     "remote_candidates": 526,
-    "relocation_candidates": 2837
+    "relocation_candidates": 2839
   },
   "health_components": {
     "discovery": "healthy_with_lane_warnings",
@@ -1785,7 +1781,7 @@
     "queue": "healthy_with_backlog_warning",
     "publish": "verify_workflow_conclusion",
     "publish_source_of_truth": "GitHub Actions conclusion plus published main commit",
-    "publication_workflow_url": "https://github.com/ahmedyasseray998-collab/linkedin-job-radar/actions/runs/35286039529"
+    "publication_workflow_url": "https://github.com/ahmedyasseray998-collab/linkedin-job-radar/actions/runs/35288024318"
   },
   "overall_pre_publish_health": "healthy_with_warnings",
   "receipt_promotion": {
@@ -1796,16 +1792,16 @@
   },
   "pre_scan_retarget": {
     "targeting_policy_version": 17,
-    "runs_considered": 214,
-    "input_lossless_candidates": 58504,
+    "runs_considered": 215,
+    "input_lossless_candidates": 58877,
     "acknowledged_candidates_excluded": 78,
-    "selected_candidates": 3964,
-    "deferred_candidates": 54462,
-    "protected_egypt_candidates": 625,
-    "remote_candidates": 525,
-    "relocation_candidates": 2814,
-    "pending_candidate_count": 2062,
-    "pending_part_count": 924,
+    "selected_candidates": 3989,
+    "deferred_candidates": 54810,
+    "protected_egypt_candidates": 626,
+    "remote_candidates": 526,
+    "relocation_candidates": 2837,
+    "pending_candidate_count": 2052,
+    "pending_part_count": 923,
     "integrity_status": "validated",
     "seen_decisions": {
       "captured": 0,
@@ -1818,34 +1814,25 @@
   },
   "seen_lifecycle": {
     "before_scan": {
-      "released_deferred_job_count": 8,
-      "released_deferred_job_ids": [
-        "4468697240",
-        "4466299998",
-        "4468810705",
-        "4468820183",
-        "4466282939",
-        "4467800285",
-        "4467554850",
-        "4468694624"
-      ],
+      "released_deferred_job_count": 0,
+      "released_deferred_job_ids": [],
       "retargeted_legacy_run_count": 0,
       "retargeted_legacy_run_ids": [],
       "promoted_reported_job_count": 0,
       "promoted_reported_job_ids": []
     },
     "decision_capture": {
-      "captured": 373,
-      "queued": 25,
+      "captured": 19,
+      "queued": 2,
       "acknowledged": 0,
-      "deferred": 348,
+      "deferred": 17,
       "anomaly": 0,
       "missing_seen_record": 0
     },
     "after_targeting": {
-      "queued": 2083,
-      "acknowledged": 1980,
-      "deferred": 44168,
+      "queued": 2052,
+      "acknowledged": 2013,
+      "deferred": 44185,
       "missing_seen_record": 10646
     }
   },
@@ -1853,10 +1840,10 @@
   "egypt_query_defaults_unchanged": true,
   "catchup_released_unreviewed_egypt_seen_records": 0,
   "scan_time_backlog": {
-    "pending_run_count": 215,
-    "pending_part_count": 937,
-    "pending_candidate_count": 2087,
-    "oldest_candidate_age_minutes": 16385,
+    "pending_run_count": 216,
+    "pending_part_count": 924,
+    "pending_candidate_count": 2054,
+    "oldest_candidate_age_minutes": 16436,
     "warning": true,
     "index": "output/pending_runs.json",
     "compact_parts": "output/delivery",
@@ -1866,11 +1853,11 @@
     "acknowledgement_granularity": "single-job Egypt parts; compact content-addressed parts elsewhere",
     "integrity": {
       "status": "validated",
-      "validated_parts": 937,
+      "validated_parts": 924,
       "removed_acknowledged_parts": 0,
       "removed_acknowledged_jobs": 0,
       "acknowledgement_granularity": "part_with_candidate_receipt_support"
     }
   },
-  "queue_status_updated_at_utc": "2026-09-17T23:16:47.531243Z"
+  "queue_status_updated_at_utc": "2026-09-17T23:51:18.387978Z"
 }
