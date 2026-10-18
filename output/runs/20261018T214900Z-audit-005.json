@@ -1,0 +1,1217 @@
+{
+  "schema_version": 2,
+  "run_id": "20261018T214900Z",
+  "generated_at_utc": "2026-10-18T22:01:58Z",
+  "health": "healthy_with_lane_warnings",
+  "warnings": [
+    "Low regional precision lane(s): remote_mena, remote_middle_east, remote_emea"
+  ],
+  "part": 5,
+  "part_count": 16,
+  "review_candidates": [
+    {
+      "linkedin_job_id": "4479942407",
+      "title": "Principal Engineer Capacity/Compute",
+      "company": "Anthropic",
+      "location": "San Francisco, CA",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:59:49Z",
+      "url": "https://www.linkedin.com/jobs/view/4479942407",
+      "matched_queries": [
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "remote_worldwide",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 7.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Azure",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "About Anthropic Anthropic’s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems. About The Role Anthropic manages one of the largest and fastest-growing infrastructure fleets in the industry — spanning multiple accelerator families, cpu families and clouds. The Capacity Engineering team is responsible for making sure all our infrastructure resources are accounted for, well-utilized, and efficiently allocated. We own the data, tooling, and operational systems that let Anthropic plan, measure, and maximize utilization across first-party and third-party compute. As an engineer on Capacity Engineering, you will build the production systems that power this work: data pipelines that ingest and normalize telemetry from heterogeneous cloud environments, observability tooling that gives the org real-time visibility into fleet health, and performance instrumentation that measures how efficiently every major workload uses the hardware it’s running on. You will be expected to write production-quality code every day, operate alongside Kubernetes-native infrastructure at meaningful scale, and directly influence decisions around one of Anthropic’s largest areas of spend. You’ll collaborate closely with research engineering, infrastructure, inference, and finance teams. The work requires someone who can move between data engineering, systems engineering, and observability with comfort — and who thrives in a high-autonomy, high-ambiguity environment. Role This is a pipeline role feeding four areas. Depending on your background and business priority, you’ll focus primarily in one, but the boundaries are fluid and the problems overlap: Data platform Pipelines that ingest occupancy and utilization telemetry from Kubernetes clusters, normalize billing and usage across cloud providers, and serve the BigQuery tables the rest of the org queries against. Correctness, completeness, and latency are the job, not a footnote. Consumers range from research engineers to finance to leadership, so it's product work as much as engineering: defining schema contracts, making data discoverable, and figuring out what people actually need. Planning Knowing what the fleet has, where it's going, and what's in the way. Making the state of the fleet legible and actionable in real time: cluster health tooling, capacity planning platforms, alerting on occupancy drops and allocation problems, and systemic fixes to scheduling and fragmentation. Kubernetes operations on one side, cross-team coordination on the other. Efficiency Measuring and improving how effectively every major workload uses the hardware it runs on. Instrumenting utilization across training, inference, and eval systems, building benchmarking infrastructure, establishing per-config baselines, and working directly with system-owning teams to close the gaps. The metric has to be good enough that the team on the hook for it agrees with the number. Attribution and forecasting Connecting what the fleet costs to what the business is doing with it. Reconciling CSP billing exports against vendor telemetry and internal systems with mismatched schemas, attributing spend to the workloads and teams that generate it, and turning inference demand signals and research roadmaps into a defensible compute plan. Efficiency metrics have to survive contact with finance: stripped of pure demand and unit-price effects, reproducible month over month, and legible to a CFO. Key Responsibilities Build the planning and allocation stack — the tools leadership uses to allocate capacity, teams use to plan against their allocations, and the scheduler enforces. Cross-region and cross-provider placement, guardrails, queueing, occupancy KPIs. Drive the efficiency programs: stranding and rightsizing, unused capacity recovery, and job-level utilization across training, inference, and eval. Establish per-config baselines and work with system-owning teams to close the gaps. Utilization improvements are worth enormous sums at our scale. Own attribution and forecasting — reconcile billing across ten-plus providers against telemetry and internal systems, attribute spend to the workloads that generate it, and turn demand signals and research roadmaps into a defensible compute plan and supply pipeline. Build the data platform underneath all of it: pipelines ingesting occupancy, utilization, and cost from a rapidly diversifying fleet into BigQuery, with real ownership of completeness, latency SLOs, and gap detection. Every new provider is a net-new integration. Operate Kubernetes-native systems at scale — collection agents, workload labeling, and the taint/reservation/scheduling behavior that determines what capacity is actually usable. Treat the output as a product, not a pipeline. Gather your own requirements, define schema contracts, and design for consumers ranging from research engineers to a CFO — including on-call and SLOs, because these surfaces are load-bearing for the company. What You Bring A strong track record building and operating production systems. This is a hands-on engineering role with a devops flavor. Python and SQL at production quality. Most pipeline code is Python; the presentation layer is BigQuery SQL, including table-valued functions and views. Both need to be idiomatic, well-tested, and maintainable. Deep experience with at least one major cloud provider (Amazon Web Services, Google Cloud, or Microsoft Azure) and its operations Experience with observability tooling stack, including Prometheus, PromQL, and Grafana, including writing recording rules and building monitoring that engineering teams rely on. Ability to gather your own requirements and work across organizational boundaries in an ambiguous environment with limited direction. Preferred Qualifications Experience with capacity planning, resource management, or cost attribution systems at a hyperscaler or in a large-scale machine learning environment. Time spent in product engineering and developer experience absolutely counts here. Scheduling and packing efficiency experience, or profiling-driven optimization of large distributed workloads. Multi-cloud data ingestion experience, especially normalizing billing exports, reservation APIs, on-demand capacity reservations, commitments, and vendor telemetry from providers with different billing arrangements. Total cost of ownership and forecasting experience, including decomposing whether infrastructure growth is causal or correlated with business drivers. Accelerator infrastructure familiarity. GPU metrics (DCGM), TPU utilization, Trainium power and utilization metrics, or experience with machine learning training and inference systems at the hardware level. Experience building internal data products with self-service access, schema contracts, API serving, documentation, and discoverability. Not just pipelines, but thinking about how the data gets consumed. Storage efficiency, retention, and lifecycle program experience at exabyte scale. The annual compensation range for this role is listed below. For sales roles, the range provided is the role’s On Target Earnings (\"OTE\") range, meaning that the range includes both the sales commissions/sales bonuses target and annual base salary for the role. Annual Salary $320,000—$485,000 USD Logistics Minimum education: Bachelor’s degree or an equivalent combination of education, training, and/or experience Required field of study: A field relevant to the role as demonstrated through coursework, training, or professional experience Minimum years of experience: Years of experience required will correlate with the internal job level requirements for the position Location-based hybrid policy: Currently, we expect all staff to be in one of our offices at least 25% of the time. However, some roles may require more time in our offices. Visa sponsorship: We do sponsor visas! However, we aren't able to successfully sponsor visas for every role and every candidate. But if we make you an offer, we will make every reasonable effort to get you a visa, and we retain an immigration lawyer to help with this. We encourage you to apply even if you do not believe you meet every single qualification. Not all strong candidates will meet every single qualification as listed. Research shows that people who identify as being from underrepresented groups are more prone to experiencing imposter syndrome and doubting the strength of their candidacy, so we urge you not to exclude yourself prematurely and to submit an application if you're interested in this work. We think AI systems like the ones we're building have enormous social and ethical implications. We think this makes representation even more important, and we strive to include a range of diverse perspectives on our team. Your safety matters to us. To protect yourself from potential scams, remember that Anthropic recruiters only contact you from @anthropic.com email addresses. In some cases, we may partner with vetted recruiting agencies who will identify themselves as working on behalf of Anthropic. Be cautious of emails from other domains. Legitimate Anthropic recruiters will never ask for money, fees, or banking information before your first day. If you're ever unsure about a communication, don't click any links—visit anthropic.com/careers directly for confirmed position openings. How We're Different We believe that the highest-impact AI research will be big science. At Anthropic we work as a single cohesive team on just a few large-scale research efforts. And we value impact — advancing our long-term goals of steerable, trustworthy AI — rather than work on smaller and more specific puzzles. We view AI research as an empirical science, which has as much in common with physics and biology as with traditional efforts in computer science. We're an extremely collaborative group, and we host frequent research discussions to ensure that we are pursuing the highest-impact work at any given time. As such, we greatly value communication skills. The easiest way to understand our research directions is to read our recent research. This research continues many of the directions our team worked on prior to Anthropic, including: GPT-3, Circuit-Based Interpretability, Multimodal Neurons, Scaling Laws, AI & Compute, Concrete Problems in AI Safety, and Learning from Human Preferences. Come work with us! Anthropic is a public benefit corporation headquartered in San Francisco. We offer competitive compensation and benefits, optional equity donation matching, generous vacation and parental leave, flexible working hours, and a lovely office space in which to collaborate with colleagues. Guidance on Candidates' AI Usage: Learn about our policy for using AI in our application process.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_worldwide",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480924205",
+      "title": "Director Global Logistics",
+      "company": "Harmattan AI",
+      "location": "Paris, Île-de-France, France",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:57:23Z",
+      "url": "https://www.linkedin.com/jobs/view/4480924205",
+      "matched_queries": [
+        {
+          "query": "EMEA",
+          "weight": 4.0,
+          "lane": "remote_emea",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 7.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Routing/Switching",
+          "weight": 3.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "About Us Harmattan AI is a next-generation defense prime building autonomous and scalable defense systems. Following the close of a $200M Series B, valuing the company at $1.4 billion, we are expanding our teams and capabilities to deliver mission-critical systems to allied forces. Our work is guided by clear values: building technologies with real-world impact, pursuing excellence in everything we do, setting ambitious goals, and taking on the hardest technical challenges. We operate in a demanding environment where rigor, ownership, and execution are expected. About The Role Harmattan AI is scaling its industrial footprint across France, Morocco, the United States and future production locations. We are looking for a Director Global Logistics to build and lead the logistics function supporting this growth. The role owns the movement of finished products from shipment readiness through customer delivery. This includes international transport, customs, dangerous goods, export-control execution, routing, forwarders and delivery performance. It is a global leadership role with strong operational responsibility and close interfaces with Production, Supply Chain, Quality, Legal, Programme teams and international customers. Responsibilities The Director Global Logistics will establish and manage a global logistics system that is compliant, scalable and operationally effective. The role will own customer delivery from release of the finished product through proof of delivery, including transport planning, Incoterms, shipment documentation, customs clearance and delivery visibility. It will also define and manage the global network of freight forwarders, carriers and customs brokers. A major part of the role is ensuring that export-control, dangerous-goods and customs requirements are integrated early into the delivery process rather than addressed only when goods are ready to ship. The Director will therefore work closely with Legal, Supply Chain and Production to anticipate licence requirements, routing constraints and transport risks. The role will establish common logistics standards, processes and KPIs across all production locations and deploy the logistics system into new factories and countries as Harmattan AI expands. The Director will also build the team and external partner network required to improve delivery reliability, lead time and logistics cost. Supply Chain owns material flow into and through Production. Global Logistics owns the controlled movement of released finished goods to the customer. The role covers: Customer delivery and international transport Customs and trade operations Export-control execution Dangerous-goods logistics Forwarder, carrier and broker management Global routing and logistics network design Shipment compliance and release Logistics performance and cost management Candidate Requirements Experienced international logistics leader who is comfortable operating in a fast-growing and highly regulated industrial environment. Significant experience in international logistics, preferably in defence or another highly regulated industrial environment, together with strong knowledge of customs, import/export processes, international freight, Incoterms and shipment documentation. Experience with dangerous goods, regulated shipments and licence-dependent export processes is important, as is experience managing freight forwarders, carriers and customs brokers. Strong operational judgement and ability to make clear decisions under delivery pressure while maintaining compliance. Experience building or scaling logistics processes across several countries or production locations would be a strong advantage. Comfortable working across Production, Supply Chain, Quality, Legal and customer-facing teams and able to build processes that remain practical as the organisation grows. Combines strong compliance discipline with a pragmatic operational mindset. Anticipates problems before they affect customer delivery, creates clear ownership and is comfortable building structures where processes are still evolving. Able to distinguish between what is legally required, what is operationally necessary and what can be simplified, while creating a global logistics organisation that can scale with the company. We look forward to hearing how you can help shape the future of autonomous defense systems at Harmattan AI.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_emea",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480919311",
+      "title": "Developer supervisor",
+      "company": "Xceed",
+      "location": "Cairo, Egypt",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:49:01Z",
+      "url": "https://www.linkedin.com/jobs/view/4480919311",
+      "matched_queries": [
+        {
+          "query": "System Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Systems Engineer",
+          "weight": 4.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Infrastructure Engineer",
+          "weight": 5.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Cloud Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT Engineer",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Technology",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "IT",
+          "weight": 0.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "ICT",
+          "weight": 1.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Microsoft 365",
+          "weight": 3.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        },
+        {
+          "query": "Information Systems",
+          "weight": 2.0,
+          "lane": "egypt",
+          "search_location": "Egypt",
+          "remote_filter": null
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 7.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Azure",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "We are looking for a hands-on Developer Supervisor to lead engineering execution, build scalable enterprise features, and drive Intelligent System Architecture (.NET Core + Cloud AI) . 🎯 Key Requirements: Core Engineering Stack: 4+ years of experience in .NET Core, C#, C++, ASP.NET Core & REST APIs . Technical Leadership: 2+ years in a Senior/Lead role driving code quality, performance, and developer mentorship. Intelligent Solutions Experience: Hands-on experience with Azure OpenAI, LLM Integrations, Azure AI Search, or Semantic Search (Note: University projects & internships do not count) . Data & Modern Practices: SQL Server / PostgreSQL, CI/CD pipelines, Docker, and good knowledge of React/Angular. Communication: Fluent English skills. without strong core .NET Core & C# experience will not be considered. #_.NET Core | #_C# | #_C++ | #_Application_Developer_Supervisor | #Technical_Lead | #Enterprise_Architecture | #Azure_OpenAI | #LLM_Integration | #Semantic_Search | #Cloud_Cognitive_Services | #REST_APIs",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "egypt",
+      "discovery_remote_filter": null,
+      "remote_eligibility": null
+    },
+    {
+      "linkedin_job_id": "4478216620",
+      "title": "Senior Technical Lead – Odoo ERP (Restaurant and Tourism Solutions)",
+      "company": "Golden Solutions",
+      "location": "Amman, Jordan",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4478216620",
+      "matched_queries": [
+        {
+          "query": "Middle East and Africa systems",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 7.0,
+      "role_hits_title": [],
+      "role_hits_description": [
+        {
+          "label": "Cloud Infrastructure",
+          "weight": 3.0
+        }
+      ],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Company Description Golden Solutions is a technology company specializing in Odoo ERP implementations for the restaurant, hotel and tourism sectors. The organization focuses on delivering tailored, end-to-end digital solutions that streamline operations, improve customer experiences, and support sustainable growth. Golden Solutions works closely with clients to understand their business processes and configure Odoo modules to meet sector-specific needs. Team members collaborate in a dynamic environment that values technical excellence, innovation, and practical problem-solving for hospitality-focused businesses. Role Description Are you a seasoned Odoo developer with deep expertise in custom module development, system integrations, and technical team leadership? We are building an enterprise-grade ERP and POS ecosystem tailored for the Hospitality, Restaurant, and Travel & Tourism sectors across Jordan and the GCC. We are looking for a Senior Technical Lead & Acting Technical Team Leader to own our Odoo architecture, lead custom development projects, drive third-party integrations (POS, delivery aggregators, local e-invoicing, and payment gateways), and mentor our growing engineering team. The Senior Technical Lead – Odoo ERP (Restaurant and Tourism Solutions) is a full-time, on-site role based in Amman, Jordan. This role is responsible for leading the design, configuration, customization, and deployment of Odoo ERP solutions for restaurant and tourism clients, ensuring systems meet operational and business requirements. Daily tasks include gathering and analyzing client requirements, translating them into technical specifications, developing and integrating Odoo modules, and overseeing testing, performance tuning, and documentation. The Senior Technical Lead will mentor technical team members, coordinate with functional consultants and stakeholders, and provide hands-on support for system upgrades, bug fixes, and ongoing enhancements. The role also involves collaborating with customers to optimize workflows, ensure user adoption, and maintain high standards of solution reliability, security, and scalability. Key Responsibilities 🛠️ Technical Leadership & Architecture Lead end-to-end design, architecture, and customization of Odoo Enterprise modules. Build and maintain custom Odoo modules tailored for Restaurants/POS, Hospitality/Hotels, and Travel Agency workflows . Architect scalable integrations with third-party platforms (e.g., Talabat, Careem, JoFotara e-invoicing, banking APIs, and hardware peripherals). Oversee code reviews, code quality standards, and deployment pipelines (Odoo.sh / Cloud infrastructure). 👥 Team Leadership & PMO Delivery Act as Technical Team Leader: manage task allocations, technical sprints, and developer workflows. Mentor junior and mid-level Odoo developers on best practices and clean code standards. Collaborate closely with functional consultants and project managers to convert business requirements into optimized technical specs. Drive technical troubleshooting, performance tuning, and database optimization. Qualifications & Requirements Experience: 3-7 years of hands-on Odoo development experience, with at least 1–2 years in a Senior Lead or Acting Team Lead role. Core Tech Stack: Expert proficiency in Python, PostgreSQL, JavaScript (OWL framework / Odoo Web Client), XML, and QWeb . System Integrations: Proven experience developing RESTful / XML-RPC APIs and integrating external hardware (printers, IoT boxes, screens, payment terminals). Industry Domain Knowledge (Highly Preferred): Prior technical experience customizing Odoo for Restaurants/F&B (POS/KDS), Hotels/PMS, or Tour Operators/Travel Agencies . Deployment: Deep experience with Odoo.sh , Docker, and Git workflows. Localization: Experience with Middle East localization (e.g., Jordan JoFotara or Saudi ZATCA e-invoicing integration) is a strong plus. Leadership Traits: Strong problem-solving skills, structured communication, and the ability to bridge technical engineering with business goals. What We Offer Opportunity to lead technical innovation for a fast-growing, industry-focused ERP platform. Competitive compensation package based on experience. Exposure to regional enterprise projects (Jordan & GCC). Dynamic, growth-oriented environment with clear career progression. How to Apply 📩 Interested candidates can send their updated CV and Odoo portfolio/GitHub link to f.khlaifat@jordanheritage.jo with the subject line \"Senior Odoo Technical Lead – [Your Name]\"",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4454082586",
+      "title": "Senior Product Manager",
+      "company": "MongoDB",
+      "location": "Ireland",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:54:51Z",
+      "url": "https://www.linkedin.com/jobs/view/4454082586",
+      "matched_queries": [
+        {
+          "query": "Middle East systems",
+          "weight": 4.0,
+          "lane": "remote_middle_east",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 7.0,
+      "role_hits_title": [],
+      "role_hits_description": [
+        {
+          "label": "Cloud Infrastructure",
+          "weight": 3.0
+        }
+      ],
+      "skill_hits": [],
+      "negative_hits": [],
+      "description": "Senior Product Manager, Cluster Scalability Location: Dublin About The Role MongoDB is hiring a Senior Product Manager to own scalability for the Atlas data platform. Atlas is how the world’s most demanding applications run on MongoDB — from real-time gaming and financial transactions to AI workloads with unpredictable traffic patterns. When those applications grow, slow down, spike, or contract, scalability is the layer that decides whether the customer trusts us to keep running their business. This role owns the end-to-end product experience for how customers scale up, scale down, and horizontally scale their Atlas deployments. That includes vertical scaling (instance tier changes), autoscaling, horizontal scaling (sharding and shard key strategy), and the operational workflows around all of them. You will set the strategy, drive execution with engineering, and be accountable for measurable year-over-year improvements in how reliably and predictably customers scale. We care less about whether you’ve worked on databases before and more about whether you’re the kind of PM who can ramp fast on a hard technical domain, form a clear opinion about what needs to happen, and defend that opinion to senior engineers, field partners, and enterprise CTOs, especially when they disagree with you. Database and scaling concepts are teachable. Judgment, conviction, and crispness are not. Responsibilities Set a clear, opinionated vision and strategy for Atlas cluster scalability and translate it into concrete, prioritized bets each release. Own the end-to-end roadmap for vertical scaling, autoscaling, and horizontal scaling, including the operational and observability surfaces customers rely on during scaling events. Make hard prioritization calls, including saying no to things with real customer or leadership support, and own those decisions and their consequences. Build deep technical understanding of Atlas scaling internals (instance tier mechanics, autoscaler logic, sharding, balancer behavior, capacity headroom) and use it to shape requirements and tradeoffs with engineering. You don’t need to know this on day one. You do need to know it deeply by month two. Represent product direction with conviction to senior engineering leaders, field partners, and enterprise customers, especially when they disagree. Stay close to customers and field partners to deeply understand scaling pain points, failure patterns, and the moments where trust is won or lost. Define success metrics for scalability, build analytics that surface issues early, and use data to inform clear, timely decisions under ambiguity. Lead proactive, cross-functional execution with Engineering, Design, Docs, Support, Marketing, and Sales to ship reliable, high-quality scaling experiences and accelerate adoption. Mentor junior PMs, contribute to strategic product thinking across teams, and influence leadership-level product decisions, all while operating without direct reports. Be accountable to year-over-year growth on the metrics that matter for Atlas scalability. Requirements Required qualifications 5+ years of product management experience on technically complex, infrastructure-level products. Database, distributed systems, or cloud infrastructure experience is a plus but not required. We care about your ability to ramp fast on hard technical domains and make sound product decisions once you do. Demonstrated success owning enterprise-grade, technical products end-to-end — not just shipping them, but delivering measurable customer and business outcomes you can quantify. Technical fluency: comfortable discussing architecture, failure modes, performance characteristics, and tradeoffs with senior engineers, and connecting technical decisions directly to customer outcomes. You don’t need to know what an autoscaler does on day one. You do need to be the kind of PM who will understand it deeply within your first month and have an opinion about how it affects the customer experience by month two. Track record of taking products from 0 to 1 and from 1 to 50 — building something new and scaling what works. Strong customer-orientation and field-connection, regularly engaging directly with customers and field teams and translating their input into clear requirements and roadmap decisions. Excellent written and verbal communication: crisp, high-quality artifacts and the ability to tailor the message by audience (engineering, executives, customers, field). In this role you will represent product direction to enterprise CTOs and to senior engineering leaders who may disagree with your priorities. You need to hold the room. Strong analytical skills and metrics rigor, including defining success metrics, instrumenting and debugging analytics, and using data to inform (but not replace) judgment. Demonstrated decision-making speed and conviction under ambiguity, with specific examples of making hard calls, cutting scope, and holding a position under pushback. We will ask you about this in the interview, and we will push back on your answer. Desire to be a part of the Go-to-Market, Marketing, and Sales enablement process. Nice to have Hands-on experience with databases, distributed systems, or cloud infrastructure platforms (compute, storage, networking, capacity planning). Prior product ownership of developer tools, infrastructure platforms, or mission-critical SaaS used by enterprise customers. Experience with autoscaling, capacity planning, sharding, or similar elasticity problems in any domain.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_middle_east",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480928044",
+      "title": "Senior Embedded Linux Applications Engineer",
+      "company": "Ammortal",
+      "location": "Raleigh, NC",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "46 minutes ago",
+      "estimated_age_minutes": 46,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4480928044",
+      "matched_queries": [
+        {
+          "query": "MENA systems",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Linux",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "Full-time Hybrid (average of 2-3 days in office per week) Mars Hill, NC $125,000 - $160,000 + benefits About Us The Ammortal Chamber integrates five science-backed modalities into one immersive 25-minute session. Our clients include wellness clinics and spas, sports teams and athletic departments, hotels, and individuals who bring the Chamber into their homes. We are a small team with a startup culture. Hardware and software engineers, health professionals, and operators work side by side. Since shipping our first product we have grown steadily, and the software that drives the Chamber is now at the center of what comes next. This role offers hands-on ownership, room to grow into technical leadership, and a direct hand in shaping how the Chamber works for the people who use it. What is this role and why does it exist? This role centers on Linux systems software for the Chamber: building and owning the application-level software that runs on embedded Linux and interfaces with hardware over common serial and bus protocols — the software layer that sits above the firmware and drives the product. You'll occasionally reach up the stack into frontend work as well, giving you end-to-end understanding of the system. At the senior level, you are a technical owner in this layer. You help make the architectural calls, set the standard for code quality and testing, and serve as a go-to person when a hardware-software problem needs solving. You'll work closely with the hardware team, OT partners, and the rest of the software team, and you'll help level up teammates who are earlier in their careers. Responsibilities Own the design and development of Chamber application software on embedded Linux, including hardware communication over serial and bus protocols Lead architectural decisions for our microservices-based platform and drive them through to implementation Define and uphold engineering standards for code quality, testing, and deployment Act as the technical escalation point for complex customer and field issues Maintain and occasionally extend early-gen Chamber software Contribute to frontend work as needed to ship complete features Collaborate with hardware, operations, and customer experience teammates to deliver end-to-end solutions Skills To Excel Systems Thinking: Deep understanding of how software, operating system, and hardware interact, and where problems tend to hide Technical Judgment: Makes sound architectural tradeoffs and can explain them clearly Ownership: Takes responsibility for outcomes, not just tasks; follows problems through to resolution Attention to Detail: Organized and methodical in development, testing, and debugging Continuous Learning: Stays current and curious across languages, tools, and patterns Customer Focus: Understands how technical decisions affect the people using the product Communication: Works well across disciplines and translates between hardware, software, and business needs Comfortable Multitasking: Manages multiple priorities and shifts context without losing the thread Team Collaboration: Works effectively in a small, cross-disciplinary team; enjoys helping others grow and gives clear, constructive feedback Requirements What technical knowledge do you need to perform in your role? Required Strong proficiency in Go, C, or C++, and at least one high-level language (Python, JavaScript, or similar) Hands-on experience interfacing software with hardware over serial or bus protocols (for example Modbus, I2C, SPI, RS-485, or similar) Deep familiarity with Linux environments, the command line, and system-level debugging Experience designing and shipping production software in a microservice or distributed architecture Experience with Git and modern CI/CD practices Understanding of software development lifecycle and testing practices Preferred Experience with MQTT or other IoT communication protocols Experience with Docker and containerized deployments on embedded or edge hardware Familiarity with Debian-based Linux systems Experience with Next.js, React, and TypeScript Familiarity with shell scripting (Bash) Familiarity with a project tracking tool (Asana, Linear, Jira, or similar) Familiarity with AI-collaboration tools and agents Qualifications Must haves 5+ years of professional software engineering experience, with meaningful time spent on Linux-based systems Nice to haves Previous experience in an embedded Linux, IoT, robotics, industrial automation, or connected hardware role Previous experience with real-time or safety-conscious systems Contributions to open-source or personal projects demonstrating depth in systems software Benefits Pay, Location, Hours Pay range: $125,000 - $160,000 Benefits: 80% health, dental, and vision covered Flexible paid time off Location: Hybrid in the Asheville, NC area. Onsite at least 2 days per week, can be more some weeks depending on current assignments. Relocation assistance available if you do not currently live in the Greater Asheville area or within commuting distance to Mars Hill, NC",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480912613",
+      "title": "Senior Embedded Linux Applications Engineer",
+      "company": "Ammortal",
+      "location": "Charlotte, NC",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "46 minutes ago",
+      "estimated_age_minutes": 46,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4480912613",
+      "matched_queries": [
+        {
+          "query": "MENA systems",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Linux",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "Full-time Hybrid (average of 2-3 days in office per week) Mars Hill, NC $125,000 - $160,000 + benefits About Us The Ammortal Chamber integrates five science-backed modalities into one immersive 25-minute session. Our clients include wellness clinics and spas, sports teams and athletic departments, hotels, and individuals who bring the Chamber into their homes. We are a small team with a startup culture. Hardware and software engineers, health professionals, and operators work side by side. Since shipping our first product we have grown steadily, and the software that drives the Chamber is now at the center of what comes next. This role offers hands-on ownership, room to grow into technical leadership, and a direct hand in shaping how the Chamber works for the people who use it. What is this role and why does it exist? This role centers on Linux systems software for the Chamber: building and owning the application-level software that runs on embedded Linux and interfaces with hardware over common serial and bus protocols — the software layer that sits above the firmware and drives the product. You'll occasionally reach up the stack into frontend work as well, giving you end-to-end understanding of the system. At the senior level, you are a technical owner in this layer. You help make the architectural calls, set the standard for code quality and testing, and serve as a go-to person when a hardware-software problem needs solving. You'll work closely with the hardware team, OT partners, and the rest of the software team, and you'll help level up teammates who are earlier in their careers. Responsibilities Own the design and development of Chamber application software on embedded Linux, including hardware communication over serial and bus protocols Lead architectural decisions for our microservices-based platform and drive them through to implementation Define and uphold engineering standards for code quality, testing, and deployment Act as the technical escalation point for complex customer and field issues Maintain and occasionally extend early-gen Chamber software Contribute to frontend work as needed to ship complete features Collaborate with hardware, operations, and customer experience teammates to deliver end-to-end solutions Skills To Excel Systems Thinking: Deep understanding of how software, operating system, and hardware interact, and where problems tend to hide Technical Judgment: Makes sound architectural tradeoffs and can explain them clearly Ownership: Takes responsibility for outcomes, not just tasks; follows problems through to resolution Attention to Detail: Organized and methodical in development, testing, and debugging Continuous Learning: Stays current and curious across languages, tools, and patterns Customer Focus: Understands how technical decisions affect the people using the product Communication: Works well across disciplines and translates between hardware, software, and business needs Comfortable Multitasking: Manages multiple priorities and shifts context without losing the thread Team Collaboration: Works effectively in a small, cross-disciplinary team; enjoys helping others grow and gives clear, constructive feedback Requirements What technical knowledge do you need to perform in your role? Required Strong proficiency in Go, C, or C++, and at least one high-level language (Python, JavaScript, or similar) Hands-on experience interfacing software with hardware over serial or bus protocols (for example Modbus, I2C, SPI, RS-485, or similar) Deep familiarity with Linux environments, the command line, and system-level debugging Experience designing and shipping production software in a microservice or distributed architecture Experience with Git and modern CI/CD practices Understanding of software development lifecycle and testing practices Preferred Experience with MQTT or other IoT communication protocols Experience with Docker and containerized deployments on embedded or edge hardware Familiarity with Debian-based Linux systems Experience with Next.js, React, and TypeScript Familiarity with shell scripting (Bash) Familiarity with a project tracking tool (Asana, Linear, Jira, or similar) Familiarity with AI-collaboration tools and agents Qualifications Must haves 5+ years of professional software engineering experience, with meaningful time spent on Linux-based systems Nice to haves Previous experience in an embedded Linux, IoT, robotics, industrial automation, or connected hardware role Previous experience with real-time or safety-conscious systems Contributions to open-source or personal projects demonstrating depth in systems software Benefits Pay, Location, Hours Pay range: $125,000 - $160,000 Benefits: 80% health, dental, and vision covered Flexible paid time off Location: Hybrid in the Asheville, NC area. Onsite at least 2 days per week, can be more some weeks depending on current assignments. Relocation assistance available if you do not currently live in the Greater Asheville area or within commuting distance to Mars Hill, NC",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480914630",
+      "title": "Senior Embedded Linux Applications Engineer",
+      "company": "Ammortal",
+      "location": "Knoxville, TN",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "46 minutes ago",
+      "estimated_age_minutes": 46,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4480914630",
+      "matched_queries": [
+        {
+          "query": "MENA systems",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Linux",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "Full-time Hybrid (average of 2-3 days in office per week) Mars Hill, NC $125,000 - $160,000 + benefits About Us The Ammortal Chamber integrates five science-backed modalities into one immersive 25-minute session. Our clients include wellness clinics and spas, sports teams and athletic departments, hotels, and individuals who bring the Chamber into their homes. We are a small team with a startup culture. Hardware and software engineers, health professionals, and operators work side by side. Since shipping our first product we have grown steadily, and the software that drives the Chamber is now at the center of what comes next. This role offers hands-on ownership, room to grow into technical leadership, and a direct hand in shaping how the Chamber works for the people who use it. What is this role and why does it exist? This role centers on Linux systems software for the Chamber: building and owning the application-level software that runs on embedded Linux and interfaces with hardware over common serial and bus protocols — the software layer that sits above the firmware and drives the product. You'll occasionally reach up the stack into frontend work as well, giving you end-to-end understanding of the system. At the senior level, you are a technical owner in this layer. You help make the architectural calls, set the standard for code quality and testing, and serve as a go-to person when a hardware-software problem needs solving. You'll work closely with the hardware team, OT partners, and the rest of the software team, and you'll help level up teammates who are earlier in their careers. Responsibilities Own the design and development of Chamber application software on embedded Linux, including hardware communication over serial and bus protocols Lead architectural decisions for our microservices-based platform and drive them through to implementation Define and uphold engineering standards for code quality, testing, and deployment Act as the technical escalation point for complex customer and field issues Maintain and occasionally extend early-gen Chamber software Contribute to frontend work as needed to ship complete features Collaborate with hardware, operations, and customer experience teammates to deliver end-to-end solutions Skills To Excel Systems Thinking: Deep understanding of how software, operating system, and hardware interact, and where problems tend to hide Technical Judgment: Makes sound architectural tradeoffs and can explain them clearly Ownership: Takes responsibility for outcomes, not just tasks; follows problems through to resolution Attention to Detail: Organized and methodical in development, testing, and debugging Continuous Learning: Stays current and curious across languages, tools, and patterns Customer Focus: Understands how technical decisions affect the people using the product Communication: Works well across disciplines and translates between hardware, software, and business needs Comfortable Multitasking: Manages multiple priorities and shifts context without losing the thread Team Collaboration: Works effectively in a small, cross-disciplinary team; enjoys helping others grow and gives clear, constructive feedback Requirements What technical knowledge do you need to perform in your role? Required Strong proficiency in Go, C, or C++, and at least one high-level language (Python, JavaScript, or similar) Hands-on experience interfacing software with hardware over serial or bus protocols (for example Modbus, I2C, SPI, RS-485, or similar) Deep familiarity with Linux environments, the command line, and system-level debugging Experience designing and shipping production software in a microservice or distributed architecture Experience with Git and modern CI/CD practices Understanding of software development lifecycle and testing practices Preferred Experience with MQTT or other IoT communication protocols Experience with Docker and containerized deployments on embedded or edge hardware Familiarity with Debian-based Linux systems Experience with Next.js, React, and TypeScript Familiarity with shell scripting (Bash) Familiarity with a project tracking tool (Asana, Linear, Jira, or similar) Familiarity with AI-collaboration tools and agents Qualifications Must haves 5+ years of professional software engineering experience, with meaningful time spent on Linux-based systems Nice to haves Previous experience in an embedded Linux, IoT, robotics, industrial automation, or connected hardware role Previous experience with real-time or safety-conscious systems Contributions to open-source or personal projects demonstrating depth in systems software Benefits Pay, Location, Hours Pay range: $125,000 - $160,000 Benefits: 80% health, dental, and vision covered Flexible paid time off Location: Hybrid in the Asheville, NC area. Onsite at least 2 days per week, can be more some weeks depending on current assignments. Relocation assistance available if you do not currently live in the Greater Asheville area or within commuting distance to Mars Hill, NC",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480911684",
+      "title": "Senior Embedded Linux Applications Engineer",
+      "company": "Ammortal",
+      "location": "Greenville, SC",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "46 minutes ago",
+      "estimated_age_minutes": 46,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4480911684",
+      "matched_queries": [
+        {
+          "query": "MENA systems",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Linux",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "Full-time Hybrid (average of 2-3 days in office per week) Mars Hill, NC $125,000 - $160,000 + benefits About Us The Ammortal Chamber integrates five science-backed modalities into one immersive 25-minute session. Our clients include wellness clinics and spas, sports teams and athletic departments, hotels, and individuals who bring the Chamber into their homes. We are a small team with a startup culture. Hardware and software engineers, health professionals, and operators work side by side. Since shipping our first product we have grown steadily, and the software that drives the Chamber is now at the center of what comes next. This role offers hands-on ownership, room to grow into technical leadership, and a direct hand in shaping how the Chamber works for the people who use it. What is this role and why does it exist? This role centers on Linux systems software for the Chamber: building and owning the application-level software that runs on embedded Linux and interfaces with hardware over common serial and bus protocols — the software layer that sits above the firmware and drives the product. You'll occasionally reach up the stack into frontend work as well, giving you end-to-end understanding of the system. At the senior level, you are a technical owner in this layer. You help make the architectural calls, set the standard for code quality and testing, and serve as a go-to person when a hardware-software problem needs solving. You'll work closely with the hardware team, OT partners, and the rest of the software team, and you'll help level up teammates who are earlier in their careers. Responsibilities Own the design and development of Chamber application software on embedded Linux, including hardware communication over serial and bus protocols Lead architectural decisions for our microservices-based platform and drive them through to implementation Define and uphold engineering standards for code quality, testing, and deployment Act as the technical escalation point for complex customer and field issues Maintain and occasionally extend early-gen Chamber software Contribute to frontend work as needed to ship complete features Collaborate with hardware, operations, and customer experience teammates to deliver end-to-end solutions Skills To Excel Systems Thinking: Deep understanding of how software, operating system, and hardware interact, and where problems tend to hide Technical Judgment: Makes sound architectural tradeoffs and can explain them clearly Ownership: Takes responsibility for outcomes, not just tasks; follows problems through to resolution Attention to Detail: Organized and methodical in development, testing, and debugging Continuous Learning: Stays current and curious across languages, tools, and patterns Customer Focus: Understands how technical decisions affect the people using the product Communication: Works well across disciplines and translates between hardware, software, and business needs Comfortable Multitasking: Manages multiple priorities and shifts context without losing the thread Team Collaboration: Works effectively in a small, cross-disciplinary team; enjoys helping others grow and gives clear, constructive feedback Requirements What technical knowledge do you need to perform in your role? Required Strong proficiency in Go, C, or C++, and at least one high-level language (Python, JavaScript, or similar) Hands-on experience interfacing software with hardware over serial or bus protocols (for example Modbus, I2C, SPI, RS-485, or similar) Deep familiarity with Linux environments, the command line, and system-level debugging Experience designing and shipping production software in a microservice or distributed architecture Experience with Git and modern CI/CD practices Understanding of software development lifecycle and testing practices Preferred Experience with MQTT or other IoT communication protocols Experience with Docker and containerized deployments on embedded or edge hardware Familiarity with Debian-based Linux systems Experience with Next.js, React, and TypeScript Familiarity with shell scripting (Bash) Familiarity with a project tracking tool (Asana, Linear, Jira, or similar) Familiarity with AI-collaboration tools and agents Qualifications Must haves 5+ years of professional software engineering experience, with meaningful time spent on Linux-based systems Nice to haves Previous experience in an embedded Linux, IoT, robotics, industrial automation, or connected hardware role Previous experience with real-time or safety-conscious systems Contributions to open-source or personal projects demonstrating depth in systems software Benefits Pay, Location, Hours Pay range: $125,000 - $160,000 Benefits: 80% health, dental, and vision covered Flexible paid time off Location: Hybrid in the Asheville, NC area. Onsite at least 2 days per week, can be more some weeks depending on current assignments. Relocation assistance available if you do not currently live in the Greater Asheville area or within commuting distance to Mars Hill, NC",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480917430",
+      "title": "Senior Embedded Linux Applications Engineer",
+      "company": "Ammortal",
+      "location": "Asheville, NC",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "52 minutes ago",
+      "estimated_age_minutes": 52,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:57:23Z",
+      "url": "https://www.linkedin.com/jobs/view/4480917430",
+      "matched_queries": [
+        {
+          "query": "EMEA systems",
+          "weight": 4.0,
+          "lane": "remote_emea",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Linux",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "Full-time Hybrid (average of 2-3 days in office per week) Mars Hill, NC $125,000 - $160,000 + benefits About Us The Ammortal Chamber integrates five science-backed modalities into one immersive 25-minute session. Our clients include wellness clinics and spas, sports teams and athletic departments, hotels, and individuals who bring the Chamber into their homes. We are a small team with a startup culture. Hardware and software engineers, health professionals, and operators work side by side. Since shipping our first product we have grown steadily, and the software that drives the Chamber is now at the center of what comes next. This role offers hands-on ownership, room to grow into technical leadership, and a direct hand in shaping how the Chamber works for the people who use it. What is this role and why does it exist? This role centers on Linux systems software for the Chamber: building and owning the application-level software that runs on embedded Linux and interfaces with hardware over common serial and bus protocols — the software layer that sits above the firmware and drives the product. You'll occasionally reach up the stack into frontend work as well, giving you end-to-end understanding of the system. At the senior level, you are a technical owner in this layer. You help make the architectural calls, set the standard for code quality and testing, and serve as a go-to person when a hardware-software problem needs solving. You'll work closely with the hardware team, OT partners, and the rest of the software team, and you'll help level up teammates who are earlier in their careers. Responsibilities Own the design and development of Chamber application software on embedded Linux, including hardware communication over serial and bus protocols Lead architectural decisions for our microservices-based platform and drive them through to implementation Define and uphold engineering standards for code quality, testing, and deployment Act as the technical escalation point for complex customer and field issues Maintain and occasionally extend early-gen Chamber software Contribute to frontend work as needed to ship complete features Collaborate with hardware, operations, and customer experience teammates to deliver end-to-end solutions Skills To Excel Systems Thinking: Deep understanding of how software, operating system, and hardware interact, and where problems tend to hide Technical Judgment: Makes sound architectural tradeoffs and can explain them clearly Ownership: Takes responsibility for outcomes, not just tasks; follows problems through to resolution Attention to Detail: Organized and methodical in development, testing, and debugging Continuous Learning: Stays current and curious across languages, tools, and patterns Customer Focus: Understands how technical decisions affect the people using the product Communication: Works well across disciplines and translates between hardware, software, and business needs Comfortable Multitasking: Manages multiple priorities and shifts context without losing the thread Team Collaboration: Works effectively in a small, cross-disciplinary team; enjoys helping others grow and gives clear, constructive feedback Requirements What technical knowledge do you need to perform in your role? Required Strong proficiency in Go, C, or C++, and at least one high-level language (Python, JavaScript, or similar) Hands-on experience interfacing software with hardware over serial or bus protocols (for example Modbus, I2C, SPI, RS-485, or similar) Deep familiarity with Linux environments, the command line, and system-level debugging Experience designing and shipping production software in a microservice or distributed architecture Experience with Git and modern CI/CD practices Understanding of software development lifecycle and testing practices Preferred Experience with MQTT or other IoT communication protocols Experience with Docker and containerized deployments on embedded or edge hardware Familiarity with Debian-based Linux systems Experience with Next.js, React, and TypeScript Familiarity with shell scripting (Bash) Familiarity with a project tracking tool (Asana, Linear, Jira, or similar) Familiarity with AI-collaboration tools and agents Qualifications Must haves 5+ years of professional software engineering experience, with meaningful time spent on Linux-based systems Nice to haves Previous experience in an embedded Linux, IoT, robotics, industrial automation, or connected hardware role Previous experience with real-time or safety-conscious systems Contributions to open-source or personal projects demonstrating depth in systems software Benefits Pay, Location, Hours Pay range: $125,000 - $160,000 Benefits: 80% health, dental, and vision covered Flexible paid time off Location: Hybrid in the Asheville, NC area. Onsite at least 2 days per week, can be more some weeks depending on current assignments. Relocation assistance available if you do not currently live in the Greater Asheville area or within commuting distance to Mars Hill, NC",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_emea",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480919441",
+      "title": "Revenue Data Entry specialist",
+      "company": "Prime System Solutions",
+      "location": "Johannesburg, Gauteng, South Africa",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "21 minutes ago",
+      "estimated_age_minutes": 21,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4480919441",
+      "matched_queries": [
+        {
+          "query": "Middle East and Africa systems",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Microsoft 365",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "We're looking for a detail-oriented Revenue Data Entry Specialist to maintain accurate revenue and billing records, manage supporting reports, and ensure data is complete, consistent, and ready for internal review. Experience in high-volume data entry, preferably in finance, billing, or revenue. Strong Excel skills, including SUM, IF, VLOOKUP/XLOOKUP, data cleaning, formatting, and de-duplication Proficiency in Microsoft 365, SharePoint, and OneDrive Excellent attention to detail, data accuracy, and documentation Ability to follow SOPs, validate data, and flag discrepancies Comfortable handling confidential financial data and meeting recurring reporting deadlines Requirements Proficiency in Microsoft 365, SharePoint, and OneDrive. Attention to detail, data accuracy, and record-keeping. Ability to follow SOPs, validate data, and meet deadlines",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4479929929",
+      "title": "Regional Operations Manager",
+      "company": "Maybank Cambodia",
+      "location": "United States",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "12 minutes ago",
+      "estimated_age_minutes": 12,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4479929929",
+      "matched_queries": [
+        {
+          "query": "MENA",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Infrastructure Security",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "Company Description Maybank is expanding its reach and market share in Cambodia through a strategic branch network growth plan, now totaling 21 branches nationwide. Thirteen branches are located across key districts in Phnom Penh, supporting a broad base of urban customers and businesses. Eight additional branches operate in major provincial cities such as Siem Reap, Sihanoukville, Battambang, and Kampong Cham, ensuring strong regional coverage. This expansion demonstrates Maybank’s commitment to accessible, reliable banking services and long-term investment in Cambodia’s financial sector, offering professionals opportunities to contribute to a growing regional footprint. Role Description The Regional Operations Manager is a full-time remote role responsible for overseeing day-to-day operational performance across assigned branches in Cambodia. This role includes monitoring branch efficiency, service quality, and compliance with internal policies and regulatory requirements. The Regional Operations Manager will analyze operational data, identify areas for improvement, and implement process enhancements to support customer satisfaction and business growth. The position also involves coordinating with branch managers and cross-functional teams, managing operational risk, and supporting rollout of new initiatives, systems, and procedures to ensure consistent standards across the region. Qualifications Experience in regional or multi-branch operations management, preferably within banking or financial services. Strong skills in process improvement, performance monitoring, and operational planning. Proficiency in data analysis and reporting to support decision-making and continuous improvement. Effective communication, stakeholder management, and collaboration skills across diverse teams. Demonstrated ability to manage risk, ensure regulatory compliance, and uphold internal controls. Proven leadership capabilities, including coaching branch leaders and driving accountability. Ability to work independently in a remote setting, manage multiple priorities, and meet deadlines. Bachelor’s degree in Business, Management, Finance, or a related field; advanced qualifications are an advantage. Familiarity with Cambodian banking regulations and local market dynamics is highly beneficial. Fluency in English; proficiency in Khmer or other regional languages is an added advantage.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4479940426",
+      "title": "Personal Assistant to Director (Russian speaking)",
+      "company": "AGAPI",
+      "location": "Ho Chi Minh City, Vietnam",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4479940426",
+      "matched_queries": [
+        {
+          "query": "Middle East and Africa network",
+          "weight": 5.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Google Workspace",
+          "weight": 1.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "We are seeking a highly organized, proactive, and tech-savvy Executive Assistant (EA) to provide high-level support to our Chief Executive Officer (CEO). The ideal candidate possesses great skills in Russian and a strong background in the Technology and Finance sectors and is an expert to streamline workflows and manage complex schedules. The successful candidate will act as a key point of coordination between the CEO, internal teams, clients, external stakeholders, and business partners. Key Responsibilities Provide day-to-day administrative and executive support to the Director. Manage the Director’s calendar, appointments, meetings, and travel arrangements. Prepare meeting agendas, presentations, reports, minutes, and other business documents. Coordinate with internal departments and follow up on assigned tasks and deadlines. Maintain organized records of financial and business-related documents. Handle confidential management and financial information with a high level of discretion. Conduct research and prepare summaries or analysis to support the Director’s decision-making. Draft and review emails, letters, presentations, and other correspondence. Follow up on important projects and ensure agreed actions are completed on time. Support special projects and other business initiatives assigned by the Director. Perform other administrative and coordination duties as required. Workflow Automation: Leverage the full suite of Google Workspace (Docs, Sheets, Slides, Drive) to build efficient tracking systems and administrative workflows. Take part in business travel with BODs. Requirements Being able to relocate to UAE for working. Great skills in Russian and English. Bachelor’s degree in Finance, Business Administration , or a related field is preferred. 3–5 years of experience as an Executive Assistant, Personal Assistant, Director’s Assistant or similar role. Prior experience in Finance and Technology industry is strongly preferred. Strong proficiency in Google Workplace, particularly Sheets, Slides, Gemini, etc. Excellent in verbal communication skills. Strong organizational and time-management abilities. Ability to manage multiple tasks and priorities in a fast-paced environment. High level of accuracy and attention to detail. Ability to work independently and proactively anticipate the Director’s needs. High level of integrity, confidentiality, and professionalism.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480914440",
+      "title": "IN_Associate_MS Purview_ITRA_Advisory_Bangalore",
+      "company": "PwC India",
+      "location": "Bengaluru, Karnataka, India",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:59:49Z",
+      "url": "https://www.linkedin.com/jobs/view/4480914440",
+      "matched_queries": [
+        {
+          "query": "Microsoft 365 Administrator",
+          "weight": 4.0,
+          "lane": "remote_worldwide",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Associate",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Microsoft 365",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "Line of Service Advisory Industry/Sector FS X-Sector Specialism Risk Management Level Associate Job Description & Summary At PwC, our people in audit and assurance focus on providing independent and objective assessments of financial statements, internal controls, and other assurable information enhancing the credibility and reliability of this information with a variety of stakeholders. They evaluate compliance with regulations including assessing governance and risk management processes and related controls. Those in internal audit at PwC help build, optimise and deliver end-to-end internal audit services to clients in all industries. This includes IA function setup and transformation, co-sourcing, outsourcing and managed services, using AI and other risk technology and delivery models. IA capabilities are combined with other industry and technical expertise, in areas like cyber, forensics and compliance, to address the full spectrum of risks. This helps organisations to harness the power of IA to help the organisation protect value and navigate disruption, and obtain confidence to take risks to power growth. Why PWC At PwC, you will be part of a vibrant community of solvers that leads with trust and creates distinctive outcomes for our clients and communities. This purpose-led and values-driven work, powered by technology in an environment that drives innovation, will enable you to make a tangible impact in the real world. We reward your contributions, support your wellbeing, and offer inclusive benefits, flexibility programmes and mentorship that will help you thrive in work and life. Together, we grow, learn, care, collaborate, and create a future of infinite experiences for each other. Learn more about us. At PwC, we believe in providing equal employment opportunities, without any discrimination on the grounds of gender, ethnic background, age, disability, marital status, sexual orientation, pregnancy, gender identity or expression, religion or other beliefs, perceived differences and status protected by law. We strive to create an environment where each one of our people can bring their true selves and contribute to their personal growth and the firm’s growth. To enable this, we have zero tolerance for any discrimination and harassment based on the above considerations. Role Summary The Senior Microsoft Purview Consultant will lead end‑to‑end Purview implementations , design enterprise compliance architectures, and act as a trusted advisor for data protection, insider risk, and regulatory compliance programs. Responsibilities Architect and lead Microsoft Purview deployments across: Information Protection & Auto ‑ Classification Enterprise & Endpoint DLP Insider Risk Management & Adaptive Protection eDiscovery (Standard & Premium) Audit (Standard & Premium) Records & Data Lifecycle Management Design label taxonomy, retention models, and policy hierarchies aligned to business risk and regulation Lead stakeholder workshops with Legal, Compliance, HR, InfoSec, and IT Own Insider Risk & eDiscovery operating models, workflows, and escalation paths Integrate Purview controls with Microsoft Defender, Intune, and identity signals Provide governance for Copilot and AI readiness using classification and DLP controls Mentor junior consultants and review technical designs Define KPIs, compliance maturity models, and value ‑ realization metrics Required Skills & Experience 5–6 years of experience in M365 Security & Compliance , with deep Purview leadership Hands ‑ on expertise in: Purview Information Protection & Auto ‑ labeling strategies Endpoint DLP, Adaptive Protection, Insider Risk eDiscovery Premium & legal hold strategy Compliance Manager & audit readiness Strong understanding of global regulatory requirements (GDPR, DPDPA, HIPAA, SOX, PCI ‑ DSS) Proven experience in enterprise or regulated-industry deployments SC‑400 certification – mandatory Mandatory Skill sets: PowerShell automation for Purview policy management Experience with multi‑geo and large M365 tenants Consulting or GSI delivery experience Executive ‑ level communication and solution storytelling Reduction in data leakage and compliance risk Successful audits and investigations Business adoption of labels and DLP with low friction Scalable and future ‑ proof compliance architecture Preferred Skill sets: PowerShell automation for Purview policy management Experience with multi‑geo and large M365 tenants Consulting or GSI delivery experience Executive ‑ level communication and solution storytelling Reduction in data leakage and compliance risk Successful audits and investigations Business adoption of labels and DLP with low friction Scalable and future ‑ proof compliance architecture Years of experience required: 4-7 Education qualification: Any Graduate/ Postgraduate Education (if blank, degree and/or field of study not specified) Degrees/Field of Study required: Bachelor of Technology Degrees/Field of Study preferred: Certifications (if blank, certifications not specified) Required Skills MS Reporting Services Optional Skills Accepting Feedback, Accepting Feedback, Accounting and Financial Reporting Standards, Active Listening, AI Fluency, AI-Human Collaboration, Artificial Intelligence (AI) Platform, Auditing, Auditing Methodologies, Business Process Improvement, Communication, Compliance Auditing, Corporate Governance, Data Analysis and Interpretation, Data Ingestion, Data Modeling, Data Quality, Data Security, Data Transformation, Data Visualization, Digital Tooling, Emotional Regulation, Empathy, Financial Accounting, Financial Audit {+ 22 more} Desired Languages (If blank, desired languages not specified) Travel Requirements Not Specified Available for Work Visa Sponsorship? No Government Clearance Required? No Job Posting End Date July 6, 2026",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_worldwide",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4469674732",
+      "title": "Senior Principal Engineer",
+      "company": "Autodesk",
+      "location": "Toronto, Ontario, Canada",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "14 minutes ago",
+      "estimated_age_minutes": 14,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:59:49Z",
+      "url": "https://www.linkedin.com/jobs/view/4469674732",
+      "matched_queries": [
+        {
+          "query": "Azure Infrastructure Engineer",
+          "weight": 4.0,
+          "lane": "remote_worldwide",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Azure",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Job Requisition ID # 26WD100374 Position Overview GET Engineering is seeking an experienced Senior Principal Engineer – AI and Engineering Excellence to lead the technical strategy and evolution of our cloud platform, developer experience, application delivery, and AI-enabled engineering capabilities within the GET Engineering - Horizontal Services organization. This is a hands-on technical leadership role responsible for building scalable, secure, and reliable cloud platforms that accelerate software delivery across Autodesk. You will define architecture, establish engineering standards, drive platform adoption, and partner across Software Engineering, Security, Infrastructure, and Product teams to deliver enterprise-scale platform solutions. The ideal candidate combines deep expertise in AWS, Kubernetes, CI/CD, Infrastructure as Code, observability, and developer productivity with the ability to influence technical direction across multiple engineering organizations. Key Responsibilities Define and execute the technical vision for Platform Engineering, DevOps, and Internal Developer Platform (IDP) initiatives Architect and evolve cloud-native platforms on AWS using Kubernetes (EKS), Infrastructure as Code, GitOps, and modern CI/CD pipelines Build scalable, secure, and highly available platform services that improve developer productivity and accelerate application delivery Establish reusable platform \"paved roads,\" self-service capabilities, and automation that reduce operational overhead Drive operational excellence through observability, SRE practices, security- by-default, incident management, and continuous improvement Provide technical leadership through architecture reviews, design guidance, mentoring, and cross-functional collaboration Minimum Qualifications BS/MS in Computer Science, Engineering, or related technical field. 12+ years of software engineering experience with proven technical leadership as a Principal Engineer, Software Architect, or Technical Lead Deep expertise in AWS, Kubernetes (EKS), Terraform, AWS CDK, ArgoCD/GitOps, and modern CI/CD platforms Proven experience operating large-scale cloud platforms and running production services on Kubernetes Strong background managing CDN, Web Security, and high-scale web applications Experience designing highly available, secure, observable, and resilient distributed systems Deep understanding of Authentication & Authorization, cloud security, and Infrastructure as Code Strong experience with observability, SRE practices, incident management, and reliability engineering Mastery of at least one programming language: Python, Java, TypeScript, or Go Familiarity with automated testing tools such as Playwright, BlazeMeter, JMeter, LoadRunner, or similar Proven ability to drive developer productivity through platform automation and self-service engineering solutions Excellent communication and collaboration skills with the ability to influence senior leadership and drive technical outcomes in a highly collaborative environment Proven experience designing, building, or integrating production AI-enabled platform services Experience with LLM APIs, RAG, agentic workflows, tool integration, MCP, and enterprise AI platform architecture Experience applying security, governance, evaluation, and observability practices to enterprise AI systems Preferred Qualifications Experience building Internal Developer Platforms (Backstage or similar) Multi-cloud experience across AWS and Azure Experience with service mesh, policy-as-code, and enterprise security platforms Experience with enterprise AI and agentic application stacks, including managed LLM platforms such as AWS Bedrock orAzure, LLM gateway such as LiteLLM, orchestration frameworks such as LangGraph or Google ADK, model-serving such as KServe or vLLM, vector-search such as OpenSearch or pgvector, and MLOps/LLMOps practices for evaluation, tracing, versioning, deployment, monitoring, and governance, or equivalent technologies [KC1] [KC2] Experience with SOX/SOC2 compliance, FinOps, and enterprise platform modernization Learn More About Autodesk Welcome to Autodesk! Amazing things are created every day with our software – from the greenest buildings and cleanest cars to the smartest factories and biggest hit movies. We help innovators turn their ideas into reality, transforming not only how things are made, but what can be made. We take great pride in our culture here at Autodesk – it’s at the core of everything we do. Our culture guides the way we work and treat each other, informs how we connect with customers and partners, and defines how we show up in the world. When you’re an Autodesker, you can do meaningful work that helps build a better world designed and made for all. Ready to shape the world and your future? Join us! Salary transparency Salary is one part of Autodesk’s competitive compensation package. For Canada based roles, we expect a starting base salary between $157,000 and $229,900. Offers are based on the candidate’s experience and geographic location, and may exceed this range. In addition to base salaries, our compensation package may include annual cash bonuses, commissions for sales roles, stock grants, and a comprehensive benefits package. Belonging We take pride in cultivating a culture of belonging where everyone can thrive. Learn more here: https://www.autodesk.com/company/global-belonging In-Person Onboarding and Identity Verification This role may require in-person onboarding and/or in-person ID verification. Are you an existing contractor or consultant with Autodesk? Please search for open jobs and apply internally (not on this external site).",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_worldwide",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4479931803",
+      "title": "OB Hospitalist",
+      "company": "AMN Healthcare",
+      "location": "Houston, TX",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4479931803",
+      "matched_queries": [
+        {
+          "query": "MENA",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Backup/DR",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Job Description & Requirements OB Hospitalist StartDate: ASAP Pay Rate: $300000.00 - $320000.00 An established health system in Texas is seeking OB/GYN Hospitalists to join a high-functioning inpatient program. Physicians will enjoy a predictable schedule, strong clinical support, and the opportunity to focus exclusively on hospital-based women's health care. Opportunity Highlights 100% inpatient OB/GYN hospitalist role True shift-based model (~8, 24-hour shifts/month) No clinic and no routine home call OB ED, Labor & Delivery coverage, GYN consults, and emergency care Strong subspecialty backup including MFM and Gynecologic Oncology Opportunities for professional development and academic collaboration available Collaborative, team-based care model with interdisciplinary support Competitive compensation, relocation assistance, CME support, comprehensive benefits, malpractice coverage, and additional incentives Practice & Community Highlights This opportunity is located in a growing Texas community that offers diverse housing options, excellent amenities, and access to major metropolitan resources. No state income tax in Texas Affordable cost of living compared to other major metros Diverse neighborhoods with suburban and urban living options World-class dining, cultural attractions, and professional sports Excellent access to healthcare resources, transportation, entertainment, and outdoor recreation Facility Location From rodeos and performing arts to space exploration and medical research, Houston is a city with a uniquely vibrant style and flair. This truly Texas-size city is the ideal destination for traveling health care professionals looking to broaden their skills at highly respected facilities, while enjoying the city’s cosmopolitan flair, renowned arts scene and wide open spaces. Job Benefits About the Company At AMN Healthcare, we strive to be recognized as the most trusted, innovative, and influential force in helping healthcare organizations provide quality patient care that continually evolves to make healthcare more human, more effective, and more achievable. Obstetrician/Gynecologist, Laborist, Obstetrics/Gynecology, Obstetrics, Gynecology, Obgyn, Ob/Gyn, Pregnancy, Newborn, Maternity, Physician, Healthcare, Health Care, Patient Care, Hospital, Medical, Doctor, Md AMN Healthcare is a digitally enabled workforce solutions partner focused on solving the biggest challenges affecting healthcare organizations today. We offer a single-partner approach to optimize labor sources, increase operating margins, and provide technologies to expand the reach of care.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480902925",
+      "title": "Lead AI Solutions Engineer - Remote",
+      "company": "HYR Global Source Inc",
+      "location": "United States",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4480902925",
+      "matched_queries": [
+        {
+          "query": "MENA systems",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        },
+        {
+          "query": "Middle East and Africa systems",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Azure",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Lead AI Solutions Engineer - Remote Employment Type: W2 Work Authorization: U.S. Citizens and Green Card Holders preferred, all valid work authorizations may apply Experience: 10+ years of experience in a relevant field. Relies on extensive experience to plan and accomplish tasks. May lead multiple layers of resources. Note : Recent working experience in the healthcare domain, specifically with EHR and Epic technologies. Key Responsibilities Design scalable, secure, and resilient cloud applications with a strong understanding of distributed systems, APIs, and microservices. Design and implement automated CI/CD pipelines using platforms such as Azure DevOps, GitHub Actions, GitLab, or Jenkins. Leverage Generative AI tools to accelerate coding, testing, documentation, and solution development. Maintain end-to-end ownership of architected products and systems. Move between high-level architecture and hands-on implementation as needed. Ensure AI solutions are integrated within Epic for a seamless user experience. Technical Skills Deep experience designing and implementing cloud solutions, preferably with Microsoft Azure. Experience with AWS or GCP is also valuable. Strong experience with Infrastructure as Code (IaC) using technologies such as Bicep, Terraform, or ARM. Deep understanding of Git, branching strategies, pull requests, and collaborative development practices. Hands-on experience with Docker and Kubernetes, including containerized application architecture and deployment. Experience with relational and distributed data technologies such as PostgreSQL, MySQL, Redis, and Databricks. Understanding of observability, application performance, logging, metrics, tracing, and security. Experience with Grafana, Azure Application Insights, or OpenTelemetry (OTel) is preferred. Educational Qualifications: Bachelor's degree in Computer Science or an equivalent field.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4479943404",
+      "title": "Jr Customer Service Executive - Cloud & Security Customer Service Operations",
+      "company": "Tata Communications",
+      "location": "Pune Division, Maharashtra, India",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "39 minutes ago",
+      "estimated_age_minutes": 39,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4479943404",
+      "matched_queries": [
+        {
+          "query": "Middle East and Africa IT support",
+          "weight": 3.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [
+        "customer service"
+      ],
+      "advisory_it_evidence": true,
+      "score": 6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Cisco",
+          "weight": 3.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "About The Company Tata Communications Redefines Connectivity with Innovation and IntelligenceDriving the next level of intelligence powered by Cloud, Mobility, Internet of Things, Collaboration, Security, Media services and Network services, we at Tata Communications are envisaging a New World of Communications Broad outline of the Role Operational role that works under direct supervision, responsible for day-to-day customer service operations Minimum Qualifications & Experience Graduate with 0-4 years of experience Other Knowledge & Skills Zscaler Security CCNA Key Responsibilities Maintain daily activities and routines. Ensure SLA are achieved and work proactively to maintain the same.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480925104",
+      "title": "HBITS-08-15055-Database Administrator-Expert",
+      "company": "Knowledge Builders Inc",
+      "location": "Schenectady, NY",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:59:49Z",
+      "url": "https://www.linkedin.com/jobs/view/4480925104",
+      "matched_queries": [
+        {
+          "query": "Backup Engineer",
+          "weight": 4.0,
+          "lane": "remote_worldwide",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Backup/DR",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Job Description Project/Program: Assist the Database team with various ongoing tasks, including but not limited to database installation, configuration and hardening, backup validation, performance tuning and general database monitoring. Provide support to Application Development staff. Day-to-day Tasks Duties will include Working on site the consultant will be expect to: Assist the Database team with various ongoing tasks, including but not limited to database installation, configuration and hardening, backup validation, performance tuning and general database monitoring, as well as recommend best practices and procedures. Install, upgrade and maintain Oracle databases on AIX, including backup and recovery. Allocating storage and planning future storage requirements for the database system. Work with teams of application programmers, system architects to create solutions to meet business goals. Perform off-hours (evening or weekend work) as needed for emergency or maintenance tasks. Provide support for internal users and external data exchange partners. Perform optimization and tuning activities, including capacity planning, tracking historical usage, trending future resource needs, and modifying resource allocations as needed. Provides recommendations on technical architecture. Provides recommendations on Oracle Advance Security including TDE, Oracle Wallet and remote authentication. Provides hands-on training and mentoring for other database administrative staff. Provide support to Application Development staff. Perform root cause analysis and recommend remediation for issues that arise. Handle Requests and Incidents submitted through ITSM tickets. Mandatory Qualifications Database Administrator– Uses specialized software to store and organize data, which may include capacity planning, installation, configuration, database design, migration, performance monitoring, security and troubleshooting, as well as backup and data recovery. Expert 84+ months: Candidate is able to provide guidance to large teams and/or has extensive industry experience and is considered at the top of his/her field. Requested Qualifications 84 months of experience as an Oracle DBA in AIX/Unix environment. This experience includes: database implementations, upgrades, conversions and consolidations, database compliance, security, and auditing including Oracle Advanced Security, remote authentication, and Oracle wallet configuration. 60 months of experience installing/maintaining/tuning databases that support OBIEE and Oracle Business Intelligence Application software. 84 months of experience with Oracle Real Application Clusters (Oracle RAC), Oracle Automatic Storage Management (Oracle ASM) and Oracle Automatic Storage Management Cluster File System, Oracle Data Guard and Oracle Database Security. 84 months of experience with Oracle Recovery Manager (RMAN). This experience includes: Backup and Repository Configuration & Maintenance as well as Implementation of RMAN Backup & Recovery using Commvault. 84 months of experience installing, upgrading, patching and using Oracle Enterprise Manager (OEM) to monitor and analyze database issues and find solutions to correct the problems. 24 months of experience maintaining Oracle databases on AIX that support SAP Business Object Info View, and applications that use Oracle Forms and Oracle Reports. Bachelor's degree in Computer Science or a related discipline. We provide equal employment opportunity for all applicants and employees regardless of race, color, sex, gender identity, gender expression, religion, age, national origin, citizenship, disability, medical condition, family care status, marital status, domestic partner status, sexual orientation, genetic information, military/veteran status, or any other protected basis.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_worldwide",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480902946",
+      "title": "Database Administrator",
+      "company": "Red Cedar Consultancy, LLC",
+      "location": "Randolph Air Force Base, TX",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:59:49Z",
+      "url": "https://www.linkedin.com/jobs/view/4480902946",
+      "matched_queries": [
+        {
+          "query": "Backup Engineer",
+          "weight": 4.0,
+          "lane": "remote_worldwide",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Azure",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Looking for candidates only with Top Secret Clearance Job Title: Senior Database Administrator Location: Remote Summary: Red Cedar Consultancy is seeking an experienced Senior Database Administrator (Microsoft SQL Server) to support our federal clients. The role involves designing, implementing, administering, and maintaining complex databases in client/server environments. The candidate will be responsible for database performance optimization, security, auditing, quality control, and documentation while supporting database programming, storage management, and systems integration activities. Responsibilities Perform all activities related to the administration of computerized databases. Project long-range requirements for database administration. Project long-range database design requirements in coordination with information systems managers. Design databases in a client/server environment. Create databases in a client/server environment. Maintain databases in a client/server environment. Conduct database quality control activities. Perform database auditing to ensure accurate and appropriate use of data. Advise users on access to client/server databases. Design, implement, and maintain complex databases. Address Job Control Language (JCL) considerations in database design and maintenance. Manage database access methods. Evaluate and optimize database access times. Address device allocation requirements. Implement database validation checks. Maintain database organization and structure. Implement database protection measures. Maintain database security. Prepare and maintain database documentation. Apply statistical methods relevant to database administration. Apply knowledge of database technologies and development methodologies. Utilize front-end and back-end programming languages, including SQL. Perform database programming. Support systems design activities. Maintain database dictionaries. Monitor and enforce database standards and procedures. Support database file design. Manage database storage considerations. Support the integration of systems through database design. Requirements Must have 5 years of progressive experience with database query languages and technologies such as Oracle, PL/SQL, SQL Server, and MS Access. Must have 3 years of hands-on experience and expertise in Relational Database Management Systems (RDBMS). Must demonstrate the capability to work with various operating systems. Must demonstrate the capability to work with additional programming languages. Must possess a DoD-approved 8570 Baseline Certification at Information Assurance Technical (IAT) Level II. Must possess the applicable Computing Environment Certification identified in the solicitation: MC: Azure DBAA, MCSA: SQL 2012 DBA, MCSA: SQL 2016 DBA, or MC: Azure SEA. Must meet the DLA Computing Environment Certification Information Assurance Role/Function requirement for DBA Admin. Must possess IT-I Critical Sensitive security clearance or Tier 5 (T5) at the time of proposal submission, as stated in the solicitation.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_worldwide",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4478229707",
+      "title": "Business Continuity Management Specialist",
+      "company": "Starlink Qatar",
+      "location": "Doha, Qatar",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:59:49Z",
+      "url": "https://www.linkedin.com/jobs/view/4478229707",
+      "matched_queries": [
+        {
+          "query": "Backup Engineer",
+          "weight": 4.0,
+          "lane": "remote_worldwide",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Mid-Senior level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Backup/DR",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Location: Doha, Qatar We are seeking an experienced Business Continuity Management Specialist (Senior Specialist) to join a large-scale eHealth programme. THE ROLE Develop, maintain, test and improve business-continuity and disaster-recovery plans, records, call trees, recovery procedures and training under the enterprise business continuity management (BCM) programme. REQUIREMENTS • Bachelor’s degree, supported by continuing education in a related field. • 8–12 years of progressive experience in BCM, disaster recovery (DR), testing and crisis management. • Strong knowledge of ISO, NIST and continuity/compliance practices. • Hands-on experience maintaining BCP/DR documentation, conducting exercises and coordinating corrective actions. KEY SKILLS • Business impact analysis (BIA) data collection and plan maintenance • DR procedures, call trees and recovery documentation • Exercise planning, facilitation and after-action reports • Outage exposure and critical point-of-failure analysis • Information-security continuity and backup requirements • Contact lists, inventories, network diagrams and vital records • Training and stakeholder coordination • Audit evidence and issue follow-up PREFERRED QUALIFICATIONS • ISO 22301, CBCI, CBCP or equivalent certification • Healthcare or critical-infrastructure experience • Experience with technology and facility recovery • Vendor and insurance continuity controls HOW TO APPLY Please apply directly through this LinkedIn job posting.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_worldwide",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480919306",
+      "title": "Accounting Specialist II",
+      "company": "SCIENTIFIC GAMES",
+      "location": "Puerto Rico, TX",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "2 hours ago",
+      "estimated_age_minutes": 120,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4480919306",
+      "matched_queries": [
+        {
+          "query": "Middle East and Africa systems",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 6.0,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Backup/DR",
+          "weight": 2.0
+        }
+      ],
+      "negative_hits": [],
+      "description": "Scientific Games Scientific Games is the global leader in lottery games, sports betting and technology, and the partner of choice for government lotteries. From cutting-edge backend systems to exciting entertainment experiences and trailblazing retail and digital solutions, we elevate play every day. We push game designs to the next level and are pioneers in data analytics and iLottery. Built on a foundation of trusted partnerships, Scientific Games combines relentless innovation, legendary performance, and unwavering security to responsibly propel the global lottery industry ever forward. Position Summary Responsible for providing accounting support to accounting manager. Keys daily worksheets to the general ledger system, ensures files are complete and maintained as needed, handles accounts payable duties, etc. Such duties include, but are not limited to: Job Functions Opening and/or sorting finance mail Vouchering all incoming invoices Distributing vouchers for department approval; distributing vouchers for manager’s approval. Gets checks signed. Prepares all material for mailing, ensuring that appropriate copies are maintained and filed, according to departmental guidelines. Prepare and file weekly invoices to client and keep the A/R subsidiary updated. Banking processing bank deposits, including trips to the bank. All associate finance entries. Keep subsidiary ledger update. Maintain customer files and ensure all backup paperwork is available for auditors. Assist with preparation of audit sampling package for external & internal audits Assist with the monthly close procedures Other projects as assigned Qualifications Position Requirements/Qualifications Bachelor’s Degree in Business Administration Majors: Accounts and Finance or Associate degree preferred. Knowledge of fully accounts receivable policies and procedures. Comprehensive knowledge of accounts cycle. Not less than 3 years’ experience Proficient in preparing advertising invoice payable Knowledge in local taxes Knowledge of Windows, Microsoft Office – Excel, Word and Outlook Good Communication Skills (English/Spanish) Leadership Abilities Ability to function in, and contribute to, the team environment Excellent organization, problem solving & planning skills with attention to detail Ability to maintain professional working relationships. Skills/Abilities:Ability to pay attention to detail. Must handle accounting transactions with as few errors as possible. Handle a lot of paperwork, so must be well-organized. Responsible for much of a company’s sensitive financial information Should handle transactions discreetly and possess integrity. Must understand basic accounting principles, such as debits and credits. Ability to read and interpret documents such as safety rules, operating and maintenance instructions, and procedure manuals. Ability to write routine reports and correspondence Ability to effectively present information and respond to questions from clients and customers. Work Conditions Scientific Games, LLC and its affiliates (collectively, “SG”) are engaged in highly regulated gaming and lottery businesses. As a result, certain SG employees may, among other things, be required to obtain a gaming or other license(s), undergo background investigations or security checks, or meet certain standards dictated by law, regulation or contracts. In order to ensure SG complies with its regulatory and contractual commitments, as a condition to hiring and continuing to employ its employees, SG requires all of its employees to meet those requirements that are necessary to fulfill their individual roles. As a prerequisite to employment with SG (to the extent permitted by law), you shall be asked to consent to SG conducting a due diligence/background investigation on you. This job description should not be interpreted as all-inclusive; it is intended to identify major responsibilities and requirements of the job. The employee in this position may be requested to perform other job-related tasks and responsibilities than those stated above. SG is an Equal Opportunity Employer and does not discriminate against applicants due to race, color, sex, age, national origin, religion, sexual orientation, gender identity, status as a veteran, and basis of disability or any other federal, state or local protected class. If you’d like more information about your equal employment opportunity rights as an applicant under the law, please click here for EEOC Poster.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4478228791",
+      "title": "Operador de computador",
+      "company": "Fort Serviços",
+      "location": "Poços de Caldas, Minas Gerais, Brazil",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "3 minutes ago",
+      "estimated_age_minutes": 3,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:54:51Z",
+      "url": "https://www.linkedin.com/jobs/view/4478228791",
+      "matched_queries": [
+        {
+          "query": "Middle East IT support",
+          "weight": 3.0,
+          "lane": "remote_middle_east",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        },
+        {
+          "query": "GCC IT support",
+          "weight": 3.0,
+          "lane": "remote_middle_east",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Entry level",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 5.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Linux",
+          "weight": 2.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "💻 VAGA: OPERADOR DE COMPUTADORES Local de Trabalho: Poços de Caldas (Av. Dirce Pereira Rosa, 300, Jardim Esperança) Tipo de Contrato: CLT (Prestação de serviços continuados com dedicação exclusiva) Jornada de Trabalho: 40 horas semanais (Horário diurno) 📋 SOBRE A VAGA Estamos selecionando profissionais para compor nossa equipe de Minas Gerais - Poços de Caldas. O profissional atuará prestando suporte técnico, monitoramento e manutenção de infraestrutura de TI, sendo peça fundamental para o funcionamento das áreas administrativas, laboratórios e atendimento aos alunos. 🛠️ PRINCIPAIS RESPONSABILIDADES • Monitoramento: Acompanhar o desempenho de aplicativos, recursos de rede, CPU, armazenamento e registros de erros. • Infraestrutura: Assegurar o pleno funcionamento de hardware e software nos setores atendidos. • Manutenção: Auxiliar na manutenção preventiva e corretiva dos laboratórios de informática, seguindo o plano da equipe técnica. • Suporte: Prestar atendimento e suporte técnico às áreas administrativas, áreas-fins e alunos (esclarecimento de dúvidas e resolução de problemas). • Inventário: Auxiliar em demandas de inventário de equipamentos de TI. • Escalonamento: Identificar e reportar ao Núcleo de Tecnologia da Informação (NTI) problemas que não possam ser resolvidos no primeiro nível. • Eventos: Prestar suporte técnico eventual em eventos institucionais realizados em Poços de Caldas. 🎯 REQUISITOS • Formação: Ensino Médio Completo. Desejável: Curso Técnico em Informática, Redes ou Superior em TI (em andamento ou completo). • Experiência: Vivência em suporte técnico de TI (Helpdesk/Service Desk), manutenção de hardware, redes e atendimento a usuários. • Conhecimento: Familiaridade com sistemas operacionais Windows/Linux, pacote Office, redes de computadores e periféricos. • Perfil: Boa comunicação, proatividade, pontualidade e facilidade para lidar com o público (alunos e servidores). • Disponibilidade: Para atuar em horário diurno (podendo ajustar o horário entre as 06h30 e as 22h00). 💰 REMUNERAÇÃO E BENEFÍCIOS (Valores baseados na Convenção Coletiva de Trabalho da categoria - Sindicato Empreg Tec Trabs Anal Sist Prog Oper Comp MG) • Salário Base: R$ 1.754,44 • Auxílio-Alimentação: R$ 30,74 por dia trabalhado, pago em cartão alimentação • Vale-Transporte: Conforme legislação vigente e necessidade de deslocamento. • Uniformes: Fornecidos gratuitamente pela empresa (incluindo calça social, camisas, sapato, meias). • Registro: Carteira assinada com todos os direitos garantidos por lei. ⚠️ INFORMAÇÕES IMPORTANTES • O controle de jornada será realizado por meio de ponto digital. • A vaga exige dedicação exclusiva às atividades do contrato durante a jornada contratada. 📩 COMO SE CANDIDATAR Candidate-se por aqui no LinkedIn ou envie o currículo atualizado para rh@fortscse.com.br com o assunto \"VAGA OPERADOR DE COMPUTADORES - POÇOS DE CALDAS\".",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_middle_east",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4480904984",
+      "title": "Graduate Personal Assistant",
+      "company": "Choice Talents LTD",
+      "location": "Lagos, Lagos State, Nigeria",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:54:51Z",
+      "url": "https://www.linkedin.com/jobs/view/4480904984",
+      "matched_queries": [
+        {
+          "query": "Middle East",
+          "weight": 4.0,
+          "lane": "remote_middle_east",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 5.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Google Workspace",
+          "weight": 1.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "Location: Ikoyi, Lagos state Employment Type: Full-time Responsibilities Manage and optimize the MD’s calendar, appointments, and travel plans Handle confidential information with utmost discretion Act as a liaison between the MD and internal teams, partners, and stakeholders Track key deliverables across departments and ensure timely execution Draft, edit, and manage official correspondence, reports, and presentations Prepare briefing materials, agendas, and notes ahead of meetings Coordinate and follow up on decisions made during leadership and strategy meetings Help plan and execute internal events, board meetings, and strategy sessions Anticipate the MD’s needs and proactively solve operational bottlenecks Maintain a clear system for tracking deadlines, goals, and follow-through tasks Requirements HND/BSc Degree in Business Administration, Social Sciences, or related field 2+ years of experience in a personal assistant, or executive support role Strong organisational and multitasking abilities Excellent written and verbal communication skills High emotional intelligence, discretion, and professionalism Proficient in Google Workspace or Microsoft Office Suite Salary NGN 100,000 Application Closing Date 30th September, 2025. How to Apply Interested and qualified candidates should send their CV to: jobs@choicetalents.com.ng the job title as the subject line.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_middle_east",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    },
+    {
+      "linkedin_job_id": "4479938634",
+      "title": "German Speaking Executive Assistant & Business Operations (Hybrid)",
+      "company": "Ignite",
+      "location": "Berlin, Berlin, Germany",
+      "linkedin_date": "2026-10-18",
+      "linkedin_posted_text": "1 hour ago",
+      "estimated_age_minutes": 60,
+      "freshness_within_requested_window": true,
+      "freshness_verification": "linkedin_f_TPR_plus_relative_text",
+      "freshness_conflict": false,
+      "first_seen_utc": "2026-10-18T21:51:14Z",
+      "url": "https://www.linkedin.com/jobs/view/4479938634",
+      "matched_queries": [
+        {
+          "query": "MENA",
+          "weight": 4.0,
+          "lane": "remote_mena",
+          "search_location": "Worldwide",
+          "remote_filter": "remote"
+        }
+      ],
+      "application_status": "unknown",
+      "seniority": "Not Applicable",
+      "employment_type": "Full-time",
+      "job_function": null,
+      "advisory_title_noise_signals": [],
+      "advisory_it_evidence": true,
+      "score": 5.5,
+      "role_hits_title": [],
+      "role_hits_description": [],
+      "skill_hits": [
+        {
+          "label": "Google Workspace",
+          "weight": 1.5
+        }
+      ],
+      "negative_hits": [],
+      "description": "Important Requirement: Candidates must possess a valid Class B driver's license and have access to their own vehicle. Location: Schönefeld / Berlin (Hybrid / Flexible remote model) Salary: €50,000 – €80,000 gross per year + attractive corporate benefits Employment Type: Full-time, Permanent (30–40 hours per week) About the Role We are seeking an entrepreneurial, high-ownership Executive Assistant & Business Operations Manager (m/f/d) to join our fast-growing e-commerce group based in the greater Berlin region. Responsible for scaling successful health, beauty, and wellness brands (including Bionera, Novavel, Retulin, Vivolan, and Neurolin), our company culture relies on data-driven strategy, modern technology, and a hands-on operational approach. This position extends far beyond standard administrative support. Approximately 35–40% of your responsibilities will center on high-level executive assistance and confidential personal management for our three senior leaders (Founders Felix & Tim, alongside COO Valerie). The remaining majority of your scope covers end-to-end business operations, facility management, and independent project leadership. If you excel at taking complex, undefined challenges and independently driving them to completion without requiring close supervision, this role presents an outstanding growth opportunity. Key Responsibilities 1. Executive & Personal Support (:35–40%) Calendar & Travel Coordination: Proactively organize intricate schedules, manage complex travel itineraries, and oversee executive meeting calendars. Executive Briefings & Follow-ups: Draft structured agendas, assemble presentation materials, and monitor post-meeting action items to ensure execution. Confidential Operations: Handle sensitive business affairs and internal matters with utmost discretion. Founder Support Services: Assist with localized operational errands, vehicle maintenance appointments, contractor coordination, personal travel booking, and custom administrative tasks for leadership. 2. Office Management & Hub Logistics (Schönefeld Site) Operational Facility Oversight: Direct incoming and outgoing shipments, mail delivery, and general vendor logistics at our Schönefeld facility. Brand Experience & Logistics: Assemble onboarding packages and employee gifts, while overseeing sample intake, product testing logistics, and internal feedback distribution. 3. Business Operations & Strategic Projects (Core Focus) Initiative Ownership: Drive cross-departmental projects across administration, HR, and organizational development (such as building or restructuring internal documentation in Notion, Confluence, or Asana). Corporate Events: Plan, organize, and execute company offsites and internal team events from initial concept through execution. Process Efficiency: Analyze operational workflows to identify bottlenecks, implement scalable systems, and incorporate modern AI tools to streamline productivity. Auxiliary Operational Assistance (Capacity-Dependent): Provide support for talent acquisition (initial candidate screening and interview scheduling) and preliminary financial tasks (expense processing, receipt logging, and tax advisor coordination). Core Qualifications Candidate Profile & Requirements Professional Background: 3+ years of experience in executive assistance, business operations, project management, or founder support within a high-growth startup, scale-up, or agency setting. Project Leadership: Demonstrated capacity to autonomously plan and complete complex projects with minimal supervision. Mobility & Flexibility: Valid Class B driver's license and regular access to a private vehicle for local errands and operational tasks across the Berlin/Schönefeld area. Flexibility to adjust physical office presence when operational needs demand it. Technical & Software Aptitude: High familiarity with Google Workspace, Notion, Confluence, or equivalent workflow/knowledge platforms, paired with strong numerical reasoning. Language Proficiency: Native or C2-level fluency in German, complemented by strong C1-level professional English skills. Interpersonal Attributes: Exceptional discretion, proactive communication style, strong reliability, and a pragmatic, solution-oriented mindset. Preferred Qualifications Executive Experience: Prior history supporting founders or C-level leaders in fast-paced e-commerce or tech firms. Functional Exposure: Familiarity with talent acquisition procedures or preliminary bookkeeping and accounting processes. Automation & AI: Practical experience utilizing contemporary AI software and digital process automation tools. Working Environment & Culture Hybrid Setup: Typically 1 to 2 days per week on-site at our Schönefeld hub, combined with flexible work-from-home options and up to 30 Work-&-Travel days annually within the EU (with flexibility to be on-site more often when business priorities require). Company Culture: A dynamic scale-up environment guided by five core values: Extreme Ownership, Clarity First, Curiosity Ignites Growth, Every Touchpoint Counts, and Enjoy the Ride. Compensation & Benefits Competitive Salary: Annual base package between €50,000 and €80,000 gross. Comprehensive Benefits: 100% employer-funded company pension plan (bAV), subsidized EGYM Wellpass membership (€25/month), employee product discounts, and 28 paid vacation days annually. Professional Growth: Dedicated annual learning budget, ownership opportunities on key operational projects, and early access to enterprise AI tooling. Team & Work Environment: Regular team retreats, offsite events, and a collaborative work culture with low hierarchy and fast decision-making.",
+      "verification": "Exact LinkedIn jobs-guest jobPosting endpoint returned a job detail page during this run",
+      "review_policy": "Always pass exact-detail candidate to ChatGPT; closed status, weak keyword evidence, noisy title, or freshness conflict are annotations only",
+      "discovery_lane": "remote_mena",
+      "discovery_remote_filter": "remote",
+      "remote_eligibility": "requires_description_review"
+    }
+  ]
+}
