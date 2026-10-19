@@ -91,7 +91,7 @@ def main():
     if result['status'] == 'stalled_review_receipts':
         body = (MARKER + '\nPending jobs exist, but no recent per-job or per-part review receipt was found. '
                 'This does not prove whether the native ChatGPT task is paused, blocked, or failing.\n\n'
-                'Open ChatGPT Scheduled, select LinkedIn Radar Fit Scores, and inspect/resume the existing reviewer. '
+                'Open ChatGPT Scheduled, select job radar (task ID 6a9ec1ba16e08190afa3fdeffca2135c), and inspect the existing reviewer. Resume it only if paused. '
                 'Keep duplicate old tasks paused. A GitHub scan or this warning cannot resume a native ChatGPT task.\n\n'
                 'Do not acknowledge unread jobs or narrow Egypt search to clear the backlog.\n\n'
                 '```json\n' + json.dumps(result, indent=2) + '\n```')
